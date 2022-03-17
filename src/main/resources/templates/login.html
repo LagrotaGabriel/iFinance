@@ -21,7 +21,7 @@
 					iFinance
 				</h1>
 
-				<form method="POST">
+				<form method="post" action="/login">
 
 					<div class="row menu_box_linha1_coluna1">
 
@@ -30,7 +30,7 @@
 						</div>
 
 						<div class="col-md-12 col-xs-12 col-sm-12 campo_login_div">
-							<input class="col-md-8 col-xs-8 col-sm-8 campo_login" placeholder="Ex: 111.111.111-11" id="campo_login">
+							<input class="col-md-8 col-xs-8 col-sm-8 campo_login" placeholder="Ex: 111.111.111-11" id="campo_login" name="username">
 						</div>
 
 					</div>
@@ -42,15 +42,16 @@
 						</div>
 
 						<div class="col-md-12 col-xs-12 col-sm-12 campo_login_div">
-							<input class="col-md-8 col-xs-8 col-sm-8 campo_login campo_senha" type="password" placeholder="******************" id="campo_senha">
+							<input class="col-md-8 col-xs-8 col-sm-8 campo_login campo_senha" type="password" placeholder="******************" id="campo_senha" name="password">
 						</div>
 
 					</div>
 
 					<div class="botao">
-						<button type="submit" class="botao_botao">ACESSAR</button> 
+						<button class="botao_botao">ACESSAR</button> 
 					</div>	
 
+					<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 				</form>
 
 				<div class="row cadastrar">

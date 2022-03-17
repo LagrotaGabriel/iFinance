@@ -2,6 +2,7 @@ package br.com.ifinance.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -13,7 +14,7 @@ public class LoginController {
     public ModelAndView loginControllerGet(ModelAndView modelAndView){
         modelAndView.setViewName("login");
         return modelAndView;
-
     }
+
 
 }
