@@ -1,7 +1,5 @@
 #iFinance - Em construção
 
--------------------
-
 ## [PT] Projeto
 Web app com API que objetiva proporcionar ao usuário a gestão de suas finanças pessoais, como:
 
@@ -23,6 +21,5 @@ Web app with API that aims to provide the user the management of their personal 
 
 # UML
 
--------------------
-![](UML Ifinance.png)
+![](UML_Ifinance.png)
 
