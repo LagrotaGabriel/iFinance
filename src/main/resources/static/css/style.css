@@ -1,0 +1,125 @@
+/* RESET CSS */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    font-family: 'Roboto', sans-serif;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body{
+    height: 100vh;
+    background-image: linear-gradient(to right,#00ccff, #b452ff);
+}
+/* ========================================================= */
+
+.titulo2{
+    color: #121212;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.menu_box{
+    padding: 30px;
+    background-color: #c3aa72;
+    opacity: 0.9;
+    box-shadow: 0 0 20px #121212;
+    position: relative;
+    top: 22%;
+    background-color: #f4f0e5;
+    
+}
+
+.sub_titulo{
+    color: #121212;
+    font-family: 'Archivo Narrow', sans-serif;
+}
+
+.campo_login_div{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.campo_login{
+    border: 1px solid grey;
+    padding: 5px 15px;
+    color: #121212;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.campo_senha{
+    margin-bottom: 30px;
+}
+
+.botao{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+
+}
+
+.botao_botao{
+    width: 50%;
+    background-image: linear-gradient(to right,#00ccff, #b452ff);
+    border: none;
+    padding: 10px 10px;
+    color: #f4f0e5;
+    margin-bottom: 30px;
+}
+
+.botao_botao:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #b452ff, #00ccff);
+    transition: 2s;
+}
+
+@media(min-width: 1220px){
+    .titulo2{
+        font-size: 56px;
+        text-shadow: 1px 1px #121212;
+    }
+}
