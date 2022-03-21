@@ -2,6 +2,7 @@ package br.com.ifinance.services;
 
 import br.com.ifinance.models.entities.User;
 import br.com.ifinance.repositories.UserRepository;
+import br.com.ifinance.validations.UserValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
