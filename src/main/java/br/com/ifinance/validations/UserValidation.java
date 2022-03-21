@@ -20,7 +20,7 @@ public class UserValidation {
 
     public Boolean passwordValidation(User user){
 
-        if(user.getPassword().length() <= 20 && user.getPassword().length() >= 5){
+        if(user.getPassword().length() <= 20 && user.getPassword().length() >= 3){
             return true;
         } else{
             return false;
@@ -49,7 +49,7 @@ public class UserValidation {
 
         if(user.getFixedIncome() != null){
             try{
-                Integer fixedIncomeTry = Integer.parseInt((user.getFixedIncome()).toString());
+                Double fixedIncomeTry = Double.parseDouble((user.getFixedIncome()).toString());
                 return true;
             }
             catch(Exception e){
@@ -66,7 +66,7 @@ public class UserValidation {
 
         if(user.getVariableIncome() != null){
             try{
-                Integer variableIncomeTry = Integer.parseInt((user.getVariableIncome()).toString());
+                Double variableIncomeTry = Double.parseDouble((user.getVariableIncome()).toString());
                 return true;
             }
             catch(Exception e){
@@ -81,6 +81,11 @@ public class UserValidation {
 
     public Boolean userValidation(User user){
 
+        System.err.println("Username validation: " + usernameValidation(user));
+        System.err.println("Password validation: " + passwordValidation(user));
+        System.err.println("Name validation: " + nameValidation(user));
+        System.err.println("Fixed Income validation: " + fixedIncomeValidation(user));
+        System.err.println("Variable Income validation: " + variableIncomeValidation(user));
         return
                 usernameValidation(user) &&
                 passwordValidation(user) &&
