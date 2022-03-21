@@ -51,75 +51,96 @@ body{
 }
 /* ========================================================= */
 
-.titulo2{
-    color: #121212;
-    font-size: 40px;
-    margin-bottom: 15px;
+/* ESTRUTURA */
+.main-row{
+    height: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-.menu_box{
-    padding: 30px;
+.side_menu{
     background-color: #c3aa72;
     opacity: 0.9;
     box-shadow: 0 0 20px #121212;
-    position: relative;
-    top: 22%;
     background-color: #f4f0e5;
-    
+    float: left;
+    max-height: 100%;
+    margin: 0;
+    padding: 0;
 }
-
-.sub_titulo{
-    color: #121212;
-    font-family: 'Archivo Narrow', sans-serif;
+.main{
+    max-height: 100%;
+    max-width: 100%;
+    float: right;
+    margin: 0;
+    padding: 0;
 }
+/* ================================ */
 
-.campo_login_div{
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-}
-
-.campo_login{
-    border: 1px solid grey;
-    padding: 5px 15px;
-    color: #121212;
-    text-align: center;
-    margin-bottom: 20px;
-    font-family: 'Archivo Narrow', sans-serif;
-    font-size: 20px;
-    letter-spacing: 2px;
-}
-
-.campo_senha{
-    margin-bottom: 30px;
-}
-
-.botao{
+/* MENU LATERAL */
+.side_menu_row{
+    height: 100%;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-
+    margin: 0;
+    padding: 0;
 }
 
-.botao_botao{
-    width: 50%;
-    background-image: linear-gradient(to right,#00ccff, #b452ff);
-    border: none;
-    padding: 10px 10px;
-    color: #f4f0e5;
-    margin-bottom: 30px;
+.aside{
+    margin: 0;
+    padding: 0;
+    max-height: 20%;
+    float: left;
+}
+.aside-1{
+    background-color: blue;
 }
 
-.botao_botao:hover{
-    cursor: pointer;
-    background-image: linear-gradient(to right, #b452ff, #00ccff);
-    transition: 2s;
+.aside-2{
+    background-color: yellow;
 }
 
-@media(min-width: 1220px){
-    .titulo2{
-        font-size: 56px;
-        text-shadow: 1px 1px #121212;
-    }
+.aside-3{
+    background-color: black;
+}
+
+.aside-4{
+    background-color: pink;
+}
+
+.aside-5{
+    background-color: purple;
+}
+
+/* MENU SUPERIOR */
+.menu_superior{
+    max-width: 100%;
+    background-color: red;
+    margin: 0;
+    padding: 0;
+    opacity: 0.9;
+    box-shadow: 0 0 20px #121212;
+}
+
+.searchbar{
+    max-width: 100%;
+    background-color: green;
+    margin: 0;
+    padding: 0;
+}
+
+.bt1{
+    background-color: blue;
+}
+
+.bt2{
+    background-color: yellow;
+}
+
+.bt3{
+    background-color: black;
+}
+
+.bt4{
+    background-color: pink;
 }

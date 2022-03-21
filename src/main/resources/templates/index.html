@@ -8,55 +8,83 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-		<link th:href="@{css/style.css}" rel="stylesheet" />
+		<!--<link th:href="@{css/style.css}" rel="stylesheet" />-->
+		<link href="../static/css/style.css" rel="stylesheet" />
 
 		<title>Finanças | Home</title>
 
 	</head>
 
 	<body>
+			<!-- Linha principal do site, que contém o menu lateral e o conteúdo principal -->
+			<div class="row main-row">
 
-			<div class="container menu_box col-md-5 col-xs-3 col-sm-12 col-lg-3">	
+				<!-- Menu lateral do site, que contém as opções de navegação pela single page -->
+				<div class="container side_menu col-lg-1">	
 
-				<h1 class="titulo2 text-center">
-					INDEX
-				</h1>
+					<div class="row side_menu_row">
 
-				<div class="row menu_box_linha1_coluna1">
+						<div class="aside aside-1 col-lg-12">
+							aaaaa
+						</div>
 
-					<div class="col-md-12 col-xs-12 col-sm-12 text-center">
-						<h2 class="sub_titulo col-md-12 col-xs-12 col-sm-12" to="campo_login">Cpf:</h2>
-					</div>
+						<div class="aside aside-2 col-lg-12">
+							aaaaa
+						</div>
 
-					<div class="col-md-12 col-xs-12 col-sm-12 campo_login_div">
-						<input class="col-md-8 col-xs-8 col-sm-8 campo_login" placeholder="Ex: 111.111.111-11" id="campo_login">
+						<div class="aside aside-3 col-lg-12">
+							aaaaa
+						</div>
+
+						<div class="aside aside-4 col-lg-12">
+							aaaaa
+						</div>
+
+						<div class="aside aside-5 col-lg-12">
+							aaaaa
+						</div>																			
+
 					</div>
 
 				</div>
 
-				<div class="row menu_box_linha1_coluna1">
+				<!-- Conteúdo principal do site, que fica ao lado do menu lateral -->
+				<main class="container main col-lg-11">
 
-					<div class="col-md-12 col-xs-12 col-sm-12 text-center">
-						<h2 class="sub_titulo col-md-12 col-xs-12 col-sm-12">Senha:</h2>
-					</div>
+					<!-- Header do site, que contém as informações básicas da sessão -->
+					<header class="row menu_superior col-lg-12">
 
-					<div class="col-md-12 col-xs-12 col-sm-12 campo_login_div">
-						<input class="col-md-8 col-xs-8 col-sm-8 campo_login campo_senha" type="password" placeholder="******************" id="campo_senha">
-					</div>
+						<div class="col-lg-8 menu_superior_item searchbar">
+							aaa
+						</div>	
 
-				</div>
+						<div class="col-lg-1 menu_superior_item bt1">
+							aaa
+						</div>
 
-				<div class="botao">
-					<button type="submit" class="botao_botao">ACESSAR</button> 
-				</div>	
+						<div class="col-lg-1 menu_superior_item bt2">
+							aaa
+						</div>
+
+						<div class="col-lg-1 menu_superior_item bt3">
+							aaa
+						</div>
+
+						<div class="col-lg-1 menu_superior_item bt4">
+							aaa
+						</div>		
 
 
-				<div class="row cadastrar">
-					<div class="col-md-12 col-xs-12 col-sm-12 text-center"><p>Novo aqui? <a href="#">Cadastre-se</a></p> 
-				</div>	
+					</header>
 
+
+				</main>	
 
 			</div>
-			</div>
+
+
+
+
+
 	</body>
 </html>
