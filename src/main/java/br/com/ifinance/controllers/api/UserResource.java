@@ -2,7 +2,6 @@ package br.com.ifinance.controllers.api;
 
 import br.com.ifinance.models.entities.User;
 import br.com.ifinance.services.UserService;
-import br.com.ifinance.validations.UserValidation;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+@PreAuthorize("hasAnyRole('ADMIN')")
 @Api(value = "iFinance API - User Resource")
 @RestController
 @RequestMapping("api/user")
@@ -24,14 +23,11 @@ public class UserResource {
     @Autowired
     UserService userService;
 
-    UserValidation userValidation = new UserValidation();
-
     @PreAuthorize("hasAnyRole('ADMIN')")
     @RequestMapping(value = "all", method = RequestMethod.GET)
     @Produces({MediaType.APPLICATION_JSON, "application/json"})
     @ApiOperation(value = "Returns all users saved in database")
     public ResponseEntity<List<User>> allUsers(){
-        System.err.println("Acesso 2");
         if(userService.readAll().size() > 0) return ResponseEntity.ok().body(userService.readAll());
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
