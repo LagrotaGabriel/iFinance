@@ -6,11 +6,13 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
 		<link rel="icon" href="../static/img/livro.png" type="image/gif" sizes="32x32">
 
 		<!--<link th:href="@{css/style.css}" rel="stylesheet" />-->
 		<link href="../static/css/style.css" rel="stylesheet" />
+		<script src="jquery-3.6.0.min.js"></script>
+		<script type="text/javascript" src="../static/js/script.js" defer></script>
 
 		<title>iFinance | Home</title>
 
@@ -22,7 +24,6 @@
 
 				<!-- Menu lateral do site, que contém as opções de navegação pela single page -->
 				<div class="container side_menu col-lg-1">	
-
 					<div class="row side_menu_row">
 
 
@@ -87,41 +88,46 @@
 							<h1 class="aside_title text-center">Configurações</h1>
 
 						</div>
-
 					</div>
-
 				</div>
 
+<!-- HEADER -->
 				<!-- Conteúdo principal do site, que fica ao lado do menu lateral -->
-				<main class="container main col-lg-11">
-
+				<main class="container main col-lg-11" id="main">
 					<!-- Header do site, que contém as informações básicas da sessão -->
-					<header class="row menu_superior col-lg-12">
+					<header class="row menu_superior col-lg-12" id="menu_superior">
 
 						<div class="col-lg-1 menu_superior_item bt0">
 
+							<!-- Botão de menu que esconde e exibe o menu esquerdo -->
 							<button type="button" class="menu_open col-lg-12">
-								<img src="../static/img/menu2.png" class="menu_open_img col-lg-12"/>
+								<img src="../static/img/menu3.png" class="menu_open_img col-lg-12"/>
 							</button>
 
 						</div>							
 
-						<div class="col-lg-7 menu_superior_item searchbar">
+						<!-- Barra de pesquisas do header -->
+						<div class="col-lg-6 menu_superior_item searchbar">
 							
 							<form class="row menu_superior_form">
-
-								<input class="menu_superior_input col-lg-11" placeholder="Ativos, entrada de valores, despesas, balanços...">
-
 								<button class="lupa_btn col-lg-1">
 
-									<img class="lupa_img" src="../static/img/lupas.png"/>
+									<img class="lupa_img" src="../static/img/search.png"/>
 
 								</button>
+								<input class="menu_superior_input col-lg-11" placeholder="Ativos, entrada de valores, despesas, balanços...">
+
+
 
 							</form>	
 
 						</div>	
 
+						<div class="col-lg-1 menu_superior_item">
+
+						</div>	
+
+						<!-- Botão para acessar perfil do usuário -->
 						<div class="col-lg-2 menu_superior_item bt2">
 							
 							<button class="perfil_btn col-lg-1">
@@ -132,6 +138,7 @@
 
 						</div>
 
+						<!-- Botão para realizar logout -->
 						<div class="col-lg-2 menu_superior_item bt3">
 
 							<button class="logout_btn col-lg-1">
@@ -142,9 +149,38 @@
 							
 						</div>
 
-
 					</header>
+<!-- FIM DO HEADER -->
 
+<!-- CONTEÚDO PRINCIPAL -->
+
+
+					<!-- Título da aba + Path da page -->
+					<div class="container titulo_path_container" id="titulo_path_container">
+
+							<div class="titulo_path_row">
+							
+								<h1 class="conteudo_titulo col-lg-6">
+									João da Silva
+								</h1>
+								
+								<h1 class="conteudo_path col-lg-6">
+									Home > Balanço > Todos
+								</h1>	
+
+							</div>
+
+					</div>
+
+					<div class="container conteudo_container" id="conteudo_container">
+
+						<div class="row conteudo">
+							
+							
+
+						</div>
+					</main>	
+<!-- FIM DO CONTEÚDO PRINCIPAL -->	
 
 				</main>	
 
