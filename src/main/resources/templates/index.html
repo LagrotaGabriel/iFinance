@@ -18,14 +18,14 @@
 
 	</head>
 
-	<body>
+	<body id="body">
 			<!-- Linha principal do site, que contém o menu lateral e o conteúdo principal -->
 			<div class="row main-row">
 
 				<!-- Menu lateral do site, que contém as opções de navegação pela single page -->
-				<div class="container side_menu col-lg-1">	
-					<div class="row side_menu_row">
+				<div class="container side_menu col-lg-1" id="side_menu">	
 
+					<div class="row side_menu_row">
 
 						<div class="aside aside-1 col-lg-12">
 
@@ -117,8 +117,6 @@
 								</button>
 								<input class="menu_superior_input col-lg-11" placeholder="Ativos, entrada de valores, despesas, balanços...">
 
-
-
 							</form>	
 
 						</div>	
@@ -153,18 +151,45 @@
 <!-- FIM DO HEADER -->
 
 <!-- CONTEÚDO PRINCIPAL -->
+					
+					<div class="menu_superior_responsivo row" id="menu_superior_responsivo">
 
+						<div class="sup sup_01 col-md-2 col-sm-2 col-2">
+							<a href="#" class="sup_sup sup_sup_01">Home</a>
+						</div>	
+
+						<div class="sup sup_02 col-md-2 col-sm-2 col-2">
+							<a href="#" class="sup_sup sup_sup_01">Balanço</a>
+						</div>
+
+						<div class="sup sup_03 col-md-2 col-sm-2 col-2">
+							<a href="#" class="sup_sup sup_sup_01">Status</a>
+						</div>	
+
+						<div class="sup sup_04 col-md-2 col-sm-2 col-2">
+							<a href="#" class="sup_sup sup_sup_01">Dinheiro</a>
+						</div>
+
+						<div class="sup sup_05 col-md-2 col-sm-2 col-2">
+							<a href="#" class="sup_sup sup_sup_01">Bens</a>
+						</div>		
+
+						<div class="sup sup_06 col-md-2 col-sm-2 col-2">
+							<a href="#" class="sup_sup sup_sup_01">Perfil</a>
+						</div>													
+
+					</div>	
 
 					<!-- Título da aba + Path da page -->
 					<div class="container titulo_path_container" id="titulo_path_container">
 
 							<div class="titulo_path_row">
 							
-								<h1 class="conteudo_titulo col-lg-6">
+								<h1 class="conteudo_titulo col-lg-6 col-md-6 col-sm-6 col-6">
 									Página inicial
 								</h1>
 								
-								<h1 class="conteudo_path col-lg-6">
+								<h1 class="conteudo_path col-lg-6 col-md-6 col-sm-6 col-6">
 									Home > Balanço > Todos
 								</h1>	
 
@@ -172,77 +197,80 @@
 
 					</div>
 
-
 					<div class="container conteudo_container" id="conteudo_container">
 
 						<!-- Botões de opções do conteúdo principal -->
-						<div class="row conteudo">	
+						<div class="row conteudo" id="conteudo_botoes">	
 
 							<!-- Botão de adicionar nova transação -->
-							<a href="#" class="nova_transacao col-lg-2">
-								<button class="bt_nova_transacao col-lg-12">+ Nova transação</button>
+							<a href="#" class="col-lg-2 col-md-2 col-sm-3 col-3">
+								<button class="bt_nova_transacao col-lg-12">Novo</button>
 							</a>
 
-							<!-- Botão de atualizar lista -->
-							<a href="#" class="atualiza_lista col-lg-1">
-								<button class="bt_atualiza_lista col-lg-12">
-									<img src="../static/img/refresh.png" class="atualiza_lista_img"/>
-								</button>
+							<!-- Botão de atualizar tabela -->
+							<a href="#" class="col-lg-2 col-md-2 col-sm-3 col-3">
+								<button class="bt_atualiza_lista col-lg-12">Atualizar</button>
 							</a>
 
-							<!-- Botão de editar lista -->
-							<a href="#" class="edita_lista col-lg-1">
-								<button class="bt_edita_lista col-lg-12">
-									<img src="../static/img/edit.png" class="edita_lista_img"/>
-								</button>
-							</a>							
+							<div class="col-lg-5 col-md-5 col-sm-2 col-2"></div>
 
-							<!-- Botão de deletar lista -->
-							<a href="#" class="deleta_lista col-lg-1">
-								<button class="bt_deleta_lista col-lg-12">
-									<img src="../static/img/trash.png" class="deleta_lista_img"/>
-								</button>
-							</a>	
+							<select class="filtro col-lg-3 col-md-3 col-sm-4 col-4">
+								<option value="hsaudsdhus">Filtrar itens</option>
+								<option value="hsaudsdhus">Filtrar itens</option>
+								<option value="hsaudsdhus">Filtrar itens</option>
+								<option value="hsaudsdhus">Filtrar itens</option>
+								<option value="hsaudsdhus">Filtrar itens</option>
+							</select>	
 
 						</div>
 
 						<!-- Tabela -->
-					<table class="tabela" id="tabela">
-						<thead class="row thead">
-							<tr class="linha row">
-								<th class="coluna_head col-lg-3">Cliente</th>
-								<th class="coluna_head col-lg-3">Plano</th>
-								<th class="coluna_head col-lg-3">Valor base</th>
-								<th class="coluna_head col-lg-3">Assinatura</th>
-							</tr>	
-						</thead>	
+						<table class="tabela container" id="tabela">
+							<thead class="row thead">
+								<tr class="linha row">
+									<th class="coluna_head col-lg-2 col-md-2 col-sm-2 col-2">Cliente</th>
+									<th class="coluna_head col-lg-2 col-md-2 col-sm-2 col-2">Cliente</th>
+									<th class="coluna_head col-lg-2 col-md-2 col-sm-2 col-2">Cliente</th>
+									<th class="coluna_head col-lg-2 col-md-2 col-sm-2 col-2">Plano</th>
+									<th class="coluna_head col-lg-2 col-md-2 col-sm-2 col-2">Valor base</th>
+									<th class="coluna_head col-lg-2 col-md-2 col-sm-2 col-2">Assinatura</th>
+								</tr>	
+							</thead>	
 
-						<tbody th:each="plano : ${planos}">
+							<tbody class="tbody" th:each="plano : ${planos}">
 
-							<tr class="linha row">
+								<tr class="linha row">
 
-								<td th:text="${plano.cliente.nome} + ' ' + ${plano.cliente.sobrenome}" class="coluna_body col-lg-3">...</td>
-						         <td th:text="${plano.tipoPlano.descricao}" class="coluna_body col-lg-3">...</td>
-								<td th:text="'R$ ' + ${plano.tipoPlano.preco}" class="coluna_body col-lg-3">...</td>
-						         <td th:text="${plano.dataAssinatura}" class="coluna_body col-lg-3">...</td>
-									
-							</tr>
+									<td th:text="${plano.cliente.nome} + ' ' + ${plano.cliente.sobrenome}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 0</td>
+							         <td th:text="${plano.tipoPlano.descricao}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 1</td>
+							         <td th:text="${plano.tipoPlano.descricao}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 2</td>
+							         <td th:text="${plano.tipoPlano.descricao}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 3</td>								         
+									<td th:text="'R$ ' + ${plano.tipoPlano.preco}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 4</td>
+							         <td th:text="${plano.dataAssinatura}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 5</td>
+										
+								</tr>			
 
-						</tbody>
+								<tr class="linha row">
 
+									<td th:text="${plano.cliente.nome} + ' ' + ${plano.cliente.sobrenome}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 0</td>
+							         <td th:text="${plano.tipoPlano.descricao}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 1</td>
+							         <td th:text="${plano.tipoPlano.descricao}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 2</td>
+							         <td th:text="${plano.tipoPlano.descricao}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 3</td>								         
+									<td th:text="'R$ ' + ${plano.tipoPlano.preco}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 4</td>
+							         <td th:text="${plano.dataAssinatura}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 5</td>
+										
+								</tr>																			
 
+							</tbody>
 
+						</table>
 
-					</main>	
+					</div>
 <!-- FIM DO CONTEÚDO PRINCIPAL -->	
 
 				</main>	
 
 			</div>
-
-
-
-
 
 	</body>
 </html>
