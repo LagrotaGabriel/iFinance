@@ -161,7 +161,7 @@
 							<div class="titulo_path_row">
 							
 								<h1 class="conteudo_titulo col-lg-6">
-									João da Silva
+									Página inicial
 								</h1>
 								
 								<h1 class="conteudo_path col-lg-6">
@@ -172,13 +172,67 @@
 
 					</div>
 
+
 					<div class="container conteudo_container" id="conteudo_container">
 
-						<div class="row conteudo">
-							
-							
+						<!-- Botões de opções do conteúdo principal -->
+						<div class="row conteudo">	
+
+							<!-- Botão de adicionar nova transação -->
+							<a href="#" class="nova_transacao col-lg-2">
+								<button class="bt_nova_transacao col-lg-12">+ Nova transação</button>
+							</a>
+
+							<!-- Botão de atualizar lista -->
+							<a href="#" class="atualiza_lista col-lg-1">
+								<button class="bt_atualiza_lista col-lg-12">
+									<img src="../static/img/refresh.png" class="atualiza_lista_img"/>
+								</button>
+							</a>
+
+							<!-- Botão de editar lista -->
+							<a href="#" class="edita_lista col-lg-1">
+								<button class="bt_edita_lista col-lg-12">
+									<img src="../static/img/edit.png" class="edita_lista_img"/>
+								</button>
+							</a>							
+
+							<!-- Botão de deletar lista -->
+							<a href="#" class="deleta_lista col-lg-1">
+								<button class="bt_deleta_lista col-lg-12">
+									<img src="../static/img/trash.png" class="deleta_lista_img"/>
+								</button>
+							</a>	
 
 						</div>
+
+						<!-- Tabela -->
+					<table class="tabela" id="tabela">
+						<thead class="row thead">
+							<tr class="linha row">
+								<th class="coluna_head col-lg-3">Cliente</th>
+								<th class="coluna_head col-lg-3">Plano</th>
+								<th class="coluna_head col-lg-3">Valor base</th>
+								<th class="coluna_head col-lg-3">Assinatura</th>
+							</tr>	
+						</thead>	
+
+						<tbody th:each="plano : ${planos}">
+
+							<tr class="linha row">
+
+								<td th:text="${plano.cliente.nome} + ' ' + ${plano.cliente.sobrenome}" class="coluna_body col-lg-3">...</td>
+						         <td th:text="${plano.tipoPlano.descricao}" class="coluna_body col-lg-3">...</td>
+								<td th:text="'R$ ' + ${plano.tipoPlano.preco}" class="coluna_body col-lg-3">...</td>
+						         <td th:text="${plano.dataAssinatura}" class="coluna_body col-lg-3">...</td>
+									
+							</tr>
+
+						</tbody>
+
+
+
+
 					</main>	
 <!-- FIM DO CONTEÚDO PRINCIPAL -->	
 

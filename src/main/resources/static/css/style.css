@@ -240,9 +240,11 @@ img:hover{
 
 /* Conteúdo principal */
 
+
+/* Título + PATH do container */
 .titulo_path_container{
     max-height: 100%;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     padding: 15px 0 10px 0;
 }
@@ -269,14 +271,70 @@ img:hover{
 }
 
 
-
+/* Corpo do container */
 .conteudo_container{
     max-height: 100%;
-    width: 90%;
+    width: 100%;
     background-image: linear-gradient(to right, #383231, #1f1c1c);
     margin: 0 auto;
+    padding: 30px 20px;
     box-shadow: 0 0 15px #121212;
 }
+
+.conteudo{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.bt_nova_transacao{
+    background-color: #4e6fd4;
+    border: none;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    float: left;
+    margin: 0;
+    padding: 15px 10px;
+    font-weight: 400;
+    color: #FFFFFF;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.atualiza_lista, .edita_lista, .deleta_lista{
+    padding: 0;
+}
+
+.bt_atualiza_lista, .bt_edita_lista, .bt_deleta_lista{
+    width: 70%;
+    height: 100%;
+    display: flex;
+
+}
+.atualiza_lista_img, .edita_lista_img, .deleta_lista_img{
+    max-width: 100%;
+}
+
+.tabela{
+    background-color: red;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.thead{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
 
 @keyframes pulse{
 
