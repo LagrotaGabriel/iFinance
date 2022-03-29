@@ -47,7 +47,8 @@ table {
 
 body{
     height: 100vh;
-    background-image: linear-gradient(to right,#00ccff, #b452ff);
+    background: url('../img/bck1.jpg');
+    background-size: cover;
 }
 /* ========================================================= */
 

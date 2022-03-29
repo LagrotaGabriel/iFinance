@@ -48,7 +48,10 @@ table {
 body{
     height: 100vh;
     font-size: 1rem;
-    background-image: linear-gradient(to right,#00ccff, #b452ff);
+    background: #121212;
+    /*background-image: linear-gradient(to right,#00ccff, #b452ff);*/
+    background: url('../img/bck3.jpg');
+    background-size: cover;
 }
 /* ========================================================= */
 
@@ -86,15 +89,17 @@ body{
     margin: 0;
     padding: 0;
     background-image: linear-gradient(to right, #383231, #1f1c1c);
+    opacity: 0.97;
 }
 
 .aside{
     margin: 0;
     padding: 0;
-    border-bottom: 1px #383735 solid;
+    border-bottom: 1px #1f1c1c solid;
     float: left;
     height: 14.28%;
-    background-image: linear-gradient(to right, #383231, #1f1c1c);
+    background:#121212;
+    opacity: 0.97;
 }
 
 .aside:hover{
@@ -102,8 +107,8 @@ body{
 }
 
 .sidebar_menu_img{
-    width: 55%;
-    height: 65%;
+    width: 40%;
+    height: 55%;
 }
 .sidebar_menu_img:hover{
     cursor: pointer;
@@ -131,37 +136,23 @@ button{
     max-width: 100%;
     max-height: 100%;
     margin: 0;
-    padding: 0;
-    background-image: linear-gradient(to right, #383231, #1f1c1c);
-    padding: 5px 0;
+    background: #121212;
     box-shadow: 0 0 15px #121212;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    opacity: 0.97;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .menu_superior_item{
     margin: 0;
     padding: 0;
     background-color: transparent;
-}
-
-.menu_open{
-
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-
-}
-.menu_open:hover{
-    cursor: pointer;
-    animation: pulse 1s infinite;
-}
-.menu_open_img{
-    width: 50%;
-    height: 80%;
-}
-
-img:hover{
-    animation: pulse 1s infinite;
 }
 
 /* Menu superior - Search bar */
@@ -176,6 +167,7 @@ img:hover{
     width: 100%;
     height: 100%;
     margin: 0;
+    padding: 15px 10px;
     display:flex;
     align-items:center;
     float: left;
@@ -184,11 +176,12 @@ img:hover{
 .menu_superior_input{
     margin: 0;
     padding: 0;
-    height: 50%;
-    padding: 0 10px;
+    height: 100%;
+    padding: 10px 10px;
     background-color: transparent;
-    border: none;
     color: #FFFFFF;
+    border: 1px solid #FFFF;
+    box-shadow: 0 0 25px #121212;
 }
 
 .lupa_btn{
@@ -198,14 +191,14 @@ img:hover{
     align-items: center;
     justify-content: right;
     background-color: transparent;
-    height: 50%;
+    height: 100%;
     border: none;
-    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .lupa_img{
-    width: 50%;
-    height: 80%;
+    width: 75%;
+    height: 90%;
 }
 
 /* Menu superior - Botões */
@@ -224,11 +217,11 @@ img:hover{
 
 .logout_btn, .perfil_btn{
     width: 90%;
-    height: 75%;
     background-color: transparent;
     border: 1px solid #FFFFFF;
     color: #FFFFFF;
     font-size: 1rem;
+    padding: 15px 5px;
 }
 .logout_btn:hover, .perfil_btn:hover{
     cursor: pointer;
@@ -292,11 +285,11 @@ img:hover{
     display: inline-flex;
 }
 
-.conteudo_titulo, .conteudo_path{
+.conteudo_intro, .conteudo_path{
     font-size: 2rem;
-    color: #FFFFFF;
+    color: #121212;
 }
-.conteudo_titulo{
+.conteudo_intro{
     font-weight: 400;
 }
 
@@ -307,40 +300,75 @@ img:hover{
     padding-top: 15px;
 }
 
-
 /* Corpo do container */
 .conteudo_container{
     max-height: 100%;
     width: 100%;
     background-image: linear-gradient(to right, #383231, #1f1c1c);
     margin: 0 auto;
-    padding: 30px 20px;
+    padding-left: 0;
+    padding-right: 0;
     box-shadow: 0 0 15px #121212;
+    opacity: 0.96;
+    background: url('../img/bck1.jpg');
+
 }
 
-.conteudo{
-    margin: 0 auto;
-    margin-left: -11px;
-}
-
-.bt_nova_transacao, .bt_atualiza_lista{
-    border: 1px solid #FFFF;
-    background-color: transparent;
-    color: #FFFFFF;
-    text-decoration: none;
-    height: 100%;
-    width: 100%;
-    float: left;
-    margin: 0;
-    padding: 15px 5px;
-    font-weight: 400;
-    font-size: 1rem;
-    letter-spacing: 1px;
+.conteudo_titulo{
     display: flex;
     justify-content: center;
-    align-items: center;
 }
-.bt_nova_transacao:hover, .bt_atualiza_lista:hover{
+
+.conteudo_titulo_text{
+    width: 50%;
+    font-size: 2rem;
+    color: #FFFF;
+    border-bottom: 1px solid #4e6fd4;
+    padding-top: 25px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.infos_perfil{
+    width: 50%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    float: left;
+}
+
+.txt_linha_geral{
+    width: 100%;
+    display: flex;
+    padding-bottom: 10px;
+
+}
+
+.titulo_linha_geral{
+    width: 100%;
+}
+
+.titulo_linha_geral_clicavel{
+    font-size:  2rem;
+    color: #FFFFFF;
+    text-decoration: none;
+    border: 1px solid #FFFFFF;
+    padding: 10px 15px;
+    font-weight: 300;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.titulo_linha_geral_clicavel:hover{
     cursor: pointer;
     background-image: linear-gradient(to right, #4e6fd4, #b452ff);
     color: #121212;
@@ -348,55 +376,20 @@ img:hover{
     border: 1px solid transparent;
 }
 
-.filtro{
-    float: right;
-    background-color: transparent;
+.txt{
     color: #FFFF;
-    padding-left: 15px;
-}
-option{
-    background-color: #383231;
+    font-size: 1.25rem;
     font-weight: 300;
 }
 
-/* Parte da tabela */
-.tabela{
-    font-size: 1rem;
+.txt_tt{
+    text-align: justify;
+    color:  #4e6fd4;
+    font-weight: 400;
+}
+
+.txt_sb{
     color: #FFFFFF;
-    margin-top: 25px;
-    box-shadow: 0 0 25px #121212;
-}
-
-.thead, .tbody, .linha{
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-.thead{
-    border-bottom: 1px solid #595959;
-}
-tr{
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: top;
-}
-
-th, td{
-    border-left:;
-    text-align: center;
-    padding: 9px 5px;
-    font-weight: 300;
-}
-
-th{
-    font-weight: 600;
-    background-color: #42c0ff;
-    color: #121212;
-}
-td{
-    background-color: #383231;
 }
 
 

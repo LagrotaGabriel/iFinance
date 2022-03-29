@@ -7,12 +7,11 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
-		<link rel="icon" href="../static/img/livro.png" type="image/gif" sizes="32x32">
+		<link rel="icon" th:href="@{img/bag.png}" type="image/gif" sizes="32x32">
 
-		<!--<link th:href="@{css/style.css}" rel="stylesheet" />-->
-		<link href="../static/css/style.css" rel="stylesheet" />
+		<link th:href="@{css/style.css}" rel="stylesheet" />
 		<script src="jquery-3.6.0.min.js"></script>
-		<script type="text/javascript" src="../static/js/script.js" defer></script>
+		<script type="text/javascript" th:src="@{js/script.js}" defer></script>
 
 		<title>iFinance | Home</title>
 
@@ -30,7 +29,7 @@
 						<div class="aside aside-1 col-lg-12">
 
 							<a href="#">
-								<button type="button"><img src="../static/img/livro.png" class="sidebar_menu_img"/></button>
+								<button type="button"><img th:src="@{img/house.png}" class="sidebar_menu_img"/></button>
 							</a>
 							<h1 class="aside_title text-center">Principal</h1>
 
@@ -39,7 +38,7 @@
 						<div class="aside aside-2 col-lg-12">
 							
 							<a href="#">
-								<button type="button"><img src="../static/img/puzzle.png" class="sidebar_menu_img"/></button>
+								<button type="button"><img th:src="@{img/balance.png}" class="sidebar_menu_img"/></button>
 							</a>
 							<h1 class="aside_title text-center">Balanço</h1>
 
@@ -48,7 +47,7 @@
 						<div class="aside aside-3 col-lg-12">
 							
 							<a href="#">
-								<button type="button"><img src="../static/img/grafico.png" class="sidebar_menu_img"/></button>
+								<button type="button"><img th:src="@{img/stats.png}" class="sidebar_menu_img"/></button>
 							</a>
 							<h1 class="aside_title text-center">Estatísticas</h1>
 
@@ -57,7 +56,7 @@
 						<div class="aside aside-4 col-lg-12">
 							
 							<a href="#">
-								<button type="button"><img src="../static/img/moeda.png" class="sidebar_menu_img"/></button>
+								<button type="button"><img th:src="@{img/despesa.png}" class="sidebar_menu_img"/></button>
 							</a>
 							<h1 class="aside_title text-center">Despesas</h1>
 
@@ -66,7 +65,7 @@
 						<div class="aside aside-5 col-lg-12">
 							
 							<a href="#">
-								<button type="button"><img src="../static/img/ouro.png" class="sidebar_menu_img"/></button>
+								<button type="button"><img th:src="@{img/shelter.png}" class="sidebar_menu_img"/></button>
 							</a>
 							<h1 class="aside_title text-center">Patrimônio</h1>
 
@@ -75,7 +74,7 @@
 						<div class="aside aside-6 col-lg-12">
 							
 							<a href="#">
-								<button type="button"><img src="../static/img/logo.png" class="sidebar_menu_img"/></button>
+								<button type="button"><img th:src="@{img/bull.png}" class="sidebar_menu_img"/></button>
 							</a>
 							<h1 class="aside_title text-center">Rentabilidade</h1>
 
@@ -83,7 +82,7 @@
 						<div class="aside aside-7 col-lg-12">
 
 							<a href="#">
-								<button type="button"><img src="../static/img/engrenagem.png" class="sidebar_menu_img"/></button>
+								<button type="button"><img th:src="@{img/settings.png}" class="sidebar_menu_img"/></button>
 							</a>							
 							<h1 class="aside_title text-center">Configurações</h1>
 
@@ -96,32 +95,23 @@
 				<main class="container main col-lg-11" id="main">
 					<!-- Header do site, que contém as informações básicas da sessão -->
 					<header class="row menu_superior col-lg-12" id="menu_superior">
-
-						<div class="col-lg-1 menu_superior_item bt0">
-
-							<!-- Botão de menu que esconde e exibe o menu esquerdo -->
-							<button type="button" class="menu_open col-lg-12">
-								<img src="../static/img/menu3.png" class="menu_open_img col-lg-12"/>
-							</button>
-
-						</div>							
-
+					
 						<!-- Barra de pesquisas do header -->
 						<div class="col-lg-6 menu_superior_item searchbar">
 							
 							<form class="row menu_superior_form">
+
+								<input class="menu_superior_input col-lg-11" placeholder="Ativos, entrada de valores, despesas, balanços...">
 								<button class="lupa_btn col-lg-1">
 
-									<img class="lupa_img" src="../static/img/search.png"/>
+									<img class="lupa_img" th:src="@{img/lupa.png}"/>
 
 								</button>
-								<input class="menu_superior_input col-lg-11" placeholder="Ativos, entrada de valores, despesas, balanços...">
-
 							</form>	
 
 						</div>	
 
-						<div class="col-lg-1 menu_superior_item">
+						<div class="col-lg-2 menu_superior_item">
 
 						</div>	
 
@@ -185,12 +175,12 @@
 
 							<div class="titulo_path_row">
 							
-								<h1 class="conteudo_titulo col-lg-6 col-md-6 col-sm-6 col-6">
+								<h1 class="conteudo_intro col-lg-6 col-md-6 col-sm-6 col-6">
 									Página inicial
 								</h1>
 								
 								<h1 class="conteudo_path col-lg-6 col-md-6 col-sm-6 col-6">
-									Home > Balanço > Todos
+									localhost:8080/index
 								</h1>	
 
 							</div>
@@ -199,75 +189,250 @@
 
 					<div class="container conteudo_container" id="conteudo_container">
 
-						<!-- Botões de opções do conteúdo principal -->
-						<div class="row conteudo" id="conteudo_botoes">	
+						<div class="col-lg-12 conteudo_titulo" id="conteudo_titulo">
+							<h1 class="col-lg-12 text-center conteudo_titulo_text" id="conteudo_titulo">
+							Meu detalhamento - Mar/2022
+							</h1>
+						</div>
 
-							<!-- Botão de adicionar nova transação -->
-							<a href="#" class="col-lg-2 col-md-2 col-sm-3 col-3">
-								<button class="bt_nova_transacao col-lg-12">Novo</button>
-							</a>
+						<!-- COLUNA DA ESQUERDA -->
+						<div class="row infos_perfil" id="infos_perfil1">
 
-							<!-- Botão de atualizar tabela -->
-							<a href="#" class="col-lg-2 col-md-2 col-sm-3 col-3">
-								<button class="bt_atualiza_lista col-lg-12">Atualizar</button>
-							</a>
+							<!-- RENTABILIDADE -->
+							<div class="row titulo_linha_geral">
+								<a href="#" class="titulo_linha_geral_clicavel" id="titulo_linha_geral_clicavel1">
+										Rendimentos
+								</a>
+							</div>
 
-							<div class="col-lg-5 col-md-5 col-sm-2 col-2"></div>
+							<div class="rentabilidade_container container_container container">
+								<div class="row txt_linha_geral">
 
-							<select class="filtro col-lg-3 col-md-3 col-sm-4 col-4">
-								<option value="hsaudsdhus">Filtrar itens</option>
-								<option value="hsaudsdhus">Filtrar itens</option>
-								<option value="hsaudsdhus">Filtrar itens</option>
-								<option value="hsaudsdhus">Filtrar itens</option>
-								<option value="hsaudsdhus">Filtrar itens</option>
-							</select>	
+									<div class="col-lg-6 col-md-12 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_1_tt txt_tt">Renda fixa: </h2>
+										<p class="col-lg-12 col-md-12 txt_1_sb txt_sb">R$ 2.500,00</p>
+									</div>
+
+									<div class="col-lg-6 col-md-12 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_2_tt txt_tt">Valor benefícios: </h2>
+										<p class="col-lg-12 col-md-12 txt_2_sb txt_sb">R$ 492,06</p>
+									</div>					
+
+								</div>
+
+
+								<div class="row txt_linha_geral">
+
+									<div class="col-lg-6 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_1_tt txt_tt">Renda variável:</h2>
+										<p class="col-lg-12 col-md-12 txt_1_sb txt_sb">R$ 340,00</p>
+									</div>
+
+									<div class="col-lg-6 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_2_tt txt_tt">Valor salário:</h2>
+										<p class="col-lg-12 col-md-12 txt_2_sb txt_sb">R$ 2.030,00</p>
+									</div>						
+
+								</div>
+
+								<div class="row txt_linha_geral txt_linha_geral_last">
+
+									<div class="col-lg-6 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_1_tt txt_tt">Próximo salário:</h2>
+										<p class="col-lg-12 col-md-12 txt_1_sb txt_sb">25/04/2022</p>
+									</div>
+
+									<div class="col-lg-6 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_2_tt txt_tt">Renda total:</h2>
+										<p class="col-lg-12 col-md-12 txt_2_sb txt_sb">R$ 2.911,00</p>
+									</div>					
+
+								</div>
+							</div>
+
+
+							<!-- DESPESAS -->
+							<div class="row titulo_linha_geral titulo_linha_geral_first">
+								<a href="#" class="titulo_linha_geral_clicavel" id="titulo_linha_geral_clicavel2">
+										Despesas
+								</a>
+							</div>
+
+							<div class="despesas_container container_container container">
+								<div class="row txt_linha_geral">
+
+									<div class="col-lg-6 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_1_tt txt_tt">Fixas pendentes: </h2>
+										<p class="col-lg-12 col-md-12 txt_1_sb txt_sb">R$ 312,00</p>
+									</div>
+
+									<div class="col-lg-6 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_2_tt txt_tt">Variáveis pendentes: </h2>
+										<p class="col-lg-12 col-md-12 txt_2_sb txt_sb">R$ 0,00</p>
+									</div>	
+
+								</div>
+
+								<div class="row txt_linha_geral">
+
+									<div class="col-lg-6 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_1_tt txt_tt">Fixas pagas: </h2>
+										<p class="col-lg-12 col-md-12 txt_1_sb txt_sb">R$ 1.253,84</p>
+									</div>
+
+									<div class="col-lg-6 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_2_tt txt_tt">Variáveis pagas: </h2>
+										<p class="col-lg-12 col-md-12 txt_2_sb txt_sb">R$ 281,30</p>
+									</div>	
+
+								</div>
+
+								<div class="row txt_linha_geral">
+
+									<div class="col-lg-6 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_1_tt txt_tt">Fixas total: </h2>
+										<p class="col-lg-12 col-md-12 txt_1_sb txt_sb">R$ 1565,84</p>
+									</div>
+
+									<div class="col-lg-6 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_2_tt txt_tt">Variáveis total: </h2>
+										<p class="col-lg-12 col-md-12 txt_2_sb txt_sb">R$ 281,30</p>
+									</div>	
+
+								</div>							
+
+							</div>
+						</div>	
+
+						<!-- COLUNA DA DIREITA -->
+						<div class="row infos_perfil" id="infos_perfil2">
+
+							<!-- Patrimônio -->
+							<div class="row titulo_linha_geral">
+								<a href="#" class="titulo_linha_geral_clicavel" id="titulo_linha_geral_clicavel3">
+										Patrimônio</a>
+							</div>
+
+							<div class="patrimonio_container container_container container">
+								<div class="row txt_linha_geral">
+
+									<div class="col-lg-6 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_1_tt txt_tt">Adicionado este mês: </h2>
+										<p class="col-lg-12 col-md-12 txt_1_sb txt_sb">R$ 200,00</p>
+									</div>
+
+									<div class="col-lg-6 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_2_tt txt_tt">
+											Maior categoria: 
+										</h2>
+										<p class="col-lg-12 col-md-12 txt_2_sb txt_sb txt_sb2">
+											Investimento
+										</p>
+									</div>					
+
+								</div>
+
+								<div class="row txt_linha_geral">
+
+									<div class="col-lg-6 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_1_tt txt_tt">	
+											Vl. maior categoria:
+										</h2>
+										<p class="col-lg-12 col-md-12 txt_1_sb txt_sb">
+											R$ 987,36
+										</p>
+									</div>
+
+									<div class="col-lg-6 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_2_tt txt_tt">	
+											Adicionado este ano:
+										</h2>
+										<p class="col-lg-12 col-md-12 txt_2_sb txt_sb txt_sb2">
+											R$ 622,10
+										</p>
+									</div>						
+
+								</div>
+
+								<div class="row txt_linha_geral txt_linha_geral_last">
+
+									<div class="col-lg-6 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_1_tt txt_tt">
+											Meta atual:
+										</h2>
+										<p class="col-lg-12 col-md-12 txt_1_sb txt_sb">
+											R$ 5.000,00
+										</p>
+									</div>
+
+									<div class="col-lg-6 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_2_tt txt_tt">
+											Patrimônio total:
+										</h2>
+										<p class="col-lg-12 col-md-12 txt_2_sb txt_sb txt_sb2">
+											R$ 1.260,00
+										</p>
+									</div>					
+
+								</div>
+							</div>
+
+							<div class="row titulo_linha_geral titulo_linha_geral_first">
+
+								<!-- Investimentos -->
+								<a href="#" class="titulo_linha_geral_clicavel" id="titulo_linha_geral_clicavel4">
+										Investimentos
+								</a>
+							</div>
+
+							<div class="investimentos_container container_container container">
+								<div class="row txt_linha_geral">
+
+									<div class="col-lg-6 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_1_tt txt_tt">Renda fixa: </h2>
+										<p class="col-lg-12 col-md-12 txt_1_sb txt_sb">R$ 0,00</p>
+									</div>
+
+									<div class="col-lg-6 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_2_tt txt_tt">Renda variável: </h2>
+										<p class="col-lg-12 col-md-12 txt_2_sb txt_sb txt_sb2">R$ 979,06</p>
+									</div>	
+
+								</div>
+
+								<div class="row txt_linha_geral">
+
+									<div class="col-lg-6 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_1_tt txt_tt">Proventos: </h2>
+										<p class="col-lg-12 col-md-12 txt_1_sb txt_sb">R$ 11,18</p>
+									</div>
+
+									<div class="col-lg-6 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_2_tt txt_tt">Maior investimento: </h2>
+										<p class="col-lg-12 col-md-12 txt_2_sb txt_sb txt_sb2">URPR11 (83,1%)</p>
+									</div>	
+
+								</div>
+
+								<div class="row txt_linha_geral">
+
+									<div class="col-lg-6 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_1_tt txt_tt">Balanço desde mês: </h2>
+										<p class="col-lg-12 col-md-12 txt_1_sb txt_sb">+ 2,11%</p>
+									</div>
+
+									<div class="col-lg-6 row txt txt1">
+										<h2 class="col-lg-12 col-md-12 txt_2_tt txt_tt">Total investido: </h2>
+										<p class="col-lg-12 col-md-12 txt_2_sb txt_sb txt_sb2">R$ 979,06</p>
+									</div>	
+
+								</div>	
+							</div>						
 
 						</div>
 
-						<!-- Tabela -->
-						<table class="tabela container" id="tabela">
-							<thead class="row thead">
-								<tr class="linha row">
-									<th class="coluna_head col-lg-2 col-md-2 col-sm-2 col-2">Cliente</th>
-									<th class="coluna_head col-lg-2 col-md-2 col-sm-2 col-2">Cliente</th>
-									<th class="coluna_head col-lg-2 col-md-2 col-sm-2 col-2">Cliente</th>
-									<th class="coluna_head col-lg-2 col-md-2 col-sm-2 col-2">Plano</th>
-									<th class="coluna_head col-lg-2 col-md-2 col-sm-2 col-2">Valor base</th>
-									<th class="coluna_head col-lg-2 col-md-2 col-sm-2 col-2">Assinatura</th>
-								</tr>	
-							</thead>	
-
-							<tbody class="tbody" th:each="plano : ${planos}">
-
-								<tr class="linha row">
-
-									<td th:text="${plano.cliente.nome} + ' ' + ${plano.cliente.sobrenome}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 0</td>
-							         <td th:text="${plano.tipoPlano.descricao}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 1</td>
-							         <td th:text="${plano.tipoPlano.descricao}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 2</td>
-							         <td th:text="${plano.tipoPlano.descricao}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 3</td>								         
-									<td th:text="'R$ ' + ${plano.tipoPlano.preco}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 4</td>
-							         <td th:text="${plano.dataAssinatura}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 5</td>
-										
-								</tr>			
-
-								<tr class="linha row">
-
-									<td th:text="${plano.cliente.nome} + ' ' + ${plano.cliente.sobrenome}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 0</td>
-							         <td th:text="${plano.tipoPlano.descricao}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 1</td>
-							         <td th:text="${plano.tipoPlano.descricao}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 2</td>
-							         <td th:text="${plano.tipoPlano.descricao}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 3</td>								         
-									<td th:text="'R$ ' + ${plano.tipoPlano.preco}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 4</td>
-							         <td th:text="${plano.dataAssinatura}" class="coluna_body col-lg-2 col-md-2 col-sm-2 col-2">Teste 5</td>
-										
-								</tr>																			
-
-							</tbody>
-
-						</table>
-
 					</div>
 <!-- FIM DO CONTEÚDO PRINCIPAL -->	
-
 				</main>	
 
 			</div>
