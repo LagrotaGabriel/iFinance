@@ -1,5 +1,3 @@
-
-
 responsive(document.getElementById('body').clientHeight, document.getElementById('body').clientWidth)
 window.onresize = doALoadOfStuff;
 

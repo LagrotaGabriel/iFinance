@@ -1,3 +1,9 @@
+var tamanhoAll = document.getElementById('all');
+var tamanhoBody = document.getElementById('body');
+tamanhoAll.style.height = tamanhoBody.clientHeight + 'px';
+
+tamanhoBody.style.height = '100vh';
+
 window.onresize = doALoadOfStuff;
 responsive(document.getElementById('body').clientWidth, document.getElementById('body').clientHeight)
 
@@ -68,7 +74,7 @@ function responsive(bodyWidth, bodyHeight){
 		console.log('Pequeno');
 
 		document.getElementById('all').style.alignItems="flex-start";
-		document.getElementById('menu_box').style.height = '100%'
+		document.getElementById('menu_box').style.height = 'auto'
 
 		for (var i = 0; i < textos.length; i++) {
   			var texto = textos[i];
@@ -87,7 +93,7 @@ function responsive(bodyWidth, bodyHeight){
 		console.log('Muito pequeno');
 
 		document.getElementById('all').style.alignItems="flex-start";
-		document.getElementById('menu_box').style.height = 'initial';
+		document.getElementById('menu_box').style.height = 'auto';
 
 		for (var i = 0; i < textos.length; i++) {
   			var texto = textos[i];

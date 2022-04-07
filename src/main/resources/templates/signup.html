@@ -7,8 +7,9 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-		<link href="../static/css/signup.css" rel="stylesheet" />
-		<link rel="icon" href="../static/img/bag.png" type="image/gif" sizes="32x32">
+		<link th:href="@{css/reset.css}" rel="stylesheet" />
+		<link th:href="@{css/signup.css}" rel="stylesheet" />
+		<link rel="icon" th:href="@{img/bag.png}" type="image/gif" sizes="32x32">
 
 		<title>Ifinance | Cadastro</title>
 
@@ -142,15 +143,23 @@
 					<div class="formulario_linha formulario_quarta_linha row">
 
 						<div class="col-lg-4 col-md-4 col-sm-4 col-4 button_col">
-							<button class="button button_voltar">Voltar</button>
+
+							<a th:href="@{/login}" class="button_link">
+
+								<button type="button" class="button button_voltar">
+									Voltar
+								</button>
+
+							</a>
+
 						</div>
 
 						<div class="col-lg-4 col-md-4 col-sm-4 col-4 button_col">
-							<button class="button button_voltar">Cadastrar</button>
+							<button type="submit" class="button button_voltar">Salvar</button>
 						</div>
 
 						<div class="col-lg-4 col-md-4 col-sm-4 col-4 button_col">
-							<button class="button button_voltar">Limpar</button>
+							<button type="reset" class="button button_voltar">Limpar</button>
 						</div>
 
 					</div>
@@ -161,7 +170,7 @@
 
 		</div>
 
-		<script type="text/javascript" src="../static/js/signup.js" defer></script>
+		<script type="text/javascript" th:src="@{js/signup.js}" defer></script>
 
 	</body>
 </html>
