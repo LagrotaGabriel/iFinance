@@ -8,6 +8,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 		<link href="../static/css/signup.css" rel="stylesheet" />
+		<link rel="icon" href="../static/img/bag.png" type="image/gif" sizes="32x32">
 
 		<title>Ifinance | Cadastro</title>
 
@@ -17,8 +18,145 @@
 
 		<div class="all" id="all">
 
-			<div class="menu_box col-md-10 col-12 col-sm-11 col-lg-9 col-xs-8">	
-				aaaaa
+			<div class="menu_box col-md-9 col-12 col-sm-11 col-lg-9 col-xs-8" id="menu_box">	
+
+				<form class="formulario_cadastro container" id="formulario_cadastro">
+
+					<h1 class="titulo titulo_informacoes_pessoais">INFORMAÇÕES PESSOAIS</h1>
+
+					<!-- PRIMEIRA LINHA -->
+					<div class="formulario_linha formulario_primeira_linha row">
+
+						<div class="formulario_coluna formulario_coluna_nome col-lg-3 col-md-3 col-sm-4 col-6">
+
+							<label class="label label_nome">Nome:</label>
+							<input type="text" class="input input_nome" name="name">
+
+						</div>
+
+						<div class="formulario_coluna formulario_coluna_sobrenome col-lg-5 col-md-5 col-sm-4 col-6">
+
+							<label class="label label_sobrenome">Sobrenome:</label>
+							<input type="text" class="input input_sobrenome" name="lastName">
+
+						</div>
+
+						<div class="formulario_coluna formulario_coluna_email col-lg-4 col-md-4 col-sm-4">
+
+							<label class="label label_emailnome">E-mail:</label>
+							<input type="email" class="input input_email" name="email">
+
+						</div>
+
+					</div>
+
+					<!-- SEGUNDA LINHA -->
+					<div class="formulario_linha formulario_segunda_linha row">
+
+						<div class="formulario_coluna formulario_coluna_nascimento col-lg-3 col-md-6 col-sm-6 col-6">
+
+							<label class="label label_nascimento">Data de nascimento:</label>
+							<input type="date" class="input input_nascimento" name="birthDate">
+
+						</div>
+
+						<div class="formulario_coluna formulario_coluna_nome col-lg-3 col-md-6 col-sm-6 col-6">
+
+							<label class="label label_nome">Login:</label>
+							<input type="text" class="input input_login" name="username">
+
+						</div>
+
+						<div class="formulario_coluna formulario_coluna_senha col-lg-3 col-md-6 col-sm-6 col-6">
+
+							<label class="label label_nome">Senha:</label>
+							<input type="password" class="input input_senha" name="password">
+
+						</div>
+
+						<div class="formulario_coluna formulario_coluna_repete_senha col-lg-3 col-md-6 col-sm-6 col-6">
+
+							<label class="label label_nome">Repita a senha:</label>
+							<input type="password" class="input input_repete_senha" name="password">
+
+						</div>
+
+					</div>
+
+					<hr>
+
+					<h1 class="titulo titulo_informacoes_pessoais">INFORMAÇÕES FINANCEIRAS</h1>
+
+					<!-- TERCEIRA LINHA -->
+					<div class="formulario_linha formulario_terceira_linha row">
+
+						<div class="formulario_coluna formulario_coluna_trabalha col-lg-2 col-md-2 col-sm-12 col-12">
+
+							<label class="label label_trabalha">Trabalha?</label>
+
+							<div class="opc opc1 col-lg-6 col-sm-6 col-6">
+								<input type="radio" class="radio radio_sim col-lg-3 col-md-3" name="works">
+								<label class="label_radio label_radio_sim col-lg-7 col-md-7">SIM</label>
+							</div>
+
+							<div class="opc opc2 col-lg-6 col-sm-6 col-6">
+								<input type="radio" class="radio radio_nao col-lg-3 col-md-3" name="works" checked>
+								<label class="label_radio label_radio_nao col-lg-7 col-md-7">NÃO</label>
+							</div>
+
+						</div>
+
+						<div class="formulario_coluna formulario_coluna_salario col-lg-2 col-md-5 col-sm-6 col-6">
+
+							<label class="label label_salario">Salário:</label>
+							<input type="number" class="input input_salario" name="wage" disabled>
+
+						</div>
+
+						<div class="formulario_coluna formulario_coluna_rendafixa col-lg-3 col-md-5 col-sm-6 col-6">
+
+							<label class="label label_rendafixa">Renda fixa:</label>
+							<input type="number" class="input input_rendafixa" name="wage">
+
+						</div>
+
+						<div class="formulario_coluna formulario_coluna_rendavariavel col-lg-3 col-md-6 col-sm-6 col-6">
+
+							<label class="label label_rendavariavel">Renda variável:</label>
+							<input type="number" class="input input_rendavariavel" name="wage">
+
+						</div>
+
+						<div class="formulario_coluna formulario_coluna_rendaextra col-lg-2 col-md-6 col-sm-6 col-6">
+
+							<label class="label label_rendaextra">Renda extra:</label>
+							<input type="number" class="input input_rendaextra" name="wage">
+
+						</div>
+
+					</div>
+
+					<hr>
+
+					<!-- TERCEIRA LINHA -->
+					<div class="formulario_linha formulario_quarta_linha row">
+
+						<div class="col-lg-4 col-md-4 col-sm-4 col-4 button_col">
+							<button class="button button_voltar">Voltar</button>
+						</div>
+
+						<div class="col-lg-4 col-md-4 col-sm-4 col-4 button_col">
+							<button class="button button_voltar">Cadastrar</button>
+						</div>
+
+						<div class="col-lg-4 col-md-4 col-sm-4 col-4 button_col">
+							<button class="button button_voltar">Limpar</button>
+						</div>
+
+					</div>
+
+				</form>
+
 			</div>
 
 		</div>

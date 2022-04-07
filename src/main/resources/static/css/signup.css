@@ -46,28 +46,104 @@ table {
 }
 
 body{
-    height: 100vh;
-    background: url('../img/bck2.jpg');
-    background-size: cover;
+    max-height: 100vh;
 }
 /* ========================================================= */
 
-.menu_box{
 
+/* =============================== Configurações gerais =============================== */
+.menu_box{
     padding: 30px;
+    padding-bottom: 0;
     background-color: #c3aa72;
     opacity: 0.9;
     box-shadow: 0 0 20px #121212;
     background-color: #f4f0e5;
-    height: 80%;
 }
 
 .all{
     display: flex;
     justify-content: center;
-    justify-items: center;
-    align-content: center;
+    max-height: 100vh;
+    max-width: 100vw;
     align-items: center;
+    margin: 0;
+    padding: 0;
+    background: url('../img/bck2.jpg') no-repeat;
+    background-size: cover;
+}
+
+.titulo_informacoes_pessoais{
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* =============================== Formulário =============================== */
+
+.formulario_cadastro{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.formulario_linha{
+    max-width: 100%;
+}
+
+.label{
+    width: 100%;
+    margin-bottom: 5px;
+    margin-top: 25px;
+    font-size: 1rem;
+}
+
+.input{
+    padding: 5px 15px;
+    width: 100%;
+    font-size: 1rem;
+}
+
+hr{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.button_col{
+    margin-top: px;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+
+@media(max-width: 768px){
+
+    .label_trabalha{
+        text-align: center;
+        padding-bottom: 10px;
+    }
+    .opc{
+        display: flex;
+        justify-content: center;
+        float: left;
+    }
+
+}
+
+
+
+.button{
+    width: 90%;
+    background-image: linear-gradient(to right,#00ccff, #b452ff);
+    border: none;
+    padding: 15px 10px;
+    color: #f4f0e5;
+    margin-bottom: 30px;
+}
+
+.button:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #b452ff, #00ccff);
+    transition: 2s;
+    animation: pulse 2s infinite;
 }
 
 @keyframes pulse{

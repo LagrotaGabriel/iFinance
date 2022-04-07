@@ -26,8 +26,18 @@ public class User {
     private String password;
     @Column(name = "nm_user")
     private String name;
+    @Column(name = "lastname_user")
+    private String lastName;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "birthdate_user")
+    private String birthDate;
+    @Column(name = "works_user")
+    private Boolean works;
     @Column(name = "fixedIncome_user")
     private Double fixedIncome;
+    @Column(name = "wage_user")
+    private Double wage;
     @Column(name = "variableIncome_user")
     private Double variableIncome;
 
