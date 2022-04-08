@@ -8,11 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class UserValidation {
 
     public Boolean usernameValidation(User user){
-        if (user.getUsername().matches("[a-z A-Z]*")) {
-            return user.getUsername().length() <= 20 && user.getUsername().length() >= 3;
-        } else {
-            return false;
-        }
+        return user.getUsername().length() <= 20 && user.getUsername().length() >= 3;
     }
 
     public Boolean passwordValidation(User user){

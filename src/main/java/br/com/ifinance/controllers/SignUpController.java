@@ -34,45 +34,42 @@ public class SignUpController {
 
     @PostMapping
     public ModelAndView signUpPost(User user, RedirectAttributes redirAttrs, Model model, ModelAndView modelAndView){
-
         if(userValidation.userValidation(user)){
             if(userService.findByEmail(user.getEmail()).isEmpty()) {
                 if(userService.findByUsername(user.getUsername()).isEmpty()){
-                    String[] nascimento = user.getBirthDate().split("-");
-                    if(Integer.parseInt(nascimento[0]) <= 1900){
-                        redirAttrs.addFlashAttribute("ErroCadastro",
-                                "Ops! O ano de nascimento não pode ser menor ou igual do que 1900");
-                        modelAndView.setViewName("redirect:/signup");
-                    }
-                    else if(Integer.parseInt(nascimento[0]) >= 2022){
-                        redirAttrs.addFlashAttribute("ErroCadastro",
-                                "Ops! O ano de nascimento não pode ser maior ou igual do que 2022");
-                        modelAndView.setViewName("redirect:/signup");
-                    }
-                    else{
-                        userService.create(user);
-                        redirAttrs.addFlashAttribute("SucessoCadastro",
-                                "O cadastro foi realizado com sucesso!");
-                        user = new User();
-                        modelAndView.setViewName("redirect:/login");
-                    }
-                }
-                else{
                     if(user.getUsername().equals("admin")){
                         redirAttrs.addFlashAttribute("ErroCadastro",
                                 "Não é possível se cadastrar utilizando o nome de usuário admin");
                         modelAndView.setViewName("redirect:/signup");
                     }
                     else {
-                        redirAttrs.addFlashAttribute("ErroCadastro",
-                                "O usuário inserido já existe");
-                        modelAndView.setViewName("redirect:/signup");
+                        String[] nascimento = user.getBirthDate().split("-");
+                        if (Integer.parseInt(nascimento[0]) <= 1900) {
+                            redirAttrs.addFlashAttribute("ErroCadastro",
+                                    "Ops! O ano de nascimento não pode ser menor ou igual do que 1900");
+                            modelAndView.setViewName("redirect:/signup");
+                        } else if (Integer.parseInt(nascimento[0]) >= 2022) {
+                            redirAttrs.addFlashAttribute("ErroCadastro",
+                                    "Ops! O ano de nascimento não pode ser maior ou igual do que 2022");
+                            modelAndView.setViewName("redirect:/signup");
+                        } else {
+                            userService.create(user);
+                            redirAttrs.addFlashAttribute("SucessoCadastro",
+                                    "O cadastro foi realizado com sucesso!");
+                            user = new User();
+                            modelAndView.setViewName("redirect:/login");
+                        }
                     }
+                }
+                else{
+                    redirAttrs.addFlashAttribute("ErroCadastro",
+                                "O usuário inserido já existe em nossa base de dados");
+                    modelAndView.setViewName("redirect:/signup");
                 }
             }
             else{
                 redirAttrs.addFlashAttribute("ErroCadastro",
-                        "O e-mail inserido já existe");
+                        "O e-mail inserido já existe em nossa base de dados");
                 modelAndView.setViewName("redirect:/signup");
             }
         }
@@ -111,7 +108,6 @@ public class SignUpController {
 
 
         }
-
         System.err.println(user.toString());
         globalUser = user;
         return modelAndView;
