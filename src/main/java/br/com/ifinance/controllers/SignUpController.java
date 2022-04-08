@@ -1,9 +1,13 @@
 package br.com.ifinance.controllers;
 
+import br.com.ifinance.models.entities.Role;
 import br.com.ifinance.models.entities.User;
+import br.com.ifinance.repositories.RoleRepository;
+import br.com.ifinance.repositories.UserRepository;
 import br.com.ifinance.services.UserService;
 import br.com.ifinance.validations.UserValidation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Arrays;
+import java.util.Collection;
 
 @Controller
 @RequestMapping("/signup")
@@ -25,6 +30,15 @@ public class SignUpController {
 
     User globalUser = new User();
 
+    @Autowired
+    UserRepository userRepository;
+
+    @Autowired
+    RoleRepository roleRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
     @GetMapping
     public ModelAndView signUpGet(ModelAndView modelAndView, Model model){
         model.addAttribute("user", globalUser);
@@ -36,7 +50,7 @@ public class SignUpController {
     public ModelAndView signUpPost(User user, RedirectAttributes redirAttrs, Model model, ModelAndView modelAndView){
         if(userValidation.userValidation(user)){
             if(userService.findByEmail(user.getEmail()).isEmpty()) {
-                if(userService.findByUsername(user.getUsername()).isEmpty()){
+                if(userService.findByUsernm(user.getUsername()).isEmpty()){
                     if(user.getUsername().equals("admin")){
                         redirAttrs.addFlashAttribute("ErroCadastro",
                                 "Não é possível se cadastrar utilizando o nome de usuário admin");
@@ -53,7 +67,19 @@ public class SignUpController {
                                     "Ops! O ano de nascimento não pode ser maior ou igual do que 2022");
                             modelAndView.setViewName("redirect:/signup");
                         } else {
-                            userService.create(user);
+                            roleRepository.save(new Role("USER"));
+                            Role userRole = roleRepository.findByRole("USER");
+                            user.setPassword(passwordEncoder.encode(user.getPassword()));
+                            user.setRoles((Collection<Role>) userRole);
+                            userRepository.save(user);
+
+
+
+
+
+
+
+
                             redirAttrs.addFlashAttribute("SucessoCadastro",
                                     "O cadastro foi realizado com sucesso!");
                             user = new User();

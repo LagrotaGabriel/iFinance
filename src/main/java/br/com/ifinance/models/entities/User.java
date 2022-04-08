@@ -3,6 +3,7 @@ package br.com.ifinance.models.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -26,7 +27,7 @@ public class User {
     private String password;
     @Column(name = "nm_user")
     private String name;
-    @Column(name = "lastname_user")
+    @Column(name = "lastname_user", columnDefinition="VARCHAR(40)")
     private String lastName;
     @Column(name = "email")
     private String email;
@@ -49,4 +50,9 @@ public class User {
     private List<Patrimony> assets;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Liability> liabilities;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Collection<Role> roles;
+
 }

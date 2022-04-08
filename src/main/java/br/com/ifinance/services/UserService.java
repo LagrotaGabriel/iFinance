@@ -31,8 +31,8 @@ public class UserService {
     }
 
     // List a user by USERNAME
-    public Optional<User> findByUsername(String username){
-        return userRepository.findByUsername(username);
+    public Optional<User> findByUsernm(String username){
+        return userRepository.findByUsernm(username);
     }
 
     // List a user by EMAIL

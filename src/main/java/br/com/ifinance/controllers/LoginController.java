@@ -16,5 +16,11 @@ public class LoginController {
         return modelAndView;
     }
 
+    @PostMapping("login")
+    public ModelAndView loginControllerPost(ModelAndView modelAndView){
+        System.err.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        modelAndView.setViewName("login");
+        return modelAndView;
+    }
 
 }
