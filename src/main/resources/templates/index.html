@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,7 +48,9 @@
 						<div class="aside aside-3 col-lg-12">
 							
 							<a href="#">
-								<button type="button"><img th:src="@{img/stats.png}" class="sidebar_menu_img"/></button>
+								<button type="button">
+									<img th:src="@{img/stats.png}" class="sidebar_menu_img"/>
+								</button>
 							</a>
 							<h1 class="aside_title text-center">Estatísticas</h1>
 
@@ -57,7 +59,9 @@
 						<div class="aside aside-4 col-lg-12">
 							
 							<a href="#">
-								<button type="button"><img th:src="@{img/despesa.png}" class="sidebar_menu_img"/></button>
+								<button type="button">
+									<img th:src="@{img/despesa.png}" class="sidebar_menu_img"/>
+								</button>
 							</a>
 							<h1 class="aside_title text-center">Despesas</h1>
 
@@ -130,11 +134,16 @@
 						<!-- Botão para realizar logout -->
 						<div class="col-lg-2 menu_superior_item bt3">
 
-							<button class="logout_btn col-lg-1">
+							<form class="logout_form" th:action="@{/logout}" method="POST">
 
-								Logout
+								<button class="logout_btn col-lg-1" type="submit">
 
-							</button>							
+									Logout
+
+								</button>	
+								<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+							</form>
 							
 						</div>
 

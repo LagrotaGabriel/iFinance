@@ -165,7 +165,20 @@ button{
     justify-content: center;
 }
 
-.logout_btn, .perfil_btn{
+.logout_form{
+    width: 90%;
+}
+
+.logout_btn{
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    font-size: 1rem;
+    padding: 15px 5px;
+}
+
+.perfil_btn{
     width: 90%;
     background-color: transparent;
     border: 1px solid #FFFFFF;

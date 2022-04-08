@@ -24,6 +24,21 @@
     text-align: center;
 }
 
+.alert{
+    position: absolute;
+    position: fixed;
+    text-align: center;
+    font-size: 0.90rem;
+    width: 90%;
+    top: 5%;
+    left: 5%;
+    animation: pulse 2s infinite;
+}
+
+.alert:hover{
+    cursor: pointer;
+}
+
 /* =============================== Formulário =============================== */
 
 .formulario_cadastro{
@@ -40,6 +55,9 @@
     margin-bottom: 5px;
     margin-top: 25px;
     font-size: 1rem;
+}
+.label:hover{
+    cursor: pointer;
 }
 
 .input{
@@ -58,6 +76,10 @@ hr{
     display: flex;
     justify-items: center;
     justify-content: center;
+}
+
+.label_radio:hover{
+    cursor: pointer;
 }
 
 @media(max-width: 768px){

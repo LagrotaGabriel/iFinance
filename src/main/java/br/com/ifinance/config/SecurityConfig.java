@@ -1,5 +1,6 @@
 package br.com.ifinance.config;
 
+import br.com.ifinance.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -15,6 +16,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    UserService userService;
+
     protected void configure(HttpSecurity http) throws Exception{
 
         http.authorizeRequests()
@@ -22,22 +26,32 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/index").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/swagger-ui.html").hasAnyRole("ADMIN")
                 .antMatchers("/api/**").hasAnyRole("ADMIN")
+                .antMatchers("/signup").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .permitAll()
+                .and()
+                .logout().logoutSuccessUrl("/login?logout")
                 .permitAll();
 
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
+
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
         auth.inMemoryAuthentication()
                 .withUser("Gabriel").password(encoder.encode("123")).roles("USER")
                 .and()
                 .withUser("admin").password(encoder.encode("762")).roles("USER", "ADMIN");
+        /*for(int i = 0;i < userService.readAll().size(); i++){
+            auth.inMemoryAuthentication().withUser(userService.readAll().get(i)
+                    .getUsername())
+                    .password(userService.readAll().get(i).getPassword());
+        }*/
     }
 
 }

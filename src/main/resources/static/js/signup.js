@@ -1,3 +1,5 @@
+/* ESSA PARTE DO CÓDIGO É RESPONSÁVEL PELA RESPONSIVIDADE DA PÁGINA */
+
 var tamanhoAll = document.getElementById('all');
 var tamanhoBody = document.getElementById('body');
 tamanhoAll.style.height = tamanhoBody.clientHeight + 'px';
@@ -119,4 +121,49 @@ function responsive(bodyWidth, bodyHeight){
 
 function doALoadOfStuff() {
 	responsive(document.getElementById('body').clientWidth, document.getElementById('body').clientHeight)
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/* ESSA PARTE DO CÓDIGO É RESPONSÁVEL PELOS EVENTOS DOS INPUTS */
+
+// Ao selecionar o radio button ele habilita ou desabilita o input salário
+function trabalha(code){
+	if(code == 1){
+		document.getElementById('input_salario').disabled=false;
+		document.getElementById('yes').checked=true;
+	}
+	else{
+		document.getElementById('input_salario').disabled=true;
+		document.getElementById('input_salario').value="0.00";
+		document.getElementById('no').checked=true;
+	}
+}
+
+/* Ao passar o mouse em cima dos labels aparece mensagem instrutiva sobre como
+preencher o campo */
+function showMessage(message){
+	document.getElementById('mensagem').hidden=false;
+	document.getElementById('mensagem').innerHTML=message;
+	document.getElementById('erro').style.display="none";
+}
+
+function hideMessage(){
+	document.getElementById('mensagem').hidden=true;
+	document.getElementById('erro').style.display="none";
+}
+
+/* Confirma se as duas senhas são compatíveis */
+function confirm(){
+	var senha = document.getElementById('password');
+	var resenha = document.getElementById('repassword');
+	if(senha.value != resenha.value){
+		resenha.style.backgroundColor="#ffd1d1";
+	}
+	else if(senha.value == resenha.value && senha.value != ""){
+		resenha.style.backgroundColor="#c7ffd4";
+	}
+	else if(senha.value == "" && resenha.value == ""){
+		resenha.style.backgroundColor="#FFFFFF";
+	}
 }

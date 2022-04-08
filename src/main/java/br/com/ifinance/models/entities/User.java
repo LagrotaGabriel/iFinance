@@ -40,6 +40,8 @@ public class User {
     private Double wage;
     @Column(name = "variableIncome_user")
     private Double variableIncome;
+    @Column(name = "extraIncome_user")
+    private Double extraIncome;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Transaction> transactions;

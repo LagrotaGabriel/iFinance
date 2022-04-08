@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +17,16 @@
 
 	<body id="body">
 			<div class="all" id="all">
+
 				<div class="container menu_box col-md-5 col-xs-3 col-sm-12 col-lg-3">	
+
+					<div th:if="${param.error}" class="aviso aviso_erro">
+						<div class="alert alert-danger">Usuário e/ou senha inválidos!</div>
+					</div>
+
+					<div th:if="${param.logout}" class="aviso aviso_logout">
+						<div class="alert alert-info">Logout realizado com sucesso!</div>
+					</div>
 
 					<h1 class="titulo2 text-center">
 						iFinance

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +21,13 @@
 
 			<div class="menu_box col-md-9 col-12 col-sm-11 col-lg-9 col-xs-8" id="menu_box">	
 
-				<form class="formulario_cadastro container" id="formulario_cadastro">
+				<form th:action="signup" method="POST" class="formulario_cadastro container" id="formulario_cadastro">
+
+					<div class="alert alert-info" id="mensagem" onclick="hideMessage()"hidden>Olá mundo</div>
+
+					<div class="alert alert-danger" th:if="${ErroCadastro}"  id="erro" onclick="hideMessage()">
+						<p th:text="${ErroCadastro}"></p>
+					</div>
 
 					<h1 class="titulo titulo_informacoes_pessoais">INFORMAÇÕES PESSOAIS</h1>
 
@@ -30,22 +36,22 @@
 
 						<div class="formulario_coluna formulario_coluna_nome col-lg-3 col-md-3 col-sm-4 col-6">
 
-							<label class="label label_nome">Nome:</label>
-							<input type="text" class="input input_nome" name="name">
+							<label class="label label_nome" onclick="showMessage('Neste campo é necessário preencher o seu nome. Este campo é de preenchimento obrigatório.')" for="name">Nome:</label>
+							<input type="text" class="input input_nome" name="name" id="name" maxlength="15">
 
 						</div>
 
 						<div class="formulario_coluna formulario_coluna_sobrenome col-lg-5 col-md-5 col-sm-4 col-6">
 
-							<label class="label label_sobrenome">Sobrenome:</label>
-							<input type="text" class="input input_sobrenome" name="lastName">
+							<label class="label label_sobrenome" onclick="showMessage('Neste campo é necessário preencher o seu sobrenome. Este campo é de preenchimento obrigatório.')" for="lastName">Sobrenome:</label>
+							<input type="text" class="input input_sobrenome" name="lastName" id="lastName" maxlength="35">
 
 						</div>
 
 						<div class="formulario_coluna formulario_coluna_email col-lg-4 col-md-4 col-sm-4">
 
-							<label class="label label_emailnome">E-mail:</label>
-							<input type="email" class="input input_email" name="email">
+							<label class="label label_emailnome" onclick="showMessage('Neste campo é necessário preencher o seu E-mail. Este campo é de preenchimento obrigatório.')" for="email">E-mail:</label>
+							<input type="email" class="input input_email" name="email" id="email" maxlength="45">
 
 						</div>
 
@@ -56,29 +62,29 @@
 
 						<div class="formulario_coluna formulario_coluna_nascimento col-lg-3 col-md-6 col-sm-6 col-6">
 
-							<label class="label label_nascimento">Data de nascimento:</label>
-							<input type="date" class="input input_nascimento" name="birthDate">
+							<label class="label label_nascimento" onclick="showMessage('Neste campo é necessário preencher a sua data de nascimento. Este campo é de preenchimento obrigatório.')" for="birthDate">Data de nascimento:</label>
+							<input type="date" class="input input_nascimento" name="birthDate" id="birthDate">
 
 						</div>
 
 						<div class="formulario_coluna formulario_coluna_nome col-lg-3 col-md-6 col-sm-6 col-6">
 
-							<label class="label label_nome">Login:</label>
-							<input type="text" class="input input_login" name="username">
+							<label class="label label_nome" onclick="showMessage('Neste campo é necessário preencher o seu login se usuário. Você irá utilizá-lo para acessar o iFinance. Este campo é de preenchimento obrigatório.')" for="username">Login:</label>
+							<input type="text" class="input input_login" name="username" id="username" maxlength="20">
 
 						</div>
 
 						<div class="formulario_coluna formulario_coluna_senha col-lg-3 col-md-6 col-sm-6 col-6">
 
-							<label class="label label_nome">Senha:</label>
-							<input type="password" class="input input_senha" name="password">
+							<label class="label label_senha" onclick="showMessage('Neste campo é necessário preencher a senha que você irá utilizar para acessar o iFinance. Este campo é de preenchimento obrigatório.')" for="password">Senha:</label>
+							<input type="password" class="input input_senha" name="password" id="password" maxlength="20" oninput="confirm()">
 
 						</div>
 
 						<div class="formulario_coluna formulario_coluna_repete_senha col-lg-3 col-md-6 col-sm-6 col-6">
 
-							<label class="label label_nome">Repita a senha:</label>
-							<input type="password" class="input input_repete_senha" name="password">
+							<label class="label label_resenha" onclick="showMessage('Neste campo é necessário repetir a mesma senha que você digitou no campo anterior. Este campo é de preenchimento obrigatório')" for="repassword">Repita a senha:</label>
+							<input type="password" class="input input_repete_senha" id="repassword" maxlength="20" oninput="confirm()">
 
 						</div>
 
@@ -93,45 +99,45 @@
 
 						<div class="formulario_coluna formulario_coluna_trabalha col-lg-2 col-md-2 col-sm-12 col-12">
 
-							<label class="label label_trabalha">Trabalha?</label>
+							<label class="label label_trabalha" onclick="showMessage('Aqui você deve responder se você trabalha em regime CLT ou não.')">Trabalha?</label>
 
 							<div class="opc opc1 col-lg-6 col-sm-6 col-6">
-								<input type="radio" class="radio radio_sim col-lg-3 col-md-3" name="works">
-								<label class="label_radio label_radio_sim col-lg-7 col-md-7">SIM</label>
+								<input type="radio" class="radio radio_sim col-lg-3 col-md-3" name="works" id="yes" value="true" onchange="trabalha(1)">
+								<label class="label_radio label_radio_sim col-lg-7 col-md-7" onclick="trabalha(1)">SIM</label>
 							</div>
 
 							<div class="opc opc2 col-lg-6 col-sm-6 col-6">
-								<input type="radio" class="radio radio_nao col-lg-3 col-md-3" name="works" checked>
-								<label class="label_radio label_radio_nao col-lg-7 col-md-7">NÃO</label>
+								<input type="radio" class="radio radio_nao col-lg-3 col-md-3" name="works" id="no" value="false" checked onchange="trabalha(0)">
+								<label class="label_radio label_radio_nao col-lg-7 col-md-7" onclick="trabalha(0)">NÃO</label>
 							</div>
 
 						</div>
 
 						<div class="formulario_coluna formulario_coluna_salario col-lg-2 col-md-5 col-sm-6 col-6">
 
-							<label class="label label_salario">Salário:</label>
-							<input type="number" class="input input_salario" name="wage" disabled>
+							<label class="label label_salario" onclick="showMessage('Neste campo é necessário preencher o seu salário. Este campo só é obrigatório caso você trabalhe em regime CLT.')" for="input_salario">Salário:</label>
+							<input type="number" class="input input_salario" id="input_salario" name="wage" value="0.00" maxlength="10" disabled >
 
 						</div>
 
 						<div class="formulario_coluna formulario_coluna_rendafixa col-lg-3 col-md-5 col-sm-6 col-6">
 
-							<label class="label label_rendafixa">Renda fixa:</label>
-							<input type="number" class="input input_rendafixa" name="wage">
+							<label class="label label_rendafixa" onclick="showMessage('Neste campo é necessário preencher o montante de capital que você possui investido em renda fixa.')" for="fixedIncome">Renda fixa:</label>
+							<input type="number" class="input input_rendafixa" name="fixedIncome" id="fixedIncome" value="0.00" maxlength="10">
 
 						</div>
 
 						<div class="formulario_coluna formulario_coluna_rendavariavel col-lg-3 col-md-6 col-sm-6 col-6">
 
-							<label class="label label_rendavariavel">Renda variável:</label>
-							<input type="number" class="input input_rendavariavel" name="wage">
+							<label class="label label_rendavariavel" onclick="showMessage('Neste campo é necessário preencher o montante de capital que você possui investido em renda variável.')" for="variableIncome">Renda variável:</label>
+							<input type="number" class="input input_rendavariavel" name="variableIncome" id="variableIncome" value="0.00" maxlength="10">
 
 						</div>
 
 						<div class="formulario_coluna formulario_coluna_rendaextra col-lg-2 col-md-6 col-sm-6 col-6">
 
-							<label class="label label_rendaextra">Renda extra:</label>
-							<input type="number" class="input input_rendaextra" name="wage">
+							<label class="label label_rendaextra" onclick="showMessage('Neste campo é necessário preencher sua renda extra mensal. Digite 0 caso sua renda extra seja volátil.')" for="extraIncome">Renda extra:</label>
+							<input type="number" class="input input_rendaextra" name="extraIncome" id="extraIncome" value="0.00" maxlength="10">
 
 						</div>
 
@@ -163,6 +169,8 @@
 						</div>
 
 					</div>
+
+					<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 
 				</form>
 

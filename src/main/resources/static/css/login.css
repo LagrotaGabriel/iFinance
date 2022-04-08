@@ -31,6 +31,13 @@
     margin-bottom: 5px;
 }
 
+.aviso{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
 .campo_login_div{
     margin: 0 auto;
     display: flex;

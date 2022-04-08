@@ -30,6 +30,16 @@ public class UserService {
         return userRepository.findById(id);
     }
 
+    // List a user by USERNAME
+    public Optional<User> findByUsername(String username){
+        return userRepository.findByUsername(username);
+    }
+
+    // List a user by EMAIL
+    public Optional<User> findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
     // Update a user by ID
     public User updateUser(Long id, User user){
 
