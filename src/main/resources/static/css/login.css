@@ -36,6 +36,10 @@
     justify-content: center;
     justify-items: center;
     align-items: center;
+    animation: pulse 2s infinite;
+}
+.aviso:hover{
+    cursor: pointer;
 }
 
 .campo_login_div{

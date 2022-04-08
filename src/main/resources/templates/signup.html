@@ -21,7 +21,7 @@
 
 			<div class="menu_box col-md-9 col-12 col-sm-11 col-lg-9 col-xs-8" id="menu_box">	
 
-				<form th:action="signup" method="POST" class="formulario_cadastro container" id="formulario_cadastro">
+				<form th:action="signup" th:object="${user}" method="POST" class="formulario_cadastro container" id="formulario_cadastro">
 
 					<div class="alert alert-info" id="mensagem" onclick="hideMessage()"hidden>Olá mundo</div>
 
@@ -37,21 +37,21 @@
 						<div class="formulario_coluna formulario_coluna_nome col-lg-3 col-md-3 col-sm-4 col-6">
 
 							<label class="label label_nome" onclick="showMessage('Neste campo é necessário preencher o seu nome. Este campo é de preenchimento obrigatório.')" for="name">Nome:</label>
-							<input type="text" class="input input_nome" name="name" id="name" maxlength="15">
+							<input type="text" class="input input_nome" name="name" id="name" maxlength="15" th:value="${user.name}">
 
 						</div>
 
 						<div class="formulario_coluna formulario_coluna_sobrenome col-lg-5 col-md-5 col-sm-4 col-6">
 
 							<label class="label label_sobrenome" onclick="showMessage('Neste campo é necessário preencher o seu sobrenome. Este campo é de preenchimento obrigatório.')" for="lastName">Sobrenome:</label>
-							<input type="text" class="input input_sobrenome" name="lastName" id="lastName" maxlength="35">
+							<input type="text" class="input input_sobrenome" name="lastName" id="lastName" maxlength="35" th:value="${user.lastName}">
 
 						</div>
 
 						<div class="formulario_coluna formulario_coluna_email col-lg-4 col-md-4 col-sm-4">
 
 							<label class="label label_emailnome" onclick="showMessage('Neste campo é necessário preencher o seu E-mail. Este campo é de preenchimento obrigatório.')" for="email">E-mail:</label>
-							<input type="email" class="input input_email" name="email" id="email" maxlength="45">
+							<input type="email" class="input input_email" name="email" id="email" maxlength="45" th:value="${user.email}">
 
 						</div>
 
@@ -63,14 +63,14 @@
 						<div class="formulario_coluna formulario_coluna_nascimento col-lg-3 col-md-6 col-sm-6 col-6">
 
 							<label class="label label_nascimento" onclick="showMessage('Neste campo é necessário preencher a sua data de nascimento. Este campo é de preenchimento obrigatório.')" for="birthDate">Data de nascimento:</label>
-							<input type="date" class="input input_nascimento" name="birthDate" id="birthDate">
+							<input type="date" class="input input_nascimento" name="birthDate" id="birthDate" maxlength="10" th:value="${user.birthDate}">
 
 						</div>
 
 						<div class="formulario_coluna formulario_coluna_nome col-lg-3 col-md-6 col-sm-6 col-6">
 
 							<label class="label label_nome" onclick="showMessage('Neste campo é necessário preencher o seu login se usuário. Você irá utilizá-lo para acessar o iFinance. Este campo é de preenchimento obrigatório.')" for="username">Login:</label>
-							<input type="text" class="input input_login" name="username" id="username" maxlength="20">
+							<input type="text" class="input input_login" name="username" id="username" maxlength="20" th:value="${user.username}">
 
 						</div>
 
@@ -102,12 +102,12 @@
 							<label class="label label_trabalha" onclick="showMessage('Aqui você deve responder se você trabalha em regime CLT ou não.')">Trabalha?</label>
 
 							<div class="opc opc1 col-lg-6 col-sm-6 col-6">
-								<input type="radio" class="radio radio_sim col-lg-3 col-md-3" name="works" id="yes" value="true" onchange="trabalha(1)">
+								<input type="radio" class="radio radio_sim col-lg-3 col-md-3" name="works" id="yes" value="true" onchange="trabalha(1)" checked>
 								<label class="label_radio label_radio_sim col-lg-7 col-md-7" onclick="trabalha(1)">SIM</label>
 							</div>
 
 							<div class="opc opc2 col-lg-6 col-sm-6 col-6">
-								<input type="radio" class="radio radio_nao col-lg-3 col-md-3" name="works" id="no" value="false" checked onchange="trabalha(0)">
+								<input type="radio" class="radio radio_nao col-lg-3 col-md-3" name="works" id="no" value="false" onchange="trabalha(0)">
 								<label class="label_radio label_radio_nao col-lg-7 col-md-7" onclick="trabalha(0)">NÃO</label>
 							</div>
 
@@ -116,28 +116,28 @@
 						<div class="formulario_coluna formulario_coluna_salario col-lg-2 col-md-5 col-sm-6 col-6">
 
 							<label class="label label_salario" onclick="showMessage('Neste campo é necessário preencher o seu salário. Este campo só é obrigatório caso você trabalhe em regime CLT.')" for="input_salario">Salário:</label>
-							<input type="number" class="input input_salario" id="input_salario" name="wage" value="0.00" maxlength="10" disabled >
+							<input type="number" class="input input_salario" id="input_salario" name="wage" value="0.00" maxlength="10" th:value="${user.wage}">
 
 						</div>
 
 						<div class="formulario_coluna formulario_coluna_rendafixa col-lg-3 col-md-5 col-sm-6 col-6">
 
 							<label class="label label_rendafixa" onclick="showMessage('Neste campo é necessário preencher o montante de capital que você possui investido em renda fixa.')" for="fixedIncome">Renda fixa:</label>
-							<input type="number" class="input input_rendafixa" name="fixedIncome" id="fixedIncome" value="0.00" maxlength="10">
+							<input type="number" class="input input_rendafixa" name="fixedIncome" id="fixedIncome" value="0.00" maxlength="10" th:value="${user.fixedIncome}">
 
 						</div>
 
 						<div class="formulario_coluna formulario_coluna_rendavariavel col-lg-3 col-md-6 col-sm-6 col-6">
 
 							<label class="label label_rendavariavel" onclick="showMessage('Neste campo é necessário preencher o montante de capital que você possui investido em renda variável.')" for="variableIncome">Renda variável:</label>
-							<input type="number" class="input input_rendavariavel" name="variableIncome" id="variableIncome" value="0.00" maxlength="10">
+							<input type="number" class="input input_rendavariavel" name="variableIncome" id="variableIncome" value="0.00" maxlength="10" th:value="${user.variableIncome}">
 
 						</div>
 
 						<div class="formulario_coluna formulario_coluna_rendaextra col-lg-2 col-md-6 col-sm-6 col-6">
 
 							<label class="label label_rendaextra" onclick="showMessage('Neste campo é necessário preencher sua renda extra mensal. Digite 0 caso sua renda extra seja volátil.')" for="extraIncome">Renda extra:</label>
-							<input type="number" class="input input_rendaextra" name="extraIncome" id="extraIncome" value="0.00" maxlength="10">
+							<input type="number" class="input input_rendaextra" name="extraIncome" id="extraIncome" value="0.00" maxlength="10" th:value="${user.extraIncome}">
 
 						</div>
 
@@ -161,11 +161,11 @@
 						</div>
 
 						<div class="col-lg-4 col-md-4 col-sm-4 col-4 button_col">
-							<button type="submit" class="button button_voltar">Salvar</button>
+							<button type="submit" class="button button_ir" id="button_ir" disabled>Salvar</button>
 						</div>
 
 						<div class="col-lg-4 col-md-4 col-sm-4 col-4 button_col">
-							<button type="reset" class="button button_voltar">Limpar</button>
+							<button type="reset" class="button button_limpar">Limpar</button>
 						</div>
 
 					</div>

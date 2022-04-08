@@ -20,12 +20,16 @@
 
 				<div class="container menu_box col-md-5 col-xs-3 col-sm-12 col-lg-3">	
 
-					<div th:if="${param.error}" class="aviso aviso_erro">
+					<div th:if="${param.error}" class="aviso aviso_erro" id="erro" onclick="hideMessage(1)">
 						<div class="alert alert-danger">Usuário e/ou senha inválidos!</div>
 					</div>
 
-					<div th:if="${param.logout}" class="aviso aviso_logout">
+					<div th:if="${param.logout}" class="aviso aviso_logout" id="logout" onclick="hideMessage(2)">
 						<div class="alert alert-info">Logout realizado com sucesso!</div>
+					</div>
+
+					<div th:if="${SucessoCadastro}" class="aviso aviso_sucesso alert alert-success" id="sucesso" onclick="hideMessage(3)">
+							<p th:text="${SucessoCadastro}"></p>
 					</div>
 
 					<h1 class="titulo2 text-center">

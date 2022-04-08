@@ -159,9 +159,12 @@ function confirm(){
 	var resenha = document.getElementById('repassword');
 	if(senha.value != resenha.value){
 		resenha.style.backgroundColor="#ffd1d1";
+		document.getElementById('button_ir').disabled=true;
 	}
 	else if(senha.value == resenha.value && senha.value != ""){
 		resenha.style.backgroundColor="#c7ffd4";
+		document.getElementById('button_ir').disabled=false;
+
 	}
 	else if(senha.value == "" && resenha.value == ""){
 		resenha.style.backgroundColor="#FFFFFF";

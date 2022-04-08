@@ -33,6 +33,7 @@
     top: 5%;
     left: 5%;
     animation: pulse 2s infinite;
+    opacity: 0.95;
 }
 
 .alert:hover{
