@@ -15,9 +15,8 @@ body{
 
 .side_menu{
     background-color: #c3aa72;
-    opacity: 1;
     box-shadow: 0 0 20px #121212;
-    background-image: linear-gradient(to right, #f4f0e5, #dedad1);
+    background: transparent;
     float: left;
     max-height: 100%;
     margin: 0;
@@ -38,18 +37,19 @@ body{
     width: 100%;
     margin: 0;
     padding: 0;
-    background-image: linear-gradient(to right, #383231, #1f1c1c);
-    opacity: 0.97;
+    background: transparent;
 }
 
 .aside{
     margin: 0;
     padding: 0;
-    border-bottom: 1px #1f1c1c solid;
+    border-bottom: 1px #4bd6d2 solid;
     float: left;
     height: 14.28%;
-    background:#121212;
-    opacity: 0.97;
+    background-color: #121212;
+    border-right: 1px solid #4bd6d2;
+    border: none;
+    opacity: 0.95;
 }
 
 .aside:hover{
@@ -86,17 +86,17 @@ button{
     max-width: 100%;
     max-height: 100%;
     margin: 0;
-    background: #121212;
-    box-shadow: 0 0 15px #121212;
+    background-color: #121212;
+    box-shadow: 0 0 0px #121212;
     margin: 0 auto;
     display: flex;
     align-items: center;
     align-content: center;
     justify-content: center;
     justify-items: center;
-    opacity: 0.97;
-    border-left: 1px solid black;
-    border-bottom: 1px solid black;
+    opacity: 0.94;
+    border-bottom: 1px solid #4bd6d2;
+    border: none;
 }
 
 .menu_superior_item{
@@ -130,8 +130,8 @@ button{
     padding: 10px 10px;
     background-color: transparent;
     color: #FFFFFF;
-    border: 1px solid #FFFF;
-    box-shadow: 0 0 25px #121212;
+    border: 1px solid #00ccff;
+    box-shadow: 0 0 1px #121212;
 }
 
 .lupa_btn{
@@ -171,18 +171,18 @@ button{
 
 .logout_btn{
     width: 100%;
-    background-color: transparent;
-    border: 1px solid #FFFFFF;
-    color: #FFFFFF;
+    background-image: linear-gradient(to right,#00ccff, #b452ff);
+    color: #f4f0e5;
+    border: none;
     font-size: 1rem;
     padding: 15px 5px;
 }
 
 .perfil_btn{
     width: 90%;
-    background-color: transparent;
-    border: 1px solid #FFFFFF;
-    color: #FFFFFF;
+    background-image: linear-gradient(to right,#00ccff, #b452ff);
+    color: #f4f0e5;
+    border: none;
     font-size: 1rem;
     padding: 15px 5px;
 }
@@ -251,6 +251,7 @@ button{
 .conteudo_intro, .conteudo_path{
     font-size: 2rem;
     color: #121212;
+    display: none;
 }
 .conteudo_intro{
     font-weight: 400;
@@ -267,13 +268,12 @@ button{
 .conteudo_container{
     max-height: 100%;
     width: 100%;
-    background-image: linear-gradient(to right, #383231, #1f1c1c);
+    background-color: #121212;
     margin: 0 auto;
     padding-left: 0;
     padding-right: 0;
-    box-shadow: 0 0 15px #121212;
+    box-shadow: 0 0 25px #121212;
     opacity: 0.96;
-    background: url('../img/bck1.jpg');
 
 }
 
@@ -285,7 +285,7 @@ button{
 .conteudo_titulo_text{
     width: 50%;
     font-size: 2rem;
-    color: #FFFF;
+    color: #FFFFFF;
     border-bottom: 1px solid #4e6fd4;
     padding-top: 25px;
     padding-bottom: 20px;
@@ -320,9 +320,10 @@ button{
 
 .titulo_linha_geral_clicavel{
     font-size:  2rem;
-    color: #FFFFFF;
+    background-image: linear-gradient(to right,#00ccff, #b452ff);
+    color: #f4f0e5;
     text-decoration: none;
-    border: 1px solid #FFFFFF;
+    border: none;
     padding: 10px 15px;
     font-weight: 300;
     width: 50%;
@@ -334,13 +335,12 @@ button{
 .titulo_linha_geral_clicavel:hover{
     cursor: pointer;
     background-image: linear-gradient(to right, #4e6fd4, #b452ff);
-    color: #121212;
-    transition: 0.75s;
-    border: 1px solid transparent;
+    color: #FFFFFF;
+    transition: 2s;
 }
 
 .txt{
-    color: #FFFF;
+    color: #121212;
     font-size: 1.25rem;
     font-weight: 300;
 }
@@ -353,6 +353,8 @@ button{
 
 .txt_sb{
     color: #FFFFFF;
+    font-size: 0.98rem;
+    margin-top: 12px;
 }
 
 
