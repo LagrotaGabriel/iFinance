@@ -101,37 +101,37 @@ function doALoadOfStuff() {
 function animateMenu(item){
 
 	if(item == "principal"){
-		document.getElementById("img_aside_principal").src="../static/img/house.png";
+		document.getElementById("img_aside_principal").src="img/house.png";
 		document.getElementById("title_aside_principal").style.color="#121212";
 		document.getElementById("title_aside_principal").style.fontWeight=600;
 	}
 	else if(item == "balanco"){
-		document.getElementById("img_aside_balanco").src="../static/img/balance.png";
+		document.getElementById("img_aside_balanco").src="img/balance.png";
 		document.getElementById("title_aside_balanco").style.color="#121212";
 		document.getElementById("title_aside_balanco").style.fontWeight=600;
 	}
 	else if(item == "estatisticas"){
-		document.getElementById("img_aside_estatisticas").src="../static/img/stats.png";
+		document.getElementById("img_aside_estatisticas").src="img/stats.png";
 		document.getElementById("title_aside_estatisticas").style.color="#121212";
 		document.getElementById("title_aside_estatisticas").style.fontWeight=600;
 	}
 	else if(item == "despesas"){
-		document.getElementById("img_aside_despesas").src="../static/img/despesa.png";
+		document.getElementById("img_aside_despesas").src="img/despesa.png";
 		document.getElementById("title_aside_despesas").style.color="#121212";
 		document.getElementById("title_aside_despesas").style.fontWeight=600;
 	}
 	else if(item == "patrimonio"){
-		document.getElementById("img_aside_patrimonio").src="../static/img/shelter.png";
+		document.getElementById("img_aside_patrimonio").src="img/shelter.png";
 		document.getElementById("title_aside_patrimonio").style.color="#121212";
 		document.getElementById("title_aside_patrimonio").style.fontWeight=600;
 	}
 	else if(item == "rentabilidade"){
-		document.getElementById("img_aside_rentabilidade").src="../static/img/bull.png";
+		document.getElementById("img_aside_rentabilidade").src="img/bull.png";
 		document.getElementById("title_aside_rentabilidade").style.color="#121212";
 		document.getElementById("title_aside_rentabilidade").style.fontWeight=600;
 	}
 	else if(item == "configuracoes"){
-		document.getElementById("img_aside_configuracoes").src="../static/img/settings.png";
+		document.getElementById("img_aside_configuracoes").src="img/settings.png";
 		document.getElementById("title_aside_configuracoes").style.color="#121212";
 		document.getElementById("title_aside_configuracoes").style.fontWeight=600;
 	}
@@ -146,25 +146,25 @@ function returnMenuState(item){
 	}
 
 	if(item == "principal"){
-		document.getElementById("img_aside_principal").src="../static/img/houseblue.png";
+		document.getElementById("img_aside_principal").src="img/houseblue.png";
 	}
 	else if(item == "balanco"){
-		document.getElementById("img_aside_balanco").src="../static/img/balanceblue.png";
+		document.getElementById("img_aside_balanco").src="img/balanceblue.png";
 	}
 	else if(item == "estatisticas"){
-		document.getElementById("img_aside_estatisticas").src="../static/img/statsblue.png";
+		document.getElementById("img_aside_estatisticas").src="img/statsblue.png";
 	}
 	else if(item == "despesas"){
-		document.getElementById("img_aside_despesas").src="../static/img/despesablue.png";
+		document.getElementById("img_aside_despesas").src="img/despesablue.png";
 	}
 	else if(item == "patrimonio"){
-		document.getElementById("img_aside_patrimonio").src="../static/img/shelterblue.png";
+		document.getElementById("img_aside_patrimonio").src="img/shelterblue.png";
 	}
 	else if(item == "rentabilidade"){
-		document.getElementById("img_aside_rentabilidade").src="../static/img/bullblue.png";
+		document.getElementById("img_aside_rentabilidade").src="img/bullblue.png";
 	}
 	else if(item == "configuracoes"){
-		document.getElementById("img_aside_configuracoes").src="../static/img/settingsblue.png";
+		document.getElementById("img_aside_configuracoes").src="img/settingsblue.png";
 	}
 }
 
