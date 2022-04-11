@@ -73,13 +73,6 @@ public class SignUpController {
                             user.setRoles((Collection<Role>) userRole);
                             userRepository.save(user);
 
-
-
-
-
-
-
-
                             redirAttrs.addFlashAttribute("SucessoCadastro",
                                     "O cadastro foi realizado com sucesso!");
                             user = new User();
