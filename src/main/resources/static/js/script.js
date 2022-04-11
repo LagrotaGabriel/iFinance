@@ -16,6 +16,7 @@ function responsive(bodyHeight, bodyWidth){
 	var tamanhoInfosPerfil2 = document.getElementById('infos_perfil2');
 	var tituloLinhaGeralClicavel = document.getElementById('titulo_linha_geral_clicavel');
 	var tamanhoInformativos = document.getElementById('informativos');
+	var tamanhoSideMenu = document.getElementById('side_menu');
 
 	tamanhoConteudoContainer.style.height = parseInt(parseInt(tamanhoConteudoTitulo.clientHeight) + parseInt(informativos.clientHeight) + 30) + 'px';
 
@@ -24,9 +25,9 @@ function responsive(bodyHeight, bodyWidth){
 	}
 	else{
 		tamanhoMain.style.height=parseInt(parseInt(tamanhoConteudoContainer.clientHeight + parseInt(tamanhoMenuSuperior)) + 'px');
+		
 	}
 
-	var imagens = document.getElementsByClassName('sidebar_menu_img');
 	var imagens_title = document.getElementsByClassName('aside_title');
 	var menu_responsivo_item = document.getElementsByClassName('sup_sup');
 
@@ -37,12 +38,8 @@ function responsive(bodyHeight, bodyWidth){
 		document.getElementById('menu_superior').hidden=false;
 		document.getElementById('menu_superior_responsivo').hidden=true;
 		document.getElementById('conteudo_titulo_text').style.fontSize="2rem";
-		for(var i = 0; i < imagens.length; i++){
-			imagens[i].style.height="50%";
-			
-		}
 		for(var j = 0; j < imagens_title.length; j++){
-			imagens_title[j].style.fontSize="0.85rem";
+			imagens_title[j].style.fontSize="0.90rem";
 		}
 
 	}
@@ -53,13 +50,8 @@ function responsive(bodyHeight, bodyWidth){
 		document.getElementById('menu_superior').hidden=false;
 		document.getElementById('menu_superior_responsivo').hidden=true;
 		document.getElementById('conteudo_titulo_text').style.fontSize="2rem";
-
-		for(var i = 0; i < imagens.length; i++){
-			imagens[i].style.height="45%";
-			
-		}
 		for(var j = 0; j < imagens_title.length; j++){
-			imagens_title[j].style.fontSize="0.75rem";
+			imagens_title[j].style.fontSize="0.70rem";
 		}
 
 	}

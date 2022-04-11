@@ -16,12 +16,11 @@ body{
 .side_menu{
     background-color: #c3aa72;
     box-shadow: 0 0 20px #121212;
-    background: #121212;
     float: left;
-    max-height: 100%;
     margin: 0;
     padding: 0;
     opacity: 0.95;
+    display: flex;
 }
 .main{
     max-width: 100%;
@@ -33,11 +32,10 @@ body{
 
 /* MENU LATERAL */
 .side_menu_row{
-    height: 100%;
-    width: 100%;
+    max-width: 100%;
     margin: 0;
     padding: 0;
-    background: transparent;
+    background: #121212;
 }
 
 .aside{
@@ -45,11 +43,31 @@ body{
     padding: 0;
     border-bottom: 1px #4bd6d2 solid;
     float: left;
-    height: 14.28%;
     background-color: #121212;
     border-right: 1px solid #4bd6d2;
     border: none;
     opacity: 0.95;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+}
+
+.aside_clicavel{
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+}
+
+.img_button{
+    padding: 0;
+    margin: 0;
 }
 
 .aside:hover{
@@ -58,7 +76,7 @@ body{
 
 .sidebar_menu_img{
     width: 40%;
-    height: 100%;
+    padding-bottom: 5px;
 }
 .sidebar_menu_img:hover{
     cursor: pointer;
@@ -67,7 +85,7 @@ body{
 
 button{
     width: 100%;
-    height: 80%;
+    height: 100%;
     border: none;
     background-color: transparent;
     padding: 5px;
@@ -75,9 +93,11 @@ button{
 
 .aside_title{
     color: #00ccff;
-    font-size: 0.85rem;
-    height: 20%;
+    font-size: 1rem;
     width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 /* MENU SUPERIOR */
@@ -272,7 +292,6 @@ button{
     padding-right: 0;
     box-shadow: 0 0 25px #121212;
     opacity: 0.95;
-
 }
 
 .conteudo_titulo{

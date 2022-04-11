@@ -27,108 +27,111 @@
 	</head>
 
 	<body id="body">
+
 			<!-- Linha principal do site, que contém o menu lateral e o conteúdo principal -->
 			<div class="row main-row">
 
 				<!-- Menu lateral do site, que contém as opções de navegação pela single page -->
 				<div class="container side_menu col-lg-1" id="side_menu">	
 
-					<div class="row side_menu_row">
+					<div class="row side_menu_row" id="side_menu_row">
 
 						<div class="aside aside-1 col-lg-12" id="div_aside_principal" onmouseover="animateMenu('principal')" onmouseleave="returnMenuState('principal')">
 
-							<a href="#">
-								<!--<button type="button">
-									<img th:src="@{img/house.png}" class="sidebar_menu_img"/>
-								</button>-->
-								<button type="button">
+							<a href="#" class="row aside_clicavel">
+								<button type="button" class="img_button">
 									<img src="../static/img/houseblue.png" class="sidebar_menu_img" id="img_aside_principal"/>
 								</button>	
+							
+								<h1 class="aside_title text-center" id="title_aside_principal">Principal</h1>
 							</a>
-							<h1 class="aside_title text-center" id="title_aside_principal">Principal</h1>
 
 						</div>
 
 						<div class="aside aside-2 col-lg-12" id="div_aside_balanco" onmouseover="animateMenu('balanco')" onmouseleave="returnMenuState('balanco')">
 							
-							<a href="#">
+							<a href="#" class="row aside_clicavel">
 								<!--<button type="button">
 									<img th:src="@{img/balance.png}" class="sidebar_menu_img"/>
 								</button>-->
-								<button type="button">
+								<button type="button" class="img_button">
 									<img src="../static/img/balanceblue.png" class="sidebar_menu_img" id="img_aside_balanco"/>
 								</button>
+								<h1 class="aside_title text-center" id="title_aside_balanco">Balanço</h1>
 							</a>
-							<h1 class="aside_title text-center" id="title_aside_balanco">Balanço</h1>
+							
 
 						</div>
 
 						<div class="aside aside-3 col-lg-12" id="div_aside_estatisticas" onmouseover="animateMenu('estatisticas')" onmouseleave="returnMenuState('estatisticas')">
 							
-							<a href="#">
+							<a href="#" class="row aside_clicavel">
 								<!--<button type="button">
 									<img th:src="@{img/stats.png}" class="sidebar_menu_img"/>
 								</button>-->
-								<button type="button">
+								<button type="button" class="img_button">
 									<img src="../static/img/statsblue.png" class="sidebar_menu_img" id="img_aside_estatisticas"/>
 								</button>
+								<h1 class="aside_title text-center" id="title_aside_estatisticas">Estatísticas</h1>
 							</a>
-							<h1 class="aside_title text-center" id="title_aside_estatisticas">Estatísticas</h1>
+							
 
 						</div>
 
 						<div class="aside aside-4 col-lg-12" id="div_aside_despesas" onmouseover="animateMenu('despesas')" onmouseleave="returnMenuState('despesas')">
 							
-							<a href="#">
+							<a href="#" class="row aside_clicavel">
 								<!--<button type="button">
 									<img th:src="@{img/despesa.png}" class="sidebar_menu_img"/>
 								</button>-->
-								<button type="button">
+								<button type="button" class="img_button">
 									<img src="../static/img/despesablue.png" class="sidebar_menu_img" id="img_aside_despesas"/>
 								</button>
+								<h1 class="aside_title text-center" id="title_aside_despesas">Despesas</h1>
 							</a>
-							<h1 class="aside_title text-center" id="title_aside_despesas">Despesas</h1>
+							
 
 						</div>
 
 						<div class="aside aside-5 col-lg-12" id="div_aside_patrimonio" onmouseover="animateMenu('patrimonio')" onmouseleave="returnMenuState('patrimonio')">
 							
-							<a href="#">
+							<a href="#" class="row aside_clicavel">
 								<!--<button type="button">
 									<img th:src="@{img/shelter.png}" class="sidebar_menu_img"/>
 								</button>-->
-								<button type="button">
+								<button type="button" class="img_button">
 									<img src="../static/img/shelterblue.png" class="sidebar_menu_img" id="img_aside_patrimonio"/>
-								</button>								
+								</button>		
+								<h1 class="aside_title text-center" id="title_aside_patrimonio">Patrimônio</h1>						
 							</a>
-							<h1 class="aside_title text-center" id="title_aside_patrimonio">Patrimônio</h1>
+							
 
 						</div>
 
 						<div class="aside aside-6 col-lg-12" id="div_aside_rentabilidade" onmouseover="animateMenu('rentabilidade')" onmouseleave="returnMenuState('rentabilidade')">
 							
-							<a href="#">
+							<a href="#" class="row aside_clicavel">
 								<!--<button type="button">
 									<img th:src="@{img/bull.png}" class="sidebar_menu_img"/>
 								</button>-->
-								<button type="button">
+								<button type="button" class="img_button">
 									<img src="../static/img/bullblue.png" class="sidebar_menu_img" id="img_aside_rentabilidade"/>
-								</button>								
+								</button>			
+								<h1 class="aside_title text-center" id="title_aside_rentabilidade">Rentabilidade</h1>					
 							</a>
-							<h1 class="aside_title text-center" id="title_aside_rentabilidade">Rentabilidade</h1>
 
 						</div>																
 						<div class="aside aside-7 col-lg-12" id="div_aside_configuracoes" onmouseover="animateMenu('configuracoes')" onmouseleave="returnMenuState('configuracoes')">
 
-							<a href="#">
+							<a href="#" class="row aside_clicavel">
 								<!--<button type="button">
 									<img th:src="@{img/settings.png}" class="sidebar_menu_img"/>
 								</button>-->
-								<button type="button">
+								<button type="button" class="img_button">
 									<img src="../static/img/settingsblue.png" class="sidebar_menu_img" id="img_aside_configuracoes"/>
-								</button>								
+								</button>	
+								<h1 class="aside_title text-center" id="title_aside_configuracoes">Configurações</h1>							
 							</a>							
-							<h1 class="aside_title text-center" id="title_aside_configuracoes">Configurações</h1>
 
 						</div>
 					</div>
