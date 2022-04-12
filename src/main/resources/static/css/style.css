@@ -1,3 +1,5 @@
+/* ============================== MENU LATERAL ============================== */
+
 .aside-1{
     background-image: linear-gradient(to right, #00ccff, #28cffa);
     opacity: 0.9;
@@ -17,6 +19,10 @@
 .clicavel{
     text-decoration: none;
 }
+
+/* ============================ FIM DO MENU LATERAL ============================ */
+
+/* ================================ CONTEÚDO ================================ */
 
 .conteudo_item_total{
     border: 1px solid #00ccff;
@@ -66,16 +72,4 @@
     color: #FFFFFF;
 }
 
-@keyframes pulse{
-
-    0%{
-        transform: scale(0.90);
-    }
-    70%{
-        transform: scale(1);
-    }
-    100%{
-        transform: scale(0.90);
-    }
-
-}
+/* ============================= FIM DO CONTEÚDO ============================= */

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" src="index.html">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="iFinance, o sistema web de finanças pessoais. No iFinance você realiza de forma segura uma gestão completamente profissional de suas finanças pessoais.">
+		<meta name="keywords" content="Finança, Finanças, Financa, Finanças, Valor, Valores, Dinheiro, Gestão, Gestão de finança, Gestão de finanças, Gestão de finanças pessoais, Gestão de finança pessoal, Dinheiro, dinheiro, Capital, Investimento, Investimentos, Gestor de investimento, Gestor de finança, Gestor de finanças, Gestor de finanças pessoais, Finança pessoal, Finanças pessoais, Despesa, Despesas, Ativo, Ativos, Passivo, Passivos, Patrimonio, Patimonios, Patrimônio, Patrimônios, Gestor de patrimônio, Gestor de patrimonio, Gestão de patrimônio, Gestão de patrimonio, Financeiro, Contabilidade, Contábil, Contabil, Gestor Contabil, Gestão Contabil, Gestão de contabilidade, Cnotabilidade pessoal, Gestão de contabilidade Pessoal">
+ 		<meta name="author" content="Gabriel Lagrota">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+
+		<link rel="icon" th:href="@{img/bag.png}" type="image/gif" sizes="32x32">
+		<link th:href="@{css/reset.css}" rel="stylesheet" />
+		<link th:href="@{css/layout.css}" rel="stylesheet"/>
+		<link th:href="@{css/style.css}" rel="stylesheet" />
+		<script type="text/javascript" th:src="@{js/script.js}" defer></script>
+
+		<link rel="icon" href="../static/img/bag.png" type="image/gif" sizes="32x32">
+		<link href="../static/css/reset.css" rel="stylesheet" />
+		<link href="../static/css/layout.css" rel="stylesheet"/>
+		<link href="../static/css/despesas.css" rel="stylesheet" />
+		<script type="text/javascript" src="../static/js/despesas.js" defer></script>		
+		<script src="jquery-3.6.0.min.js"></script>
+
+		<title>iFinance | Despesas</title>
+
+	</head>
+
+	<body id="body">
+
+			<!-- Linha principal do site, que contém o menu lateral e o conteúdo principal -->
+			<div class="row main-row">
+
+				<!-- Menu lateral do site, que contém as opções de navegação pela single page -->
+				<div class="container side_menu col-lg-1" id="side_menu">	
+
+					<div class="row side_menu_row" id="side_menu_row">
+
+						<div class="aside aside-1 col-lg-12" id="div_aside_principal" onmouseover="animateMenu('principal')" onmouseleave="returnMenuState('principal')">
+
+							<a href="index.html" class="row aside_clicavel">
+								<button type="button" class="img_button">
+									<img src="../static/img/houseblue.png" class="sidebar_menu_img" id="img_aside_principal"/>
+								</button>	
+							
+								<h1 class="aside_title aside_title_principal text-center" id="title_aside_principal">
+									Principal
+								</h1>
+							</a>
+
+						</div>
+
+						<div class="aside aside-2 col-lg-12" id="div_aside_balanco" onmouseover="animateMenu('balanco')" onmouseleave="returnMenuState('balanco')">
+							
+							<a href="#" class="row aside_clicavel">
+								<button type="button" class="img_button">
+									<img src="../static/img/balanceblue.png" class="sidebar_menu_img" id="img_aside_balanco"/>
+								</button>
+								<h1 class="aside_title text-center" id="title_aside_balanco">
+									Balanço
+								</h1>
+							</a>
+							
+
+						</div>
+
+						<div class="aside aside-3 col-lg-12" id="div_aside_estatisticas" onmouseover="animateMenu('estatisticas')" onmouseleave="returnMenuState('estatisticas')">
+							
+							<a href="#" class="row aside_clicavel">
+								<button type="button" class="img_button">
+									<img src="../static/img/statsblue.png" class="sidebar_menu_img" id="img_aside_estatisticas"/>
+								</button>
+								<h1 class="aside_title text-center" id="title_aside_estatisticas">Estatísticas</h1>
+							</a>
+							
+
+						</div>
+
+						<div class="aside aside-4 col-lg-12" id="div_aside_despesas">
+							
+							<a href="#" class="row aside_clicavel">
+								<button type="button" class="img_button">
+									<img src="../static/img/despesa.png" class="sidebar_menu_img" id="img_aside_despesas"/>
+								</button>
+								<h1 class="aside_title text-center" id="title_aside_despesas">Despesas</h1>
+							</a>
+							
+
+						</div>
+
+						<div class="aside aside-5 col-lg-12" id="div_aside_patrimonio" onmouseover="animateMenu('patrimonio')" onmouseleave="returnMenuState('patrimonio')">
+							
+							<a href="#" class="row aside_clicavel">
+								<button type="button" class="img_button">
+									<img src="../static/img/shelterblue.png" class="sidebar_menu_img" id="img_aside_patrimonio"/>
+								</button>		
+								<h1 class="aside_title text-center" id="title_aside_patrimonio">Patrimônio</h1>						
+							</a>
+							
+
+						</div>
+
+						<div class="aside aside-6 col-lg-12" id="div_aside_rentabilidade" onmouseover="animateMenu('rentabilidade')" onmouseleave="returnMenuState('rentabilidade')">
+							
+							<a href="#" class="row aside_clicavel">
+								<button type="button" class="img_button">
+									<img src="../static/img/bullblue.png" class="sidebar_menu_img" id="img_aside_rentabilidade"/>
+								</button>			
+								<h1 class="aside_title text-center" id="title_aside_rentabilidade">Rentabilidade</h1>					
+							</a>
+
+						</div>																
+						<div class="aside aside-7 col-lg-12" id="div_aside_configuracoes" onmouseover="animateMenu('configuracoes')" onmouseleave="returnMenuState('configuracoes')">
+
+							<a href="#" class="row aside_clicavel">
+								<button type="button" class="img_button">
+									<img src="../static/img/settingsblue.png" class="sidebar_menu_img" id="img_aside_configuracoes"/>
+								</button>	
+								<h1 class="aside_title text-center" id="title_aside_configuracoes">Configurações</h1>							
+							</a>							
+
+						</div>
+					</div>
+				</div>
+
+<!-- HEADER -->
+				<!-- Conteúdo principal do site, que fica ao lado do menu lateral -->
+				<main class="container main col-lg-11" id="main">
+					<!-- Header do site, que contém as informações básicas da sessão -->
+					<header class="row menu_superior col-lg-12" id="menu_superior">
+					
+						<!-- Barra de pesquisas do header -->
+						<div class="col-lg-6 menu_superior_item searchbar">
+							
+							<form class="row menu_superior_form">
+
+								<input class="menu_superior_input col-lg-11" placeholder="Pesquise aqui por ativos, entrada de valores, despesas, balanços e outros...">
+								<button class="lupa_btn col-lg-1">
+
+									<img class="lupa_img" src="../static/img/search.png"/>
+
+								</button>
+							</form>	
+
+						</div>	
+
+						<div class="col-lg-2 menu_superior_item">
+
+						</div>	
+
+						<!-- Botão para acessar perfil do usuário -->
+						<div class="col-lg-2 menu_superior_item bt2">
+							
+							<button class="perfil_btn col-lg-1">
+
+								Perfil
+
+							</button>
+
+						</div>
+
+						<!-- Botão para realizar logout -->
+						<div class="col-lg-2 menu_superior_item bt3">
+
+							<form class="logout_form" th:action="@{/logout}" method="POST">
+
+								<button class="logout_btn col-lg-1" type="submit">
+
+									Logout
+
+								</button>	
+								<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+							</form>
+							
+						</div>
+
+					</header>
+					
+					<div class="menu_superior_responsivo row" id="menu_superior_responsivo">
+
+						<div class="sup sup_01 col-md-2 col-sm-2 col-2">
+							<a href="#" class="sup_sup sup_sup_01">Home</a>
+						</div>	
+
+						<div class="sup sup_02 col-md-2 col-sm-2 col-2">
+							<a href="#" class="sup_sup sup_sup_01">Balanço</a>
+						</div>
+
+						<div class="sup sup_03 col-md-2 col-sm-2 col-2">
+							<a href="#" class="sup_sup sup_sup_01">Status</a>
+						</div>	
+
+						<div class="sup sup_04 col-md-2 col-sm-2 col-2">
+							<a href="#" class="sup_sup sup_sup_01">Dinheiro</a>
+						</div>
+
+						<div class="sup sup_05 col-md-2 col-sm-2 col-2">
+							<a href="#" class="sup_sup sup_sup_01">Bens</a>
+						</div>		
+
+						<div class="sup sup_06 col-md-2 col-sm-2 col-2">
+							<a href="#" class="sup_sup sup_sup_01">Perfil</a>
+						</div>													
+
+					</div>	
+
+
+
+
+
+
+
+
+					<div class="container_align" id="container_align">
+
+						<div class="container conteudo_container" id="conteudo_container">
+
+							<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo" id="conteudo_titulo">
+
+								<h1 class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text" id="conteudo_titulo_text">
+									Suas despesas
+								</h1>
+
+							</div>
+
+							<div class="row row_botoes">
+
+								<div class="col-xs-11 col-lg-11 col-md-11 col-sm-11 col-11 botoes">
+
+									<div class="botoes_opcoes col-xs-9 col-lg-9 col-md-8 col-sm-7 col-7">
+
+										<a href="#" class="col-xs-1 col-lg-2 col-md-2 col-sm-3 col-3 botoes_opc botoes_opc_novo">
+											Novo
+										</a>
+
+										<a href="#" class="col-xs-1 col-lg-2 col-md-2 col-sm-3 col-3 botoes_opc botoes_opc_editar">
+											Editar
+										</a>
+
+										<a href="#" class="col-xs-1 col-lg-2 col-md-2 col-sm-3 col-3 botoes_opc botoes_opc_excluir">
+											Deletar
+										</a>
+									</div>
+
+									<div class="selecao col-xs-3 col-lg-3 col-md-4 col-sm-5 col-5">
+
+										<select class="col-xs-5 col-lg-4 col-md-4 col-sm-4 col-4 select_opc">
+
+											<option selected>2022</option>
+											<option>2021</option>
+											<option>2020</option>
+											<option>2019</option>
+											<option>2018</option>
+
+										</select>
+
+										<select class="col-xs-5 col-lg-6 col-md-6 col-sm-6 col-6 select_opc">
+
+											<option selected>Todos</option>
+											<option>Pagos</option>
+											<option>Pendentes</option>
+
+										</select>										
+
+									</div>
+
+								</div>													
+							</div>	
+
+							<div class="row linha_data">
+
+								<div class="col-xs-11 col-lg-11 col-md-11 col-sm-11 col-11 meses">
+
+									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jan">
+										Jan
+									</a>
+
+									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc">
+										Fev
+									</a>
+
+									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc">
+										Mar
+									</a>
+
+									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc">
+										Abr
+									</a>
+
+									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1  col-1 mes_opc">
+										Mai
+									</a>
+
+									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc">
+										Jun
+									</a>
+
+									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc">
+										Jul
+									</a>
+
+									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc">
+										Ago
+									</a>
+
+									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc">
+										Set
+									</a>
+
+									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc">
+										Out
+									</a>
+
+									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc">
+										Nov
+									</a>
+
+									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc">
+										Dez
+									</a>
+													
+								</div>			
+
+							</div>							
+
+							<div class="row row_tabela_all">
+							
+								<div class="col-xs-11 col-lg-11 col-md-11 col-sm-12 col-12 tabela_all">
+
+									<table class="tabela col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12" id="tabela">
+
+										<thead class="thead col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12" id="thead">
+
+											<tr class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12" id="thead_row">
+
+												<th class="th col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1"></th>
+												<th class="th col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">Data</th>
+												<th class="th col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">Descrição</th>
+												<th class="th col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">Valor</th>
+												<th class="th col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">Tipo</th>
+												<th class="th col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">Pago</th>
+												<th class="th col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">Agendado</th>
+
+											</tr>	
+
+										</thead>
+
+										<tbody class="tbody col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											<tr class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+												<td class="td td_checkbox col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
+													
+													<input type="checkbox" class="checkbox"/>
+
+												</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+
+											</tr>
+
+											<tr class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+												<td class="td td_checkbox col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
+													
+													<input type="checkbox" class="checkbox"/>
+
+												</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+
+											</tr>
+
+											<tr class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+												<td class="td td_checkbox col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
+													
+													<input type="checkbox" class="checkbox"/>
+
+												</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+
+											</tr>
+
+											<tr class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+												<td class="td td_checkbox col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
+													
+													<input type="checkbox" class="checkbox"/>
+
+												</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+
+											</tr>
+
+											<tr class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+												<td class="td td_checkbox col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
+													
+													<input type="checkbox" class="checkbox"/>
+
+												</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+
+											</tr>
+
+											<tr class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+												<td class="td td_checkbox col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
+													
+													<input type="checkbox" class="checkbox"/>
+
+												</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+
+											</tr>
+
+											<tr class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+												<td class="td td_checkbox col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
+													
+													<input type="checkbox" class="checkbox"/>
+
+												</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+
+											</tr>
+
+										</tbody>	
+										
+									</table>
+
+								</div><!-- TABELA_ALL (COLUNA) -->
+
+							</div><!-- TABELA_ROW (LINHA) -->
+
+							<div class="row page_row">
+
+								<div class="col-xs-11 col-lg-11 col-md-11 pages">
+
+									<ul class="ul col-xs-12 col-lg-12 col-md-12">
+
+										<li>
+											<a href="#">Anterior</a>
+										</li>
+
+										<li>
+											<a href="#">1</a>
+										</li>
+
+										<li>
+											<a href="#">Próximo</a>
+										</li>
+
+									</ul>	
+
+								</div>
+
+							</div><!-- PAGE_ROW-->
+
+						</div><!-- CONTEUDO_CONTAINER -->
+					</div><!-- CONTAINER_ALIGN -->
+				</main>	
+			</div>
+	</body>
+</html>
