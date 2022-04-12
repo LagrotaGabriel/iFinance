@@ -188,6 +188,7 @@ function responsive(bodyHeight, bodyWidth){
 }
 
 function doALoadOfStuff() {
+	document.getElementById('conteudo_container').style.transition="2s";
 	responsive(document.getElementById('body').clientHeight, document.getElementById('body').clientWidth);
 }
 
@@ -262,4 +263,131 @@ function returnMenuState(item){
 		document.getElementById("img_aside_configuracoes").style.animation="none";
 		titulos[6].style.color="#00ccff";
 	}
+}
+
+/* =================== ABERTURA E FECHAMENTO DO NOVA DESPESA =================== */
+
+function novaDespesa(){
+
+	var conteudoContainer = document.getElementById('conteudo_container');
+	var containerNovo = document.getElementById('container_novo');
+	var botoesOpc = document.getElementsByClassName('botoes_opc');
+	var selectOpc = document.getElementsByClassName('select_opc');
+	var meses = document.getElementsByClassName('mes_opc');
+
+	conteudoContainer.style.pointerEvents="none";
+	conteudoContainer.style.opacity="0";
+	conteudoContainer.style.transition="2s";
+	containerNovo.style.display="block";
+	containerNovo.style.transition="2s";
+
+}
+
+function fechaNovaDespesa(){
+
+	var conteudoContainer = document.getElementById('conteudo_container');
+	var containerNovo = document.getElementById('container_novo');
+
+	if(confirm('Você tem certeza que deseja fechar o formulário? Os dados preenchidos serão perdidos')) {
+		conteudoContainer.style.pointerEvents="auto";
+		conteudoContainer.style.opacity="0.95";
+		containerNovo.style.display="none";
+		conteudoContainer.style.transition="2s";
+		containerNovo.style.transition="2s";
+	} 
+
+}
+
+/* =================== INTERAÇÕES COM O NOVA DESPESA =================== */
+
+function changeStatus(){
+
+	var status = document.getElementById('select_status').value;
+	
+	var labelAgendamento = document.getElementById('label_agendamento');
+	var inputAgendamento = document.getElementById('input_agendamento');
+
+	var labelData = document.getElementById('label_data');
+	var inputData = document.getElementById('input_data');
+
+	var labelForma = document.getElementById('label_forma');
+	var inputForma = document.getElementById('input_forma');
+
+	const d = new Date();
+	var ano = d.getFullYear();
+	var mes = d.getMonth();
+	var dia = d.getDate();
+
+	if(mes < 10){
+		mes = '0'+mes;
+	}
+
+	var data = (ano + '-' + mes + '-' + dia);
+
+	if(status == 0){
+
+		labelAgendamento.style.color="grey";
+		inputAgendamento.value="";
+		inputAgendamento.disabled=true;
+		inputAgendamento.style.border="1px solid grey";
+		inputAgendamento.style.color="grey";
+
+		labelData.style.color="grey";
+		inputData.value="";
+		inputData.disabled=true;
+		inputData.style.border="1px solid grey";
+		inputData.style.color="grey";
+
+		labelForma.style.color="grey";
+		inputForma.value="";
+		inputForma.disabled=true;
+		inputForma.style.border="1px solid grey";
+		inputForma.style.color="grey";				
+
+	}
+
+	else if(status == 1){
+
+		labelAgendamento.style.color="grey";
+		inputAgendamento.value="";
+		inputAgendamento.disabled=true;
+		inputAgendamento.style.border="1px solid grey";
+		inputAgendamento.style.color="grey";
+
+		labelData.style.color="#FFFFFF";
+		inputData.disabled=false;
+		inputData.style.border="1px solid #00CCFF";
+		inputData.style.color="#FFFFFF";
+
+		labelForma.style.color="#FFFFFF";
+		inputForma.disabled=false;
+		inputForma.value="Dinheiro";
+		inputForma.style.border="1px solid #00CCFF";
+		inputForma.style.color="#FFFFFF";
+
+
+		inputData.value=data;
+	}
+
+	else if(status == 2){
+
+		labelAgendamento.style.color="#FFFFFF";
+		inputAgendamento.disabled=false;
+		inputAgendamento.style.border="1px solid #00CCFF";
+		inputAgendamento.style.color="#FFFFFF";
+
+		labelData.style.color="grey";
+		inputData.value="";
+		inputData.disabled=true;
+		inputData.style.border="1px solid grey";
+		inputData.style.color="grey";
+
+		labelForma.style.color="grey";
+		inputForma.value="";
+		inputForma.disabled=true;
+		inputForma.style.border="1px solid grey";
+		inputForma.style.color="grey";						
+
+	}
+
 }

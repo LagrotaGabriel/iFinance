@@ -232,7 +232,7 @@
 
 									<div class="botoes_opcoes col-xs-9 col-lg-9 col-md-8 col-sm-7 col-7">
 
-										<a href="#" class="col-xs-1 col-lg-2 col-md-2 col-sm-3 col-3 botoes_opc botoes_opc_novo">
+										<a href="#" class="col-xs-1 col-lg-2 col-md-2 col-sm-3 col-3 botoes_opc botoes_opc_novo" onclick="novaDespesa()">
 											Novo
 										</a>
 
@@ -274,7 +274,7 @@
 
 								<div class="col-xs-11 col-lg-11 col-md-11 col-sm-11 col-11 meses">
 
-									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jan" id="mes_opc_jan">
+									<a href="index.html" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jan" id="mes_opc_jan">
 										Jan
 									</a>
 
@@ -495,6 +495,173 @@
 							</div><!-- PAGE_ROW-->
 
 						</div><!-- CONTEUDO_CONTAINER -->
+
+
+
+
+
+
+
+
+
+
+						<div class="col-xs-8 col-lg-8 col-md-10 col-sm-11 col-12 container_novo" id="container_novo">
+
+								<div class="row container_novo_linha container_novo_primeira_linha">
+									<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_novo_botao_fechar">
+										<button type="button" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 novo_botao_fechar" onclick="fechaNovaDespesa()">
+											X
+										</button>
+									</div>	
+
+								</div>
+
+								<div class="row container_novo_linha container_novo_segunda_linha">
+
+									<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_novo_titulo">
+										<h1 class="col-xs-6 col-lg-6 col-md-6 col-sm-6 col-6 text-center novo_titulo">
+											Inserir despesa
+										</h1>
+									</div>	
+
+								</div>		
+
+								<form class="form">
+
+									<div class="row container_novo_linha container_novo_terceira_linha">
+
+										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_novo_form">
+
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_label">
+												<label class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_label">
+													Descrição:
+												</label>	
+											</div>
+
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_label">
+												<label class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_label">
+													Status:
+												</label>	
+											</div>
+
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_label">
+												<label class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_label">
+													Valor:
+												</label>	
+											</div>											
+
+										</div>	
+
+									</div>
+
+									<div class="row container_novo_linha container_novo_quarta_linha">
+
+										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_novo_form">
+
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
+												<input type="text" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input"/>
+											</div>
+
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
+												<select class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="select_status" onchange="changeStatus()"/>
+													<option value="0"></option>
+													<option value="1">Pago</option>
+													<option value="2">A pagar</option>
+												</select>
+											</div>	
+
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
+												<input type="number" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input"/>
+											</div>											
+
+										</div>	
+
+									</div>		
+
+									<div class="row container_novo_linha container_novo_quinta_linha">
+
+										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_novo_form">
+
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_label">
+												<label class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_label" id="label_forma">
+													Forma:
+												</label>	
+											</div>
+
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_label">
+												<label class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_label" id="label_data">
+													Pago dia:
+												</label>	
+											</div>
+
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_label">
+												<label class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_label" id="label_agendamento">
+													Data agendamento:
+												</label>	
+											</div>											
+
+										</div>	
+
+									</div>
+
+									<div class="row container_novo_linha container_novo_sexta_linha">
+
+										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_novo_form">
+
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
+												<select class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_forma" disabled/>
+													<option>Dinheiro</option>
+													<option>Cartão de débito</option>
+													<option>Cartão de crédito</option>
+													<option>PIX</option>
+													<option>TED</option>
+													<option>DOC</option>
+													<option>Cheque</option>
+													<option>Outro</option>
+												</select>												
+											</div>
+
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
+												<input type="date" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_data" disabled/>
+											</div>
+
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
+												<input type="date" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_agendamento" disabled/>
+											</div>																						
+										</div>	
+
+									</div>
+							
+
+									<div class="row container_novo_linha container_novo_setima_linha">		
+
+										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_novo_form">
+
+											<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 col_novo_botao">
+												<button type="button" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_botao" onclick="fechaNovaDespesa()">
+													Voltar
+												</button>
+											</div>	
+
+											<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 col_novo_botao">
+												<button type="submit" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_botao">
+													Salvar
+												</button>
+											</div>		
+
+											<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 col_novo_botao">
+												<button type="reset" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_botao">
+													Limpar
+												</button>
+											</div>														
+										</div>
+
+									</div>		
+
+								</form>
+
+						</div>
+
 					</div><!-- CONTAINER_ALIGN -->
 				</main>	
 			</div>

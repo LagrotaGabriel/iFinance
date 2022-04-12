@@ -219,8 +219,123 @@ li a:hover{
     transition: 1s;
 }
 
-
 /* ===== FIM DAS PÁGINAS ===== */
 
+/* ========= NOVA DESPESA ========= */
+
+.container_novo{
+    display: none;
+    position: absolute;
+    background-color: #121212;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 0 25px #121212;
+    opacity: 0.96;
+}
+
+.container_novo_linha{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.container_novo_primeira_linha{
+    padding: 15px;
+}
+
+.container_novo_segunda_linha, .container_novo_quarta_linha{
+    margin-bottom: 25px;
+}
+
+.container_novo_sexta_linha{
+    margin-bottom: 30px;
+}
+
+.col_novo_botao_fechar{
+    margin: 0;
+    padding: 0;
+}
+
+.novo_botao_fechar{
+    color: #FFFFFF;
+    float: right;
+    text-align: right;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.col_novo_titulo, .col_novo_form{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.novo_titulo{
+    font-size: 1.75rem;
+    color: #FFFFFF;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #00CCFF;
+}
+
+.form{
+    margin: 0;
+    padding: 0;
+    margin-bottom: 50px;
+}
+
+.col_novo_form{
+    margin: 0;
+    padding: 0;
+}
+
+.col_novo_input, .col_novo_label, .col_novo_botao{
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+.col_novo_label{
+    color: #FFFFFF;
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+}
+
+.novo_input{
+    border: 1px solid #00CCFF;
+    background: transparent;
+    padding: 8px 8px;
+    color: #FFFFFF;
+}
+
+.novo_botao{
+    border: 1px solid #00CCFF;
+    padding: 10px;
+    color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.novo_botao:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    transition: 1s;
+    color: #121212;
+}
+
+#label_agendamento, #label_data, #label_forma{
+    color: grey;
+}
+#input_agendamento, #input_data, #input_forma{
+    border: 1px solid grey;
+    color: grey;
+}
+
+/* ===== FIM DO NOVA DESPESA ===== */
 
 /* ============================= FIM DO CONTEÚDO ============================= */
