@@ -15,7 +15,9 @@ function responsive(bodyHeight, bodyWidth){
 	var tamanhoSideMenu = document.getElementById('side_menu');
 	var tamanhoContainerAlign = document.getElementById('container_align');
 
-	tamanhoConteudoContainer.style.height = parseInt(parseInt(tamanhoConteudoTitulo.clientHeight) + 'px');
+	//tamanhoConteudoContainer.style.height = parseInt(parseInt(tamanhoConteudoTitulo.clientHeight) + 'px');
+
+	console.log(tamanhoMenuSuperior.clientHeight);
 
 	if(tamanhoMenuSuperior.clientHeight == 0){
 		var somaTamanho = (tamanhoMain.clientHeight - tamanhoMenuResponsivo.clientHeight) + 'px';
@@ -25,8 +27,6 @@ function responsive(bodyHeight, bodyWidth){
 		var somaTamanho = (tamanhoAside.clientHeight - tamanhoMenuSuperior.clientHeight) + 'px';
 		tamanhoContainerAlign.style.height = somaTamanho;
 	}
-
-	
 
 	var imagens_title = document.getElementsByClassName('aside_title');
 	var menu_responsivo_item = document.getElementsByClassName('sup_sup');
@@ -38,6 +38,8 @@ function responsive(bodyHeight, bodyWidth){
 	var tdTipo = document.getElementsByClassName('td_tipo');
 	var botoesOpc = document.getElementsByClassName('botoes_opc');
 	var selectOpc = document.getElementsByClassName('select_opc');
+	var novoLabel = document.getElementsByClassName('novo_label');
+	var novoInput = document.getElementsByClassName('novo_input');
 
 	if(bodyWidth > 1200){
 		console.log('Muito grande')
@@ -65,6 +67,10 @@ function responsive(bodyHeight, bodyWidth){
 		}
 		for(var i = 0; i < selectOpc.length; i++){
 			selectOpc[i].style.fontSize="1rem";
+		}
+		for(var i = 0; i < novoLabel.length; i++){
+			novoLabel[i].style.fontSize="1.15rem";
+			novoInput[i].style.fontSize="1rem";
 		}
 		thTipo.hidden=false;		
 	}
@@ -95,6 +101,10 @@ function responsive(bodyHeight, bodyWidth){
 		for(var i = 0; i < selectOpc.length; i++){
 			selectOpc[i].style.fontSize="1rem";
 		}
+		for(var i = 0; i < novoLabel.length; i++){
+			novoLabel[i].style.fontSize="1.15rem";
+			novoInput[i].style.fontSize="1rem";
+		}
 		thTipo.hidden=false;		
 	}
 	else if(bodyWidth <= 992 && bodyWidth > 768){
@@ -124,6 +134,10 @@ function responsive(bodyHeight, bodyWidth){
 		for(var i = 0; i < selectOpc.length; i++){
 			selectOpc[i].style.fontSize="1rem";
 		}
+		for(var i = 0; i < novoLabel.length; i++){
+			novoLabel[i].style.fontSize="1rem";
+			novoInput[i].style.fontSize="0.85rem";
+		}		
 		thTipo.hidden=false;		
 	}
 	else if(bodyWidth <= 768 && bodyWidth > 540){
@@ -153,6 +167,10 @@ function responsive(bodyHeight, bodyWidth){
 		for(var i = 0; i < selectOpc.length; i++){
 			selectOpc[i].style.fontSize="0.85rem";
 		}
+		for(var i = 0; i < novoLabel.length; i++){
+			novoLabel[i].style.fontSize="0.90rem";
+			novoInput[i].style.fontSize="0.75rem";
+		}			
 		thTipo.hidden=false;
 	}
 	else if(bodyWidth < 540){
@@ -182,6 +200,10 @@ function responsive(bodyHeight, bodyWidth){
 		for(var i = 0; i < selectOpc.length; i++){
 			selectOpc[i].style.fontSize="0.75rem";
 		}
+		for(var i = 0; i < novoLabel.length; i++){
+			novoLabel[i].style.fontSize="0.70rem";
+			novoInput[i].style.fontSize="0.65rem";
+		}		
 		thTipo.hidden=true;
 	}
 
@@ -288,13 +310,29 @@ function fechaNovaDespesa(){
 	var conteudoContainer = document.getElementById('conteudo_container');
 	var containerNovo = document.getElementById('container_novo');
 
-	if(confirm('Você tem certeza que deseja fechar o formulário? Os dados preenchidos serão perdidos')) {
+	var inputDescricao = document.getElementById('input_descricao');
+	var inputStatus = document.getElementById('select_status');
+	var inputValor = document.getElementById('input_valor');
+	var inputForma = document.getElementById('input_forma');
+	var inputData = document.getElementById('input_data');
+	var inputAgendamento = document.getElementById('input_agendamento');
+
+	if(inputDescricao.value == "" && inputStatus.value == "0" && inputValor.value == "" && inputForma.value == "" && inputData.value == "" && inputAgendamento.value == ""){
 		conteudoContainer.style.pointerEvents="auto";
 		conteudoContainer.style.opacity="0.95";
 		containerNovo.style.display="none";
 		conteudoContainer.style.transition="2s";
 		containerNovo.style.transition="2s";
-	} 
+	}
+	else{	
+		if(confirm('Você tem certeza que deseja fechar o formulário? Os dados preenchidos serão perdidos')) {
+			conteudoContainer.style.pointerEvents="auto";
+			conteudoContainer.style.opacity="0.95";
+			containerNovo.style.display="none";
+			conteudoContainer.style.transition="2s";
+			containerNovo.style.transition="2s";
+		} 
+	}	
 
 }
 
