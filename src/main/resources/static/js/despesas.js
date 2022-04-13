@@ -3,6 +3,10 @@
 responsive(document.getElementById('body').clientHeight, document.getElementById('body').clientWidth)
 window.onresize = doALoadOfStuff;
 
+var meses = document.getElementsByClassName('mes_opc');
+meses[new Date().getMonth()].style.background="#00CCFF";
+meses[new Date().getMonth()].style.color="#121212"
+
 function responsive(bodyHeight, bodyWidth){
 
 	/* Ajustando content */
@@ -15,8 +19,7 @@ function responsive(bodyHeight, bodyWidth){
 	var tamanhoSideMenu = document.getElementById('side_menu');
 	var tamanhoContainerAlign = document.getElementById('container_align');
 
-	//tamanhoConteudoContainer.style.height = parseInt(parseInt(tamanhoConteudoTitulo.clientHeight) + 'px');
-
+	//tamanhoConteudoContainer.style.height = "90%";
 	var imagens_title = document.getElementsByClassName('aside_title');
 	var menu_responsivo_item = document.getElementsByClassName('sup_sup');
 	var meses = document.getElementsByClassName('mes_opc');
@@ -425,5 +428,27 @@ function changeStatus(){
 		inputForma.style.color="grey";						
 
 	}
+
+}
+
+/* =================== INTERAÇÕES COM O MENU DE MESES =================== */
+
+function onOver(month){
+
+}
+
+function onLeave(month){
+
+}
+
+function changeMonth(month){
+
+	var meses = document.getElementsByClassName('mes_opc');
+	for(var i = 0; i < meses.length; i++){
+		meses[i].style.background="transparent";
+		meses[i].style.color="#FFFFFF";
+	}
+	meses[month].style.background="#00CCFF";
+	meses[month].style.color="#121212";
 
 }
