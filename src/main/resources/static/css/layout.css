@@ -216,7 +216,7 @@ button{
 .menu_superior_responsivo{
     width: 100%;
     margin: 0;
-    display: flex;
+    display: none;
     align-items: center;
     justify-items: center;
     justify-content: center;
