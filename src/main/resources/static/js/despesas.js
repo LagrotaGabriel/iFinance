@@ -576,16 +576,7 @@ function editChangeStatus(){
 
 /* =================== INTERAÇÕES COM O MENU DE MESES =================== */
 
-function onOver(month){
-
-}
-
-function onLeave(month){
-
-}
-
 function changeMonth(month){
-
 	var meses = document.getElementsByClassName('mes_opc');
 	for(var i = 0; i < meses.length; i++){
 		meses[i].style.background="transparent";
@@ -593,5 +584,4 @@ function changeMonth(month){
 	}
 	meses[month].style.background="#00CCFF";
 	meses[month].style.color="#121212";
-
 }

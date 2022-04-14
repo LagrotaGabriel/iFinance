@@ -15,8 +15,38 @@ function responsive(bodyHeight, bodyWidth){
 	var tamanhoSideMenu = document.getElementById('side_menu');
 	var tamanhoContainerAlign = document.getElementById('container_align');
 
+	var novoTitulo = document.getElementById('novo_titulo');
+	var editTitulo = document.getElementById('edit_titulo');
+
+	var firstShow = document.getElementById('first_show');
+	var secondShow = document.getElementById('second_show');
+
 	var imagens_title = document.getElementsByClassName('aside_title');
 	var menu_responsivo_item = document.getElementsByClassName('sup_sup');
+
+	var novoLabel = document.getElementsByClassName('novo_label');
+	var novoInput = document.getElementsByClassName('novo_input');
+	var novoBotao = document.getElementsByClassName('novo_botao');
+
+	var editLabel = document.getElementsByClassName('edit_label');
+	var editInput = document.getElementsByClassName('edit_input');
+	var editBotao = document.getElementsByClassName('edit_botao');
+
+	var arrow = document.getElementsByClassName('arrow');
+
+	var blockInterno = document.getElementsByClassName('block_interno');
+	var firstBlockClicavel = document.getElementsByClassName('first_block_clicavel');
+	var secondBlockClicavel = document.getElementsByClassName('second_block_clicavel');
+	var block = document.getElementsByClassName('block');
+
+	var botoesOpc = document.getElementsByClassName('botoes_opc');
+	var li = document.getElementsByClassName('li');
+	var liA = document.getElementsByClassName('li_a');
+
+	var th = document.getElementsByClassName('th');
+	var td = document.getElementsByClassName('td');
+
+	
 
 	if(bodyWidth > 1200){
 		console.log('Muito grande')
@@ -29,6 +59,42 @@ function responsive(bodyHeight, bodyWidth){
 		for(var j = 0; j < imagens_title.length; j++){
 			imagens_title[j].style.fontSize="0.90rem";
 		}	
+		for(var i = 0; i < arrow.length; i++){
+			arrow[i].style.display="flex";
+		}
+		for(var i = 0; i < blockInterno.length; i++){
+			blockInterno[i].style.padding="45px 0";
+		}
+		for(var i = 0; i < firstBlockClicavel.length; i++){
+			firstBlockClicavel[i].style.fontSize="1.5rem";
+		}
+		for(var i = 0; i < secondBlockClicavel.length; i++){
+			secondBlockClicavel[i].style.fontSize="1rem";
+		}		
+		for(var i = 0; i < block.length; i++){
+			block[i].style.margin="0 20px";
+		}
+		for(var i = 0; i < liA.length; i++){
+			liA[i].style.fontSize="1rem";
+			botoesOpc[i].style.fontSize="1rem";
+		}		
+		for(var i = 0; i < th.length; i++){
+			th[i].style.fontSize="1.5rem";
+			td[i].style.fontSize="1rem";
+		}
+		for(var i = 0; i < novoLabel.length; i++){
+			novoLabel[i].style.fontSize="1.15rem";
+			novoInput[i].style.fontSize="1rem";
+		}		
+		for(var i = 0; i < novoBotao.length; i++){
+			novoBotao[i].style.fontSize="1rem";
+		}
+
+		novoTitulo.style.fontSize="1.75rem";
+
+		firstShow.style.display="flex";
+		firstShow.style.marginBottom="0";
+		secondShow.style.display="none";	
 	}
 	else if(bodyWidth <= 1200 && bodyWidth > 992){
 		console.log('Grande');
@@ -41,6 +107,48 @@ function responsive(bodyHeight, bodyWidth){
 		for(var j = 0; j < imagens_title.length; j++){
 			imagens_title[j].style.fontSize="0.70rem";
 		}	
+		for(var i = 0; i < arrow.length; i++){
+			arrow[i].style.display="flex";
+		}		
+		for(var i = 0; i < blockInterno.length; i++){
+			blockInterno[i].style.padding="35px 0";
+		}
+		for(var i = 0; i < firstBlockClicavel.length; i++){
+			firstBlockClicavel[i].style.fontSize="1.25rem";
+		}
+		for(var i = 0; i < secondBlockClicavel.length; i++){
+			secondBlockClicavel[i].style.fontSize="1rem";
+		}	
+		for(var i = 0; i < block.length; i++){
+			block[i].style.margin="0 15px";
+		}		
+		for(var i = 0; i < liA.length; i++){
+			liA[i].style.fontSize="1rem";
+			botoesOpc[i].style.fontSize="1rem";
+		}
+		for(var i = 0; i < th.length; i++){
+			th[i].style.fontSize="1.35rem";
+		}	
+		for(var i = 0; i< td.length; i++){
+			td[i].style.fontSize="1rem";				
+		}		
+		for(var i = 0; i < novoLabel.length; i++){
+			novoLabel[i].style.fontSize="1.15rem";
+			novoInput[i].style.fontSize="1rem";
+			editLabel[i].style.fontSize="1.15rem";
+			editInput[i].style.fontSize="1rem";
+		}	
+		for(var i = 0; i < novoBotao.length; i++){
+			editBotao[i].style.fontSize="1rem";
+			editBotao[i].style.fontSize="1rem";
+		}					
+
+		novoTitulo.style.fontSize="1.50rem";
+		editTitulo.style.fontSize="1.50rem";
+
+		firstShow.style.display="flex";
+		firstShow.style.marginBottom="0";
+		secondShow.style.display="none";						
 	}
 	else if(bodyWidth <= 992 && bodyWidth > 768){
 		console.log('Médio');
@@ -52,7 +160,49 @@ function responsive(bodyHeight, bodyWidth){
 		document.getElementById('conteudo_titulo_text').style.fontSize="2rem";
 		for(var i = 0; i < menu_responsivo_item.length; i++){
 			menu_responsivo_item[i].style.fontSize="0.85rem";
+		}
+		for(var i = 0; i < arrow.length; i++){
+			arrow[i].style.display="none";
+		}		
+		for(var i = 0; i < blockInterno.length; i++){
+			blockInterno[i].style.padding="25px 0";
 		}	
+		for(var i = 0; i < firstBlockClicavel.length; i++){
+			firstBlockClicavel[i].style.fontSize="1rem";
+		}
+		for(var i = 0; i < secondBlockClicavel.length; i++){
+			secondBlockClicavel[i].style.fontSize="0.75rem";
+		}		
+		for(var i = 0; i < block.length; i++){
+			block[i].style.margin="0 10px";
+		}	
+		for(var i = 0; i < liA.length; i++){
+			liA[i].style.fontSize="0.80rem";
+			botoesOpc[i].style.fontSize="0.80rem";
+		}	
+		for(var i = 0; i < th.length; i++){
+			th[i].style.fontSize="1rem";
+		}
+		for(var i = 0; i< td.length; i++){
+			td[i].style.fontSize="0.85rem";				
+		}		
+		for(var i = 0; i < novoLabel.length; i++){
+			novoLabel[i].style.fontSize="1rem";
+			novoInput[i].style.fontSize="0.85rem";
+			editLabel[i].style.fontSize="1rem";
+			editInput[i].style.fontSize="0.85rem";
+		}
+		for(var i = 0; i < novoBotao.length; i++){
+			novoBotao[i].style.fontSize="0.95rem";
+			editBotao[i].style.fontSize="0.95rem";
+		}		
+
+		novoTitulo.style.fontSize="1.25rem";
+		editTitulo.style.fontSize="1.50rem";
+
+		firstShow.style.display="flex";
+		firstShow.style.marginBottom="20px";
+		secondShow.style.display="flex";									
 	}
 	else if(bodyWidth <= 768 && bodyWidth > 540){
 		console.log('Pequeno');
@@ -65,6 +215,50 @@ function responsive(bodyHeight, bodyWidth){
 		for(var i = 0; i < menu_responsivo_item.length; i++){
 			menu_responsivo_item[i].style.fontSize="0.75rem";
 		}
+		for(var i = 0; i < arrow.length; i++){
+			arrow[i].style.display="none";
+		}			
+		for(var i = 0; i < blockInterno.length; i++){
+			blockInterno[i].style.padding="23px 0";
+		}		
+		for(var i = 0; i < firstBlockClicavel.length; i++){
+			firstBlockClicavel[i].style.fontSize="0.90rem";
+		}
+		for(var i = 0; i < secondBlockClicavel.length; i++){
+			secondBlockClicavel[i].style.fontSize="0.65rem";
+		}		
+		for(var i = 0; i < block.length; i++){
+			block[i].style.margin="0 5px";
+		}	
+		for(var i = 0; i < liA.length; i++){
+			liA[i].style.fontSize="0.70rem";
+			botoesOpc[i].style.fontSize="0.70rem";
+			botoesOpc[i].style.margin="0 5px";
+			li[i].style.margin="0 5px";			
+		}	
+		for(var i = 0; i < th.length; i++){
+			th[i].style.fontSize="0.95rem";
+		}	
+		for(var i = 0; i< td.length; i++){
+			td[i].style.fontSize="0.75rem";				
+		}
+		for(var i = 0; i < novoLabel.length; i++){
+			novoLabel[i].style.fontSize="0.90rem";
+			novoInput[i].style.fontSize="0.75rem";
+			editLabel[i].style.fontSize="0.90rem";
+			editInput[i].style.fontSize="0.75rem";			
+		}	
+		for(var i = 0; i < novoBotao.length; i++){
+			novoBotao[i].style.fontSize="0.85rem";
+			editBotao[i].style.fontSize="0.85rem";
+		}					
+
+		novoTitulo.style.fontSize="1.05rem";		
+		editTitulo.style.fontSize="1.05rem";
+
+		firstShow.style.display="flex";
+		firstShow.style.marginBottom="20px";
+		secondShow.style.display="flex";								
 	}
 	else if(bodyWidth < 540){
 		console.log('Muito pequeno');
@@ -77,6 +271,51 @@ function responsive(bodyHeight, bodyWidth){
 		for(var i = 0; i < menu_responsivo_item.length; i++){
 			menu_responsivo_item[i].style.fontSize="0.50rem";
 		}
+		for(var i = 0; i < arrow.length; i++){
+			arrow[i].style.display="none";
+		}			
+		for(var i = 0; i < blockInterno.length; i++){
+			blockInterno[i].style.padding="20px 0";
+		}	
+		for(var i = 0; i < firstBlockClicavel.length; i++){
+			firstBlockClicavel[i].style.fontSize="0.75rem";
+		}
+		for(var i = 0; i < secondBlockClicavel.length; i++){
+			secondBlockClicavel[i].style.fontSize="0.55rem";
+		}
+		for(var i = 0; i < block.length; i++){
+			block[i].style.margin="0 3px";
+		}	
+		for(var i = 0; i < liA.length; i++){
+			liA[i].style.fontSize="0.65rem";
+			botoesOpc[i].style.fontSize="0.65rem";
+			botoesOpc[i].style.margin="0 1px";
+			li[i].style.margin="0 5px";
+		}
+		for(var i = 0; i < th.length; i++){
+			th[i].style.fontSize="0.85rem";
+			
+		}	
+		for(var i = 0; i< td.length; i++){
+			td[i].style.fontSize="0.65rem";				
+		}	
+		for(var i = 0; i < novoLabel.length; i++){
+			novoLabel[i].style.fontSize="0.70rem";
+			novoInput[i].style.fontSize="0.65rem";
+			editLabel[i].style.fontSize="0.70rem";
+			editInput[i].style.fontSize="0.65rem";
+		}
+		for(var i = 0; i < novoBotao.length; i++){
+			novoBotao[i].style.fontSize="0.75rem";
+			editBotao[i].style.fontSize="0.75rem";
+		}							
+
+		novoTitulo.style.fontSize="1rem";	
+		editTitulo.style.fontSize="1rem";			
+
+		firstShow.style.display="flex";
+		firstShow.style.marginBottom="20px";
+		secondShow.style.display="flex";				
 	}
 
 	if(tamanhoMenuSuperior.clientHeight == 0){
@@ -166,4 +405,126 @@ function returnMenuState(item){
 		document.getElementById("img_aside_configuracoes").style.animation="none";
 		titulos[6].style.color="#00ccff";
 	}
+}
+
+/* =================== INTERAÇÕES COM AS SETAS =================== */
+
+var col = 0;
+var firstShow = document.getElementById('first_show');
+var secondShow = document.getElementById('second_show');
+
+function setaEsquerda(){
+	if(col == 0){
+		firstShow.style.display="none";
+		secondShow.style.display="flex";
+		secondShow.style.animation="entradaEsquerda 1s linear 0s normal forwards";
+		col = 1;
+	}
+	else{
+		secondShow.style.display="none";
+		firstShow.style.display="flex";
+		firstShow.style.animation="entradaEsquerda 1s linear 0s normal forwards";
+		col = 0;
+	}
+}
+
+function setaDireita(){
+	if(col == 0){
+		firstShow.style.display="none";
+		secondShow.style.display="flex";
+		secondShow.style.animation="entradaDireita 1s linear 0s normal forwards";
+		col = 1;
+	}
+	else{
+		secondShow.style.display="none";
+		firstShow.style.display="flex";
+		firstShow.style.animation="entradaDireita 1s linear 0s normal forwards";
+		col = 0;
+	}
+}
+
+/* =================== ABERTURA E FECHAMENTO DO EDIT PATRIMONIO =================== */
+
+function editPatrimonio(){
+
+	var conteudoContainer = document.getElementById('conteudo_container');
+	var containerEdit = document.getElementById('container_edit');
+
+	conteudoContainer.style.pointerEvents="none";
+	conteudoContainer.style.opacity="0";
+	conteudoContainer.style.transition="2s";
+	containerEdit.style.display="block";
+	containerEdit.style.transition="2s";
+
+}
+
+function fechaEditPatrimonio(){
+
+	var conteudoContainer = document.getElementById('conteudo_container');
+	var containerEdit = document.getElementById('container_edit');
+
+	var inputDescricao = document.getElementById('input_descricao');
+	var inputTipo = document.getElementById('select_tipo');
+	var inputValor = document.getElementById('input_valor');
+
+	if(inputDescricao.value == "" && inputTipo.value == "0" && inputValor.value == ""){
+		conteudoContainer.style.pointerEvents="auto";
+		conteudoContainer.style.opacity="0.95";
+		containerEdit.style.display="none";
+		conteudoContainer.style.transition="2s";
+		containerEdit.style.transition="2s";
+	}
+	else{	
+		if(confirm('Você tem certeza que deseja fechar o formulário? Os dados preenchidos serão perdidos')) {
+			conteudoContainer.style.pointerEvents="auto";
+			conteudoContainer.style.opacity="0.95";
+			containerEdit.style.display="none";
+			conteudoContainer.style.transition="2s";
+			containerEdit.style.transition="2s";
+		} 
+	}	
+
+}
+
+/* =================== ABERTURA E FECHAMENTO DO NOVO PATRIMONIO =================== */
+
+function novoPatrimonio(){
+
+	var conteudoContainer = document.getElementById('conteudo_container');
+	var containerNovo = document.getElementById('container_novo');
+
+	conteudoContainer.style.pointerEvents="none";
+	conteudoContainer.style.opacity="0";
+	conteudoContainer.style.transition="2s";
+	containerNovo.style.display="block";
+	containerNovo.style.transition="2s";
+
+}
+
+function fechaNovoPatrimonio(){
+
+	var conteudoContainer = document.getElementById('conteudo_container');
+	var containerNovo = document.getElementById('container_novo');
+
+	var inputDescricao = document.getElementById('input_descricao');
+	var inputTipo = document.getElementById('select_tipo');
+	var inputValor = document.getElementById('input_valor');
+
+	if(inputDescricao.value == "" && inputTipo.value == "0" && inputValor.value == ""){
+		conteudoContainer.style.pointerEvents="auto";
+		conteudoContainer.style.opacity="0.95";
+		containerNovo.style.display="none";
+		conteudoContainer.style.transition="2s";
+		containerNovo.style.transition="2s";
+	}
+	else{	
+		if(confirm('Você tem certeza que deseja fechar o formulário? Os dados preenchidos serão perdidos')) {
+			conteudoContainer.style.pointerEvents="auto";
+			conteudoContainer.style.opacity="0.95";
+			containerNovo.style.display="none";
+			conteudoContainer.style.transition="2s";
+			containerNovo.style.transition="2s";
+		} 
+	}	
+
 }

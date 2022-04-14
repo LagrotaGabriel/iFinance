@@ -18,24 +18,24 @@
 
 /* ============================== INFORMATIVOS ============================== */
 
-.informativos, .informativos_all, .informativos_linha, .block, .block_interno, .block_row, .block_clicavel{
+.informativos, .arrow , .arrow_clicavel, .informativos_all, .informativos_linha, .show, .block, .block_interno, .block_row, .block_clicavel{
     margin: 0;
     padding: 0;
     font-size: 1rem;
 }
 
-.informativos_linha, .informativos ,.block_row{
-    width: 100%;
+.informativos_primeira_linha{
+    margin-bottom: 30px;
 }
 
-.block, .informativos_all, .block_clicavel, .informativos_linha{
+.block, .arrow, .arrow_clicavel,  .block_clicavel, .informativos_linha{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .block{
-    margin: 0 15px;
+    margin: 0 20px;
 }
 
 .block_interno{
@@ -45,6 +45,11 @@
     color: #FFFF;
     width: 100%;   
 }
+
+.arrow_clicavel_image{
+    width: 35%;
+}
+
 .block_interno:hover{
     cursor: pointer;
     background-image: linear-gradient(to right, #00ccff, #28cffa);
@@ -61,51 +66,20 @@
     color: grey;
 }
 
-/* ========================== FIM DOS INFORMATIVOS ========================== */
+.show{
+    width: 100%;
+}
 
-/*================================================================================
-==================================================================================
-==================================================================================
-================================================================================*/
-
-/* ================================ BOTÕES ================================ */
-
-.row_botoes, .botoes, .botoes_opcoes, .botoes_opc{
+.all_column{
+    display: flex;
+    justify-content: center;
     margin: 0;
     padding: 0;
-    text-decoration: none;
-    font-size: 1rem;
-    color: #FFFFFF;
 }
 
-.row_botoes{
-    width: 100%;  
-    display: flex;
-    justify-content: center;
-    margin: 15px 0;
-    margin-top: 25px;
-}
 
-.botoes_opcoes{
-    display: flex;
-    justify-content: center;
 
-}
-
-.botoes_opc{
-    border: 1px solid #00CCFF;
-    text-align: center;
-    margin-right: 15px;
-    padding: 15px 0;
-}
-.botoes_opc:hover{
-    cursor: pointer;
-    background-image: linear-gradient(to right, #00ccff, #28cffa);
-    color: #121212;
-    transition: 1s;
-}
-
-/* ============================ FIM DOS BOTÕES ============================ */
+/* ========================== FIM DOS INFORMATIVOS ========================== */
 
 /*================================================================================
 ==================================================================================
@@ -169,4 +143,258 @@
     border-top: 1px solid #00CCFF;
 }
 
-/* =========================== TABELA =========================== */
+/* ======================= FIM DA TABELA ======================= */
+
+/*================================================================================
+==================================================================================
+==================================================================================
+================================================================================*/
+
+/* ================================ BOTÕES ================================ */
+
+.row_botoes, .botoes, .botoes_opcoes, .botoes_opc{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-size: 1rem;
+    color: #FFFFFF;
+}
+
+.row_botoes{
+    width: 100%;  
+    display: flex;
+    justify-content: center;
+}
+
+.botoes_opcoes{
+    display: flex;
+    justify-content: left;
+}
+
+.botoes_opc{
+    border: 1px solid #00CCFF;
+    text-align: center;
+    margin: 0 10px;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+
+.botoes_opc:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    color: #121212;
+    transition: 1s;
+}
+
+/* ============================ FIM DOS BOTÕES ============================ */
+
+/*================================================================================
+==================================================================================
+==================================================================================
+================================================================================*/
+
+/* =========================== PÁGINAS =========================== */
+
+.page_row{
+    margin: 20px 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;    
+}
+
+.pages{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+}
+
+.ul{
+    display: flex;
+    justify-content: right;
+    justify-items: center;
+}
+
+.li{
+    display: flex;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.li_proximo{
+    margin-right: 0;
+}
+
+li a{
+    text-decoration: none;
+    color: #FFFFFF;
+    border: 1px solid #00CCFF;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+li a:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    color: #121212;
+    transition: 1s;
+}
+
+/* ======================= FIM DAS PÁGINAS ======================= */
+
+/*================================================================================
+==================================================================================
+==================================================================================
+================================================================================*/
+
+/* =========================== NOVO PATRIMÔNIO =========================== */
+
+.container_novo, .container_edit{
+    display: none;
+    position: absolute;
+    background-color: #121212;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 0 25px #121212;
+    opacity: 0.96;
+}
+
+.container_novo_linha, .container_edit_linha{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.container_novo_primeira_linha, .container_edit_primeira_linha{
+    padding: 15px;
+}
+
+.container_novo_segunda_linha, .container_novo_quarta_linha, .container_edit_segunda_linha, .container_edit_quarta_linha{
+    margin-bottom: 25px;
+}
+
+.container_novo_sexta_linha, .container_edit_sexta_linha{
+    margin-bottom: 30px;
+}
+
+.col_novo_botao_fechar, .col_edit_botao_fechar{
+    margin: 0;
+    padding: 0;
+}
+
+.novo_botao_fechar, .edit_botao_fechar{
+    color: #FFFFFF;
+    float: right;
+    text-align: right;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.col_novo_titulo, .col_novo_form, .col_edit_titulo, .col_edit_form{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.novo_titulo, .edit_titulo{
+    font-size: 1.75rem;
+    color: #FFFFFF;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #00CCFF;
+}
+
+.form{
+    margin: 0;
+    padding: 0;
+    margin-bottom: 50px;
+}
+
+.col_novo_form, .col_edit_form{
+    margin: 0;
+    padding: 0;
+}
+
+.col_novo_input, .col_novo_label, .col_novo_botao, .col_edit_input, .col_edit_label, .col_edit_botao{
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+.col_novo_label, .col_edit_label{
+    color: #FFFFFF;
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+}
+
+.novo_input, .edit_input{
+    border: 1px solid #00CCFF;
+    background: transparent;
+    padding: 8px 8px;
+    color: #FFFFFF;
+}
+
+.novo_botao, .edit_botao{
+    border: 1px solid #00CCFF;
+    padding: 10px;
+    color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.novo_botao:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    transition: 1s;
+    color: #121212;
+}
+
+.edit_botao:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    transition: 1s;
+    color: #121212;
+}
+
+option{
+    color: #121212;
+}
+
+/* ======================= FIM DO NOVO PATRIMÔNIO ======================= */
+
+@keyframes entradaDireita {
+    0% {
+        display: flex;
+        opacity: 0;
+        transform: translateX(3.5%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes entradaEsquerda {
+    0% {
+        display: flex;
+        opacity: 0;
+        transform: translateX(-3.5%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
