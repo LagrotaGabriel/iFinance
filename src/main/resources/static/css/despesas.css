@@ -223,7 +223,7 @@ li a:hover{
 
 /* ========= NOVA DESPESA ========= */
 
-.container_novo{
+.container_novo, .container_edit{
     display: none;
     position: absolute;
     background-color: #121212;
@@ -233,31 +233,31 @@ li a:hover{
     opacity: 0.96;
 }
 
-.container_novo_linha{
+.container_novo_linha, .container_edit_linha{
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
 }
 
-.container_novo_primeira_linha{
+.container_novo_primeira_linha, .container_edit_primeira_linha{
     padding: 15px;
 }
 
-.container_novo_segunda_linha, .container_novo_quarta_linha{
+.container_novo_segunda_linha, .container_novo_quarta_linha, .container_edit_segunda_linha, .container_edit_quarta_linha{
     margin-bottom: 25px;
 }
 
-.container_novo_sexta_linha{
+.container_novo_sexta_linha, .container_edit_sexta_linha{
     margin-bottom: 30px;
 }
 
-.col_novo_botao_fechar{
+.col_novo_botao_fechar, .col_edit_botao_fechar{
     margin: 0;
     padding: 0;
 }
 
-.novo_botao_fechar{
+.novo_botao_fechar, .edit_botao_fechar{
     color: #FFFFFF;
     float: right;
     text-align: right;
@@ -266,7 +266,7 @@ li a:hover{
     padding: 0;
 }
 
-.col_novo_titulo, .col_novo_form{
+.col_novo_titulo, .col_novo_form, .col_edit_titulo, .col_edit_form{
     margin: 0;
     padding: 0;
     display: flex;
@@ -274,7 +274,7 @@ li a:hover{
     align-items: center;
 }
 
-.novo_titulo{
+.novo_titulo, .edit_titulo{
     font-size: 1.75rem;
     color: #FFFFFF;
     padding-bottom: 15px;
@@ -287,12 +287,12 @@ li a:hover{
     margin-bottom: 50px;
 }
 
-.col_novo_form{
+.col_novo_form, .col_edit_form{
     margin: 0;
     padding: 0;
 }
 
-.col_novo_input, .col_novo_label, .col_novo_botao{
+.col_novo_input, .col_novo_label, .col_novo_botao, .col_edit_input, .col_edit_label, .col_edit_botao{
     margin: 0;
     padding: 0;
     font-size: 1rem;
@@ -301,20 +301,20 @@ li a:hover{
     margin-left: 20px;
 }
 
-.col_novo_label{
+.col_novo_label, .col_edit_label{
     color: #FFFFFF;
     font-size: 1.15rem;
     margin-bottom: 10px;
 }
 
-.novo_input{
+.novo_input, .edit_input{
     border: 1px solid #00CCFF;
     background: transparent;
     padding: 8px 8px;
     color: #FFFFFF;
 }
 
-.novo_botao{
+.novo_botao, .edit_botao{
     border: 1px solid #00CCFF;
     padding: 10px;
     color: #FFFFFF;
@@ -322,6 +322,13 @@ li a:hover{
 }
 
 .novo_botao:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    transition: 1s;
+    color: #121212;
+}
+
+.edit_botao:hover{
     cursor: pointer;
     background-image: linear-gradient(to right, #00ccff, #28cffa);
     transition: 1s;
@@ -336,6 +343,16 @@ li a:hover{
     color: grey;
 }
 
+#edit_label_agendamento, #edit_label_data, #edit_label_forma{
+    color: grey;
+}
+#edit_input_agendamento, #edit_input_data, #edit_input_forma{
+    border: 1px solid grey;
+    color: grey;
+}
+
 /* ===== FIM DO NOVA DESPESA ===== */
+
+
 
 /* ============================= FIM DO CONTEÚDO ============================= */

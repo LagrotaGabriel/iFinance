@@ -30,10 +30,10 @@
 
 	<body id="body">
 
-			<!-- Linha principal do site, que contém o menu lateral e o conteúdo principal -->
+			<!--------------- TUDO --------------->
 			<div class="row main-row">
 
-				<!-- Menu lateral do site, que contém as opções de navegação pela single page -->
+				<!--------------- SIDE BAR PRINCIPAL DO SITE --------------->
 				<div class="container side_menu col-lg-1" id="side_menu">	
 
 					<div class="row side_menu_row" id="side_menu_row">
@@ -124,6 +124,7 @@
 						</div>
 					</div>
 				</div>
+				<!---------------  SIDE BAR PRINCIPAL DO SITE --------------->
 
 				<!-- Conteúdo principal do site, que fica ao lado do menu lateral -->
 				<main class="container main col-xs-11 col-lg-11 col-md-12 col-sm-12 col-12" id="main">
@@ -176,6 +177,8 @@
 							
 						</div>
 					</header>
+					<!--------------- MENU SUPERIOR DO SITE --------------->
+
 					<!----------- MENU SUPERIOR RESPONSIVO DO SITE ------------>
 					<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 menu_superior_responsivo row" id="menu_superior_responsivo">
 
@@ -203,10 +206,11 @@
 							<a href="#" class="sup_sup sup_sup_01">Perfil</a>
 						</div>													
 					</div>	
+					<!----------- MENU SUPERIOR RESPONSIVO DO SITE ------------>
 
 					<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 container_align" id="container_align">
 
-						<!----------- CONTAINER CENTRAL DO SITE ------------>
+						<!-------------- CONTEUDO_CONTAINER ------------>
 						<div class="container conteudo_container" id="conteudo_container">
 
 							<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo" id="conteudo_titulo">
@@ -227,7 +231,7 @@
 											Novo
 										</a>
 
-										<a href="#" class="col-xs-1 col-lg-2 col-md-2 col-sm-3 col-3 botoes_opc botoes_opc_editar">
+										<a href="#" class="col-xs-1 col-lg-2 col-md-2 col-sm-3 col-3 botoes_opc botoes_opc_editar" onclick="editDespesa()">
 											Editar
 										</a>
 
@@ -388,7 +392,8 @@
 								</div>
 
 							</div><!-- PAGE_ROW-->
-						</div><!-- CONTEUDO_CONTAINER -->
+						</div>
+						<!<!----------- CONTEUDO_CONTAINER ------------>
 
 						<!--------------- INSERIR NOVA DESPESA ---------------->
 						<div class="col-xs-8 col-lg-8 col-md-10 col-sm-11 col-12 container_novo" id="container_novo">
@@ -545,18 +550,168 @@
 									</div>		
 
 								</form>
+						</div><!----------- INSERIR NOVA DESPESA-------------->
 
-						</div><!-- CONTAINER_NOVO (INSERIR NOVA DESPESA)-->
+						<!--------------- EDITAR DESPESA ---------------->
+						<div class="col-xs-8 col-lg-8 col-md-10 col-sm-11 col-12 container_edit" id="container_edit">
+
+							<div class="row container_edit_linha container_edit_primeira_linha">
+								<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_botao_fechar">
+									<button type="button" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 edit_botao_fechar" onclick="fechaEditDespesa()">
+											X
+									</button>
+								</div>	
+
+							</div>
+
+							<div class="row container_edit_linha container_edit_segunda_linha">
+
+								<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_titulo">
+									<h1 class="col-xs-6 col-lg-6 col-md-6 col-sm-6 col-6 text-center edit_titulo">
+										Editar despesa
+									</h1>
+								</div>	
+
+							</div>	
 
 
+								<form class="form">
 
+									<div class="row container_edit_linha container_edit_terceira_linha">
 
+										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_form">
 
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_label">
+												<label class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_label">
+													Descrição:
+												</label>	
+											</div>
 
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_label">
+												<label class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_label">
+													Status:
+												</label>	
+											</div>
 
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_label">
+												<label class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_label">
+													Valor:
+												</label>	
+											</div>											
+
+										</div>	
+
+									</div>
+
+									<div class="row container_edit_linha container_edit_quarta_linha">
+
+										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_form">
+
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
+												<input type="text" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_input_descricao"/>
+											</div>
+
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
+												<select class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_select_status" onchange="editChangeStatus()"/>
+													<option value="0"></option>
+													<option value="1">Pago</option>
+													<option value="2">A pagar</option>
+												</select>
+											</div>	
+
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
+												<input type="number" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_input_valor"/>
+											</div>											
+
+										</div>	
+
+									</div>		
+
+									<div class="row container_edit_linha container_edit_quinta_linha">
+
+										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_form">
+
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_label">
+												<label class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_label" id="edit_label_forma">
+													Forma:
+												</label>	
+											</div>
+
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_label">
+												<label class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_label" id="edit_label_data">
+													Pago dia:
+												</label>	
+											</div>
+
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_label">
+												<label class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_label" id="edit_label_agendamento">
+													Agendamento:
+												</label>	
+											</div>											
+
+										</div>	
+
+									</div>
+
+									<div class="row container_edit_linha container_edit_sexta_linha">
+
+										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_form">
+
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
+												<select class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_input_forma" disabled/>
+													<option></option>
+													<option>Dinheiro</option>
+													<option>Cartão de débito</option>
+													<option>Cartão de crédito</option>
+													<option>PIX</option>
+													<option>TED</option>
+													<option>DOC</option>
+													<option>Cheque</option>
+													<option>Outro</option>
+												</select>												
+											</div>
+
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
+												<input type="date" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_input_data" disabled/>
+											</div>
+
+											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
+												<input type="date" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_input_agendamento" disabled/>
+											</div>																	
+										</div>	
+
+									</div>
+
+									<div class="row container_edit_linha container_edit_setima_linha">		
+
+										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_form">
+
+											<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 col_edit_botao">
+												<button type="button" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_botao" onclick="fechaEditDespesa()">
+													Voltar
+												</button>
+											</div>	
+
+											<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 col_edit_botao">
+												<button type="submit" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_botao">
+													Salvar
+												</button>
+											</div>		
+
+											<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 col_edit_botao">
+												<button type="reset" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_botao">
+													Limpar
+												</button>
+											</div>														
+										</div>
+
+									</div>		
+
+								</form>
+						</div><!--------------- EDITAR DESPESA ---------------->	
 
 					</div><!-- CONTAINER_ALIGN -->
-				</main>	
-			</div>
+				</main>	<!-- CONTEÚDO PRINCIPAL DO SITE ( AO LADO DA SIDEBAR )-->
+			</div> <!-- TUDO -->
 	</body>
 </html>
