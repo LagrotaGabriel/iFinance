@@ -5,7 +5,6 @@ public enum PatrimonyType {
     VEICULO(0, "Veículo"),
     IMOVEL(1, "Imóvel"),
     CONTA(2, "Conta bancária"),
-    CAPITAL(3,"Capital"),
     INVESTIMENTO(3, "Investimento"),
     ELETRONICO(4, "Eletrônico"),
     INTANGIVEL(5, "Intangivel"),

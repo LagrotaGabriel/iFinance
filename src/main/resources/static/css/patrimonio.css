@@ -1,0 +1,172 @@
+/* ============================== MENU LATERAL ============================== */
+
+.aside-5{
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    opacity: 0.9;
+}
+
+#title_aside_patrimonio{
+    color: #121212;
+}
+
+/* ============================ FIM DO MENU LATERAL ============================ */
+
+/*================================================================================
+==================================================================================
+==================================================================================
+================================================================================*/
+
+/* ============================== INFORMATIVOS ============================== */
+
+.informativos, .informativos_all, .informativos_linha, .block, .block_interno, .block_row, .block_clicavel{
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+}
+
+.informativos_linha, .informativos ,.block_row{
+    width: 100%;
+}
+
+.block, .informativos_all, .block_clicavel, .informativos_linha{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.block{
+    margin: 0 15px;
+}
+
+.block_interno{
+    border: 1px solid #00CCFF;
+    padding: 45px 0px;
+    text-decoration: none;
+    color: #FFFF;
+    width: 100%;   
+}
+.block_interno:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    color: #121212;
+    transition: 1s;
+}
+
+.first_block_clicavel{
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.hr{
+    color: grey;
+}
+
+/* ========================== FIM DOS INFORMATIVOS ========================== */
+
+/*================================================================================
+==================================================================================
+==================================================================================
+================================================================================*/
+
+/* ================================ BOTÕES ================================ */
+
+.row_botoes, .botoes, .botoes_opcoes, .botoes_opc{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-size: 1rem;
+    color: #FFFFFF;
+}
+
+.row_botoes{
+    width: 100%;  
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+    margin-top: 25px;
+}
+
+.botoes_opcoes{
+    display: flex;
+    justify-content: center;
+
+}
+
+.botoes_opc{
+    border: 1px solid #00CCFF;
+    text-align: center;
+    margin-right: 15px;
+    padding: 15px 0;
+}
+.botoes_opc:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    color: #121212;
+    transition: 1s;
+}
+
+/* ============================ FIM DOS BOTÕES ============================ */
+
+/*================================================================================
+==================================================================================
+==================================================================================
+================================================================================*/
+
+/* =============================== TABELA =============================== */
+.row_tabela_all{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.tabela_all{
+    margin: 0;
+    padding: 0;
+    color: #FFFFFF;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+}
+
+.tabela{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.thead, .tbody{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.tr{
+    border-bottom: 1px solid #1f1f1f;
+}
+
+.th, .td{
+    margin: 0;
+    padding: 0;
+    padding: 10px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+}
+
+.th{
+    font-size: 1.35rem;
+    text-align: left;
+}
+
+.tbody{
+    border-top: 1px solid #00CCFF;
+}
+
+/* =========================== TABELA =========================== */
