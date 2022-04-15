@@ -11,17 +11,17 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
 
+		<link rel="icon" href="../static/img/bag.png" type="image/gif" sizes="32x32">
+		<link href="../static/css/reset.css" rel="stylesheet" />
+		<link href="../static/css/layout.css" rel="stylesheet"/>
+		<link href="../static/css/despesas.css" rel="stylesheet" />
+		<script type="text/javascript" src="../static/js/despesas.js" defer></script>				
 		<link rel="icon" th:href="@{img/bag.png}" type="image/gif" sizes="32x32">
 		<link th:href="@{css/reset.css}" rel="stylesheet" />
 		<link th:href="@{css/layout.css}" rel="stylesheet"/>
 		<link th:href="@{css/despesas.css}" rel="stylesheet" />
 		<script type="text/javascript" th:src="@{js/despesas.js}" defer></script>
 
-		<link rel="icon" href="../static/img/bag.png" type="image/gif" sizes="32x32">
-		<link href="../static/css/reset.css" rel="stylesheet" />
-		<link href="../static/css/layout.css" rel="stylesheet"/>
-		<link href="../static/css/despesas.css" rel="stylesheet" />
-		<script type="text/javascript" src="../static/js/despesas.js" defer></script>		
 		<script src="jquery-3.6.0.min.js"></script>
 
 		<title>Despesas | iFinance</title>
@@ -40,9 +40,9 @@
 
 						<div class="aside aside-1 col-lg-12" id="div_aside_principal" onmouseover="animateMenu('principal')" onmouseleave="returnMenuState('principal')">
 
-							<a href="index.html" class="row aside_clicavel">
+							<a th:href="@{index}" class="row aside_clicavel">
 								<button type="button" class="img_button">
-									<img src="../static/img/houseblue.png" class="sidebar_menu_img" id="img_aside_principal"/>
+									<img th:src="@{img/houseblue.png}" class="sidebar_menu_img" id="img_aside_principal"/>
 								</button>	
 							
 								<h1 class="aside_title aside_title_principal text-center" id="title_aside_principal">
@@ -56,7 +56,7 @@
 							
 							<a href="#" class="row aside_clicavel">
 								<button type="button" class="img_button">
-									<img src="../static/img/balanceblue.png" class="sidebar_menu_img" id="img_aside_balanco"/>
+									<img th:src="@{img/balanceblue.png}" class="sidebar_menu_img" id="img_aside_balanco"/>
 								</button>
 								<h1 class="aside_title text-center" id="title_aside_balanco">
 									Balanço
@@ -70,7 +70,7 @@
 							
 							<a href="#" class="row aside_clicavel">
 								<button type="button" class="img_button">
-									<img src="../static/img/statsblue.png" class="sidebar_menu_img" id="img_aside_estatisticas"/>
+									<img th:src="@{img/statsblue.png}" class="sidebar_menu_img" id="img_aside_estatisticas"/>
 								</button>
 								<h1 class="aside_title text-center" id="title_aside_estatisticas">Estatísticas</h1>
 							</a>
@@ -82,7 +82,7 @@
 							
 							<a href="#" class="row aside_clicavel">
 								<button type="button" class="img_button">
-									<img src="../static/img/despesa.png" class="sidebar_menu_img" id="img_aside_despesas"/>
+									<img th:src="@{img/despesa.png}" class="sidebar_menu_img" id="img_aside_despesas"/>
 								</button>
 								<h1 class="aside_title text-center" id="title_aside_despesas">Despesas</h1>
 							</a>
@@ -94,7 +94,7 @@
 							
 							<a href="#" class="row aside_clicavel">
 								<button type="button" class="img_button">
-									<img src="../static/img/shelterblue.png" class="sidebar_menu_img" id="img_aside_patrimonio"/>
+									<img th:src="@{img/shelterblue.png}" class="sidebar_menu_img" id="img_aside_patrimonio"/>
 								</button>		
 								<h1 class="aside_title text-center" id="title_aside_patrimonio">Patrimônio</h1>						
 							</a>
@@ -106,7 +106,7 @@
 							
 							<a href="#" class="row aside_clicavel">
 								<button type="button" class="img_button">
-									<img src="../static/img/bullblue.png" class="sidebar_menu_img" id="img_aside_rentabilidade"/>
+									<img th:src="@{img/bullblue.png}" class="sidebar_menu_img" id="img_aside_rentabilidade"/>
 								</button>			
 								<h1 class="aside_title text-center" id="title_aside_rentabilidade">Rentabilidade</h1>					
 							</a>
@@ -116,7 +116,7 @@
 
 							<a href="#" class="row aside_clicavel">
 								<button type="button" class="img_button">
-									<img src="../static/img/settingsblue.png" class="sidebar_menu_img" id="img_aside_configuracoes"/>
+									<img th:src="@{img/settingsblue.png}" class="sidebar_menu_img" id="img_aside_configuracoes"/>
 								</button>	
 								<h1 class="aside_title text-center" id="title_aside_configuracoes">Configurações</h1>							
 							</a>							
@@ -139,7 +139,7 @@
 								<input class="menu_superior_input col-xs-11 col-lg-11 col-md-11 col-sm-11 col-11" placeholder="Pesquise aqui por ativos, entrada de valores, despesas, balanços e outros...">
 								<button class="lupa_btn col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
 
-									<img class="lupa_img" src="../static/img/search.png"/>
+									<img class="lupa_img" th:src="@{img/search.png}"/>
 
 								</button>
 							</form>	
