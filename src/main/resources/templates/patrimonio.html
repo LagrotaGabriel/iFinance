@@ -40,9 +40,9 @@
 
 						<div class="aside aside-1 col-lg-12" id="div_aside_principal" onmouseover="animateMenu('principal')" onmouseleave="returnMenuState('principal')">
 
-							<a href="index.html" class="row aside_clicavel">
+							<a th:href="@{/index}" class="row aside_clicavel">
 								<button type="button" class="img_button">
-									<img src="../static/img/houseblue.png" class="sidebar_menu_img" id="img_aside_principal"/>
+									<img th:src="@{img/houseblue.png}" class="sidebar_menu_img" id="img_aside_principal"/>
 								</button>	
 							
 								<h1 class="aside_title aside_title_principal text-center" id="title_aside_principal">
@@ -56,7 +56,7 @@
 							
 							<a href="#" class="row aside_clicavel">
 								<button type="button" class="img_button">
-									<img src="../static/img/balanceblue.png" class="sidebar_menu_img" id="img_aside_balanco"/>
+									<img th:src="@{img/balanceblue.png}" class="sidebar_menu_img" id="img_aside_balanco"/>
 								</button>
 								<h1 class="aside_title text-center" id="title_aside_balanco">
 									Balanço
@@ -70,7 +70,7 @@
 							
 							<a href="#" class="row aside_clicavel">
 								<button type="button" class="img_button">
-									<img src="../static/img/statsblue.png" class="sidebar_menu_img" id="img_aside_estatisticas"/>
+									<img th:src="@{img/statsblue.png}" class="sidebar_menu_img" id="img_aside_estatisticas"/>
 								</button>
 								<h1 class="aside_title text-center" id="title_aside_estatisticas">Estatísticas</h1>
 							</a>
@@ -80,9 +80,9 @@
 
 						<div class="aside aside-4 col-lg-12" id="div_aside_despesas" onmouseover="animateMenu('despesas')" onmouseleave="returnMenuState('despesas')">
 							
-							<a href="#" class="row aside_clicavel">
+							<a th:href="@{/despesas}" class="row aside_clicavel">
 								<button type="button" class="img_button">
-									<img src="../static/img/despesablue.png" class="sidebar_menu_img" id="img_aside_despesas"/>
+									<img th:src="@{img/despesablue.png}" class="sidebar_menu_img" id="img_aside_despesas"/>
 								</button>
 								<h1 class="aside_title text-center" id="title_aside_despesas">Despesas</h1>
 							</a>
@@ -92,9 +92,9 @@
 
 						<div class="aside aside-5 col-lg-12" id="div_aside_patrimonio">
 							
-							<a href="#" class="row aside_clicavel">
+							<a th:href="@{/patrimonio}" class="row aside_clicavel">
 								<button type="button" class="img_button">
-									<img src="../static/img/shelter.png" class="sidebar_menu_img" id="img_aside_patrimonio"/>
+									<img th:src="@{img/shelter.png}" class="sidebar_menu_img" id="img_aside_patrimonio"/>
 								</button>		
 								<h1 class="aside_title text-center" id="title_aside_patrimonio">Patrimônio</h1>						
 							</a>
@@ -105,7 +105,7 @@
 							
 							<a href="#" class="row aside_clicavel">
 								<button type="button" class="img_button">
-									<img src="../static/img/bullblue.png" class="sidebar_menu_img" id="img_aside_rentabilidade"/>
+									<img th:src="@{img/bullblue.png}" class="sidebar_menu_img" id="img_aside_rentabilidade"/>
 								</button>			
 								<h1 class="aside_title text-center" id="title_aside_rentabilidade">Rentabilidade</h1>					
 							</a>
@@ -115,7 +115,7 @@
 
 							<a href="#" class="row aside_clicavel">
 								<button type="button" class="img_button">
-									<img src="../static/img/settingsblue.png" class="sidebar_menu_img" id="img_aside_configuracoes"/>
+									<img th:src="@{img/settingsblue.png}" class="sidebar_menu_img" id="img_aside_configuracoes"/>
 								</button>	
 								<h1 class="aside_title text-center" id="title_aside_configuracoes">Configurações</h1>							
 							</a>							
@@ -138,7 +138,7 @@
 								<input class="menu_superior_input col-xs-11 col-lg-11 col-md-11 col-sm-11 col-11" placeholder="Pesquise aqui por ativos, entrada de valores, despesas, balanços e outros...">
 								<button class="lupa_btn col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
 
-									<img class="lupa_img" src="../static/img/search.png"/>
+									<img class="lupa_img" th:src="@{img/search.png}"/>
 
 								</button>
 							</form>	
@@ -230,7 +230,7 @@
 										<!----------- SETINHA DA ESQUERDA ------------>
 										<div class="arrow arrow-left caret-left col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
 											<a href="#" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 arrow_clicavel arrow_clicavel_left">
-												<img src="../static/img/left.png" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 arrow_clicavel_image arrow_clicavel_left_image" onclick="setaEsquerda()"/>
+												<img th:src="@{img/left.png}" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 arrow_clicavel_image arrow_clicavel_left_image" onclick="setaEsquerda()"/>
 											</a>	
 										</div>
 										<!----------- SETINHA DA ESQUERDA ------------>
@@ -484,7 +484,7 @@
 										<!----------- SETINHA DA DIREITA ------------>
 										<div class="arrow arrow-right col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
 											<a href="#" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 arrow_clicavel arrow_clicavel_right">
-												<img src="../static/img/right.png" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 arrow_clicavel_image arrow_clicavel_right_image" onclick="setaDireita()"/>
+												<img th:src="@{img/right.png}" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 arrow_clicavel_image arrow_clicavel_right_image" onclick="setaDireita()"/>
 											</a>	
 										</div>	
 										<!----------- SETINHA DA DIREITA ------------>							

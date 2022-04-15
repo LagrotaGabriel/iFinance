@@ -40,7 +40,7 @@
 
 						<div class="aside aside-1 col-lg-12" id="div_aside_principal" onmouseover="animateMenu('principal')" onmouseleave="returnMenuState('principal')">
 
-							<a th:href="@{index}" class="row aside_clicavel">
+							<a th:href="@{/index}" class="row aside_clicavel">
 								<button type="button" class="img_button">
 									<img th:src="@{img/houseblue.png}" class="sidebar_menu_img" id="img_aside_principal"/>
 								</button>	
@@ -80,7 +80,7 @@
 
 						<div class="aside aside-4 col-lg-12" id="div_aside_despesas">
 							
-							<a href="#" class="row aside_clicavel">
+							<a th:href="@{/despesas}" class="row aside_clicavel">
 								<button type="button" class="img_button">
 									<img th:src="@{img/despesa.png}" class="sidebar_menu_img" id="img_aside_despesas"/>
 								</button>
@@ -92,7 +92,7 @@
 
 						<div class="aside aside-5 col-lg-12" id="div_aside_patrimonio" onmouseover="animateMenu('patrimonio')" onmouseleave="returnMenuState('patrimonio')">
 							
-							<a href="#" class="row aside_clicavel">
+							<a th:href="@{/patrimonio}" class="row aside_clicavel">
 								<button type="button" class="img_button">
 									<img th:src="@{img/shelterblue.png}" class="sidebar_menu_img" id="img_aside_patrimonio"/>
 								</button>		
