@@ -5,6 +5,34 @@ body{
     background-size: cover;
 }
 
+.main_loader{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    background: #121212;
+}
+
+.loader{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    animation: rotacionar 1s infinite;
+    border: 28px solid #E5E5E5;
+    border-top-color: #00CCFF;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+@keyframes rotacionar{
+    to{
+        transform: rotate(1turn);
+    }
+}
+
 /* ESTRUTURA */
 .main-row{
     height: 100vh;
