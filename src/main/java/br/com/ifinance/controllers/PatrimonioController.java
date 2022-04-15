@@ -14,4 +14,5 @@ public class PatrimonioController {
         modelAndView.setViewName("patrimonio");
         return modelAndView;
     }
+
 }
