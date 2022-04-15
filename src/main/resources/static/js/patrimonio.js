@@ -1,9 +1,14 @@
 /* =========================== RESPONSIVIDADE DA TELA =========================== */
 
-responsive(document.getElementById('body').clientHeight, document.getElementById('body').clientWidth)
+window.onload = responsive();
 window.onresize = doALoadOfStuff;
 
-function responsive(bodyHeight, bodyWidth){
+function responsive(){
+
+	document.getElementById('body').style.display="block";
+
+	bodyWidth = document.getElementById('body').clientWidth;
+	bodyHeight = document.getElementById('body').clientHeight;
 
 	/* Ajustando content */
 	var tamanhoMain = document.getElementById('main');
@@ -326,12 +331,11 @@ function responsive(bodyHeight, bodyWidth){
 		var somaTamanho = (tamanhoAside.clientHeight - tamanhoMenuSuperior.clientHeight) + 'px';
 		tamanhoContainerAlign.style.height = somaTamanho;
 	}	
-
 }
 
 function doALoadOfStuff() {
 	document.getElementById('conteudo_container').style.transition="2s";
-	responsive(document.getElementById('body').clientHeight, document.getElementById('body').clientWidth);
+	responsive();
 }
 
 /* =================== INTERAÇÕES COM O MENU LATERAL ESQUERDO =================== */
@@ -368,7 +372,6 @@ function animateMenu(item){
 		document.getElementById("img_aside_configuracoes").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_configuracoes").style.color="#121212";
 	}
-
 }
 
 function returnMenuState(item){
@@ -455,7 +458,6 @@ function editPatrimonio(){
 	conteudoContainer.style.transition="2s";
 	containerEdit.style.display="block";
 	containerEdit.style.transition="2s";
-
 }
 
 function fechaEditPatrimonio(){
@@ -483,7 +485,6 @@ function fechaEditPatrimonio(){
 			containerEdit.style.transition="2s";
 		} 
 	}	
-
 }
 
 /* =================== ABERTURA E FECHAMENTO DO NOVO PATRIMONIO =================== */
@@ -498,7 +499,6 @@ function novoPatrimonio(){
 	conteudoContainer.style.transition="2s";
 	containerNovo.style.display="block";
 	containerNovo.style.transition="2s";
-
 }
 
 function fechaNovoPatrimonio(){
@@ -526,5 +526,4 @@ function fechaNovoPatrimonio(){
 			containerNovo.style.transition="2s";
 		} 
 	}	
-
 }

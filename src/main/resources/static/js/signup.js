@@ -6,10 +6,15 @@ tamanhoAll.style.height = tamanhoBody.clientHeight + 'px';
 
 tamanhoBody.style.height = '100vh';
 
+responsive();
 window.onresize = doALoadOfStuff;
-responsive(document.getElementById('body').clientWidth, document.getElementById('body').clientHeight)
 
-function responsive(bodyWidth, bodyHeight){
+function responsive(){
+
+	document.getElementById('body').style.display="block";
+
+	var bodyWidth = document.getElementById('body').clientWidth;
+	var bodyHeight = document.getElementById('body').clientHeight;
 
 	var textos = document.getElementsByClassName('label');
 	var inputs = document.getElementsByClassName('input');
@@ -120,7 +125,7 @@ function responsive(bodyWidth, bodyHeight){
 }
 
 function doALoadOfStuff() {
-	responsive(document.getElementById('body').clientWidth, document.getElementById('body').clientHeight)
+	responsive()
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////

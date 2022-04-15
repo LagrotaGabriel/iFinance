@@ -1,8 +1,12 @@
 window.onresize = doALoadOfStuff;
+window.onload = responsive()
 
-responsive(document.getElementById('all'), document.getElementById('body'))
+function responsive(){
 
-function responsive(all, body){
+	document.getElementById('body').style.display="block";
+
+	var all = document.getElementById('all')	
+	var body = document.getElementById('body')
 	body.style.height = '100vh';
 	all.style.height = document.getElementById('body').clientHeight + 'px';
 }
@@ -16,7 +20,7 @@ function passwordInput(){
 }
 
 function doALoadOfStuff() {
-	responsive(document.getElementById('all'), document.getElementById('body'))
+	responsive()
 }	
 
 function hideMessage(value){

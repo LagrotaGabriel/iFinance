@@ -1,9 +1,14 @@
 /* =========================== RESPONSIVIDADE DA TELA =========================== */
 
-responsive(document.getElementById('body').clientHeight, document.getElementById('body').clientWidth)
+window.onload = responsive();
 window.onresize = doALoadOfStuff;
 
-function responsive(bodyHeight, bodyWidth){
+function responsive(){
+
+	document.getElementById('body').style.display="block";
+
+	bodyWidth = document.getElementById('body').clientWidth;
+	bodyHeight = document.getElementById('body').clientHeight;
 
 	/* Ajustando content */
 	var tamanhoMain = document.getElementById('main');
@@ -98,12 +103,10 @@ function responsive(bodyHeight, bodyWidth){
 			menu_responsivo_item[i].style.fontSize="0.65rem";
 		}
 	}
-
-
 }
 
 function doALoadOfStuff() {
-	responsive(document.getElementById('body').clientHeight, document.getElementById('body').clientWidth);
+	responsive();
 }
 
 /* =================== INTERAÇÕES COM O MENU LATERAL ESQUERDO =================== */

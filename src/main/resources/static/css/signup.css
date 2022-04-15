@@ -1,4 +1,9 @@
 /* =============================== Configurações gerais =============================== */
+
+body{
+    display: none;
+}
+
 .menu_box{
     padding: 30px;
     padding-bottom: 0;

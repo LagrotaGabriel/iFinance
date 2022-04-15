@@ -1,13 +1,18 @@
 /* =========================== RESPONSIVIDADE DA TELA =========================== */
 
-responsive(document.getElementById('body').clientHeight, document.getElementById('body').clientWidth)
+window.onload = responsive();
 window.onresize = doALoadOfStuff;
 
 var meses = document.getElementsByClassName('mes_opc');
 meses[new Date().getMonth()].style.background="#00CCFF";
 meses[new Date().getMonth()].style.color="#121212"
 
-function responsive(bodyHeight, bodyWidth){
+function responsive(){
+
+	document.getElementById('body').style.display="block";
+
+	bodyWidth = document.getElementById('body').clientWidth;
+	bodyHeight = document.getElementById('body').clientHeight;
 
 	/* Ajustando content */
 	var tamanhoMain = document.getElementById('main');
@@ -212,7 +217,7 @@ function responsive(bodyHeight, bodyWidth){
 
 function doALoadOfStuff() {
 	document.getElementById('conteudo_container').style.transition="2s";
-	responsive(document.getElementById('body').clientHeight, document.getElementById('body').clientWidth);
+	responsive();
 }
 
 /* =================== INTERAÇÕES COM O MENU LATERAL ESQUERDO =================== */
