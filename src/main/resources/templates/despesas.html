@@ -334,119 +334,46 @@
 											</tr>	
 										</thead>
 
-										<tbody class="tbody col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
+										<tbody class="tbody col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">		
 
-											<tr class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
+											<tr th:unless="${liabilitiesFlash}" class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
 												<td class="td td_checkbox col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
 													
 													<input type="checkbox" class="checkbox"/>
 
 												</td>
+
 												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
 												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-3">...</td>
 												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
 												<td class="td td_tipo col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
 												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
 												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-
 											</tr>
 
-											<tr class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
+											<tr th:each="liability : ${liabilities}" class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-												<td class="td td_checkbox col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
+												<td th:value="${liability.id}" class="td td_checkbox col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
 													
 													<input type="checkbox" class="checkbox"/>
 
 												</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-3">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-												<td class="td td_tipo col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+
+												<td th:text="${liability.date}" class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+
+												<td th:text="${liability.description}" class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-3">...</td>
+
+												<td th:text="${liability.value}" class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+
+												<td th:text="${liability.liabilityType.desc}" class="td td_tipo col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
+
+												<td th:text="${liability.paid}" class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+
+												<td th:text="${liability.scheduling}" class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
 
 											</tr>
-
-											<tr class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
-
-												<td class="td td_checkbox col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
-													
-													<input type="checkbox" class="checkbox"/>
-
-												</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-3">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-												<td class="td td_tipo col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-
-											</tr>
-
-											<tr class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
-
-												<td class="td td_checkbox col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
-													
-													<input type="checkbox" class="checkbox"/>
-
-												</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-3">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-												<td class="td td_tipo col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-
-											</tr>
-
-											<tr class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
-
-												<td class="td td_checkbox col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
-													
-													<input type="checkbox" class="checkbox"/>
-
-												</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-3">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-												<td class="td td_tipo col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-
-											</tr>
-
-											<tr class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
-
-												<td class="td td_checkbox col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
-													
-													<input type="checkbox" class="checkbox"/>
-
-												</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-3">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-												<td class="td td_tipo col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-
-											</tr>
-
-											<tr class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
-
-												<td class="td td_checkbox col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
-													
-													<input type="checkbox" class="checkbox"/>
-
-												</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-3">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-												<td class="td td_tipo col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-
-											</tr>																																																																		
+																																																																
 										</tbody>	
 										
 									</table>
@@ -501,7 +428,7 @@
 
 								</div>		
 
-								<form class="form">
+								<form th:action="@{despesas}" method="POST" th:object="${liability}" class="form">
 
 									<div class="row container_novo_linha container_novo_terceira_linha">
 
@@ -534,19 +461,19 @@
 										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_novo_form">
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
-												<input type="text" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_descricao"/>
+												<input type="text" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_descricao" name="description"/>
 											</div>
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
-												<select class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="select_status" onchange="changeStatus()"/>
+												<select class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="select_status" name="paid" onchange="changeStatus()"/>
 													<option value="0"></option>
-													<option value="1">Pago</option>
-													<option value="2">A pagar</option>
+													<option value="true">Pago</option>
+													<option value="false">A pagar</option>
 												</select>
 											</div>	
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
-												<input type="number" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_valor"/>
+												<input type="number" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_valor" name="value"/>
 											</div>											
 
 										</div>	
@@ -584,25 +511,25 @@
 										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_novo_form">
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
-												<select class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_forma" disabled/>
+												<select class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_forma" name="mean" disabled/>
 													<option></option>
-													<option>Dinheiro</option>
-													<option>Cartão de débito</option>
-													<option>Cartão de crédito</option>
-													<option>PIX</option>
-													<option>TED</option>
-													<option>DOC</option>
-													<option>Cheque</option>
-													<option>Outro</option>
+													<option value="ESPECIE">Dinheiro</option>
+													<option value="DEBITO">Cartão de débito</option>
+													<option value="CREDITO">Cartão de crédito</option>
+													<option value="PIX">PIX</option>
+													<option value="TED">TED</option>
+													<option value="DOC">DOC</option>
+													<option value="CHEQUE">Cheque</option>
+													<option value="OUTRO">Outro</option>
 												</select>												
 											</div>
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
-												<input type="date" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_data" disabled/>
+												<input type="date" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_data" name="date" disabled/>
 											</div>
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
-												<input type="date" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_agendamento" disabled/>
+												<input type="date" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_agendamento" name="scheduling" disabled/>
 											</div>																	
 										</div>	
 
@@ -634,6 +561,7 @@
 									</div>		
 
 								</form>
+
 						</div><!----------- INSERIR NOVA DESPESA-------------->
 
 						<!--------------- EDITAR DESPESA ---------------->

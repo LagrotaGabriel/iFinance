@@ -4,8 +4,10 @@ window.onload = responsive();
 window.onresize = doALoadOfStuff;
 
 var meses = document.getElementsByClassName('mes_opc');
-meses[new Date().getMonth()].style.background="#00CCFF";
-meses[new Date().getMonth()].style.color="#121212"
+if(meses != null){
+	meses[new Date().getMonth()].style.background="#00CCFF";
+	meses[new Date().getMonth()].style.color="#121212"
+}
 
 function responsive(){
 
@@ -69,7 +71,9 @@ function responsive(){
 			novoLabel[i].style.fontSize="1.15rem";
 			novoInput[i].style.fontSize="1rem";
 		}
-		thTipo.hidden=false;		
+		if(thTipo != null){
+			thTipo.hidden=false;
+		}		
 	}
 	else if(bodyWidth <= 1200 && bodyWidth > 992){
 		console.log('Grande');
@@ -102,7 +106,9 @@ function responsive(){
 			novoLabel[i].style.fontSize="1.15rem";
 			novoInput[i].style.fontSize="1rem";
 		}
-		thTipo.hidden=false;		
+		if(thTipo != null){
+			thTipo.hidden=false;
+		}		
 	}
 	else if(bodyWidth <= 992 && bodyWidth > 768){
 		console.log('Médio');
@@ -135,7 +141,9 @@ function responsive(){
 			novoLabel[i].style.fontSize="1rem";
 			novoInput[i].style.fontSize="0.85rem";
 		}		
-		thTipo.hidden=false;		
+		if(thTipo != null){
+			thTipo.hidden=false;
+		}		
 	}
 	else if(bodyWidth <= 768 && bodyWidth > 540){
 		console.log('Pequeno');
@@ -168,7 +176,9 @@ function responsive(){
 			novoLabel[i].style.fontSize="0.90rem";
 			novoInput[i].style.fontSize="0.75rem";
 		}			
-		thTipo.hidden=false;
+		if(thTipo != null){
+			thTipo.hidden=false;
+		}	
 	}
 	else if(bodyWidth < 540){
 		console.log('Muito pequeno');
@@ -201,7 +211,9 @@ function responsive(){
 			novoLabel[i].style.fontSize="0.70rem";
 			novoInput[i].style.fontSize="0.65rem";
 		}		
-		thTipo.hidden=true;
+		if(thTipo != null){
+			thTipo.hidden=true;
+		}	
 	}
 
 	if(tamanhoMenuSuperior.clientHeight == 0){
@@ -439,7 +451,7 @@ function changeStatus(){
 
 	}
 
-	else if(status == 1){
+	else if(status == "true"){
 
 		labelAgendamento.style.color="grey";
 		inputAgendamento.value="";
@@ -462,7 +474,7 @@ function changeStatus(){
 		inputData.value=data;
 	}
 
-	else if(status == 2){
+	else if(status == "false"){
 
 		labelAgendamento.style.color="#FFFFFF";
 		inputAgendamento.disabled=false;

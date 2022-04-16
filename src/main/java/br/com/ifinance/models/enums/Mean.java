@@ -6,10 +6,10 @@ public enum Mean {
     DEBITO(1, "Cartão de débito"),
     CREDITO(2, "Cartão de crédito"),
     PIX(3, "Transferência via PIX"),
-    CONTA(4, "Direto na conta"),
     CHEQUE(4, "Cheque"),
     TED(5, "Transferência via TED"),
-    DOC(6, "Transferência via DOC");
+    DOC(6, "Transferência via DOC"),
+    OUTRO(6, "Outro");
 
     private Integer code;
     private String desc;
