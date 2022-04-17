@@ -11,7 +11,6 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
 @Table(name = "TB_USER")
 @SequenceGenerator(allocationSize = 1, sequenceName = "sq_user", name = "user")
 public class User {

@@ -158,6 +158,9 @@ option{
 
 .tr{
     border-bottom: 1px solid #1f1f1f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .th, .td{
@@ -175,9 +178,39 @@ option{
     text-align: left;
 }
 
+.td{
+    font-size: 0.90rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.td:hover{
+    cursor: pointer;
+}
+
 .tbody{
     border-top: 1px solid #00CCFF;
 }
+
+.btn_excluir{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #00CCFF;
+    color: #FFFFFF;
+    padding: 8px 15px;
+}
+
+.btn_excluir:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    color: #121212;
+    transition: 1s;    
+    animation: pulse 1s infinite;
+}
+
 
 /* === FIM DA TABELA === */
 

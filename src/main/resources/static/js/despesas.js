@@ -356,7 +356,15 @@ function fechaNovaDespesa(){
 
 /* =================== ABERTURA E FECHAMENTO DO EDIT =================== */
 
-function editDespesa(){
+function editDespesa(id, descricao, status, valor, forma, data, agendamento){
+
+	console.log(id);
+	console.log(descricao);
+	console.log(status);
+	console.log(valor);
+	console.log(forma);
+	console.log(data);
+	console.log(agendamento);
 
 	var conteudoContainer = document.getElementById('conteudo_container');
 	var containerEdit = document.getElementById('container_edit');
@@ -369,6 +377,102 @@ function editDespesa(){
 	conteudoContainer.style.transition="2s";
 	containerEdit.style.display="block";
 	containerEdit.style.transition="2s";
+
+	// ============================================================== //
+	
+	var labelAgendamento = document.getElementById('edit_label_agendamento');
+	var inputAgendamento = document.getElementById('edit_input_agendamento');
+
+	var labelData = document.getElementById('edit_label_data');
+	var inputData = document.getElementById('edit_input_data');
+
+	var labelForma = document.getElementById('edit_label_forma');
+	var inputForma = document.getElementById('edit_input_forma');
+
+	if(status == "Pago"){
+
+		document.getElementById('Pago').selected=true;
+
+		labelAgendamento.style.color="grey";
+		inputAgendamento.value="";
+		inputAgendamento.disabled=true;
+		inputAgendamento.style.border="1px solid grey";
+		inputAgendamento.style.color="grey";
+
+		labelData.style.color="#FFFFFF";
+		inputData.disabled=false;
+		inputData.style.border="1px solid #00CCFF";
+		inputData.style.color="#FFFFFF";
+		inputData.value=data;
+
+		labelForma.style.color="#FFFFFF";
+		inputForma.disabled=false;
+		inputForma.value="Dinheiro";
+		inputForma.style.border="1px solid #00CCFF";
+		inputForma.style.color="#FFFFFF";
+		
+		// DEFININDO O FORMA
+		if(forma == "Espécie"){
+			document.getElementById('dinheiro').selected=true;
+		}
+		else if(forma == "Cartão de débito"){
+			document.getElementById('debito').selected=true;
+		}
+		else if(forma == "Cartão de crédito"){
+			document.getElementById('credito').selected=true;
+		}
+		else if(forma == "Transferência via PIX"){
+			document.getElementById('pix').selected=true;
+		}
+		else if(forma == "Cheque"){
+			document.getElementById('ted').selected=true;
+		}	
+		else if(forma == "Transferência via TED"){
+			document.getElementById('doc').selected=true;
+		}
+		else if(forma == "Transferência via DOC"){
+			document.getElementById('cheque').selected=true;
+		}
+		else if(forma == "Outro"){
+			document.getElementById('outro').selected=true;
+		}							
+
+		
+
+
+		inputData.value=data;
+	}
+
+	else if(status == "A pagar"){
+
+		document.getElementById('Pagar').selected=true;
+
+		labelAgendamento.style.color="#FFFFFF";
+		inputAgendamento.disabled=false;
+		inputAgendamento.style.border="1px solid #00CCFF";
+		inputAgendamento.style.color="#FFFFFF";
+		inputAgendamento.value=agendamento;
+
+		labelData.style.color="grey";
+		inputData.value="";
+		inputData.disabled=true;
+		inputData.style.border="1px solid grey";
+		inputData.style.color="grey";
+
+		labelForma.style.color="grey";
+		inputForma.value="";
+		inputForma.disabled=true;
+		inputForma.style.border="1px solid grey";
+		inputForma.style.color="grey";						
+	}	
+
+	// ============================================================== //
+	
+	var inputDescricao = document.getElementById('edit_input_descricao');
+	inputDescricao.value=descricao;
+
+	var inputValor = document.getElementById('edit_input_valor');
+	inputValor.value=valor;
 
 }
 
@@ -420,7 +524,7 @@ function changeStatus(){
 
 	const d = new Date();
 	var ano = d.getFullYear();
-	var mes = d.getMonth();
+	var mes = d.getMonth()+1;
 	var dia = d.getDate();
 
 	if(mes < 10){
@@ -451,7 +555,7 @@ function changeStatus(){
 
 	}
 
-	else if(status == "true"){
+	else if(status == "PAGO"){
 
 		labelAgendamento.style.color="grey";
 		inputAgendamento.value="";
@@ -474,7 +578,7 @@ function changeStatus(){
 		inputData.value=data;
 	}
 
-	else if(status == "false"){
+	else if(status == "PAGAR"){
 
 		labelAgendamento.style.color="#FFFFFF";
 		inputAgendamento.disabled=false;
@@ -514,7 +618,7 @@ function editChangeStatus(){
 
 	const d = new Date();
 	var ano = d.getFullYear();
-	var mes = d.getMonth();
+	var mes = d.getMonth()+1;
 	var dia = d.getDate();
 
 	if(mes < 10){
@@ -545,7 +649,7 @@ function editChangeStatus(){
 
 	}
 
-	else if(status == 1){
+	else if(status == "PAGO"){
 
 		labelAgendamento.style.color="grey";
 		inputAgendamento.value="";
@@ -568,7 +672,7 @@ function editChangeStatus(){
 		inputData.value=data;
 	}
 
-	else if(status == 2){
+	else if(status == "PAGAR"){
 
 		labelAgendamento.style.color="#FFFFFF";
 		inputAgendamento.disabled=false;
