@@ -19,6 +19,23 @@ body{
 
 /* ===== LINHA DOS MESES ===== */
 
+.alert{
+    position: absolute;
+    position: fixed;
+    text-align: center;
+    font-size: 0.90rem;
+    width: 50%;
+    animation: pulse 2s infinite;
+    opacity: 0.98;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alert:hover{
+    cursor: pointer;
+}
+
 .linha_data
 {
     margin: 0;

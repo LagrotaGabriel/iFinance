@@ -335,23 +335,6 @@ function fechaNovaDespesa(){
 	var inputData = document.getElementById('input_data');
 	var inputAgendamento = document.getElementById('input_agendamento');
 
-	if(inputDescricao.value == "" && inputStatus.value == "0" && inputValor.value == "" && inputForma.value == "" && inputData.value == "" && inputAgendamento.value == ""){
-		conteudoContainer.style.pointerEvents="auto";
-		conteudoContainer.style.opacity="0.95";
-		containerNovo.style.display="none";
-		conteudoContainer.style.transition="2s";
-		containerNovo.style.transition="2s";
-	}
-	else{	
-		if(confirm('Você tem certeza que deseja fechar o formulário? Os dados preenchidos serão perdidos')) {
-			conteudoContainer.style.pointerEvents="auto";
-			conteudoContainer.style.opacity="0.95";
-			containerNovo.style.display="none";
-			conteudoContainer.style.transition="2s";
-			containerNovo.style.transition="2s";
-		} 
-	}	
-
 }
 
 /* =================== ABERTURA E FECHAMENTO DO EDIT =================== */
@@ -437,9 +420,6 @@ function editDespesa(id, descricao, status, valor, forma, data, agendamento){
 			document.getElementById('outro').selected=true;
 		}							
 
-		
-
-
 		inputData.value=data;
 	}
 
@@ -474,6 +454,8 @@ function editDespesa(id, descricao, status, valor, forma, data, agendamento){
 	var inputValor = document.getElementById('edit_input_valor');
 	inputValor.value=valor;
 
+	document.getElementById('col_edit_id').value=id;
+
 }
 
 function fechaEditDespesa(){
@@ -487,23 +469,6 @@ function fechaEditDespesa(){
 	var inputForma = document.getElementById('input_forma');
 	var inputData = document.getElementById('input_data');
 	var inputAgendamento = document.getElementById('input_agendamento');
-
-	if(inputDescricao.value == "" && inputStatus.value == "0" && inputValor.value == "" && inputForma.value == "" && inputData.value == "" && inputAgendamento.value == ""){
-		conteudoContainer.style.pointerEvents="auto";
-		conteudoContainer.style.opacity="0.95";
-		containerEdit.style.display="none";
-		conteudoContainer.style.transition="2s";
-		containerEdit.style.transition="2s";
-	}
-	else{	
-		if(confirm('Você tem certeza que deseja fechar o formulário? Os dados preenchidos serão perdidos')) {
-			conteudoContainer.style.pointerEvents="auto";
-			conteudoContainer.style.opacity="0.95";
-			containerEdit.style.display="none";
-			conteudoContainer.style.transition="2s";
-			containerEdit.style.transition="2s";
-		} 
-	}	
 
 }
 
@@ -548,7 +513,7 @@ function changeStatus(){
 		inputData.style.color="grey";
 
 		labelForma.style.color="grey";
-		inputForma.value="";
+		document.getElementById('novo_aberto').selected=true;
 		inputForma.disabled=true;
 		inputForma.style.border="1px solid grey";
 		inputForma.style.color="grey";				
@@ -570,7 +535,20 @@ function changeStatus(){
 
 		labelForma.style.color="#FFFFFF";
 		inputForma.disabled=false;
-		inputForma.value="Dinheiro";
+
+		document.getElementById('novo_aberto').disabled=true;
+		document.getElementById('novo_dinheiro').disabled=false;
+		document.getElementById('novo_debito').disabled=false;
+		document.getElementById('novo_credito').disabled=false;
+		document.getElementById('novo_pix').disabled=false;
+		document.getElementById('novo_ted').disabled=false;
+		document.getElementById('novo_doc').disabled=false;
+		document.getElementById('novo_cheque').disabled=false;
+		document.getElementById('novo_outro').disabled=false;
+
+		document.getElementById('input_data').required=true;
+
+		document.getElementById('novo_dinheiro').selected=true;
 		inputForma.style.border="1px solid #00CCFF";
 		inputForma.style.color="#FFFFFF";
 
@@ -592,7 +570,20 @@ function changeStatus(){
 		inputData.style.color="grey";
 
 		labelForma.style.color="grey";
-		inputForma.value="";
+
+		document.getElementById('novo_aberto').disabled=false;
+		document.getElementById('novo_dinheiro').disabled=true;
+		document.getElementById('novo_debito').disabled=true;
+		document.getElementById('novo_credito').disabled=true;
+		document.getElementById('novo_pix').disabled=true;
+		document.getElementById('novo_ted').disabled=true;
+		document.getElementById('novo_doc').disabled=true;
+		document.getElementById('novo_cheque').disabled=true;
+		document.getElementById('novo_outro').disabled=true;
+
+		document.getElementById('input_data').required=false;
+
+		document.getElementById('novo_aberto').selected=true;
 		inputForma.disabled=true;
 		inputForma.style.border="1px solid grey";
 		inputForma.style.color="grey";						
@@ -651,7 +642,7 @@ function editChangeStatus(){
 
 	else if(status == "PAGO"){
 
-		labelAgendamento.style.color="grey";
+		/*labelAgendamento.style.color="grey";
 		inputAgendamento.value="";
 		inputAgendamento.disabled=true;
 		inputAgendamento.style.border="1px solid grey";
@@ -669,12 +660,42 @@ function editChangeStatus(){
 		inputForma.style.color="#FFFFFF";
 
 
-		inputData.value=data;
+		inputData.value=data;*/
+
+		labelAgendamento.style.color="grey";
+		inputAgendamento.value="";
+		inputAgendamento.disabled=true;
+		inputAgendamento.style.border="1px solid grey";
+		inputAgendamento.style.color="grey";
+
+		labelData.style.color="#FFFFFF";
+		inputData.disabled=false;
+		inputData.style.border="1px solid #00CCFF";
+		inputData.style.color="#FFFFFF";
+
+		labelForma.style.color="#FFFFFF";
+		inputForma.disabled=false;
+
+		document.getElementById('aberto').disabled=true;
+		document.getElementById('dinheiro').disabled=false;
+		document.getElementById('debito').disabled=false;
+		document.getElementById('credito').disabled=false;
+		document.getElementById('pix').disabled=false;
+		document.getElementById('ted').disabled=false;
+		document.getElementById('doc').disabled=false;
+		document.getElementById('cheque').disabled=false;
+		document.getElementById('outro').disabled=false;
+
+		document.getElementById('input_data').required=true;
+
+		document.getElementById('dinheiro').selected=true;
+		inputForma.style.border="1px solid #00CCFF";
+		inputForma.style.color="#FFFFFF";		
 	}
 
 	else if(status == "PAGAR"){
 
-		labelAgendamento.style.color="#FFFFFF";
+		/*labelAgendamento.style.color="#FFFFFF";
 		inputAgendamento.disabled=false;
 		inputAgendamento.style.border="1px solid #00CCFF";
 		inputAgendamento.style.color="#FFFFFF";
@@ -689,7 +710,37 @@ function editChangeStatus(){
 		inputForma.value="";
 		inputForma.disabled=true;
 		inputForma.style.border="1px solid grey";
-		inputForma.style.color="grey";						
+		inputForma.style.color="grey";						*/
+
+		labelAgendamento.style.color="#FFFFFF";
+		inputAgendamento.disabled=false;
+		inputAgendamento.style.border="1px solid #00CCFF";
+		inputAgendamento.style.color="#FFFFFF";
+
+		labelData.style.color="grey";
+		inputData.value="";
+		inputData.disabled=true;
+		inputData.style.border="1px solid grey";
+		inputData.style.color="grey";
+
+		labelForma.style.color="grey";
+
+		document.getElementById('aberto').disabled=false;
+		document.getElementById('dinheiro').disabled=true;
+		document.getElementById('debito').disabled=true;
+		document.getElementById('credito').disabled=true;
+		document.getElementById('pix').disabled=true;
+		document.getElementById('ted').disabled=true;
+		document.getElementById('doc').disabled=true;
+		document.getElementById('cheque').disabled=true;
+		document.getElementById('outro').disabled=true;
+
+		document.getElementById('input_data').required=false;
+
+		document.getElementById('aberto').selected=true;
+		inputForma.disabled=true;
+		inputForma.style.border="1px solid grey";
+		inputForma.style.color="grey";		
 
 	}
 
@@ -705,4 +756,13 @@ function changeMonth(month){
 	}
 	meses[month].style.background="#00CCFF";
 	meses[month].style.color="#121212";
+}
+
+/* ================== FECHA MENSAGENS INFORMATIVAS ====================== */
+
+function hideMessage(){
+	var alertas = document.getElementsByClassName('alert');
+	for(var i = 0; i < alertas.length; i++){
+		alertas[i].hidden=true;
+	}
 }

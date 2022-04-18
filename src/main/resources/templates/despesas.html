@@ -207,7 +207,20 @@
 
 						<!-------------- CONTEUDO_CONTAINER ------------>
 						<div class="container conteudo_container" id="conteudo_container">
+
 							<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo" id="conteudo_titulo">
+
+								<div th:if="${SucessoCadastro}" class="alert alert-success" id="sucessoCadastro" onclick="hideMessage()">
+									<p th:text="${SucessoCadastro}"></p>
+								</div>
+
+								<div th:if="${ErroCadastro}" class="alert alert-danger" id="erroCadastro" onclick="hideMessage()">
+									<p th:text="${ErroCadastro}"></p>
+								</div>								
+
+								<div th:if="${SucessoDelete}" class="alert alert-success" id="sucessoDelete" onclick="hideMessage()">
+									<p th:text="${SucessoDelete}"></p>
+								</div>										
 
 								<h1 class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text" id="conteudo_titulo_text">
 									Suas despesas
@@ -345,17 +358,23 @@
 
 											<tr th:each="liability : ${liabilities}" class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12" id="tr" >
 
-												<td th:text="${liability.date}" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}" class="td col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1" onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
+												<td th:if="${liability.statusLiability.desc == 'Pago'}" class="td td_data col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1" id="td_data" th:text="${liability.date}" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}" onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
+												<td th:unless="${liability.statusLiability.desc == 'Pago'}" class="td td_data col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1" id="td_data" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}" onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">EM ABERTO</td>
 
-												<td th:text="${liability.description}" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}" class="td col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3" onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
 
-												<td th:text="${liability.value}" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}" class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2" onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
 
-												<td th:text="${liability.mean.desc}" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}" class="td td_tipo col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2" onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
+												<td th:text="${liability.description}" class="td td_description col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3" id="td_description" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}"onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
 
-												<td th:text="${liability.statusLiability.desc}" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}" class="td col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1" onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
+												<td th:text="'R$ ' + ${liability.value}" class="td td_value col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2" id="td_value" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}"onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
 
-												<td th:text="${liability.scheduling}" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}" class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2" onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
+												<td th:text="${liability.mean.desc}" class="td td_mean col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2" id="td_mean" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}"onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
+
+												<td th:text="${liability.statusLiability.desc}" class="td td_status col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1" id="td_status" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}" onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
+
+
+
+												<td th:if="${liability.scheduling != null}" th:text="${liability.scheduling}" class="td td_scheduling col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2" id="td_scheduling" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}" onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
+												<td th:unless="${liability.scheduling != null}" class="td td_scheduling col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2" id="td_scheduling" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}" onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">NÃO</td>												
 
 												<td class="td td_checkbox col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
 													
@@ -456,7 +475,7 @@
 										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_novo_form">
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
-												<input type="text" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_descricao" name="description"/>
+												<input type="text" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_descricao" name="description" required/>
 											</div>
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
@@ -468,7 +487,7 @@
 											</div>	
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
-												<input type="number" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_valor" name="value"/>
+												<input type="number" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_valor" name="value" step="0.01" required/>
 											</div>											
 
 										</div>	
@@ -481,7 +500,7 @@
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_label">
 												<label class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_label" id="label_forma">
-													Forma:
+													Pagamento:
 												</label>	
 											</div>
 
@@ -507,15 +526,15 @@
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
 												<select class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_forma" name="mean" disabled/>
-													<option></option>
-													<option value="ESPECIE">Dinheiro</option>
-													<option value="DEBITO">Cartão de débito</option>
-													<option value="CREDITO">Cartão de crédito</option>
-													<option value="PIX">PIX</option>
-													<option value="TED">TED</option>
-													<option value="DOC">DOC</option>
-													<option value="CHEQUE">Cheque</option>
-													<option value="OUTRO">Outro</option>
+													<option value="ABERTO" id="novo_aberto">Em aberto</option>
+													<option value="ESPECIE" id="novo_dinheiro">Dinheiro</option>
+													<option value="DEBITO" id="novo_debito">Cartão de débito</option>
+													<option value="CREDITO" id="novo_credito">Cartão de crédito</option>
+													<option value="PIX" id="novo_pix">PIX</option>
+													<option value="TED" id="novo_ted">TED</option>
+													<option value="DOC" id="novo_doc">DOC</option>
+													<option value="CHEQUE" id="novo_cheque">Cheque</option>
+													<option value="OUTRO" id="novo_outro">Outro</option>
 												</select>												
 											</div>
 
@@ -577,13 +596,14 @@
 									<h1 class="col-xs-6 col-lg-6 col-md-6 col-sm-6 col-6 text-center edit_titulo">
 										Editar despesa
 									</h1>
-									<h2 style="display: none" id="edit_id"></h2>
 								</div>	
 
 							</div>	
 
 
-								<form class="form">
+								<form th:action="@{despesas/edit}" method="POST" th:object="${liability}" class="form">
+
+									<input class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_id" id="col_edit_id" name="id" style="display: none">	
 
 									<div class="row container_edit_linha container_edit_terceira_linha">
 
@@ -616,11 +636,11 @@
 										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_form">
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
-												<input type="text" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_input_descricao"/>
+												<input type="text" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_input_descricao" name="description" required/>
 											</div>
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
-												<select class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_select_status" onchange="editChangeStatus()"/>
+												<select class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_select_status" name="statusLiability" onchange="editChangeStatus()"/>
 													<option value="0"></option>
 													<option value="PAGO" id="Pago">Pago</option>
 													<option value="PAGAR" id="Pagar">A pagar</option>
@@ -628,7 +648,7 @@
 											</div>	
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
-												<input type="number" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_input_valor"/>
+												<input type="number" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_input_valor" name="value" step="0.01" required/>
 											</div>											
 
 										</div>	
@@ -666,8 +686,8 @@
 										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_form">
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
-												<select class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_input_forma" disabled/>
-													<option></option>
+												<select class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_input_forma" name="mean" disabled/>
+													<option value="ABERTO" id="aberto">Em aberto</option>
 													<option value="ESPECIE" id="dinheiro">Dinheiro</option>
 													<option value="DEBITO" id="debito">Cartão de débito</option>
 													<option value="CREDITO" id="credito">Cartão de crédito</option>
@@ -680,11 +700,11 @@
 											</div>
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
-												<input type="date" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_input_data" disabled/>
+												<input type="date" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_input_data" name="date" disabled/>
 											</div>
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
-												<input type="date" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_input_agendamento" disabled/>
+												<input type="date" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_input_agendamento" name="scheduling" disabled/>
 											</div>																	
 										</div>	
 

@@ -10,7 +10,7 @@ public enum Mean {
     TED(5, "Transferência via TED"),
     DOC(6, "Transferência via DOC"),
     OUTRO(6, "Outro"),
-    AGENDADO(7, "Agendado");
+    ABERTO(7, "Aberto");
 
     private Integer code;
     private String desc;
