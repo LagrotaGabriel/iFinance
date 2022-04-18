@@ -329,9 +329,9 @@
 
 											<tr class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12" id="thead_row">
 
-												<th class="th col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">Data</th>
-												<th class="th col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3">Descrição</th>
-												<th class="th col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">Valor</th>
+												<th class="th th_data col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">Data</th>
+												<th class="th th_descricao col-xs-4 col-lg-4 col-md-4 col-sm-4 col-4">Descrição</th>
+												<th class="th th_valor col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">Valor</th>
 												<th class="th th_tipo col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2" id="th_tipo">Forma</th>
 												<th class="th col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">Pago</th>
 												<th class="th col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">Agendado</th>
@@ -344,10 +344,10 @@
 
 										<tbody class="tbody col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">		
 
-											<tr th:unless="${liabilities}" class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
+											<tr th:if="${liabilities == ''}" class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
 												<td class="td col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-3">...</td>
+												<td class="td col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
 												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
 												<td class="td td_tipo col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
 												<td class="td col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
@@ -356,22 +356,18 @@
 
 											</tr>
 
-											<tr th:each="liability : ${liabilities}" class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12" id="tr" >
+											<tr th:unless="${liabilities == ''}" th:each="liability : ${liabilities}" class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12" id="tr">
 
 												<td th:if="${liability.statusLiability.desc == 'Pago'}" class="td td_data col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1" id="td_data" th:text="${liability.date}" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}" onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
-												<td th:unless="${liability.statusLiability.desc == 'Pago'}" class="td td_data col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1" id="td_data" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}" onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">EM ABERTO</td>
+												<td th:unless="${liability.statusLiability.desc == 'Pago'}" class="td td_data col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1" id="td_data" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}" onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">Em aberto</td>
 
+												<td th:text="${liability.description}" class="td td_description col-xs-4 col-lg-4 col-md-4 col-sm-4 col-4" id="td_description" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}"onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
 
-
-												<td th:text="${liability.description}" class="td td_description col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3" id="td_description" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}"onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
-
-												<td th:text="'R$ ' + ${liability.value}" class="td td_value col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2" id="td_value" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}"onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
+												<td th:text="'R$ ' + ${liability.value}" class="td td_value col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1" id="td_value" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}"onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
 
 												<td th:text="${liability.mean.desc}" class="td td_mean col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2" id="td_mean" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}"onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
 
 												<td th:text="${liability.statusLiability.desc}" class="td td_status col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1" id="td_status" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}" onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
-
-
 
 												<td th:if="${liability.scheduling != null}" th:text="${liability.scheduling}" class="td td_scheduling col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2" id="td_scheduling" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}" onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
 												<td th:unless="${liability.scheduling != null}" class="td td_scheduling col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2" id="td_scheduling" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}" onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">NÃO</td>												

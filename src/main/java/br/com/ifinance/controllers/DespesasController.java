@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -27,10 +26,8 @@ public class DespesasController {
 
     @Autowired
     private UserRepository userRepository;
-
     @Autowired
     private UserService userService;
-
     @Autowired
     private LiabilityService liabilityService;
 
@@ -67,7 +64,12 @@ public class DespesasController {
             }
 
         }
-        model.addAttribute("liabilities", user.getLiabilities());
+        if(user.getLiabilities().size() > 0){
+            model.addAttribute("liabilities", user.getLiabilities());
+        }else{
+            model.addAttribute("liabilities", "");
+        }
+
         model.addAttribute("user", user);
         modelAndView.setViewName("despesas");
         return modelAndView;

@@ -178,6 +178,8 @@ option{
     display: flex;
     justify-content: center;
     align-items: center;
+    border-left: 4px solid transparent;
+    margin: 5px 0;
 }
 
 .th, .td{
@@ -203,6 +205,14 @@ option{
 }
 .td:hover{
     cursor: pointer;
+}
+.td_data, .th_data{
+    justify-content: left;
+    padding-left: 10px;
+}
+
+.td_value, .th_valor{
+    justify-content: left;
 }
 
 .tbody{

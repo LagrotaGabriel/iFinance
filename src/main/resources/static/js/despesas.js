@@ -16,6 +16,48 @@ function responsive(){
 	bodyWidth = document.getElementById('body').clientWidth;
 	bodyHeight = document.getElementById('body').clientHeight;
 
+	// Definindo prioridades
+	var line = document.getElementsByClassName('tr');
+	var columnScheduling = document.getElementsByClassName('td_scheduling');
+	var columnData = document.getElementsByClassName('td_data');
+
+	console.log(columnScheduling[0].innerText);
+
+	for(var i = 0; i < line.length; i++){
+
+		if(columnScheduling[i].innerText == "NÃO"){
+			line[i].style.borderLeft="4px solid #5eff00";
+		}
+		else{
+			const d = new Date();
+			var ano = d.getFullYear();
+			var mes = d.getMonth()+1;
+			var dia = d.getDate();
+
+			if(mes < 10){
+				var mes = '0' + mes;
+			}
+
+			var hoje = (dia + '/' + mes + '/' + ano); 
+
+			if(columnScheduling[i].innerText == hoje){
+				line[i].style.borderLeft="4px solid #ff5900";
+				columnData[i].style.color="#ff5900";
+			}
+			else if(columnScheduling[i].innerText.split("/")[2] <= ano && 
+				columnScheduling[i].innerText.split("/")[1] <= mes && 
+				columnScheduling[i].innerText.split("/")[0] <= dia){
+				line[i].style.borderLeft="4px solid #f20a0a";
+				columnData[i].style.color="#f20a0a";
+			}
+			else{
+				line[i].style.borderLeft="4px solid #fff700";
+			}
+
+		}
+
+	}
+
 	/* Ajustando content */
 	var tamanhoMain = document.getElementById('main');
 	var tamanhoAside = document.getElementById('side_menu');
@@ -327,13 +369,15 @@ function fechaNovaDespesa(){
 
 	var conteudoContainer = document.getElementById('conteudo_container');
 	var containerNovo = document.getElementById('container_novo');
+	var botoesOpc = document.getElementsByClassName('botoes_opc');
+	var selectOpc = document.getElementsByClassName('select_opc');
+	var meses = document.getElementsByClassName('mes_opc');
 
-	var inputDescricao = document.getElementById('input_descricao');
-	var inputStatus = document.getElementById('select_status');
-	var inputValor = document.getElementById('input_valor');
-	var inputForma = document.getElementById('input_forma');
-	var inputData = document.getElementById('input_data');
-	var inputAgendamento = document.getElementById('input_agendamento');
+	conteudoContainer.style.pointerEvents="auto";
+	conteudoContainer.style.opacity="0.96";
+	conteudoContainer.style.transition="2s";
+	containerNovo.style.display="none";
+	containerNovo.style.transition="2s";
 
 }
 
@@ -372,6 +416,14 @@ function editDespesa(id, descricao, status, valor, forma, data, agendamento){
 	var labelForma = document.getElementById('edit_label_forma');
 	var inputForma = document.getElementById('edit_input_forma');
 
+	if(data != null){
+		var novaData = data.split('/').reverse().join('-');
+	}		
+
+	if(agendamento != null){
+		var novoAgendamento = agendamento.split('/').reverse().join('-');
+	}
+
 	if(status == "Pago"){
 
 		document.getElementById('Pago').selected=true;
@@ -386,7 +438,7 @@ function editDespesa(id, descricao, status, valor, forma, data, agendamento){
 		inputData.disabled=false;
 		inputData.style.border="1px solid #00CCFF";
 		inputData.style.color="#FFFFFF";
-		inputData.value=data;
+		inputData.value=novaData;
 
 		labelForma.style.color="#FFFFFF";
 		inputForma.disabled=false;
@@ -420,7 +472,7 @@ function editDespesa(id, descricao, status, valor, forma, data, agendamento){
 			document.getElementById('outro').selected=true;
 		}							
 
-		inputData.value=data;
+		inputData.value=novaData;
 	}
 
 	else if(status == "A pagar"){
@@ -431,7 +483,7 @@ function editDespesa(id, descricao, status, valor, forma, data, agendamento){
 		inputAgendamento.disabled=false;
 		inputAgendamento.style.border="1px solid #00CCFF";
 		inputAgendamento.style.color="#FFFFFF";
-		inputAgendamento.value=agendamento;
+		inputAgendamento.value=novoAgendamento;
 
 		labelData.style.color="grey";
 		inputData.value="";
@@ -462,13 +514,15 @@ function fechaEditDespesa(){
 
 	var conteudoContainer = document.getElementById('conteudo_container');
 	var containerEdit = document.getElementById('container_edit');
+	var botoesOpc = document.getElementsByClassName('botoes_opc');
+	var selectOpc = document.getElementsByClassName('select_opc');
+	var meses = document.getElementsByClassName('mes_opc');
 
-	var inputDescricao = document.getElementById('input_descricao');
-	var inputStatus = document.getElementById('select_status');
-	var inputValor = document.getElementById('input_valor');
-	var inputForma = document.getElementById('input_forma');
-	var inputData = document.getElementById('input_data');
-	var inputAgendamento = document.getElementById('input_agendamento');
+	conteudoContainer.style.pointerEvents="auto";
+	conteudoContainer.style.opacity="0.96";
+	conteudoContainer.style.transition="2s";
+	containerEdit.style.display="none";
+	containerEdit.style.transition="2s";
 
 }
 
@@ -642,26 +696,6 @@ function editChangeStatus(){
 
 	else if(status == "PAGO"){
 
-		/*labelAgendamento.style.color="grey";
-		inputAgendamento.value="";
-		inputAgendamento.disabled=true;
-		inputAgendamento.style.border="1px solid grey";
-		inputAgendamento.style.color="grey";
-
-		labelData.style.color="#FFFFFF";
-		inputData.disabled=false;
-		inputData.style.border="1px solid #00CCFF";
-		inputData.style.color="#FFFFFF";
-
-		labelForma.style.color="#FFFFFF";
-		inputForma.disabled=false;
-		inputForma.value="Dinheiro";
-		inputForma.style.border="1px solid #00CCFF";
-		inputForma.style.color="#FFFFFF";
-
-
-		inputData.value=data;*/
-
 		labelAgendamento.style.color="grey";
 		inputAgendamento.value="";
 		inputAgendamento.disabled=true;
@@ -694,23 +728,6 @@ function editChangeStatus(){
 	}
 
 	else if(status == "PAGAR"){
-
-		/*labelAgendamento.style.color="#FFFFFF";
-		inputAgendamento.disabled=false;
-		inputAgendamento.style.border="1px solid #00CCFF";
-		inputAgendamento.style.color="#FFFFFF";
-
-		labelData.style.color="grey";
-		inputData.value="";
-		inputData.disabled=true;
-		inputData.style.border="1px solid grey";
-		inputData.style.color="grey";
-
-		labelForma.style.color="grey";
-		inputForma.value="";
-		inputForma.disabled=true;
-		inputForma.style.border="1px solid grey";
-		inputForma.style.color="grey";						*/
 
 		labelAgendamento.style.color="#FFFFFF";
 		inputAgendamento.disabled=false;
