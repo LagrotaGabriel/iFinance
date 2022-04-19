@@ -23,10 +23,12 @@
 
 	</head>
 
-	<body id="body">
+	<body th:with="currentUrl=(${#httpServletRequest.requestURI + '?' + #strings.defaultString(#httpServletRequest.queryString, '')})" id="body">
+
+		<!-- Pega url atual: th:href="@{__${#httpServletRequest.requestURI}__}" -->
 
 			<!--------------- TUDO --------------->
-			<div class="row main-row" id="main_row">
+			<div class="row main-row" th:with="current=(${@currentUrlWithoutParam.apply('month')})" id="main_row">
 
 				<!--------------- SIDE BAR PRINCIPAL DO SITE --------------->
 				<div class="container side_menu col-lg-1" id="side_menu">	
@@ -75,7 +77,7 @@
 
 						<div class="aside aside-4 col-lg-12" id="div_aside_despesas">
 							
-							<a th:href="@{/despesas}" class="row aside_clicavel">
+							<a th:href="@{/despesas(month=jan, page=1)}" class="row aside_clicavel">
 								<button type="button" class="img_button">
 									<img th:src="@{img/despesa.png}" class="sidebar_menu_img" id="img_aside_despesas"/>
 								</button>
@@ -225,7 +227,6 @@
 								<h1 class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text" id="conteudo_titulo_text">
 									Suas despesas
 								</h1>
-
 							</div>
 
 							<div class="row row_botoes">
@@ -244,7 +245,11 @@
 										<select class="col-xs-5 col-lg-4 col-md-4 col-sm-4 col-4 select_opc">
 
 											<option selected>2022</option>
-											<option>2021</option>
+											<option>
+												<a href="#">
+													2021
+												</a>
+											</option>
 											<option>2020</option>
 											<option>2019</option>
 											<option>2018</option>
@@ -266,53 +271,53 @@
 
 							<div class="row linha_data">
 
-								<div class="col-xs-11 col-lg-11 col-md-11 col-sm-11 col-11 meses">
+								<div  class="col-xs-11 col-lg-11 col-md-11 col-sm-11 col-11 meses">
 
-									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jan" id="mes_opc_jan" onclick="changeMonth(0)">
+									<a th:href="@{${current}(month=jan, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jan" id="mes_opc_jan" onclick="changeMonth(0)">
 										Jan
 									</a>
 
-									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_fev" id="mes_opc_fev" onclick="changeMonth(1)">
+									<a th:href="@{${current}(month=fev, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_fev" id="mes_opc_fev" onclick="changeMonth(1)">
 										Fev
 									</a>
 
-									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_mar" id="mes_opc_mar" onclick="changeMonth(2)">
+									<a th:href="@{${current}(month=mar, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_mar" id="mes_opc_mar" onclick="changeMonth(2)">
 										Mar
 									</a>
 
-									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_abr" id="mes_opc_abr" onclick="changeMonth(3)">
+									<a th:href="@{${current}(month=abr, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_abr" id="mes_opc_abr" onclick="changeMonth(3)">
 										Abr
 									</a>
 
-									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_mai" id="mes_opc_mai" onclick="changeMonth(4)">
+									<a th:href="@{${current}(month=mai, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_mai" id="mes_opc_mai" onclick="changeMonth(4)">
 										Mai
 									</a>
 
-									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jun" id="mes_opc_jun" onclick="changeMonth(5)">
+									<a th:href="@{${current}(month=jun, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jun" id="mes_opc_jun" onclick="changeMonth(5)">
 										Jun
 									</a>
 
-									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jul" id="mes_opc_jul" onclick="changeMonth(6)">
+									<a th:href="@{${current}(month=jul, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jul" id="mes_opc_jul" onclick="changeMonth(6)">
 										Jul
 									</a>
 
-									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_ago" id="mes_opc_ago" onclick="changeMonth(7)">
+									<a th:href="@{${current}(month=ago, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_ago" id="mes_opc_ago" onclick="changeMonth(7)">
 										Ago
 									</a>
 
-									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_set" id="mes_opc_set" onclick="changeMonth(8)">
+									<a th:href="@{${current}(month=set, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_set" id="mes_opc_set" onclick="changeMonth(8)">
 										Set
 									</a>
 
-									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_out" id="mes_opc_out" onclick="changeMonth(9)">
+									<a th:href="@{${current}(month=out, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_out" id="mes_opc_out" onclick="changeMonth(9)">
 										Out
 									</a>
 
-									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_nov" id="mes_opc_nov" onclick="changeMonth(10)">
+									<a th:href="@{${current}(month=nov, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_nov" id="mes_opc_nov" onclick="changeMonth(10)">
 										Nov
 									</a>
 
-									<a href="#" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_dez" id="mes_opc_dez" onclick="changeMonth(11)">
+									<a th:href="@{${current}(month=dez, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_dez" id="mes_opc_dez" onclick="changeMonth(11)">
 										Dez
 									</a>
 													
@@ -329,10 +334,10 @@
 
 											<tr class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12" id="thead_row">
 
-												<th class="th th_data col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">Data</th>
-												<th class="th th_descricao col-xs-4 col-lg-4 col-md-4 col-sm-4 col-4">Descrição</th>
-												<th class="th th_valor col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">Valor</th>
-												<th class="th th_tipo col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2" id="th_tipo">Forma</th>
+												<th class="th th_data col-xs-1 col-lg-2 col-md-2 col-sm-2 col-2">Data</th>
+												<th class="th th_descricao col-xs-4 col-lg-3 col-md-3 col-sm-4 col-4">Descrição</th>
+												<th class="th th_valor col-xs-1 col-lg-1 col-md-1 col-sm-2 col-2">Valor</th>
+												<th class="th th_forma col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2" id="th_forma">Forma</th>
 												<th class="th col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">Pago</th>
 												<th class="th col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">Agendado</th>
 												<th class="th col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
@@ -346,9 +351,9 @@
 
 											<tr th:if="${liabilities == ''}" class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-												<td class="td col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
-												<td class="td col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-1 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td col-xs-4 col-lg-3 col-md-3 col-sm-4 col-4">...</td>
+												<td class="td col-xs-1 col-lg-1 col-md-1 col-sm-2 col-2">...</td>
 												<td class="td td_tipo col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
 												<td class="td col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
 												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
@@ -358,12 +363,12 @@
 
 											<tr th:unless="${liabilities == ''}" th:each="liability : ${liabilities}" class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12" id="tr">
 
-												<td th:if="${liability.statusLiability.desc == 'Pago'}" class="td td_data col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1" id="td_data" th:text="${liability.date}" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}" onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
-												<td th:unless="${liability.statusLiability.desc == 'Pago'}" class="td td_data col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1" id="td_data" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}" onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">Em aberto</td>
+												<td th:if="${liability.statusLiability.desc == 'Pago'}" class="td td_data col-xs-1 col-lg-2 col-md-2 col-sm-2 col-2" id="td_data" th:text="${liability.date}" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}" onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
+												<td th:unless="${liability.statusLiability.desc == 'Pago'}" class="td td_data col-xs-1 col-lg-2 col-md-2 col-sm-2 col-2" id="td_data" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}" onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">Em aberto</td>
 
-												<td th:text="${liability.description}" class="td td_description col-xs-4 col-lg-4 col-md-4 col-sm-4 col-4" id="td_description" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}"onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
+												<td th:text="${liability.description}" class="td td_description col-xs-4 col-lg-3 col-md-3 col-sm-4 col-4" id="td_description" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}"onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
 
-												<td th:text="'R$ ' + ${liability.value}" class="td td_value col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1" id="td_value" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}"onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
+												<td th:text="'R$ ' + ${liability.value}" class="td td_value col-xs-1 col-lg-1 col-md-1 col-sm-2 col-2" id="td_value" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}"onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
 
 												<td th:text="${liability.mean.desc}" class="td td_mean col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2" id="td_mean" th:data-id="${liability.id}" th:data-description="${liability.description}" th:data-status="${liability.statusLiability.desc}" th:data-value="${liability.value}" th:data-mean="${liability.mean.desc}" th:data-date="${liability.date}" th:data-scheduling="${liability.scheduling}"onclick="editDespesa(this.getAttribute('data-id'), this.getAttribute('data-description'), this.getAttribute('data-status'), this.getAttribute('data-value'), this.getAttribute('data-mean'), this.getAttribute('data-date'), this.getAttribute('data-scheduling'))">...</td>
 
@@ -376,7 +381,7 @@
 													
 													<form method="POST" th:action="@{despesas/delete-{id}(id = ${liability.id})}">
 														<button type="submit" class="col-lg-12 btn_excluir">
-															EXCLUIR
+															Excluir
 														</button>
 													</form>
 
@@ -395,21 +400,24 @@
 
 								<div class="col-xs-11 col-lg-11 col-md-11 pages">
 
-									<ul class="ul col-xs-12 col-lg-12 col-md-12">
+									<<ul class="ul col-xs-12 col-lg-12 col-md-12">
 
 										<li>
 											<a href="#">Anterior</a>
 										</li>
 
-										<li>
-											<a href="#">1</a>
+										<li th:each="pageNumber : ${pageNumbers}">
+
+											<!--<a th:href="@{/listBooks(size=${bookPage.size}, page=${pageNumber})}" th:text=${pageNumber}>.</a>-->
+											<a th:href="@{/despesas(page=${pageNumber})}" th:text="${pageNumber}"></a>
+
 										</li>
 
 										<li>
 											<a href="#">Próximo</a>
 										</li>
 
-									</ul>	
+									</ul>
 
 								</div>
 							</div><!-- PAGE_ROW-->
@@ -471,7 +479,7 @@
 										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_novo_form">
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
-												<input type="text" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_descricao" name="description" required/>
+												<input type="text" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_descricao" name="description" maxlength="30" required/>
 											</div>
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
@@ -483,7 +491,7 @@
 											</div>	
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
-												<input type="number" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_valor" name="value" step="0.01" required/>
+												<input type="number" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_valor" name="value" step="0.01" min="0" max="10000000" required/>
 											</div>											
 
 										</div>	
@@ -632,7 +640,7 @@
 										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_form">
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
-												<input type="text" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_input_descricao" name="description" required/>
+												<input type="text" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_input_descricao" name="description" maxlength="30" required/>
 											</div>
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
@@ -644,7 +652,7 @@
 											</div>	
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
-												<input type="number" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_input_valor" name="value" step="0.01" required/>
+												<input type="number" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_input_valor" name="value" step="0.01" min="0" max="10000000" required/>
 											</div>											
 
 										</div>	

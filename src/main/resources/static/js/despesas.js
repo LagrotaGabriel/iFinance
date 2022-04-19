@@ -16,50 +16,9 @@ function responsive(){
 	bodyWidth = document.getElementById('body').clientWidth;
 	bodyHeight = document.getElementById('body').clientHeight;
 
-	// Definindo prioridades
-	var line = document.getElementsByClassName('tr');
-	var columnScheduling = document.getElementsByClassName('td_scheduling');
-	var columnData = document.getElementsByClassName('td_data');
-
-	console.log(columnScheduling[0].innerText);
-
-	for(var i = 0; i < line.length; i++){
-
-		if(columnScheduling[i].innerText == "NÃO"){
-			line[i].style.borderLeft="4px solid #5eff00";
-		}
-		else{
-			const d = new Date();
-			var ano = d.getFullYear();
-			var mes = d.getMonth()+1;
-			var dia = d.getDate();
-
-			if(mes < 10){
-				var mes = '0' + mes;
-			}
-
-			var hoje = (dia + '/' + mes + '/' + ano); 
-
-			if(columnScheduling[i].innerText == hoje){
-				line[i].style.borderLeft="4px solid #ff5900";
-				columnData[i].style.color="#ff5900";
-			}
-			else if(columnScheduling[i].innerText.split("/")[2] <= ano && 
-				columnScheduling[i].innerText.split("/")[1] <= mes && 
-				columnScheduling[i].innerText.split("/")[0] <= dia){
-				line[i].style.borderLeft="4px solid #f20a0a";
-				columnData[i].style.color="#f20a0a";
-			}
-			else{
-				line[i].style.borderLeft="4px solid #fff700";
-			}
-
-		}
-
-	}
-
 	/* Ajustando content */
 	var tamanhoMain = document.getElementById('main');
+	var mainRow = document.getElementById('main_row');
 	var tamanhoAside = document.getElementById('side_menu');
 	var tamanhoMenuSuperior = document.getElementById('menu_superior');
 	var tamanhoMenuResponsivo = document.getElementById('menu_superior_responsivo');
@@ -75,17 +34,24 @@ function responsive(){
 	var mesesLetra = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"]
 	var mesesPalavra = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
 	var th = document.getElementsByClassName('th');
-	var thTipo = document.getElementById('th_tipo');
-	var tdTipo = document.getElementsByClassName('td_tipo');
+	var td = document.getElementsByClassName('td');
+	var btnExcluir = document.getElementsByClassName('btn_excluir');
+	var thTipo = document.getElementById('th_forma');
+	var tdTipo = document.getElementsByClassName('td_mean');
 	var botoesOpc = document.getElementsByClassName('botoes_opc');
 	var selectOpc = document.getElementsByClassName('select_opc');
 	var novoLabel = document.getElementsByClassName('novo_label');
 	var novoInput = document.getElementsByClassName('novo_input');
 
+
 	if(bodyWidth > 1200){
-		console.log('Muito grande')
-		tamanhoContainerAlign.style.alignItems="center";
-		tamanhoContainerAlign.style.marginTop="0px";
+
+		console.log("Muito grande");
+		
+		tamanhoContainerAlign.style.alignItems="initial";
+		tamanhoContainerAlign.style.marginTop="30px";
+		tamanhoContainerAlign.style.marginBottom="30px";
+		
 		document.getElementById('side_menu').style.display="flex"
 		document.getElementById('menu_superior').style.display="flex";
 		document.getElementById('menu_superior_responsivo').style.display="none";
@@ -113,14 +79,30 @@ function responsive(){
 			novoLabel[i].style.fontSize="1.15rem";
 			novoInput[i].style.fontSize="1rem";
 		}
+
+
+		for(var i = 0; i < td.length; i++){
+			td[i].style.fontSize="0.90rem";
+		}
+		for(var i = 0; i < btnExcluir.length; i++){
+			btnExcluir[i].style.padding="8px 15px";
+			btnExcluir[i].innerText="Excluir";
+		}
+
+
+
 		if(thTipo != null){
 			thTipo.hidden=false;
 		}		
 	}
 	else if(bodyWidth <= 1200 && bodyWidth > 992){
-		console.log('Grande');
-		tamanhoContainerAlign.style.alignItems="center";
-		tamanhoContainerAlign.style.marginTop="0px";
+
+		console.log("Grande");
+
+		tamanhoContainerAlign.style.alignItems="initial";
+		tamanhoContainerAlign.style.marginTop="30px";
+		tamanhoContainerAlign.style.marginBottom="30px";			
+
 		document.getElementById('side_menu').style.display="flex";
 		document.getElementById('menu_superior').style.display="flex";
 		document.getElementById('menu_superior_responsivo').style.display="none";
@@ -148,14 +130,25 @@ function responsive(){
 			novoLabel[i].style.fontSize="1.15rem";
 			novoInput[i].style.fontSize="1rem";
 		}
+
+
+		for(var i = 0; i < td.length; i++){
+			td[i].style.fontSize="0.80rem";
+		}		
+		for(var i = 0; i < btnExcluir.length; i++){
+			btnExcluir[i].style.padding="5px 10px";
+			btnExcluir[i].innerText="Excluir";
+		}
+
 		if(thTipo != null){
 			thTipo.hidden=false;
 		}		
 	}
 	else if(bodyWidth <= 992 && bodyWidth > 768){
 		console.log('Médio');
-		tamanhoContainerAlign.style.alignItems="center";
-		tamanhoContainerAlign.style.marginTop="0px";
+		tamanhoContainerAlign.style.alignItems="initial";
+		tamanhoContainerAlign.style.marginTop="30px";
+		tamanhoContainerAlign.style.marginBottom="30px";
 		document.getElementById('side_menu').style.display="none";
 		document.getElementById('menu_superior').style.display="none";
 		document.getElementById('menu_superior_responsivo').style.display="flex";
@@ -183,14 +176,24 @@ function responsive(){
 			novoLabel[i].style.fontSize="1rem";
 			novoInput[i].style.fontSize="0.85rem";
 		}		
+
+		for(var i = 0; i < td.length; i++){
+			td[i].style.fontSize="0.70rem";
+		}		
+		for(var i = 0; i < btnExcluir.length; i++){
+			btnExcluir[i].style.padding="5px 13px";
+			btnExcluir[i].innerText="Excluir";
+		}
+
 		if(thTipo != null){
 			thTipo.hidden=false;
 		}		
 	}
 	else if(bodyWidth <= 768 && bodyWidth > 540){
 		console.log('Pequeno');
-		tamanhoContainerAlign.style.alignItems="flex-start";
+		tamanhoContainerAlign.style.alignItems="initial";
 		tamanhoContainerAlign.style.marginTop="30px";
+		tamanhoContainerAlign.style.marginBottom="30px";
 		document.getElementById('side_menu').style.display="none";
 		document.getElementById('menu_superior').style.display="none";
 		document.getElementById('menu_superior_responsivo').style.display="flex";
@@ -206,7 +209,7 @@ function responsive(){
 			th[i].style.fontSize="1rem";
 		}
 		for(var i = 0; i < tdTipo.length; i++){
-			tdTipo[i].hidden=false;
+			tdTipo[i].hidden=true;
 		}
 		for(var i = 0; i < botoesOpc.length; i++){
 			botoesOpc[i].style.fontSize="0.85rem";
@@ -217,15 +220,26 @@ function responsive(){
 		for(var i = 0; i < novoLabel.length; i++){
 			novoLabel[i].style.fontSize="0.90rem";
 			novoInput[i].style.fontSize="0.75rem";
-		}			
+		}		
+
+		for(var i = 0; i < td.length; i++){
+			td[i].style.fontSize="0.70rem";
+		}		
+		for(var i = 0; i < btnExcluir.length; i++){
+			btnExcluir[i].style.padding="5px 10px";
+			btnExcluir[i].innerText="X";
+		}
+
+
 		if(thTipo != null){
-			thTipo.hidden=false;
+			thTipo.hidden=true;
 		}	
 	}
 	else if(bodyWidth < 540){
 		console.log('Muito pequeno');
-		tamanhoContainerAlign.style.alignItems="flex-start";
+		tamanhoContainerAlign.style.alignItems="initial";
 		tamanhoContainerAlign.style.marginTop="30px";
+		tamanhoContainerAlign.style.marginBottom="30px";
 		document.getElementById('side_menu').style.display="none";
 		document.getElementById('menu_superior').style.display="none";
 		document.getElementById('menu_superior_responsivo').style.display="flex";
@@ -238,7 +252,7 @@ function responsive(){
 			meses[i].text=mesesLetra[i];
 		}
 		for(var i = 0; i < th.length; i++){
-			th[i].style.fontSize="0.75rem";
+			th[i].style.fontSize="0.70rem";
 		}
 		for(var i = 0; i < tdTipo.length; i++){
 			tdTipo[i].hidden=true;
@@ -253,19 +267,36 @@ function responsive(){
 			novoLabel[i].style.fontSize="0.70rem";
 			novoInput[i].style.fontSize="0.65rem";
 		}		
+
+
+
+		for(var i = 0; i < td.length; i++){
+			td[i].style.fontSize="0.60rem";
+		}		
+		for(var i = 0; i < btnExcluir.length; i++){
+			btnExcluir[i].style.padding="5px 10px";
+			btnExcluir[i].innerText="X";
+		}
+
 		if(thTipo != null){
 			thTipo.hidden=true;
 		}	
 	}
 
+
+
 	if(tamanhoMenuSuperior.clientHeight == 0){
-		var somaTamanho = (tamanhoMain.clientHeight - tamanhoMenuResponsivo.clientHeight) + 'px';
-		tamanhoContainerAlign.style.height = somaTamanho;
+		//var somaTamanho = (tamanhoMain.clientHeight - tamanhoMenuResponsivo.clientHeight) + 'px';
+		//tamanhoContainerAlign.style.height = somaTamanho;
 	}
 	else{
-		var somaTamanho = (tamanhoAside.clientHeight - tamanhoMenuSuperior.clientHeight) + 'px';
-		tamanhoContainerAlign.style.height = somaTamanho;
+		//var somaTamanho = (tamanhoAside.clientHeight - tamanhoMenuSuperior.clientHeight) + 'px';
+		//tamanhoContainerAlign.style.height = somaTamanho;
 	}	
+
+
+
+	ajustaTabela();
 
 }
 
@@ -721,6 +752,7 @@ function editChangeStatus(){
 		document.getElementById('outro').disabled=false;
 
 		document.getElementById('input_data').required=true;
+		inputData.value=data;
 
 		document.getElementById('dinheiro').selected=true;
 		inputForma.style.border="1px solid #00CCFF";
@@ -781,5 +813,59 @@ function hideMessage(){
 	var alertas = document.getElementsByClassName('alert');
 	for(var i = 0; i < alertas.length; i++){
 		alertas[i].hidden=true;
+	}
+}
+
+function ajustaTabela(){
+
+	// Definindo prioridades
+	var line = document.getElementsByClassName('tr');
+	var columnScheduling = document.getElementsByClassName('td_scheduling');
+	var columnData = document.getElementsByClassName('td_data');
+
+	for(var i = 0; i < line.length; i++){
+
+		if(columnScheduling[i].innerText == "NÃO" || columnScheduling[i].innerText == "Não possui"){
+			line[i].style.borderLeft="4px solid #5eff00";
+			columnScheduling[i].innerText="Não possui";
+			if(columnData[i].innerText == 'Em aberto'){
+				line[i].style.borderLeft="4px solid #ffdd00";
+			}
+		}
+
+		else{
+			const d = new Date();
+			var ano = d.getFullYear();
+			var mes = d.getMonth()+1;
+			var dia = d.getDate();
+
+			if(mes < 10){
+				var mes = '0' + mes;
+			}
+
+			var hoje = (dia + '/' + mes + '/' + ano); 
+
+			if(columnScheduling[i].innerText == hoje || columnScheduling[i].innerText == "Hoje"){
+				line[i].style.borderLeft="4px solid #ff5900";
+				columnData[i].style.color="#ff5900";
+				columnData[i].innerText="Vence hoje";
+				columnScheduling[i].style.color="#ff5900"
+				columnScheduling[i].innerText="Hoje"
+			}
+			else if(columnScheduling[i].innerText.split("/")[2] <= ano && 
+				columnScheduling[i].innerText.split("/")[1] <= mes && 
+				columnScheduling[i].innerText.split("/")[0] <= dia || 
+				columnScheduling[i].innerText == "Atrasado"){
+				line[i].style.borderLeft="4px solid #f20a0a";
+				columnData[i].style.color="#f20a0a";
+				columnScheduling[i].style.color="#F20a0a"
+				columnData[i].innerText="Atrasado";
+			}
+			else{
+				line[i].style.borderLeft="4px solid #ffdd00";
+				columnData[i].innerText="Agendado";
+			}
+
+		}
 	}
 }

@@ -8,6 +8,7 @@ import br.com.ifinance.repositories.UserRepository;
 import br.com.ifinance.services.LiabilityService;
 import br.com.ifinance.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -15,10 +16,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Controller
 @RequestMapping("/despesas")
@@ -31,8 +38,25 @@ public class DespesasController {
     @Autowired
     private LiabilityService liabilityService;
 
+    @Bean
+    public Function<String, String> currentUrlWithoutParam() {
+        return param ->   ServletUriComponentsBuilder.fromCurrentRequest().replaceQueryParam(param).toUriString();
+    }
+
     @GetMapping
-    public ModelAndView despesasControllerGet(Model model, ModelAndView modelAndView, RedirectAttributes redirAttrs){
+    public ModelAndView despesasControllerGet(@RequestParam("month")Optional<String> month, @RequestParam("page")Optional<Integer> page,
+                                              Model model, ModelAndView modelAndView,
+                                              RedirectAttributes redirAttrs){
+
+        String currentMonth = "";
+        if(month.isPresent()){
+            currentMonth = month.get();
+        }
+        else{
+            currentMonth = "Jan";
+        }
+        int currentPage = page.orElse(1);
+
         Object logged = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username;
         User user;
@@ -57,7 +81,7 @@ public class DespesasController {
                 String dataBr = dataSplited[2] + '/' + dataSplited[1] + '/' + dataSplited[0];
                 user.getLiabilities().get(i).setDate(dataBr);
             }
-            if(user.getLiabilities().get(i).getScheduling() != null) {
+            if(user.getLiabilities().get(i).getScheduling() != null && !user.getLiabilities().get(i).getScheduling().equals("")) {
                 String[] agendamentoSplited = user.getLiabilities().get(i).getScheduling().split("-");
                 String agendamentoBr = agendamentoSplited[2] + '/' + agendamentoSplited[1] + '/' + agendamentoSplited[0];
                 user.getLiabilities().get(i).setScheduling(agendamentoBr);
@@ -66,10 +90,24 @@ public class DespesasController {
         }
         if(user.getLiabilities().size() > 0){
             model.addAttribute("liabilities", user.getLiabilities());
-        }else{
+        }
+        else{
             model.addAttribute("liabilities", "");
         }
 
+        // CLASSIFICANDO O NÚMERO DE PÁGINAS QUE A TABELA TERÁ
+        int totalPages = user.getLiabilities().size()/5;
+        List<Integer> pageNumbers = new ArrayList<>();
+        if(totalPages > 0) {
+            pageNumbers = IntStream.rangeClosed(1, totalPages)
+                    .boxed()
+                    .collect(Collectors.toList());
+        }
+
+        System.err.println("Total pages: " + totalPages);
+        System.err.println("Page numbers: " + pageNumbers);
+
+        model.addAttribute("pageNumbers", pageNumbers);
         model.addAttribute("user", user);
         modelAndView.setViewName("despesas");
         return modelAndView;
@@ -110,6 +148,12 @@ public class DespesasController {
                 // SE O AGENDAMENTO ESTIVER EM BRANCO ELE É JOGADO COMO NULO
                 if(liability.getScheduling().equals("")){
                     liability.setScheduling(null);
+                    liability.setUser(user);
+                    List<Liability> novaLista = user.getLiabilities();
+                    novaLista.add(liability);
+                    user.setLiabilities(novaLista);
+                    userService.updateUser(user.getId(), user);
+                    redirAttrs.addFlashAttribute("SucessoCadastro", "Cadastro da despesa salvo com sucesso");
                 }
 
                 // SE O AGENDAMENTO ESTIVER PREENCHIDO ELE É VALIDADO PARA QUE NÃO SEJA NO PASSADO
@@ -145,6 +189,7 @@ public class DespesasController {
                     }
 
                 }
+
             }
 
             // SE O STATUS ESTIVER COMO PAGO
@@ -238,6 +283,10 @@ public class DespesasController {
                 // SE O AGENDAMENTO ESTIVER EM BRANCO ELE É JOGADO COMO NULO
                 if(liability.getScheduling().equals("")){
                     liability.setScheduling(null);
+                    user.getLiabilities().set(user.getLiabilities()
+                            .indexOf(liabilityService.findById(liability.getId()).get()), liability);
+                    userService.updateUser(user.getId(), user);
+                    redirAttrs.addFlashAttribute("SucessoCadastro", "Alteração salva com sucesso");
                 }
 
                 // SE O AGENDAMENTO ESTIVER PREENCHIDO ELE É VALIDADO PARA QUE NÃO SEJA NO PASSADO
