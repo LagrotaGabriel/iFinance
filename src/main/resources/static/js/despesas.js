@@ -3,12 +3,6 @@
 window.onload = responsive();
 window.onresize = doALoadOfStuff;
 
-var meses = document.getElementsByClassName('mes_opc');
-if(meses != null){
-	meses[new Date().getMonth()].style.background="#00CCFF";
-	meses[new Date().getMonth()].style.color="#121212"
-}
-
 function responsive(){
 
 	document.getElementById('body').style.display="block";
@@ -283,19 +277,8 @@ function responsive(){
 		}	
 	}
 
-
-
-	if(tamanhoMenuSuperior.clientHeight == 0){
-		//var somaTamanho = (tamanhoMain.clientHeight - tamanhoMenuResponsivo.clientHeight) + 'px';
-		//tamanhoContainerAlign.style.height = somaTamanho;
-	}
-	else{
-		//var somaTamanho = (tamanhoAside.clientHeight - tamanhoMenuSuperior.clientHeight) + 'px';
-		//tamanhoContainerAlign.style.height = somaTamanho;
-	}	
-
-
-
+	mesResponsivo();
+	anoResponsivo();
 	ajustaTabela();
 
 }
@@ -792,19 +775,6 @@ function editChangeStatus(){
 		inputForma.style.color="grey";		
 
 	}
-
-}
-
-/* =================== INTERAÇÕES COM O MENU DE MESES =================== */
-
-function changeMonth(month){
-	var meses = document.getElementsByClassName('mes_opc');
-	for(var i = 0; i < meses.length; i++){
-		meses[i].style.background="transparent";
-		meses[i].style.color="#FFFFFF";
-	}
-	meses[month].style.background="#00CCFF";
-	meses[month].style.color="#121212";
 }
 
 /* ================== FECHA MENSAGENS INFORMATIVAS ====================== */
@@ -816,6 +786,7 @@ function hideMessage(){
 	}
 }
 
+/* ================== REALIZA OS AJUSTES DE TEXTO NA TABELA ====================== */
 function ajustaTabela(){
 
 	// Definindo prioridades
@@ -866,6 +837,42 @@ function ajustaTabela(){
 				columnData[i].innerText="Agendado";
 			}
 
+		}
+	}
+}
+
+/* ================== REALIZA OS AJUSTES DE CORES NOS MESES ====================== */
+function mesResponsivo(){
+
+	var meses = document.getElementsByClassName('mes_opc');
+	var mesSelecionado = document.getElementById('pegando_mes').innerText;
+
+	console.log("Mês selecionado: " + mesSelecionado);
+
+	for(var i = 0; i < meses.length; i++){
+		meses[i].style.background="transparent";
+		meses[i].style.color="#FFFFFF";
+	}
+
+	meses[mesSelecionado-1].style.background="#00CCFF";
+	meses[mesSelecionado-1].style.color="#121212";
+
+}
+
+/* ================== REALIZA OS AJUSTES DE CORES NOS ANOS ====================== */
+function anoResponsivo(){
+	var anos = document.getElementsByClassName('select_opc');
+	var anoSelecionado = document.getElementById('pegando_ano').innerText;
+
+	console.log("Ano selecionado: " + anoSelecionado);
+
+	for(var i = 0; i < anos.length; i++){
+		anos[i].style.background="transparent";
+		anos[i].style.color="#FFFFFF";
+		console.log(anos[i].innerText);
+		if(anos[i].innerText == anoSelecionado){
+			anos[i].style.background="#00CCFF";
+			anos[i].style.color="#121212";
 		}
 	}
 }

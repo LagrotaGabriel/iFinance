@@ -13,16 +13,16 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -44,18 +44,28 @@ public class DespesasController {
     }
 
     @GetMapping
-    public ModelAndView despesasControllerGet(@RequestParam("month")Optional<String> month, @RequestParam("page")Optional<Integer> page,
+    public ModelAndView despesasControllerGet(@RequestParam("year")Optional<Integer> year,
+                                              @RequestParam("month")Optional<Integer> month,
+                                              @RequestParam("page")Optional<Integer> page,
                                               Model model, ModelAndView modelAndView,
-                                              RedirectAttributes redirAttrs){
+                                              RedirectAttributes redirAttrs,
+                                              ModelMap modelMap,
+                                              HttpServletRequest req){
 
-        String currentMonth = "";
-        if(month.isPresent()){
-            currentMonth = month.get();
-        }
-        else{
-            currentMonth = "Jan";
-        }
+        String baseUrl = req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + req.getContextPath();
+
+        Date today = new Date(); // Fri Jun 17 14:54:28 PDT 2016 Calendar cal = Calendar.getInstance();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(today);
+
+        int currentYear = year.orElse(cal.get(Calendar.YEAR));
+        int currentMonth = month.orElse(cal.get(Calendar.MONTH)+1);
         int currentPage = page.orElse(1);
+
+        modelMap.addAttribute("baseUrl", baseUrl);
+        modelMap.addAttribute("year", currentYear);
+        modelMap.addAttribute("month", currentMonth);
+        modelMap.addAttribute("page" ,currentPage);
 
         Object logged = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username;
@@ -88,15 +98,27 @@ public class DespesasController {
             }
 
         }
+
+        // FILTRO DOS LIABILITIES POR DATA
+        List<Liability> liabilitiesOfSelectedDate = new ArrayList<>();
         if(user.getLiabilities().size() > 0){
-            model.addAttribute("liabilities", user.getLiabilities());
+            for(int i = 0; i < user.getLiabilities().size(); i++){
+                if(user.getLiabilities().get(i).getDate() != null && !user.getLiabilities().get(i).getDate().equals("")) {
+                    String atual = user.getLiabilities().get(i).getDate();
+                    String[] atualSplitado = atual.split("/");
+                    if (Integer.parseInt(atualSplitado[2]) == (currentYear)) {
+                        liabilitiesOfSelectedDate.add(user.getLiabilities().get(i));
+                    }
+                }
+            }
+            model.addAttribute("liabilities", liabilitiesOfSelectedDate);
         }
         else{
             model.addAttribute("liabilities", "");
         }
 
         // CLASSIFICANDO O NÚMERO DE PÁGINAS QUE A TABELA TERÁ
-        int totalPages = user.getLiabilities().size()/5;
+        int totalPages = liabilitiesOfSelectedDate.size()/5;
         List<Integer> pageNumbers = new ArrayList<>();
         if(totalPages > 0) {
             pageNumbers = IntStream.rangeClosed(1, totalPages)

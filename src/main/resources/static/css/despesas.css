@@ -103,14 +103,8 @@ body{
     padding: 0;
 }
 
-.select_opc{
-    display: flex;
+.selecao{
     float: right;
-    height: 100%;
-    padding: 10px;
-    margin: 0;
-    padding: 0;
-    margin-left: 10px;
 }
 
 .botoes_opc, .select_opc{
@@ -119,6 +113,23 @@ body{
     background: transparent;
     color: #FFFFFF;
     text-align: center;
+}
+
+.select_opc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    text-decoration: none;
+    height: 100%;
+    padding: 10px 5px;
+    margin: 0;
+    padding: 0;
+    border-radius: 0px;
+    border-left: 0;
+}
+#ano_first{
+    border-left: 1px solid #00CCFF;
 }
 
 option{
@@ -132,6 +143,13 @@ option{
 }
 
 .botoes_opc:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    color: #121212;
+    transition: 1s;
+}
+
+.select_opc:hover{
     cursor: pointer;
     background-image: linear-gradient(to right, #00ccff, #28cffa);
     color: #121212;

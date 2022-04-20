@@ -233,36 +233,28 @@
 
 								<div class="col-xs-11 col-lg-11 col-md-11 col-sm-11 col-11 botoes">
 
-									<div class="botoes_opcoes col-xs-9 col-lg-9 col-md-8 col-sm-7 col-7">
+									<div class="botoes_opcoes col-xs-8 col-lg-8 col-md-7 col-sm-6 col-6">
 
 										<a href="#" class="col-xs-1 col-lg-2 col-md-2 col-sm-3 col-3 botoes_opc botoes_opc_novo" onclick="novaDespesa()">
 											Novo
 										</a>
 									</div>
 
-									<div class="selecao col-xs-3 col-lg-3 col-md-4 col-sm-5 col-5">
+									<div class="selecao col-xs-4 col-lg-4 col-md-5 col-sm-6 col-6">
 
-										<select class="col-xs-5 col-lg-4 col-md-4 col-sm-4 col-4 select_opc">
+										<div th:text="${year}" th:value="${year}" style="display:none" id="pegando_ano"></div>
 
-											<option selected>2022</option>
-											<option>
-												<a href="#">
-													2021
-												</a>
-											</option>
-											<option>2020</option>
-											<option>2019</option>
-											<option>2018</option>
+										<a th:href="@{__${baseUrl}__/despesas(year=2023, month=${month}, page=1)}" class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 select_opc" id="ano_first">
+											2023
+										</a>										
 
-										</select>
+										<a th:href="@{__${baseUrl}__/despesas(year=2022, month=${month}, page=1)}"  class="col-xs-3 col-lg-3 col-md-3 col-sm-4 col-3 select_opc">
+											2022
+										</a>
 
-										<select class="col-xs-5 col-lg-6 col-md-6 col-sm-6 col-6 select_opc">
-
-											<option selected>Todos</option>
-											<option>Pagos</option>
-											<option>Pendentes</option>
-
-										</select>										
+										<a th:href="@{__${baseUrl}__/despesas(year=2021, month=${month}, page=1)}"  class="col-xs-3 col-lg-3 col-md-3 col-sm-4 col-3 select_opc">
+											2021
+										</a>										
 
 									</div>
 
@@ -271,53 +263,55 @@
 
 							<div class="row linha_data">
 
+								<div th:value="${month}" th:text="${month}" style="display:none" id="pegando_mes"></div>
+
 								<div  class="col-xs-11 col-lg-11 col-md-11 col-sm-11 col-11 meses">
 
-									<a th:href="@{${current}(month=jan, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jan" id="mes_opc_jan" onclick="changeMonth(0)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=1, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jan" id="mes_opc_jan" onclick="changeMonth(0)">
 										Jan
 									</a>
 
-									<a th:href="@{${current}(month=fev, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_fev" id="mes_opc_fev" onclick="changeMonth(1)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=2, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_fev" id="mes_opc_fev" onclick="changeMonth(1)">
 										Fev
 									</a>
 
-									<a th:href="@{${current}(month=mar, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_mar" id="mes_opc_mar" onclick="changeMonth(2)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=3, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_mar" id="mes_opc_mar" onclick="changeMonth(2)">
 										Mar
 									</a>
 
-									<a th:href="@{${current}(month=abr, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_abr" id="mes_opc_abr" onclick="changeMonth(3)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=4, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_abr" id="mes_opc_abr" onclick="changeMonth(3)">
 										Abr
 									</a>
 
-									<a th:href="@{${current}(month=mai, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_mai" id="mes_opc_mai" onclick="changeMonth(4)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=5, page=1, )}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_mai" id="mes_opc_mai" onclick="changeMonth(4)">
 										Mai
 									</a>
 
-									<a th:href="@{${current}(month=jun, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jun" id="mes_opc_jun" onclick="changeMonth(5)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=6, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jun" id="mes_opc_jun" onclick="changeMonth(5)">
 										Jun
 									</a>
 
-									<a th:href="@{${current}(month=jul, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jul" id="mes_opc_jul" onclick="changeMonth(6)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=7, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jul" id="mes_opc_jul" onclick="changeMonth(6)">
 										Jul
 									</a>
 
-									<a th:href="@{${current}(month=ago, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_ago" id="mes_opc_ago" onclick="changeMonth(7)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=8, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_ago" id="mes_opc_ago" onclick="changeMonth(7)">
 										Ago
 									</a>
 
-									<a th:href="@{${current}(month=set, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_set" id="mes_opc_set" onclick="changeMonth(8)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=9, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_set" id="mes_opc_set" onclick="changeMonth(8)">
 										Set
 									</a>
 
-									<a th:href="@{${current}(month=out, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_out" id="mes_opc_out" onclick="changeMonth(9)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=10, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_out" id="mes_opc_out" onclick="changeMonth(9)">
 										Out
 									</a>
 
-									<a th:href="@{${current}(month=nov, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_nov" id="mes_opc_nov" onclick="changeMonth(10)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=11, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_nov" id="mes_opc_nov" onclick="changeMonth(10)">
 										Nov
 									</a>
 
-									<a th:href="@{${current}(month=dez, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_dez" id="mes_opc_dez" onclick="changeMonth(11)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=12, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_dez" id="mes_opc_dez" onclick="changeMonth(11)">
 										Dez
 									</a>
 													
