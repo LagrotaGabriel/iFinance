@@ -128,7 +128,7 @@ body{
     border-radius: 0px;
     border-left: 0;
 }
-#ano_first{
+.ano_first{
     border-left: 1px solid #00CCFF;
 }
 
@@ -295,7 +295,7 @@ li a{
     border-radius: 5px;
 }
 
-li a:hover{
+.page_click:hover{
     cursor: pointer;
     background-image: linear-gradient(to right, #00ccff, #28cffa);
     color: #121212;

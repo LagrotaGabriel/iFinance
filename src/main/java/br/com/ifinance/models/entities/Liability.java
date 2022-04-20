@@ -40,6 +40,9 @@ public class Liability {
     @Column(name = "mean_liability")
     private Mean mean;
 
+    @Column(name = "created_liability")
+    private String created;
+
     @ManyToOne
     @JoinColumn(name = "id_user")
     private User user;

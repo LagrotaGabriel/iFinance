@@ -54,7 +54,7 @@ public class DespesasController {
 
         String baseUrl = req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + req.getContextPath();
 
-        Date today = new Date(); // Fri Jun 17 14:54:28 PDT 2016 Calendar cal = Calendar.getInstance();
+        Date today = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(today);
 
@@ -103,31 +103,63 @@ public class DespesasController {
         List<Liability> liabilitiesOfSelectedDate = new ArrayList<>();
         if(user.getLiabilities().size() > 0){
             for(int i = 0; i < user.getLiabilities().size(); i++){
-                if(user.getLiabilities().get(i).getDate() != null && !user.getLiabilities().get(i).getDate().equals("")) {
-                    String atual = user.getLiabilities().get(i).getDate();
+                if(user.getLiabilities().get(i).getCreated() != null && !user.getLiabilities().get(i).getCreated().equals("")) {
+                    String atual = user.getLiabilities().get(i).getCreated();
                     String[] atualSplitado = atual.split("/");
                     if (Integer.parseInt(atualSplitado[2]) == (currentYear)) {
-                        liabilitiesOfSelectedDate.add(user.getLiabilities().get(i));
+                        if(Integer.parseInt(atualSplitado[1]) == (currentMonth)) {
+                            liabilitiesOfSelectedDate.add(user.getLiabilities().get(i));
+                        }
                     }
                 }
             }
-            model.addAttribute("liabilities", liabilitiesOfSelectedDate);
-        }
-        else{
-            model.addAttribute("liabilities", "");
         }
 
         // CLASSIFICANDO O NÚMERO DE PÁGINAS QUE A TABELA TERÁ
-        int totalPages = liabilitiesOfSelectedDate.size()/5;
+        Integer totalPages = (int) Math.ceil(Double.parseDouble(String.valueOf((liabilitiesOfSelectedDate.size())))/5);
+
+        // DEFININDO A LISTA DE PÁGINAS QUE A TABELA IRÁ POSSUIR
         List<Integer> pageNumbers = new ArrayList<>();
         if(totalPages > 0) {
             pageNumbers = IntStream.rangeClosed(1, totalPages)
                     .boxed()
                     .collect(Collectors.toList());
         }
+        else{
+            totalPages = 1;
+            pageNumbers.add(1);
+        }
 
+        // DEFININDO A QUANTIDADE DE ITENS POR PÁGINA DA TABELA
+        Map<Integer, List<Liability>> mapPages = new HashMap();
+        List<Liability> paginationLiabilities = new ArrayList<>();
+        int contador = 5;
+        for(int i = 0; i < pageNumbers.size(); i++){
+            for(int x=(contador-5); x < contador; x++){
+                if(liabilitiesOfSelectedDate != null) {
+                    if (x < liabilitiesOfSelectedDate.size()) {
+                        paginationLiabilities.add(liabilitiesOfSelectedDate.get(x));
+                    }
+                }
+            }
+            mapPages.put(i+1, paginationLiabilities);
+            paginationLiabilities = new ArrayList<>();
+            contador += 5;
+        }
+
+        System.err.println("===============================================");
+        System.err.println("Map: " + mapPages);
         System.err.println("Total pages: " + totalPages);
         System.err.println("Page numbers: " + pageNumbers);
+
+        // DEFINE A QUANTIDADE DE ITENS A SER INSERIDO POR PÁGINA
+        if(mapPages.get(currentPage) != null) {
+            model.addAttribute("liabilities", mapPages.get(currentPage));
+            System.err.println("Liabilities na página atual: " + mapPages.get(currentPage));
+        }
+        else{
+            model.addAttribute("liabilities", "");
+        }
 
         model.addAttribute("pageNumbers", pageNumbers);
         model.addAttribute("user", user);
@@ -171,6 +203,7 @@ public class DespesasController {
                 if(liability.getScheduling().equals("")){
                     liability.setScheduling(null);
                     liability.setUser(user);
+                    liability.setCreated(hojeSplitado[2] + "/" + hojeSplitado[1] + "/" + hojeSplitado[0]);
                     List<Liability> novaLista = user.getLiabilities();
                     novaLista.add(liability);
                     user.setLiabilities(novaLista);
@@ -189,6 +222,7 @@ public class DespesasController {
                             if(Integer.parseInt(agendamento[2]) >= Integer.parseInt(hojeSplitado[2])){
                                 // SALVANDO A DESPESA NO BANCO DE DADOS
                                 liability.setUser(user);
+                                liability.setCreated(hojeSplitado[2] + "/" + hojeSplitado[1] + "/" + hojeSplitado[0]);
                                 List<Liability> novaLista = user.getLiabilities();
                                 novaLista.add(liability);
                                 user.setLiabilities(novaLista);
@@ -230,6 +264,7 @@ public class DespesasController {
                             System.err.println("IF 3");
                             // SALVANDO A DESPESA NO BANCO DE DADOS
                             liability.setUser(user);
+                            liability.setCreated(hojeSplitado[2] + "/" + hojeSplitado[1] + "/" + hojeSplitado[0]);
                             List<Liability> novaLista = user.getLiabilities();
                             novaLista.add(liability);
                             user.setLiabilities(novaLista);

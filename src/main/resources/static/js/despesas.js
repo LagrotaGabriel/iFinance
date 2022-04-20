@@ -279,6 +279,7 @@ function responsive(){
 
 	mesResponsivo();
 	anoResponsivo();
+	pageResponsiva();
 	ajustaTabela();
 
 }
@@ -846,9 +847,6 @@ function mesResponsivo(){
 
 	var meses = document.getElementsByClassName('mes_opc');
 	var mesSelecionado = document.getElementById('pegando_mes').innerText;
-
-	console.log("Mês selecionado: " + mesSelecionado);
-
 	for(var i = 0; i < meses.length; i++){
 		meses[i].style.background="transparent";
 		meses[i].style.color="#FFFFFF";
@@ -863,16 +861,115 @@ function mesResponsivo(){
 function anoResponsivo(){
 	var anos = document.getElementsByClassName('select_opc');
 	var anoSelecionado = document.getElementById('pegando_ano').innerText;
-
-	console.log("Ano selecionado: " + anoSelecionado);
-
 	for(var i = 0; i < anos.length; i++){
 		anos[i].style.background="transparent";
 		anos[i].style.color="#FFFFFF";
-		console.log(anos[i].innerText);
 		if(anos[i].innerText == anoSelecionado){
 			anos[i].style.background="#00CCFF";
 			anos[i].style.color="#121212";
 		}
+	}
+}
+
+/* ================== REALIZA OS AJUSTES DE CORES NOS NÚMEROS DAS PÁGINAS ====================== */
+function pageResponsiva(){
+	var pages = document.getElementsByClassName('page_number');
+	var PaginaSelecionada = document.getElementById('pegando_page').innerText;
+	for(var i = 0; i < pages.length; i++){
+		pages[i].style.background="transparent";
+		pages[i].style.color="#FFFFFF";
+		if(pages[i].innerText == PaginaSelecionada){
+			pages[i].style.background="#00CCFF";
+			pages[i].style.color="#121212";
+		}
+	}
+	
+	if((pages.length) == PaginaSelecionada){
+		document.getElementById('proxima').style.pointerEvents="none";
+		document.getElementById('proxima').style.borderColor="grey";
+		document.getElementById('proxima').style.color="grey";
+	}
+	else{
+		document.getElementById('proxima').style.pointerEvents="auto";
+		document.getElementById('proxima').style.borderColor="#00CCFF";
+		document.getElementById('proxima').style.color="#FFFFFF";
+	}
+
+	if(PaginaSelecionada == 1){
+		document.getElementById('anterior').style.pointerEvents="none";
+		document.getElementById('anterior').style.borderColor="grey";
+		document.getElementById('anterior').style.color="grey";
+	}
+	else{
+		document.getElementById('anterior').style.pointerEvents="auto";
+		document.getElementById('anterior').style.borderColor="#00CCFF";
+		document.getElementById('anterior').style.color="FFFFFF";
+	}
+
+}
+
+function animateButton(id){
+
+	var item = document.getElementById(id);
+	item.style.background = "#00CCFF";
+	item.style.color = "#121212";
+	item.style.transition = "1s";
+
+}
+
+function animateButtonLeave(id){
+
+	var item = document.getElementById(id);
+
+	if(id == 'mes_opc_jan' 
+		|| id == 'mes_opc_fev' 
+		|| id == 'mes_opc_mar' 
+		|| id == 'mes_opc_abr' 
+		|| id == 'mes_opc_mai' 
+		|| id == 'mes_opc_jun'
+		|| id == 'mes_opc_jul'
+		|| id == 'mes_opc_ago'
+		|| id == 'mes_opc_set'
+		|| id == 'mes_opc_out'
+		|| id == 'mes_opc_nov'
+		|| id == 'mes_opc_dez'){
+
+		item.style.background = "transparent";
+		item.style.color = "#FFFFFF";
+		item.style.transition = "1s";
+
+		var meses = document.getElementsByClassName('mes_opc');
+		var mesSelecionado = document.getElementById('pegando_mes').innerText;
+		for(var i = 0; i < meses.length; i++){
+			meses[i].style.background="transparent";
+			meses[i].style.color="#FFFFFF";
+		}
+
+		meses[mesSelecionado-1].style.background="#00CCFF";
+		meses[mesSelecionado-1].style.color="#121212";		
+	}
+	else if(id == 'ano_2023'
+		|| id == 'ano_2022'
+		|| id == 'ano_2021'){
+
+		item.style.background = "transparent";
+		item.style.color = "#FFFFFF";
+		item.style.transition = "1s";
+
+		var anos = document.getElementsByClassName('select_opc');
+		var anoSelecionado = document.getElementById('pegando_ano').innerText;
+		for(var i = 0; i < anos.length; i++){
+			anos[i].style.background="transparent";
+			anos[i].style.color="#FFFFFF";
+			if(anos[i].innerText == anoSelecionado){
+				anos[i].style.background="#00CCFF";
+				anos[i].style.color="#121212";
+			}
+		}
+	}
+	else{
+		item.style.background = "transparent";
+		item.style.color = "#FFFFFF";
+		item.style.transition = "1s";
 	}
 }

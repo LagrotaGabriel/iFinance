@@ -77,7 +77,7 @@
 
 						<div class="aside aside-4 col-lg-12" id="div_aside_despesas">
 							
-							<a th:href="@{/despesas(month=jan, page=1)}" class="row aside_clicavel">
+							<a th:href="@{/despesas}" class="row aside_clicavel">
 								<button type="button" class="img_button">
 									<img th:src="@{img/despesa.png}" class="sidebar_menu_img" id="img_aside_despesas"/>
 								</button>
@@ -235,7 +235,7 @@
 
 									<div class="botoes_opcoes col-xs-8 col-lg-8 col-md-7 col-sm-6 col-6">
 
-										<a href="#" class="col-xs-1 col-lg-2 col-md-2 col-sm-3 col-3 botoes_opc botoes_opc_novo" onclick="novaDespesa()">
+										<a href="#" class="col-xs-1 col-lg-2 col-md-2 col-sm-3 col-3 botoes_opc botoes_opc_novo" onclick="novaDespesa()"  id="button_novo" onmouseover="animateButton('button_novo')" onmouseleave="animateButtonLeave('button_novo')">
 											Novo
 										</a>
 									</div>
@@ -244,15 +244,15 @@
 
 										<div th:text="${year}" th:value="${year}" style="display:none" id="pegando_ano"></div>
 
-										<a th:href="@{__${baseUrl}__/despesas(year=2023, month=${month}, page=1)}" class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 select_opc" id="ano_first">
+										<a th:href="@{__${baseUrl}__/despesas(year=2023, month=${month}, page=1)}" class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 select_opc"  id="ano_2023" onmouseover="animateButton('ano_2023')" onmouseleave="animateButtonLeave('ano_2023')">
 											2023
 										</a>										
 
-										<a th:href="@{__${baseUrl}__/despesas(year=2022, month=${month}, page=1)}"  class="col-xs-3 col-lg-3 col-md-3 col-sm-4 col-3 select_opc">
+										<a th:href="@{__${baseUrl}__/despesas(year=2022, month=${month}, page=1)}" class="col-xs-3 col-lg-3 col-md-3 col-sm-4 col-3 select_opc" id="ano_2022" onmouseover="animateButton('ano_2022')" onmouseleave="animateButtonLeave('ano_2022')">
 											2022
 										</a>
 
-										<a th:href="@{__${baseUrl}__/despesas(year=2021, month=${month}, page=1)}"  class="col-xs-3 col-lg-3 col-md-3 col-sm-4 col-3 select_opc">
+										<a th:href="@{__${baseUrl}__/despesas(year=2021, month=${month}, page=1)}"  class="col-xs-3 col-lg-3 col-md-3 col-sm-4 col-3 select_opc ano_first"  id="ano_2021" onmouseover="animateButton('ano_2021')" onmouseleave="animateButtonLeave('ano_2021')">
 											2021
 										</a>										
 
@@ -267,51 +267,51 @@
 
 								<div  class="col-xs-11 col-lg-11 col-md-11 col-sm-11 col-11 meses">
 
-									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=1, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jan" id="mes_opc_jan" onclick="changeMonth(0)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=1, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jan" id="mes_opc_jan" onclick="changeMonth(0)" onmouseover="animateButton('mes_opc_jan')" onmouseleave="animateButtonLeave('mes_opc_jan')">
 										Jan
 									</a>
 
-									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=2, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_fev" id="mes_opc_fev" onclick="changeMonth(1)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=2, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_fev" id="mes_opc_fev" onclick="changeMonth(1)" onmouseover="animateButton('mes_opc_fev')" onmouseleave="animateButtonLeave('mes_opc_fev')">
 										Fev
 									</a>
 
-									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=3, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_mar" id="mes_opc_mar" onclick="changeMonth(2)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=3, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_mar" id="mes_opc_mar" onclick="changeMonth(2)" onmouseover="animateButton('mes_opc_mar')" onmouseleave="animateButtonLeave('mes_opc_mar')">
 										Mar
 									</a>
 
-									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=4, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_abr" id="mes_opc_abr" onclick="changeMonth(3)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=4, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_abr" id="mes_opc_abr" onclick="changeMonth(3)" onmouseover="animateButton('mes_opc_abr')" onmouseleave="animateButtonLeave('mes_opc_abr')">
 										Abr
 									</a>
 
-									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=5, page=1, )}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_mai" id="mes_opc_mai" onclick="changeMonth(4)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=5, page=1, )}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_mai" id="mes_opc_mai" onclick="changeMonth(4)" onmouseover="animateButton('mes_opc_mai')" onmouseleave="animateButtonLeave('mes_opc_mai')">
 										Mai
 									</a>
 
-									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=6, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jun" id="mes_opc_jun" onclick="changeMonth(5)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=6, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jun" id="mes_opc_jun" onclick="changeMonth(5)" onmouseover="animateButton('mes_opc_jun')" onmouseleave="animateButtonLeave('mes_opc_jun')">
 										Jun
 									</a>
 
-									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=7, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jul" id="mes_opc_jul" onclick="changeMonth(6)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=7, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jul" id="mes_opc_jul" onclick="changeMonth(6)" onmouseover="animateButton('mes_opc_jul')" onmouseleave="animateButtonLeave('mes_opc_jul')">
 										Jul
 									</a>
 
-									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=8, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_ago" id="mes_opc_ago" onclick="changeMonth(7)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=8, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_ago" id="mes_opc_ago" onclick="changeMonth(7)" onmouseover="animateButton('mes_opc_ago')" onmouseleave="animateButtonLeave('mes_opc_ago')">
 										Ago
 									</a>
 
-									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=9, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_set" id="mes_opc_set" onclick="changeMonth(8)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=9, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_set" id="mes_opc_set" onclick="changeMonth(8)" onmouseover="animateButton('mes_opc_set')" onmouseleave="animateButtonLeave('mes_opc_set')">
 										Set
 									</a>
 
-									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=10, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_out" id="mes_opc_out" onclick="changeMonth(9)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=10, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_out" id="mes_opc_out" onclick="changeMonth(9)" onmouseover="animateButton('mes_opc_out')" onmouseleave="animateButtonLeave('mes_opc_out')">
 										Out
 									</a>
 
-									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=11, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_nov" id="mes_opc_nov" onclick="changeMonth(10)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=11, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_nov" id="mes_opc_nov" onclick="changeMonth(10)" onmouseover="animateButton('mes_opc_nov')" onmouseleave="animateButtonLeave('mes_opc_nov')">
 										Nov
 									</a>
 
-									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=12, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_dez" id="mes_opc_dez" onclick="changeMonth(11)">
+									<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=12, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_dez" id="mes_opc_dez" onclick="changeMonth(11)" onmouseover="animateButton('mes_opc_dez')" onmouseleave="animateButtonLeave('mes_opc_dez')">
 										Dez
 									</a>
 													
@@ -394,21 +394,22 @@
 
 								<div class="col-xs-11 col-lg-11 col-md-11 pages">
 
-									<<ul class="ul col-xs-12 col-lg-12 col-md-12">
+									<ul class="ul col-xs-12 col-lg-12 col-md-12">
 
-										<li>
-											<a href="#">Anterior</a>
+										<li class="page">
+											<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=${month}, page=${page-1})}" class="page_click" id="anterior" onmouseover="animateButton('anterior')" onmouseleave="animateButtonLeave('anterior')">Anterior</a>
 										</li>
 
-										<li th:each="pageNumber : ${pageNumbers}">
+										<div th:text="${page}" th:value="${page}" id="pegando_page" style="display:none"></div>
 
-											<!--<a th:href="@{/listBooks(size=${bookPage.size}, page=${pageNumber})}" th:text=${pageNumber}>.</a>-->
-											<a th:href="@{/despesas(page=${pageNumber})}" th:text="${pageNumber}"></a>
+										<li th:each="pageNumber : ${pageNumbers}" class="page page_li">
+
+											<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=${month}, page=${pageNumber})}" class="page_number page_click" th:text="${pageNumber}"></a>
 
 										</li>
 
-										<li>
-											<a href="#">Próximo</a>
+										<li class="page">
+											<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=${month}, page=${page}+1)}" class="page_click" id="proxima" onmouseover="animateButton('proxima')" onmouseleave="animateButtonLeave('proxima')">Próximo</a>
 										</li>
 
 									</ul>
