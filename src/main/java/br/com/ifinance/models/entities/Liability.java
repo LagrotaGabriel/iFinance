@@ -1,6 +1,7 @@
 package br.com.ifinance.models.entities;
 
-import br.com.ifinance.models.enums.LiabilityType;
+import br.com.ifinance.models.enums.Mean;
+import br.com.ifinance.models.enums.StatusLiability;
 import lombok.*;
 
 import javax.persistence.*;
@@ -12,7 +13,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
 public class Liability {
 
     @Id
@@ -20,20 +20,32 @@ public class Liability {
     @Column(name = "id_liability")
     private Long id;
 
-    @Column(name = "nm_liability")
-    private String name;
-
     @Column(name = "dsc_liability")
     private String description;
 
     @Column(name = "vl_liability")
     private Double value;
 
+    @Column(name = "dt_liability")
+    private String date;
+
+    @Column(name ="scheduling_liability")
+    private String scheduling;
+
     @Enumerated(EnumType.STRING)
-    @Column(name = "tp_liability")
-    private LiabilityType liabilityType;
+    @Column(name = "status_liability")
+    private StatusLiability statusLiability;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "mean_liability")
+    private Mean mean;
+
+    @Column(name = "created_liability")
+    private String created;
 
     @ManyToOne
     @JoinColumn(name = "id_user")
     private User user;
+
+
 }

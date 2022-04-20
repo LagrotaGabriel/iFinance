@@ -18,10 +18,9 @@ import java.util.Set;
 @Service
 public class SSUserDetailsService implements UserDetailsService{
 
-
     private UserRepository userRepository;
 
-    public  SSUserDetailsService(UserRepository userRepository){
+    public SSUserDetailsService(UserRepository userRepository){
         this.userRepository = userRepository;
     }
 
@@ -40,11 +39,14 @@ public class SSUserDetailsService implements UserDetailsService{
     }
 
     private Set<GrantedAuthority> getAuthories(User user){
+
         Set<GrantedAuthority> authorities = new HashSet<>();
+
         for(Role role: user.getRoles()){
             GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(role.getRole());
             authorities.add(grantedAuthority);
         }
+
         return authorities;
     }
 

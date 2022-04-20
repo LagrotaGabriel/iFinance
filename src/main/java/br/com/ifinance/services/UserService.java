@@ -52,6 +52,9 @@ public class UserService {
             updated.get().setName(user.getName());
             updated.get().setFixedIncome(user.getFixedIncome());
             updated.get().setVariableIncome(user.getVariableIncome());
+            updated.get().setRoles(user.getRoles());
+            updated.get().setWage(user.getWage());
+            updated.get().setExtraIncome(user.getExtraIncome());
 
             if(user.getTransactions() != null) {
                 updated.get().setTransactions(user.getTransactions());

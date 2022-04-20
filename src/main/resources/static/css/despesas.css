@@ -19,6 +19,24 @@ body{
 
 /* ===== LINHA DOS MESES ===== */
 
+.alert{
+    position: absolute;
+    position: fixed;
+    text-align: center;
+    font-size: 1rem;
+    width: 50%;
+    animation: pulse 2s infinite;
+    opacity: 0.98;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.alert:hover{
+    cursor: pointer;
+}
+
 .linha_data
 {
     margin: 0;
@@ -85,14 +103,8 @@ body{
     padding: 0;
 }
 
-.select_opc{
-    display: flex;
+.selecao{
     float: right;
-    height: 100%;
-    padding: 10px;
-    margin: 0;
-    padding: 0;
-    margin-left: 10px;
 }
 
 .botoes_opc, .select_opc{
@@ -101,6 +113,23 @@ body{
     background: transparent;
     color: #FFFFFF;
     text-align: center;
+}
+
+.select_opc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    text-decoration: none;
+    height: 100%;
+    padding: 10px 5px;
+    margin: 0;
+    padding: 0;
+    border-radius: 0px;
+    border-left: 0;
+}
+.ano_first{
+    border-left: 1px solid #00CCFF;
 }
 
 option{
@@ -114,6 +143,13 @@ option{
 }
 
 .botoes_opc:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    color: #121212;
+    transition: 1s;
+}
+
+.select_opc:hover{
     cursor: pointer;
     background-image: linear-gradient(to right, #00ccff, #28cffa);
     color: #121212;
@@ -158,6 +194,11 @@ option{
 
 .tr{
     border-bottom: 1px solid #1f1f1f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 4px solid transparent;
+    margin: 5px 0;
 }
 
 .th, .td{
@@ -175,9 +216,47 @@ option{
     text-align: left;
 }
 
+.td{
+    font-size: 0.90rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.td:hover{
+    cursor: pointer;
+}
+.td_data, .th_data{
+    justify-content: left;
+    padding-left: 10px;
+}
+
+.td_value, .th_valor{
+    justify-content: left;
+}
+
 .tbody{
     border-top: 1px solid #00CCFF;
 }
+
+.btn_excluir{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #00CCFF;
+    color: #FFFFFF;
+    padding: 8px 15px;
+}
+
+.btn_excluir:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    color: #121212;
+    transition: 1s;    
+    animation: pulse 1s infinite;
+}
+
 
 /* === FIM DA TABELA === */
 
@@ -216,7 +295,7 @@ li a{
     border-radius: 5px;
 }
 
-li a:hover{
+.page_click:hover{
     cursor: pointer;
     background-image: linear-gradient(to right, #00ccff, #28cffa);
     color: #121212;

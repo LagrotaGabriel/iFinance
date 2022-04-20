@@ -34,10 +34,12 @@ public class LiabilityService {
 
         Optional<Liability> updated = findById(id);
         if(updated.isPresent()){
-            updated.get().setName(liability.getName());
+            updated.get().setDate(liability.getDate());
+            updated.get().setCreated(liability.getCreated());
+            updated.get().setStatusLiability(liability.getStatusLiability());
+            updated.get().setScheduling(liability.getScheduling());
             updated.get().setDescription(liability.getDescription());
             updated.get().setValue(liability.getValue());
-            updated.get().setLiabilityType(liability.getLiabilityType());
             updated.get().setUser(liability.getUser());
             return create(updated.get());
         }
@@ -56,10 +58,5 @@ public class LiabilityService {
             return true;
         }
     }
-
-
-
-
-
 
 }
