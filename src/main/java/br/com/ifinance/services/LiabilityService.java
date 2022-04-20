@@ -35,6 +35,7 @@ public class LiabilityService {
         Optional<Liability> updated = findById(id);
         if(updated.isPresent()){
             updated.get().setDate(liability.getDate());
+            updated.get().setCreated(liability.getCreated());
             updated.get().setStatusLiability(liability.getStatusLiability());
             updated.get().setScheduling(liability.getScheduling());
             updated.get().setDescription(liability.getDescription());

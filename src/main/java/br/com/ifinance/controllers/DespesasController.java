@@ -153,7 +153,7 @@ public class DespesasController {
         System.err.println("Page numbers: " + pageNumbers);
 
         // DEFINE A QUANTIDADE DE ITENS A SER INSERIDO POR PÁGINA
-        if(mapPages.get(currentPage) != null) {
+        if(!mapPages.get(currentPage).isEmpty()) {
             model.addAttribute("liabilities", mapPages.get(currentPage));
             System.err.println("Liabilities na página atual: " + mapPages.get(currentPage));
         }
@@ -340,6 +340,7 @@ public class DespesasController {
                 // SE O AGENDAMENTO ESTIVER EM BRANCO ELE É JOGADO COMO NULO
                 if(liability.getScheduling().equals("")){
                     liability.setScheduling(null);
+                    liability.setCreated(hojeSplitado[2] + "/" + hojeSplitado[1] + "/" + hojeSplitado[0]);
                     user.getLiabilities().set(user.getLiabilities()
                             .indexOf(liabilityService.findById(liability.getId()).get()), liability);
                     userService.updateUser(user.getId(), user);
@@ -356,6 +357,7 @@ public class DespesasController {
                             // SE O DIA DO AGENDAMENTO FOR MAIOR OU IGUAL DO QUE O DIA ATUAL (CORRETO)
                             if(Integer.parseInt(agendamento[2]) >= Integer.parseInt(hojeSplitado[2])){
                                 // SALVANDO A DESPESA NO BANCO DE DADOS
+                                liability.setCreated(hojeSplitado[2] + "/" + hojeSplitado[1] + "/" + hojeSplitado[0]);
                                 user.getLiabilities().set(user.getLiabilities()
                                         .indexOf(liabilityService.findById(liability.getId()).get()), liability);
                                 userService.updateUser(user.getId(), user);
@@ -394,6 +396,7 @@ public class DespesasController {
                         if(Integer.parseInt(dataDespesa[2]) <= Integer.parseInt(hojeSplitado[2])){
                             System.err.println("IF 3");
                             // SALVANDO A DESPESA NO BANCO DE DADOS
+                            liability.setCreated(hojeSplitado[2] + "/" + hojeSplitado[1] + "/" + hojeSplitado[0]);
                             user.getLiabilities().set(user.getLiabilities()
                                     .indexOf(liabilityService.findById(liability.getId()).get()), liability);
                             userService.updateUser(user.getId(), user);
