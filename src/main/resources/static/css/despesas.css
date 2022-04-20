@@ -1,9 +1,5 @@
 /* ============================== MENU LATERAL ============================== */
 
-body{
-    display: none;
-}
-
 .aside-4{
     background-image: linear-gradient(to right, #00ccff, #28cffa);
     opacity: 0.9;

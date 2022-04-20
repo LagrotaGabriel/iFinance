@@ -5,7 +5,8 @@ window.onresize = doALoadOfStuff;
 
 function responsive(){
 
-	document.getElementById('body').style.display="block";
+	document.getElementById('main_loader').style.display="none";
+	document.getElementById('main_row').style.display="flex";
 
 	bodyWidth = document.getElementById('body').clientWidth;
 	bodyHeight = document.getElementById('body').clientHeight;
