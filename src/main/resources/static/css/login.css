@@ -1,38 +1,148 @@
-body{
-    display: none;
-}
 
 .titulo2{
-    color: #121212;
-    font-size: 3.5rem;
+    color: #FFFFFF;
+    font-size: 1.5rem;
     margin-bottom: 15px;
 }
 
 .menu_box{
-    padding: 30px;
     background-color: #c3aa72;
-    opacity: 0.9;
-    box-shadow: 0 0 20px #121212;
-    background-color: #f4f0e5;
+    opacity: 1;
+    box-shadow: 0 0 30px #121212;
+    background-color: #121212;
+    margin: 0;
+    padding: 0;
+    height: 55%;
 }
 
 .all{
     display: flex;
     justify-content: center;
+    align-items: center;
     max-height: 100vh;
     max-width: 100vw;
-    align-items: center;
     margin: 0;
     padding: 0;
-    background: url('../img/bck2.jpg') no-repeat;
+    background: url('../img/bck6.jpg') no-repeat;
     background-size: cover;
 }
 
+.hr{
+    background: #00CCFF;
+    display: flex;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.conteudo{
+    height: 100%;
+    float: left;
+    max-width: 100%;
+    padding: 30px;
+    margin: 0;
+}
+
+.opcoes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.opc{
+    margin-right: 15px;
+    padding-bottom: 2px;
+}
+
+.opc_login{
+    border-bottom: 2px solid #00CCFF;
+}
+
+.informativa{
+    background: url('../img/peopleworking.jpg') no-repeat;
+    background-size: cover;
+    opacity: 1;
+    padding: 0;
+}
+
+.background_informativa{
+    background: rgba(33, 33, 33,0.6);
+    width: 100%;
+    height: 100%;
+}
+
+.info_info{
+    padding: 25px;
+}
+
+.informativa_background{
+    background: black;
+}
+
+.informativa_row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    float: left;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.informativa_titulo{
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.informativa_subtitulo{
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.informativa_texto{
+    font-size: 0.85rem;
+    text-align: justify;
+    letter-spacing: 0.15px;
+    margin-bottom: 15px;
+    background: rgba(33, 33, 33,0.3);
+    border: 1px solid #00ccff;
+    padding: 20px 15px;
+}
+.hr_informativa{
+    background: #00CCFF;
+    margin-bottom: 15px;
+    opacity: 1;
+}
+
+.linha_col_1{
+    border: 1px solid #00CCFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.block{
+    border: 1px solid green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.img{
+    width: 50%;
+}
+
 .sub_titulo{
-    color: #121212;
-    font-family: 'Archivo Narrow', sans-serif;
-    font-size: 2.5rem;
-    margin-bottom: 5px;
+    color: #FFFFFF;
+    font-size: 1rem;
+    margin-bottom: 10px;
 }
 
 .aviso{
@@ -52,19 +162,18 @@ body{
     justify-content: center;
 }
 
-.campo_login{
+.input{
     border: 1px solid grey;
-    padding: 5px 15px;
-    color: #121212;
-    text-align: center;
+    padding: 5px 0px;
+    color: #FFFFFF;
+    text-align: left;
     margin-bottom: 20px;
     font-family: 'Archivo Narrow', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1rem;
     letter-spacing: 2px;
-}
-
-.campo_senha{
-    margin-bottom: 30px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #00CCFF;
 }
 
 .botao{
@@ -76,26 +185,24 @@ body{
 }
 
 .botao_botao{
-    width: 50%;
-    background-image: linear-gradient(to right,#00ccff, #b452ff);
-    border: none;
-    padding: 10px 10px;
-    color: #f4f0e5;
-    margin-bottom: 30px;
+    background: transparent;
+    border: 1px solid #00CCFF;
+    padding: 10px 25px;
+    color: #FFFFFF;
+    margin-bottom: 20px;
 }
 
 .botao_botao:hover{
     cursor: pointer;
-    background-image: linear-gradient(to right, #b452ff, #00ccff);
-    transition: 2s;
+    background: #00CCFF;
+    border: 1px solid transparent;
+    color: #121212;
+    transition: 1s;
     animation: pulse 2s infinite;
 }
 
-@media(min-width: 1220px){
-    .titulo2{
-        font-size: 56px;
-        text-shadow: 1px 1px #121212;
-    }
+.cadastrar{
+    color: #FFFFFF;
 }
 
 @keyframes pulse{

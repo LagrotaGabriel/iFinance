@@ -3,12 +3,51 @@ window.onload = responsive()
 
 function responsive(){
 
-	document.getElementById('body').style.display="block";
-
+	document.getElementById('all').style.display="flex";
 	var all = document.getElementById('all')	
 	var body = document.getElementById('body')
+	bodyWidth = document.getElementById('body').clientWidth;
+	bodyHeight = document.getElementById('body').clientHeight;	
 	body.style.height = '100vh';
 	all.style.height = document.getElementById('body').clientHeight + 'px';
+
+	var informativa = document.getElementById('informativa');
+
+	if(bodyWidth > 1200){
+		console.log("Muito grande");
+		informativa.style.display="flex";
+
+	}
+
+	else if(bodyWidth <= 1200 && bodyWidth > 992){
+		console.log("Grande");		
+		informativa.style.display="flex";
+
+	}
+
+	else if(bodyWidth <= 992 && bodyWidth > 768){
+		console.log('Médio');
+		informativa.style.display="flex";
+
+	}
+
+	else if(bodyWidth <= 768 && bodyWidth > 540){
+		console.log('Pequeno');
+		informativa.style.display="none";
+
+
+	}
+	
+	else if(bodyWidth < 540){
+		console.log('Muito pequeno');
+		informativa.style.display="none";
+
+	}							
+
+
+
+
+
 }
 
 function usernameInput(){
