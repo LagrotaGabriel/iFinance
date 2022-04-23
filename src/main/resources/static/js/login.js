@@ -8,39 +8,53 @@ function responsive(){
 	var body = document.getElementById('body')
 	bodyWidth = document.getElementById('body').clientWidth;
 	bodyHeight = document.getElementById('body').clientHeight;	
-	body.style.height = '100vh';
-	all.style.height = document.getElementById('body').clientHeight + 'px';
+	//body.style.minHeight = '100vh';
+	//all.style.height = document.getElementById('body').clientHeight + 'px';
 
-	var informativa = document.getElementById('informativa');
+	var prenchimento = document.getElementById('prenchimento');
+
+	if(bodyHeight < prenchimento.clientHeight){
+		all.style.alignItems="initial";
+		body.style.paddingTop="50px";
+	}
+	else{
+		all.style.alignItems="center";
+		body.style.paddingTop="0";
+	}
 
 	if(bodyWidth > 1200){
 		console.log("Muito grande");
-		informativa.style.display="flex";
+		document.getElementById('first_hr').style.margin="0 50px";
+		document.getElementById('prenchimento').style.padding="40px 5px";
 
 	}
 
 	else if(bodyWidth <= 1200 && bodyWidth > 992){
 		console.log("Grande");		
-		informativa.style.display="flex";
+		document.getElementById('first_hr').style.margin="0";
+		document.getElementById('prenchimento').style.padding="50px";
 
 	}
 
 	else if(bodyWidth <= 992 && bodyWidth > 768){
 		console.log('Médio');
-		informativa.style.display="flex";
+		document.getElementById('first_hr').style.margin="0";
+		document.getElementById('prenchimento').style.padding="50px";
 
 	}
 
 	else if(bodyWidth <= 768 && bodyWidth > 540){
 		console.log('Pequeno');
-		informativa.style.display="none";
+		document.getElementById('first_hr').style.margin="0";
+		document.getElementById('prenchimento').style.padding="50px";
 
 
 	}
 	
 	else if(bodyWidth < 540){
 		console.log('Muito pequeno');
-		informativa.style.display="none";
+		document.getElementById('first_hr').style.margin="0";
+		document.getElementById('prenchimento').style.padding="50px";
 
 	}							
 

@@ -5,25 +5,34 @@
     margin-bottom: 15px;
 }
 
+body{
+    background: url('../img/bck4.jpeg') no-repeat;
+    background-size: cover;
+    width: 100vw;
+
+}
+
 .menu_box{
     background-color: #c3aa72;
     opacity: 1;
-    box-shadow: 0 0 30px #121212;
-    background-color: #121212;
+    box-shadow: 5px 5px 35px #121212;
+    background-color: #212121;
     margin: 0;
     padding: 0;
-    height: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
 }
 
 .all{
     display: flex;
     justify-content: center;
     align-items: center;
-    max-height: 100vh;
+    min-height: 100vh;
     max-width: 100vw;
     margin: 0;
     padding: 0;
-    background: url('../img/bck6.jpg') no-repeat;
     background-size: cover;
 }
 
@@ -33,13 +42,16 @@
     justify-content: center;
     opacity: 0.6;
 }
+.first_hr{
+    margin: 0 50px;
+}
 
 .conteudo{
     height: 100%;
     float: left;
     max-width: 100%;
-    padding: 30px;
-    margin: 0;
+    padding: 0;
+    margin: 0;    
 }
 
 .opcoes{
@@ -47,102 +59,33 @@
     justify-content: center;
     align-items: center;
     color: #FFFFFF;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 30px 0;
+    font-size: 1.25rem;
 }
 .opc{
     margin-right: 15px;
-    padding-bottom: 2px;
+    padding-bottom: 6px;
 }
 
 .opc_login{
-    border-bottom: 2px solid #00CCFF;
+    border-bottom: 3px solid #00CCFF;
 }
 
-.informativa{
-    background: url('../img/peopleworking.jpg') no-repeat;
-    background-size: cover;
-    opacity: 1;
-    padding: 0;
-}
-
-.background_informativa{
-    background: rgba(33, 33, 33,0.6);
-    width: 100%;
-    height: 100%;
-}
-
-.info_info{
-    padding: 25px;
-}
-
-.informativa_background{
-    background: black;
-}
-
-.informativa_row{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    float: left;
+.sub_titulo_pai{
     margin: 0;
     padding: 0;
-    text-align: center;
-    color: #FFFFFF;
-    margin-bottom: 10px;
-}
-
-.informativa_titulo{
-    font-size: 1.5rem;
     display: flex;
     justify-content: center;
-    align-items: center;
-}
-.informativa_subtitulo{
-    font-size: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.informativa_texto{
-    font-size: 0.85rem;
-    text-align: justify;
-    letter-spacing: 0.15px;
-    margin-bottom: 15px;
-    background: rgba(33, 33, 33,0.3);
-    border: 1px solid #00ccff;
-    padding: 20px 15px;
-}
-.hr_informativa{
-    background: #00CCFF;
-    margin-bottom: 15px;
-    opacity: 1;
-}
-
-.linha_col_1{
-    border: 1px solid #00CCFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.block{
-    border: 1px solid green;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 10px;
-}
-
-.img{
-    width: 50%;
 }
 
 .sub_titulo{
     color: #FFFFFF;
-    font-size: 1rem;
-    margin-bottom: 10px;
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .aviso{
@@ -164,9 +107,9 @@
 
 .input{
     border: 1px solid grey;
-    padding: 5px 0px;
+    padding: 7px 10px;
     color: #FFFFFF;
-    text-align: left;
+    text-align: center;
     margin-bottom: 20px;
     font-family: 'Archivo Narrow', sans-serif;
     font-size: 1rem;
@@ -174,22 +117,35 @@
     background: transparent;
     border: none;
     border-bottom: 1px solid #00CCFF;
+
+}
+
+.input_campo_senha{
+    margin-bottom: 0;
+}
+
+.botoes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    margin: 15px 0;
 }
 
 .botao{
-    width: 100%;
     display: flex;
     justify-content: center;
     justify-items: center;
-
+    margin-bottom: 15px;
 }
 
 .botao_botao{
     background: transparent;
     border: 1px solid #00CCFF;
-    padding: 10px 25px;
+    padding: 10px 5px;
     color: #FFFFFF;
-    margin-bottom: 20px;
 }
 
 .botao_botao:hover{
@@ -203,6 +159,11 @@
 
 .cadastrar{
     color: #FFFFFF;
+}
+
+.btn_signup{
+    color: #00CCFF;
+    text-decoration: none;
 }
 
 @keyframes pulse{

@@ -37,6 +37,7 @@ function responsive(){
 	var selectOpc = document.getElementsByClassName('select_opc');
 	var novoLabel = document.getElementsByClassName('novo_label');
 	var novoInput = document.getElementsByClassName('novo_input');
+	var pageClick = document.getElementsByClassName('page_click');
 
 
 	if(bodyWidth > 1200){
@@ -82,6 +83,10 @@ function responsive(){
 		for(var i = 0; i < btnExcluir.length; i++){
 			btnExcluir[i].style.padding="8px 15px";
 			btnExcluir[i].innerText="Excluir";
+		}
+
+		for(var i = 0; i < pageClick.length; i++){
+			pageClick[i].style.fontSize = "1rem";
 		}
 
 
@@ -135,6 +140,10 @@ function responsive(){
 			btnExcluir[i].innerText="Excluir";
 		}
 
+		for(var i = 0; i < pageClick.length; i++){
+			pageClick[i].style.fontSize = "0.90rem";
+		}		
+
 		if(thTipo != null){
 			thTipo.hidden=false;
 		}		
@@ -180,6 +189,10 @@ function responsive(){
 			btnExcluir[i].innerText="Excluir";
 		}
 
+		for(var i = 0; i < pageClick.length; i++){
+			pageClick[i].style.fontSize = "0.85rem";
+		}		
+
 		if(thTipo != null){
 			thTipo.hidden=false;
 		}		
@@ -224,6 +237,10 @@ function responsive(){
 			btnExcluir[i].style.padding="5px 10px";
 			btnExcluir[i].innerText="X";
 		}
+
+		for(var i = 0; i < pageClick.length; i++){
+			pageClick[i].style.fontSize = "0.80rem";
+		}		
 
 
 		if(thTipo != null){
@@ -272,6 +289,10 @@ function responsive(){
 			btnExcluir[i].style.padding="5px 10px";
 			btnExcluir[i].innerText="X";
 		}
+
+		for(var i = 0; i < pageClick.length; i++){
+			pageClick[i].style.fontSize = "0.75rem";
+		}		
 
 		if(thTipo != null){
 			thTipo.hidden=true;
