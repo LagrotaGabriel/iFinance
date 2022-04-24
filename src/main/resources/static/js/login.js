@@ -4,6 +4,8 @@ window.onload = responsive()
 function responsive(){
 
 	document.getElementById('all').style.display="flex";
+	document.getElementById('main_loader').style.display="none";
+	
 	var all = document.getElementById('all')	
 	var body = document.getElementById('body')
 	bodyWidth = document.getElementById('body').clientWidth;

@@ -11,7 +11,8 @@ window.onresize = doALoadOfStuff;
 
 function responsive(){
 
-	document.getElementById('body').style.display="block";
+	document.getElementById('main_loader').style.display="none";
+	document.getElementById('all').style.display="flex";
 
 	var bodyWidth = document.getElementById('body').clientWidth;
 	var bodyHeight = document.getElementById('body').clientHeight;
@@ -25,6 +26,7 @@ function responsive(){
 
 		document.getElementById('all').style.alignItems="center";
 		document.getElementById('menu_box').style.height = 'initial';
+		document.getElementById('menu_box').style.margin = '0 auto';
 
 		for (var i = 0; i < textos.length; i++) {
   			var texto = textos[i];
@@ -44,6 +46,7 @@ function responsive(){
 
 		document.getElementById('all').style.alignItems="center";
 		document.getElementById('menu_box').style.height = 'initial';
+		document.getElementById('menu_box').style.margin = '0 auto';
 
 		for (var i = 0; i < textos.length; i++) {
   			var texto = textos[i];
@@ -63,6 +66,7 @@ function responsive(){
 
 		document.getElementById('all').style.alignItems="center";
 		document.getElementById('menu_box').style.height = 'initial';
+		document.getElementById('menu_box').style.margin = '0 auto';
 
 		for (var i = 0; i < textos.length; i++) {
   			var texto = textos[i];
@@ -82,6 +86,7 @@ function responsive(){
 
 		document.getElementById('all').style.alignItems="flex-start";
 		document.getElementById('menu_box').style.height = 'auto'
+		document.getElementById('menu_box').style.margin = '50px auto';
 
 		for (var i = 0; i < textos.length; i++) {
   			var texto = textos[i];
@@ -101,6 +106,7 @@ function responsive(){
 
 		document.getElementById('all').style.alignItems="flex-start";
 		document.getElementById('menu_box').style.height = 'auto';
+		document.getElementById('menu_box').style.margin = '50px auto';
 
 		for (var i = 0; i < textos.length; i++) {
   			var texto = textos[i];
@@ -131,19 +137,6 @@ function doALoadOfStuff() {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ESSA PARTE DO CÓDIGO É RESPONSÁVEL PELOS EVENTOS DOS INPUTS */
-
-// Ao selecionar o radio button ele habilita ou desabilita o input salário
-function trabalha(code){
-	if(code == 1){
-		document.getElementById('input_salario').disabled=false;
-		document.getElementById('yes').checked=true;
-	}
-	else{
-		document.getElementById('input_salario').disabled=true;
-		document.getElementById('input_salario').value="0.00";
-		document.getElementById('no').checked=true;
-	}
-}
 
 /* Ao passar o mouse em cima dos labels aparece mensagem instrutiva sobre como
 preencher o campo */

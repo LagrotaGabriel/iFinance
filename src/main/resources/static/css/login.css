@@ -9,7 +9,34 @@ body{
     background: url('../img/bck4.jpeg') no-repeat;
     background-size: cover;
     width: 100vw;
+}
 
+.main_loader{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    background: #121212;
+}
+
+.loader{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    animation: rotacionar 1s infinite;
+    border: 28px solid #E5E5E5;
+    border-top-color: #00CCFF;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+@keyframes rotacionar{
+    to{
+        transform: rotate(1turn);
+    }
 }
 
 .menu_box{
@@ -26,7 +53,7 @@ body{
 }
 
 .all{
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -71,6 +98,18 @@ body{
     border-bottom: 3px solid #00CCFF;
 }
 
+
+.signup_clicavel{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.signup_clicavel:hover{
+    color: grey;
+    cursor: pointer;
+    border-bottom: 3px solid #00CCFF;
+}
+
 .sub_titulo_pai{
     margin: 0;
     padding: 0;
@@ -85,7 +124,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .aviso{
@@ -93,6 +131,7 @@ body{
     justify-content: center;
     justify-items: center;
     align-items: center;
+    width: 80%;
     animation: pulse 2s infinite;
 }
 .aviso:hover{
@@ -112,7 +151,7 @@ body{
     text-align: center;
     margin-bottom: 20px;
     font-family: 'Archivo Narrow', sans-serif;
-    font-size: 1rem;
+    font-size: 0.90rem;
     letter-spacing: 2px;
     background: transparent;
     border: none;
@@ -139,6 +178,13 @@ body{
     justify-content: center;
     justify-items: center;
     margin-bottom: 15px;
+}
+.btn_a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.btn_a:hover{
+    color: #121212;
 }
 
 .botao_botao{

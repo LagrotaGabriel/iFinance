@@ -12,14 +12,9 @@
 		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
 
 		
-		<!--<link th:href="@{css/reset.css}" rel="stylesheet" />
+		<link th:href="@{css/reset.css}" rel="stylesheet" />
 		<link th:href="@{css/login.css}" rel="stylesheet" />
-		<link rel="icon" th:href="@{img/logo.png}" type="image/gif" sizes="32x32">-->
-		
-
-		<link href="../static/css/reset.css" rel="stylesheet" />
-		<link href="../static/css/login.css" rel="stylesheet" />
-		<link rel="icon" href="../static/img/logo.png" type="image/gif" sizes="32x32">
+		<link rel="icon" th:href="@{img/logo.png}" type="image/gif" sizes="32x32">
 
 		<title>Ifinance | Login</title>
 
@@ -32,26 +27,26 @@
 				<!-- ========== INÍCIO DO MENU BOX ========== -->
 				<div class="container menu_box col-xl-3 col-lg-6 col-md-8 col-sm-10 col-12">	
 
-					<!-- ========== INÍCIO DOS ALERTAS ========== -->
-					<div th:if="${param.error}" class="aviso aviso_erro" id="erro" onclick="hideMessage(1)" hidden>
-						<div class="alert alert-danger">
-							Usuário e/ou senha inválidos!
-						</div>
-					</div>
-					<div th:if="${param.logout}" class="aviso aviso_logout" id="logout" onclick="hideMessage(2)" hidden>
-						<div class="alert alert-info">
-							Logout realizado com sucesso!
-						</div>
-					</div>
-					<div th:if="${SucessoCadastro}" class="aviso aviso_sucesso alert alert-success" id="sucesso" onclick="hideMessage(3)" hidden>
-							<p th:text="${SucessoCadastro}">
-								...
-							</p>
-					</div>
-					<!-- ========== FIM DOS ALERTAS ========== -->
-
 					<!-- ========== INÍCIO DA ETAPA DE PREENCHIMENTO ========== -->
 					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo prenchimento" id="prenchimento">
+
+						<!-- ========== INÍCIO DOS ALERTAS ========== -->
+						<div th:if="${param.error}" class="aviso aviso_erro" id="erro" onclick="hideMessage(1)">
+							<div class="alert alert-danger">
+								Usuário e/ou senha inválidos!
+							</div>
+						</div>
+						<div th:if="${param.logout}" class="aviso aviso_logout" id="logout" onclick="hideMessage(2)">
+							<div class="alert alert-info">
+								Logout realizado com sucesso!
+							</div>
+						</div>
+						<div th:if="${SucessoCadastro}" class="aviso aviso_sucesso alert alert-success" id="sucesso" onclick="hideMessage(3)">
+								<p th:text="${SucessoCadastro}">
+									...
+								</p>
+						</div>
+						<!-- ========== FIM DOS ALERTAS ========== -->						
 
 						<h1 class="titulo2 col-lg-12 col-xl-12 col-md-12 col-sm-12 col-12 text-center">
 							Acesse sua conta
@@ -66,7 +61,7 @@
 							</div>
 							
 							<div class="opc opc_cadastro col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 text-center">
-								Signup
+								<a th:href="@{/signup}" class="signup_clicavel">Signup</a>
 							</div>									
 
 						</div>	
@@ -102,11 +97,14 @@
 							<div class="row botoes">
 
 								<div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12 botao">
-									<button type="submit" class="col-xl-12 col-lg-12 col-md-10 col-sm-10 col-10 botao_botao botao_login">ACESSAR</button> 
+									<button type="submit" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 botao_botao botao_login">Acessar</button> 
 								</div>	
 
 								<div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12 botao">
-									<button type="button" class="col-xl-12 col-lg-12 col-md-10 col-sm-10 col-10 botao_botao botao_signup">CADASTRO</button> 
+									<a th:href="@{/signup}" class="col-xl-12 col-lg-12 col-md-10 col-sm-12 col-12 btn_a">
+										<button type="button" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 botao_botao botao_signup">	Cadastrar
+										</button> 
+									</a>
 								</div>								
 
 							</div>
@@ -132,7 +130,6 @@
 				<div class="loader"></div>
 			</div>			
 
-		<script type="text/javascript" src="../static/js/login.js"defer></script>
-		<!--<script type="text/javascript" th:src="@{js/login.js}" defer></script>-->
+		<script type="text/javascript" th:src="@{js/login.js}" defer></script>
 	</body>
 </html>

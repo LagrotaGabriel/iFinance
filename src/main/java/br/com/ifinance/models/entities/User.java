@@ -24,10 +24,8 @@ public class User {
     private String username;
     @Column(name = "pwd_user")
     private String password;
-    @Column(name = "nm_user")
+    @Column(name = "nm_user", columnDefinition="VARCHAR(60)")
     private String name;
-    @Column(name = "lastname_user", columnDefinition="VARCHAR(40)")
-    private String lastName;
     @Column(name = "email")
     private String email;
     @Column(name = "birthdate_user")

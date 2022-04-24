@@ -99,33 +99,11 @@ public class SignUpController {
                 modelAndView.setViewName("redirect:/signup");
 
             }
-            else if(!userValidation.wageValidation(user)){
-                redirAttrs.addFlashAttribute("ErroCadastro",
-                        "Ops! O campo salário foi preenchido de forma incorreta.");
-                modelAndView.setViewName("redirect:/signup");
-            }
-            else if(!userValidation.fixedIncomeValidation(user)){
-                redirAttrs.addFlashAttribute("ErroCadastro",
-                        "Ops! O campo renda fixa foi preenchido de forma incorreta.");
-                modelAndView.setViewName("redirect:/signup");
-            }
-            else if(!userValidation.variableIncomeValidation(user)){
-                redirAttrs.addFlashAttribute("ErroCadastro",
-                        "Ops! O campo renda variável foi preenchido de forma incorreta.");
-                modelAndView.setViewName("redirect:/signup");
-            }
-            else if(!userValidation.extraIncomeValidation(user)){
-                redirAttrs.addFlashAttribute("ErroCadastro",
-                        "Ops! O campo renda extra foi preenchido de forma incorreta.");
-                modelAndView.setViewName("redirect:/signup");
-            }
             else{
                 redirAttrs.addFlashAttribute("ErroCadastro",
                         "Ops! Algum campo foi preenchido de forma incorreta.");
                 modelAndView.setViewName("redirect:/signup");
             }
-
-
         }
         System.err.println(user.toString());
         globalUser = user;
