@@ -98,16 +98,11 @@ body{
     border-bottom: 3px solid #00CCFF;
 }
 
-
 .signup_clicavel{
     color: #FFFFFF;
     text-decoration: none;
-}
-
-.signup_clicavel:hover{
-    color: grey;
-    cursor: pointer;
-    border-bottom: 3px solid #00CCFF;
+    padding: 0;
+    margin: 0;
 }
 
 .sub_titulo_pai{

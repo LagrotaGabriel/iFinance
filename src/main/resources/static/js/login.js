@@ -5,7 +5,7 @@ function responsive(){
 
 	document.getElementById('all').style.display="flex";
 	document.getElementById('main_loader').style.display="none";
-	
+
 	var all = document.getElementById('all')	
 	var body = document.getElementById('body')
 	bodyWidth = document.getElementById('body').clientWidth;
@@ -59,11 +59,6 @@ function responsive(){
 		document.getElementById('prenchimento').style.padding="50px";
 
 	}							
-
-
-
-
-
 }
 
 function usernameInput(){
@@ -88,4 +83,16 @@ function hideMessage(value){
 	else{
 		document.getElementById('sucesso').style.display="none";
 	}
+}
+
+function signupEnter(){
+	var signup = document.getElementById('signup');
+	signup.style.color="grey";
+	signup.style.cursor="pointer";
+}
+
+function signupLeave(){
+	var signup = document.getElementById('signup');
+	signup.style.color="#FFFFFF";
+	signup.style.cursor="default";
 }

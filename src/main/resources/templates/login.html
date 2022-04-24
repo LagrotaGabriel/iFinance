@@ -56,12 +56,14 @@
 
 						<div class=" col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 opcoes">
 
-							<div class="opc opc_login col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 text-center">
+							<div class="opc opc_login col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 text-center" id="login">
 								Login
 							</div>
 							
 							<div class="opc opc_cadastro col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 text-center">
-								<a th:href="@{/signup}" class="signup_clicavel">Signup</a>
+								<a th:href="@{/signup}" class="signup_clicavel" onmouseover="signupEnter()" onmouseleave="signupLeave()" id="signup">
+									Signup
+								</a>
 							</div>									
 
 						</div>	
