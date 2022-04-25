@@ -17,7 +17,7 @@ public class UserValidation {
 
     public Boolean nameValidation(User user){
 
-        if(user.getName().length() <= 15 && user.getName().length() >= 3){
+        if(user.getName().length() <= 60 && user.getName().length() >= 3){
             try{
                 Integer userTry = Integer.parseInt(user.getName());
                 return false;

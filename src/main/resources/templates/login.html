@@ -56,13 +56,13 @@
 
 						<div class=" col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 opcoes">
 
-							<div class="opc opc_login col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 text-center" id="login">
+							<div class="opc opc_login col-xl-3 col-lg-3 col-md-2 col-sm-2 col-2 text-center" id="login">
 								Login
 							</div>
 							
-							<div class="opc opc_cadastro col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 text-center">
+							<div class="opc opc_cadastro col-xl-3 col-lg-3 col-md-2 col-sm-2 col-2 text-center">
 								<a th:href="@{/signup}" class="signup_clicavel" onmouseover="signupEnter()" onmouseleave="signupLeave()" id="signup">
-									Signup
+									Cadastro
 								</a>
 							</div>									
 
@@ -98,16 +98,10 @@
 
 							<div class="row botoes">
 
-								<div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12 botao">
+								<div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12 botao">
 									<button type="submit" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 botao_botao botao_login">Acessar</button> 
 								</div>	
-
-								<div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12 botao">
-									<a th:href="@{/signup}" class="col-xl-12 col-lg-12 col-md-10 col-sm-12 col-12 btn_a">
-										<button type="button" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 botao_botao botao_signup">	Cadastrar
-										</button> 
-									</a>
-								</div>								
+						
 
 							</div>
 							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />

@@ -165,7 +165,7 @@ button{
 .searchbar{
     max-width: 100%;
     margin: 0;
-    padding: 0;
+    padding-left: 10px;
 }
 
 .menu_superior_form{
@@ -208,38 +208,14 @@ button{
 
 /* Menu superior - Botões */
 
-.bt3{
-    display: flex;
-    align-items: center;
-    justify-content: left;
-}
-
-.bt2{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.logout_form{
-    width: 90%;
-}
-
-.logout_btn{
-    width: 100%;
+.top_btn{
     color: #f4f0e5;
     border: 1px solid #00ccff;
     font-size: 1rem;
-    padding: 15px 5px;
+    padding: 15px 5px;    
 }
 
-.perfil_btn{
-    width: 90%;
-    color: #f4f0e5;
-    border: 1px solid #00ccff;
-    font-size: 1rem;
-    padding: 15px 5px;
-}
-.logout_btn:hover, .perfil_btn:hover{
+.logout_btn:hover, .perfil_btn:hover, .warn_btn:hover{
     cursor: pointer;
     background-image: linear-gradient(to right, #00ccff, #28cffa);
     color: #121212;

@@ -126,7 +126,7 @@ body{
     justify-content: center;
     justify-items: center;
     align-items: center;
-    width: 80%;
+    width: 100%;
     animation: pulse 2s infinite;
 }
 .aviso:hover{

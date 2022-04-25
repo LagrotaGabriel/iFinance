@@ -11,7 +11,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
 			
-		<link rel="icon" th:href="@{img/bag.png}" type="image/gif" sizes="32x32">
+		<link rel="icon" th:href="@{img/logo.png}" type="image/gif" sizes="32x32">
 		<link th:href="@{css/reset.css}" rel="stylesheet" />
 		<link th:href="@{css/layout.css}" rel="stylesheet"/>
 		<link th:href="@{css/despesas.css}" rel="stylesheet" />
@@ -127,53 +127,64 @@
 				<!-- Conteúdo principal do site, que fica ao lado do menu lateral -->
 				<main class="container main col-xs-11 col-lg-11 col-md-12 col-sm-12 col-12" id="main">
 					<!--------------- MENU SUPERIOR DO SITE --------------->
-					<header class="row menu_superior col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12" id="menu_superior">
+					<header class="row menu_superior col-lg-12" id="menu_superior">
 					
 						<!-- Barra de pesquisas do header -->
-						<div class="col-xs-6 col-lg-6 col-md-6 col-sm-6 col-6 menu_superior_item searchbar">
+						<div class="col-lg-6 menu_superior_item searchbar">
 							
 							<form class="row menu_superior_form">
 
-								<input class="menu_superior_input col-xs-11 col-lg-11 col-md-11 col-sm-11 col-11" placeholder="Pesquise aqui por ativos, entrada de valores, despesas, balanços e outros...">
-								<button class="lupa_btn col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
+								<input class="menu_superior_input col-lg-10" placeholder="Pesquise aqui por ativos, entrada de valores, despesas, balanços e outros...">
+
+								<button class="lupa_btn col-lg-1">
 
 									<img class="lupa_img" th:src="@{img/search.png}"/>
 
 								</button>
+
 							</form>	
 
-						</div>	
+							</div>	
 
-						<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 menu_superior_item">
+							<!-- Botão de avisos -->
+							<div class="col-lg-2 menu_superior_item bt bt1">
+								
+								<button class="top_btn warn_btn col-lg-11">
 
-						</div>	
+									Avisos (0)
 
-						<!-- Botão para acessar perfil do usuário -->
-						<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 menu_superior_item bt2">
-							
-							<button class="perfil_btn col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
+								</button>
 
-								Perfil
+							</div>							
 
-							</button>
+							<!-- Botão para acessar perfil do usuário -->
+							<div class="col-lg-2 menu_superior_item bt bt2">
+								
+								<button class="top_btn perfil_btn col-lg-11">
 
-						</div>
+									Perfil
 
-						<!-- Botão para realizar logout -->
-						<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 menu_superior_item bt3">
+								</button>
 
-							<form class="logout_form" th:action="@{/logout}" method="POST">
+							</div>
 
-								<button class="logout_btn col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1" type="submit">
+							<!-- Botão para realizar logout -->
+							<div class="col-lg-2 menu_superior_item bt bt3">
 
-									Logout
+								<form class="col-lg-12 logout_form" th:action="@{/logout}" method="POST">
 
-								</button>	
-								<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+									<button class="top_btn logout_btn col-lg-11" type="submit">
 
-							</form>
-							
-						</div>
+										Logout
+
+									</button>	
+
+									<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+								</form>
+								
+							</div>
+
 					</header>
 					<!--------------- MENU SUPERIOR DO SITE --------------->
 
