@@ -497,13 +497,16 @@ function editDespesa(id, descricao, status, valor, forma, data, agendamento){
 			document.getElementById('pix').selected=true;
 		}
 		else if(forma == "Cheque"){
-			document.getElementById('ted').selected=true;
+			document.getElementById('cheque').selected=true;
 		}	
 		else if(forma == "Transferência via TED"){
-			document.getElementById('doc').selected=true;
+			document.getElementById('ted').selected=true;
 		}
 		else if(forma == "Transferência via DOC"){
-			document.getElementById('cheque').selected=true;
+			document.getElementById('doc').selected=true;
+		}
+		else if(forma == "Boleto"){
+			document.getElementById('boleto').selected=true;
 		}
 		else if(forma == "Outro"){
 			document.getElementById('outro').selected=true;
@@ -634,6 +637,7 @@ function changeStatus(){
 		document.getElementById('novo_pix').disabled=false;
 		document.getElementById('novo_ted').disabled=false;
 		document.getElementById('novo_doc').disabled=false;
+		document.getElementById('novo_boleto').disabled=false;
 		document.getElementById('novo_cheque').disabled=false;
 		document.getElementById('novo_outro').disabled=false;
 
@@ -669,6 +673,7 @@ function changeStatus(){
 		document.getElementById('novo_pix').disabled=true;
 		document.getElementById('novo_ted').disabled=true;
 		document.getElementById('novo_doc').disabled=true;
+		document.getElementById('novo_boleto').disabled=true;
 		document.getElementById('novo_cheque').disabled=true;
 		document.getElementById('novo_outro').disabled=true;
 
@@ -754,6 +759,7 @@ function editChangeStatus(){
 		document.getElementById('pix').disabled=false;
 		document.getElementById('ted').disabled=false;
 		document.getElementById('doc').disabled=false;
+		document.getElementById('boleto').disabled=false;
 		document.getElementById('cheque').disabled=false;
 		document.getElementById('outro').disabled=false;
 
@@ -787,6 +793,7 @@ function editChangeStatus(){
 		document.getElementById('pix').disabled=true;
 		document.getElementById('ted').disabled=true;
 		document.getElementById('doc').disabled=true;
+		document.getElementById('boleto').disabled=true;
 		document.getElementById('cheque').disabled=true;
 		document.getElementById('outro').disabled=true;
 

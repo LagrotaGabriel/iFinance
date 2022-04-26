@@ -86,6 +86,25 @@
 ==================================================================================
 ================================================================================*/
 
+/* =============================== BOTÃO - NOVO =============================== */
+
+.linha_botao_novo, .coluna_botao_novo, .botao_novo, .fill_column{
+    margin: 0;
+    padding: 0;
+}
+.linha_botao_novo, .coluna_botao_novo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ============================ FIM DO BOTÃO - NOVO ============================ */
+
+/*================================================================================
+==================================================================================
+==================================================================================
+================================================================================*/
+
 /* =============================== TABELA =============================== */
 .row_tabela_all{
     margin: 0;
@@ -93,7 +112,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 15px;
+    margin-top: 5px;
 }
 
 .tabela_all{
@@ -122,6 +141,11 @@
 
 .tr{
     border-bottom: 1px solid #1f1f1f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 4px solid #00CCFF;
+    margin: 5px 0;    
 }
 
 .th, .td{
@@ -139,54 +163,70 @@
     text-align: left;
 }
 
+.td{
+    font-size: 0.90rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.td:hover{
+    cursor: pointer;
+}
+
+.th_data, .td_data{
+    justify-content: left;
+    padding-left: 10px;
+}
+
+.td_valor{
+    justify-content: left;
+}
+
 .tbody{
     border-top: 1px solid #00CCFF;
 }
 
-/* ======================= FIM DA TABELA ======================= */
-
-/*================================================================================
-==================================================================================
-==================================================================================
-================================================================================*/
-
-/* ================================ BOTÕES ================================ */
-
-.row_botoes, .botoes, .botoes_opcoes, .botoes_opc{
+.btn_excluir{
     margin: 0;
     padding: 0;
-    text-decoration: none;
-    font-size: 1rem;
-    color: #FFFFFF;
-}
-
-.row_botoes{
-    width: 100%;  
     display: flex;
+    align-items: center;
     justify-content: center;
-}
-
-.botoes_opcoes{
-    display: flex;
-    justify-content: left;
-}
-
-.botoes_opc{
     border: 1px solid #00CCFF;
-    text-align: center;
-    margin: 0 10px;
-    padding: 10px 0;
-    border-radius: 5px;
+    color: #FFFFFF;
+    padding: 8px 15px;
 }
 
-.botoes_opc:hover{
+.btn_excluir:hover{
     cursor: pointer;
     background-image: linear-gradient(to right, #00ccff, #28cffa);
     color: #121212;
-    transition: 1s;
+    transition: 1s;    
+    animation: pulse 1s infinite;
 }
 
-/* ============================ FIM DOS BOTÕES ============================ */
+.botao_novo{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #00CCFF;
+    color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.botao_novo:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    color: #121212;
+    transition: 1s;    
+    animation: pulse 1s infinite;
+}
+
+
+/* ======================= FIM DA TABELA ======================= */
 
 /*================================================================================
 ==================================================================================
@@ -215,7 +255,7 @@
 
 .ul{
     display: flex;
-    justify-content: right;
+    justify-content: center;
     justify-items: center;
 }
 

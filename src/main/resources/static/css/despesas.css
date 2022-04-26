@@ -221,6 +221,7 @@ option{
 .td:hover{
     cursor: pointer;
 }
+
 .td_data, .th_data{
     justify-content: left;
     padding-left: 10px;

@@ -20,14 +20,14 @@ public class Patrimony {
     @Column(name = "id_patrimony")
     private Long id;
 
-    @Column(name = "nm_patrimony")
-    private String name;
-
     @Column(name = "dsc_patrimony")
     private String description;
 
     @Column(name = "vl_patrimony")
     private Double value;
+
+    @Column(name = "dt_patrimony")
+    private String date;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "tp_patrimony")

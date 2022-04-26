@@ -9,7 +9,8 @@ public enum PatrimonyType {
     ELETRONICO(4, "Eletrônico"),
     INTANGIVEL(5, "Intangivel"),
     JOIA(6, "Jóia"),
-    OUTRO(7, "Outro");
+    LIQUIDEZ(7, "Baixa liquidez"),
+    OUTRO(8, "Outro");
 
     private Integer code;
     private String desc;

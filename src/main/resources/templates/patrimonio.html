@@ -15,9 +15,13 @@
 		<link th:href="@{css/reset.css}" rel="stylesheet" />
 		<link th:href="@{css/layout.css}" rel="stylesheet"/>
 		<link th:href="@{css/patrimonio.css}" rel="stylesheet" />
+		<script
+		  src="https://code.jquery.com/jquery-3.6.0.js"
+		  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+		  crossorigin="anonymous"></script>
 		<script type="text/javascript" th:src="@{js/patrimonio.js}" defer></script>
 
-		<script th:src="@{jquery-3.6.0.min.js}"></script>
+
 
 		<title>Patrimonio | iFinance</title>
 
@@ -29,7 +33,7 @@
 			<div class="row main-row" id="main_row">
 
 				<!--------------- SIDE BAR PRINCIPAL DO SITE --------------->
-				<div class="container side_menu col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1" id="side_menu">	
+				<div class="container side_menu col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1" id="side_menu">	
 
 					<div class="row side_menu_row" id="side_menu_row">
 
@@ -121,7 +125,7 @@
 				<!---------------  SIDE BAR PRINCIPAL DO SITE --------------->
 
 				<!-- Conteúdo principal do site, que fica ao lado do menu lateral -->
-				<main class="container main col-xs-11 col-lg-11 col-md-12 col-sm-12 col-12" id="main">
+				<main class="container main col-xl-11 col-lg-11 col-md-12 col-sm-12 col-12" id="main">
 					<!--------------- MENU SUPERIOR DO SITE --------------->
 					<header class="row menu_superior col-lg-12" id="menu_superior">
 					
@@ -180,12 +184,11 @@
 								</form>
 								
 							</div>
-
 					</header>
 					<!--------------- MENU SUPERIOR DO SITE --------------->
 
 					<!----------- MENU SUPERIOR RESPONSIVO DO SITE ------------>
-					<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 menu_superior_responsivo row" id="menu_superior_responsivo">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 menu_superior_responsivo row" id="menu_superior_responsivo">
 
 						<div class="sup sup_01 col-md-2 col-sm-2 col-2">
 							<a th:href="@{/}" class="sup_sup sup_sup_01">Home</a>
@@ -215,15 +218,16 @@
 					</div>	
 					<!----------- MENU SUPERIOR RESPONSIVO DO SITE ------------>
 
-					<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 container_align" id="container_align">
+					<!-- CONTAINER_ALIGN -->
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 container_align" id="container_align">
 
 						<!-------------- CONTEUDO_CONTAINER ------------>
 						<div class="container conteudo_container" id="conteudo_container">
 
 							<!-------------- CONTEUDO_CONTAINER - TÍTULO ------------>
-							<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo" id="conteudo_titulo">
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo" id="conteudo_titulo">
 
-								<h1 class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text" id="conteudo_titulo_text">
+								<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text" id="conteudo_titulo_text">
 									Seu patrimônio
 								</h1>
 							</div>
@@ -236,27 +240,27 @@
 									<div class="row informativos_linha informativos_primeira_linha">
 
 										<!----------- SETINHA DA ESQUERDA ------------>
-										<div class="arrow arrow-left caret-left col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
-											<a href="#" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 arrow_clicavel arrow_clicavel_left">
-												<img th:src="@{img/left.png}" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 arrow_clicavel_image arrow_clicavel_left_image" onclick="setaEsquerda()"/>
+										<div class="arrow arrow-left caret-left col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
+											<a href="#" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 arrow_clicavel arrow_clicavel_left">
+												<img th:src="@{img/left.png}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 arrow_clicavel_image arrow_clicavel_left_image" onclick="setaEsquerda()"/>
 											</a>	
 										</div>
 										<!----------- SETINHA DA ESQUERDA ------------>
 											
 										<!----------- CATEGORIAS DOS INFORMATIVOS ------------>
-										<div class="informativos_all col-xs-10 col-lg-10 col-md-10 col-sm-12 col-12">
+										<div class="informativos_all col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12">
 
 											<div class="row show first_show " id="first_show">
 
-												<div class="all_column col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
+												<div class="all_column col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-													<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 block first_block">
+													<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block first_block">
 
-														<a href="#" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
+														<a href="#" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
 
 															<div class="row block_row block_first_row">
 
-																<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
 																	R$ 0.00
 																</div>
 
@@ -264,7 +268,7 @@
 
 															<div class="row block_row block_second_row">
 																
-																<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
 																	Imóveis
 																</div>
 
@@ -273,13 +277,13 @@
 
 													</div>	
 
-													<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 block second_block">
+													<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block second_block">
 
-														<a href="#" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
+														<a href="#" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
 
 															<div class="row block_row block_first_row">
 
-																<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
 																	R$ 0.00
 																</div>
 
@@ -287,7 +291,7 @@
 
 															<div class="row block_row block_second_row">
 																
-																<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
 																	Veículos
 																</div>
 
@@ -296,13 +300,13 @@
 														</a>
 													</div>	
 
-													<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 block third_block">
+													<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block third_block">
 
-														<a href="#" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
+														<a href="#" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
 
 															<div class="row block_row block_first_row">
 
-																<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
 																	R$ 0.00
 																</div>
 
@@ -310,7 +314,7 @@
 
 															<div class="row block_row block_second_row">
 																
-																<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
 																	Banco
 																</div>
 
@@ -319,13 +323,13 @@
 														</a>
 													</div>	
 
-													<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 block fourth_block">
+													<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block fourth_block">
 
-														<a href="#" class="ccol-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
+														<a href="#" class="ccol-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
 
 															<div class="row block_row block_first_row">
 
-																<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
 																	R$ 0.00
 																</div>
 
@@ -333,7 +337,7 @@
 
 															<div class="row block_row block_second_row">
 																
-																<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
 																	Investimentos
 																</div>
 
@@ -342,13 +346,13 @@
 														</a>
 													</div>
 
-													<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 block fifth_block">
+													<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block fifth_block">
 
-														<a href="#" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
+														<a href="#" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
 
 															<div class="row block_row block_first_row">
 
-																<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
 																	R$ 0.00
 																</div>
 
@@ -356,7 +360,7 @@
 
 															<div class="row block_row block_second_row">
 																
-																<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
 																	Eletrônicos
 																</div>
 
@@ -369,14 +373,14 @@
 
 											<div class="row show second_show" id="second_show">
 
-												<div class="all_column col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
-												<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 block first_block">
+												<div class="all_column col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+												<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block first_block">
 
-													<a href="#" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
+													<a href="#" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
 
 														<div class="row block_row block_first_row">
 
-															<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
 																R$ 0.00
 															</div>
 
@@ -384,7 +388,7 @@
 
 														<div class="row block_row block_second_row">
 															
-															<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
+															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
 																Intangível
 															</div>
 
@@ -393,13 +397,13 @@
 													</a>
 												</div>	
 
-												<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 block second_block">
+												<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block second_block">
 
-													<a href="#" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
+													<a href="#" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
 
 														<div class="row block_row block_first_row">
 
-															<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
 																R$ 0.00
 															</div>
 
@@ -407,7 +411,7 @@
 
 														<div class="row block_row block_second_row">
 															
-															<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
+															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
 																Jóias
 															</div>
 
@@ -416,13 +420,13 @@
 													</a>
 												</div>	
 
-												<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 block third_block">
+												<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block third_block">
 
-													<a href="#" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
+													<a href="#" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
 
 														<div class="row block_row block_first_row">
 
-															<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
 																R$ 0.00
 															</div>
 
@@ -430,7 +434,7 @@
 
 														<div class="row block_row block_second_row">
 															
-															<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
+															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
 																Alta liquidez
 															</div>
 
@@ -439,13 +443,13 @@
 													</a>
 												</div>	
 
-												<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 block fourth_block">
+												<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block fourth_block">
 
-													<a href="#" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
+													<a href="#" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
 
 														<div class="row block_row block_first_row">
 
-															<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
 																R$ 0.00
 															</div>
 
@@ -453,7 +457,7 @@
 
 														<div class="row block_row block_second_row">
 															
-															<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
+															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
 																Outros
 															</div>
 
@@ -462,13 +466,13 @@
 													</a>
 												</div>													
 
-												<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 block fifth_block">
+												<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block fifth_block">
 
-													<a href="#" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
+													<a href="#" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
 
 														<div class="row block_row block_first_row">
 
-															<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
 																R$ 0.00
 															</div>
 
@@ -476,7 +480,7 @@
 
 														<div class="row block_row block_second_row">
 															
-															<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
+															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
 																Todos
 															</div>
 
@@ -490,104 +494,91 @@
 										<!----------- CATEGORIAS DOS INFORMATIVOS ------------>
 
 										<!----------- SETINHA DA DIREITA ------------>
-										<div class="arrow arrow-right col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
-											<a href="#" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 arrow_clicavel arrow_clicavel_right">
-												<img th:src="@{img/right.png}" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 arrow_clicavel_image arrow_clicavel_right_image" onclick="setaDireita()"/>
+										<div class="arrow arrow-right col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
+											<a href="#" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 arrow_clicavel arrow_clicavel_right">
+												<img th:src="@{img/right.png}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 arrow_clicavel_image arrow_clicavel_right_image" onclick="setaDireita()"/>
 											</a>	
 										</div>	
 										<!----------- SETINHA DA DIREITA ------------>							
 									</div>
-									<!-------------- INFORMATIVOS - INFORMATIVOS ------------>
 
-									<hr class="hr">	
+									<hr class="hr"/>
+
+									<!-------------- BOTÃO NOVO ------------>
+
+									<!--<div class="row linha_botao_novo">
+
+										<div class="col-xl-11 col-lg-11 col-md-11 col-sm-11 col-11 coluna_botao_novo">
+
+											<button class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-md-1 botao_novo" onclick="novoPatrimonio()">
+												Novo
+											</button>	
+
+											<div class="col-xl-11 col-lg-11 col-md-11 col-sm-11 fill_column">
+
+										</div>	
+
+									</div>-->	
+
 
 									<!-------------- INFORMATIVOS - TABELA ------------>	
 									<div class="row row_tabela_all">
 									
-										<div class="col-xs-11 col-lg-11 col-md-11 col-sm-12 col-12 tabela_all" id="tabela_all">
+										<div class="col-xl-11 col-lg-11 col-md-11 col-sm-12 col-12 tabela_all" id="tabela_all">
 
-											<table class="tabela col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12" id="tabela">
+											<table class="tabela col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" id="tabela">
 
-												<thead class="thead col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12" id="thead">
+												<thead class="thead col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" id="thead">
 
-													<tr class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12" id="thead_row">
+													<tr class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" id="thead_row">
 
-														<th class="th col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
-															<input type="checkbox" class="checkbox"/>
-														</th>
-														<th class="th col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3">Descrição</th>
-														<th class="th col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3">Valor</th>
-														<th class="th col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3">Categoria</th>
-														<th class="th col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">Data</th>														
+														<th class="th th_data col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">Data</th>	
+														<th class="th th_descricao col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">Descrição</th>
+														<th class="th th_valor col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">Valor</th>
+														<th class="th th_categoria col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">Categoria</th>
+		
+														<th class="th th_excluir col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
+
+															<button class="col-xl-4 col-lg-4 col-md-5 col-sm-5 col-5 botao_novo" onclick="novoPatrimonio()">
+																+
+															</button>												
+
+														</th>																					
 													</tr>	
 
 												</thead>
 
-												<tbody class="tbody col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
+												<tbody class="tbody col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-													<tr class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
+													<tr th:if="${allAssets == ''}"class="tr col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-														<td class="td td_checkbox col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
-															
-															<input type="checkbox" class="checkbox"/>
+														<td class="td td_data col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>	
+														<td class="td td_descricao col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
+														<td class="td td_valor col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
+														<td class="td td_categoria col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
+														<td class="td td_excluir col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
+															<form>
+																<button type="submit" class="col-lg-12 btn_excluir">
+																	Excluir
+																</button>
+															</form>
+														</td>											
+													</tr>															
 
-														</td>
-														<td class="td col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
-														<td class="td col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
-														<td class="td col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
-														<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>													
-													</tr>
+													<tr th:unless="${allAssets == ''}" th:each="patrimony: ${allAssets}" class="tr col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-													<tr class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
-
-														<td class="td td_checkbox col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
-															
-															<input type="checkbox" class="checkbox"/>
-
-														</td>
-														<td class="td col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
-														<td class="td col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
-														<td class="td col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
-														<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>													
-													</tr>
-
-													<tr class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
-
-														<td class="td td_checkbox col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
-															
-															<input type="checkbox" class="checkbox"/>
-
-														</td>
-														<td class="td col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
-														<td class="td col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
-														<td class="td col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
-														<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>													
-													</tr>
-
-													<tr class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
-
-														<td class="td td_checkbox col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
-															
-															<input type="checkbox" class="checkbox"/>
-
-														</td>
-														<td class="td col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
-														<td class="td col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
-														<td class="td col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
-														<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>													
-													</tr>																									
-													<tr class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
-
-														<td class="td td_checkbox col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">
-															
-															<input type="checkbox" class="checkbox"/>
-
-														</td>
-														<td class="td col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
-														<td class="td col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
-														<td class="td col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
-														<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>													
-													</tr>
+														<td th:text="${patrimony.date}" class="td td_data col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>	
+														<td th:text="${patrimony.description}" class="td td_descricao col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
+														<td th:text="'R$ ' + ${patrimony.value}" class="td td_valor col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
+														<td th:text="${patrimony.patrimonyType.desc}" class="td td_categoria col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
+														<td class="td td_excluir col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">					
+															<form>
+																<button type="submit" class="col-lg-12 btn_excluir">
+																	Excluir
+																</button>
+															</form>
+														</td>											
+													</tr>						
 
 												</tbody>	
 												
@@ -600,41 +591,27 @@
 									<!-------------- ÚLTIMA LINHA DA TELA ------------>					
 									<div class="row page_row">
 
-										<!------------------- BOTÕES ----------------->	
-										<div class="col-xs-5 col-lg-5 col-md-5 col-sm-5 col-5 botoes">
-
-											<div class="botoes_opcoes col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
-
-												<a href="#" class="col-xs-2 col-lg-2 col-md-3 col-sm-3 col-3 botoes_opc botoes_opc_novo" onclick="novoPatrimonio()">
-													Novo
-												</a>
-
-												<a href="#" class="col-xs-2 col-lg-2 col-md-3 col-sm-3 col-3 botoes_opc botoes_opc_editar" onclick="editPatrimonio()">
-													Editar
-												</a>
-
-												<a href="#" class="col-xs-2 col-lg-2 col-md-3 col-sm-3 col-3 botoes_opc botoes_opc_excluir">
-													Deletar
-												</a>																							
-											</div>
-										</div>
-										<!------------------- BOTÕES ----------------->	
-
 										<!------------------ PÁGINAS ---------------->	
-										<div class="col-xs-6 col-lg-6 col-md-6 col-sm-6 col-6 pages">
+										<div class="col-xl-11 col-lg-11 col-md-11 col-sm-11 col-11 pages">
 
-											<ul class="ul col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
+											<ul class="ul col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-												<li class="col-xs-2 col-lg-3 col-md-3 col-sm-3 col-3 li li_anterior">
-													<a href="#" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 li_a li_a_anterior">Anterior</a>
+												<li class="li li_anterior">
+													<a href="#" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 li_a li_a_anterior">
+														Anterior
+													</a>
 												</li>
 
-												<li class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 li">
-													<a href="#" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 li_a">1</a>
+												<li class="li">
+													<a href="#" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 li_a">
+														1
+													</a>
 												</li>
 
-												<li class="col-xs-2 col-lg-3 col-md-3 col-sm-3 col-3 li li_proximo">
-													<a href="#" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 li_a li_a_proximo">Próximo</a>
+												<li class="li li_proximo">
+													<a href="#" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 li_a li_a_proximo">
+														Próximo
+													</a>
 												</li>
 
 											</ul>	
@@ -651,11 +628,11 @@
 						<!<!----------- CONTEUDO_CONTAINER ------------>
 
 						<!--------------- INSERIR NOVO PATRIMONIO ---------------->
-						<div class="col-xs-8 col-lg-8 col-md-10 col-sm-11 col-12 container_novo" id="container_novo">
+						<div class="col-xl-8 col-lg-8 col-md-10 col-sm-11 col-12 container_novo" id="container_novo">
 
 								<div class="row container_novo_linha container_novo_primeira_linha">
-									<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_novo_botao_fechar">
-										<button type="button" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 novo_botao_fechar" onclick="fechaNovoPatrimonio()">
+									<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col_novo_botao_fechar">
+										<button type="button" class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1 novo_botao_fechar" onclick="fechaNovoPatrimonio()">
 											X
 										</button>
 									</div>	
@@ -664,34 +641,34 @@
 
 								<div class="row container_novo_linha container_novo_segunda_linha">
 
-									<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_novo_titulo">
-										<h1 class="col-xs-6 col-lg-6 col-md-6 col-sm-6 col-6 text-center novo_titulo" id="novo_titulo">
+									<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col_novo_titulo">
+										<h1 class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-center novo_titulo" id="novo_titulo">
 											Inserir patrimônio
 										</h1>
 									</div>	
 
 								</div>		
 
-								<form class="form">
+								<form class="form" method="POST" th:action="@{patrimonio}" th:object="${patrimony}">
 
 									<div class="row container_novo_linha container_novo_terceira_linha">
 
-										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_novo_form">
+										<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col_novo_form">
 
-											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_label">
-												<label class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_label">
+											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_label">
+												<label class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_label">
 													Descrição:
 												</label>	
 											</div>
 
-											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_label">
-												<label class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_label">
+											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_label">
+												<label class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_label">
 													Tipo:
 												</label>	
 											</div>
 
-											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_label">
-												<label class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_label">
+											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_label">
+												<label class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_label">
 													Valor:
 												</label>	
 											</div>											
@@ -702,29 +679,29 @@
 
 									<div class="row container_novo_linha container_novo_quarta_linha">
 
-										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_novo_form">
+										<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col_novo_form">
 
-											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
-												<input type="text" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_descricao"/>
+											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
+												<input type="text" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_descricao" name="description" maxlength="40" />
 											</div>
 
-											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
-												<select class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="select_tipo"/>
+											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
+												<select class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="select_tipo" name="patrimonyType"/>
 													<option value="0"></option>
-													<option value="1">Imóvel</option>
-													<option value="2">Veículo</option>
-													<option value="3">Conta bancária</option>
-													<option value="4">Investimento</option>
-													<option value="5">Eletrônico</option>
-													<option value="6">Intangível</option>
-													<option value="7">Jóia</option>
-													<option value="8">Alta liquidez</option>
-													<option value="9">Outro</option>
+													<option value="IMOVEL">Imóvel</option>
+													<option value="VEICULO">Veículo</option>
+													<option value="CONTA">Conta bancária</option>
+													<option value="INVESTIMENTO">Investimento</option>
+													<option value="ELETRONICO">Eletrônico</option>
+													<option value="INTANGIVEL">Intangível</option>
+													<option value="JOIA">Jóia</option>
+													<option value="LIQUIDEZ">Baixa liquidez</option>
+													<option value="OUTRO">Outro</option>
 												</select>
 											</div>	
 
-											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
-												<input type="number" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_valor"/>
+											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
+												<input type="number" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_valor" name="value" step="0.01" min="0" max="10000000"/>
 											</div>											
 
 										</div>	
@@ -733,22 +710,22 @@
 
 									<div class="row container_novo_linha container_novo_setima_linha">		
 
-										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_novo_form">
+										<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col_novo_form">
 
-											<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 col_novo_botao">
-												<button type="button" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_botao" onclick="fechaNovoPatrimonio()">
+											<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 col_novo_botao">
+												<button type="button" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_botao" onclick="fechaNovoPatrimonio()">
 													Voltar
 												</button>
 											</div>	
 
-											<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 col_novo_botao">
-												<button type="submit" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_botao">
+											<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 col_novo_botao">
+												<button type="submit" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_botao">
 													Salvar
 												</button>
 											</div>		
 
-											<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 col_novo_botao">
-												<button type="reset" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_botao">
+											<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 col_novo_botao">
+												<button type="reset" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_botao">
 													Limpar
 												</button>
 											</div>														
@@ -761,11 +738,11 @@
 						<!----------- INSERIR NOVO PATRIMONIO-------------->
 
 						<!------------------- EDITAR PATRIMONIO -------------------->
-						<div class="col-xs-8 col-lg-8 col-md-10 col-sm-11 col-12 container_edit" id="container_edit">
+						<div class="col-xl-8 col-lg-8 col-md-10 col-sm-11 col-12 container_edit" id="container_edit">
 
 								<div class="row container_edit_linha container_edit_primeira_linha">
-									<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_botao_fechar">
-										<button type="button" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 edit_botao_fechar" onclick="fechaEditPatrimonio()">
+									<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_botao_fechar">
+										<button type="button" class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1 edit_botao_fechar" onclick="fechaEditPatrimonio()">
 											X
 										</button>
 									</div>	
@@ -774,8 +751,8 @@
 
 								<div class="row container_edit_linha container_edit_segunda_linha">
 
-									<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_titulo">
-										<h1 class="col-xs-6 col-lg-6 col-md-6 col-sm-6 col-6 text-center edit_titulo" id="edit_titulo">
+									<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_titulo">
+										<h1 class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-center edit_titulo" id="edit_titulo">
 											Editar patrimônio
 										</h1>
 									</div>	
@@ -786,22 +763,22 @@
 
 									<div class="row container_edit_linha container_edit_terceira_linha">
 
-										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_form">
+										<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_form">
 
-											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_label">
-												<label class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_label">
+											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_label">
+												<label class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_label">
 													Descrição:
 												</label>	
 											</div>
 
-											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_label">
-												<label class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_label">
+											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_label">
+												<label class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_label">
 													Tipo:
 												</label>	
 											</div>
 
-											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_label">
-												<label class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_label">
+											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_label">
+												<label class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_label">
 													Valor:
 												</label>	
 											</div>											
@@ -812,29 +789,29 @@
 
 									<div class="row container_edit_linha container_edit_quarta_linha">
 
-										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_form">
+										<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_form">
 
-											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
-												<input type="text" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="input_descricao"/>
+											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
+												<input type="text" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="input_descricao" name="description" maxlength="40"/>
 											</div>
 
-											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
-												<select class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="select_tipo"/>
+											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
+												<select class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="select_tipo" name="patrimonyType"/>
 													<option value="0"></option>
-													<option value="1">Imóvel</option>
-													<option value="2">Veículo</option>
-													<option value="3">Conta bancária</option>
-													<option value="4">Investimento</option>
-													<option value="5">Eletrônico</option>
-													<option value="6">Intangível</option>
-													<option value="7">Jóia</option>
-													<option value="8">Alta liquidez</option>
-													<option value="9">Outro</option>
+													<option value="IMOVEL">Imóvel</option>
+													<option value="VEICULO">Veículo</option>
+													<option value="CONTA">Conta bancária</option>
+													<option value="INVESTIMENTO">Investimento</option>
+													<option value="ELETRONICO">Eletrônico</option>
+													<option value="INTANGIVEL">Intangível</option>
+													<option value="JOIA">Jóia</option>
+													<option value="LIQUIDEZ">Baixa liquidez</option>
+													<option value="OUTRO">Outro</option>
 												</select>
 											</div>	
 
-											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
-												<input type="number" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="input_valor"/>
+											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
+												<input type="number" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="input_valor" name="value" step="0.01" min="0" max="10000000"/>
 											</div>											
 
 										</div>	
@@ -843,22 +820,22 @@
 
 									<div class="row container_edit_linha container_edit_setima_linha">		
 
-										<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_form">
+										<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_form">
 
-											<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 col_edit_botao">
-												<button type="button" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_botao" onclick="fechaEditPatrimonio()">
+											<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 col_edit_botao">
+												<button type="button" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_botao" onclick="fechaEditPatrimonio()">
 													Voltar
 												</button>
 											</div>	
 
-											<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 col_edit_botao">
-												<button type="submit" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_botao">
+											<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 col_edit_botao">
+												<button type="submit" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_botao">
 													Salvar
 												</button>
 											</div>		
 
-											<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 col_edit_botao">
-												<button type="reset" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_botao">
+											<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 col_edit_botao">
+												<button type="reset" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_botao">
 													Limpar
 												</button>
 											</div>														

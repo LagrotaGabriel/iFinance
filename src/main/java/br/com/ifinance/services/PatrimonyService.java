@@ -35,7 +35,6 @@ public class PatrimonyService {
         Optional<Patrimony> updated = findById(id);
 
         if(updated.isPresent()){
-            updated.get().setName(patrimony.getName());
             updated.get().setDescription(patrimony.getDescription());
             updated.get().setValue(patrimony.getValue());
             updated.get().setPatrimonyType(patrimony.getPatrimonyType());

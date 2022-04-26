@@ -7,6 +7,7 @@ import br.com.ifinance.models.enums.StatusLiability;
 import br.com.ifinance.repositories.UserRepository;
 import br.com.ifinance.services.LiabilityService;
 import br.com.ifinance.services.UserService;
+import br.com.ifinance.utils.Dates;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -37,6 +38,8 @@ public class DespesasController {
     private UserService userService;
     @Autowired
     private LiabilityService liabilityService;
+
+    Dates dates = new Dates();
 
     @Bean
     public Function<String, String> currentUrlWithoutParam() {

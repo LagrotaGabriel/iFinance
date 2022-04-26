@@ -82,10 +82,11 @@ function responsive(){
 		}
 		for(var i = 0; i < liA.length; i++){
 			liA[i].style.fontSize="1rem";
-			botoesOpc[i].style.fontSize="1rem";
 		}		
 		for(var i = 0; i < th.length; i++){
 			th[i].style.fontSize="1.5rem";
+		}
+		for(var i = 0; i < td.length; i++){
 			td[i].style.fontSize="1rem";
 		}
 		for(var i = 0; i < novoLabel.length; i++){
@@ -130,7 +131,6 @@ function responsive(){
 		}		
 		for(var i = 0; i < liA.length; i++){
 			liA[i].style.fontSize="1rem";
-			botoesOpc[i].style.fontSize="1rem";
 		}
 		for(var i = 0; i < th.length; i++){
 			th[i].style.fontSize="1.35rem";
@@ -184,7 +184,6 @@ function responsive(){
 		}	
 		for(var i = 0; i < liA.length; i++){
 			liA[i].style.fontSize="0.80rem";
-			botoesOpc[i].style.fontSize="0.80rem";
 		}	
 		for(var i = 0; i < th.length; i++){
 			th[i].style.fontSize="1rem";
@@ -238,8 +237,6 @@ function responsive(){
 		}	
 		for(var i = 0; i < liA.length; i++){
 			liA[i].style.fontSize="0.70rem";
-			botoesOpc[i].style.fontSize="0.70rem";
-			botoesOpc[i].style.margin="0 5px";
 			li[i].style.margin="0 5px";			
 		}	
 		for(var i = 0; i < th.length; i++){
@@ -294,8 +291,6 @@ function responsive(){
 		}	
 		for(var i = 0; i < liA.length; i++){
 			liA[i].style.fontSize="0.65rem";
-			botoesOpc[i].style.fontSize="0.65rem";
-			botoesOpc[i].style.margin="0 1px";
 			li[i].style.margin="0 5px";
 		}
 		for(var i = 0; i < th.length; i++){
