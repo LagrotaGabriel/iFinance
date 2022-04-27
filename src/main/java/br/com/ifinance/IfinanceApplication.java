@@ -12,6 +12,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan("br.com.ifinance.services")
 @ComponentScan("br.com.ifinance.controllers")
 @ComponentScan("br.com.ifinance.resources")
+@ComponentScan("br.com.ifinance.utils")
 public class IfinanceApplication {
 
 	public static void main(String[] args) {

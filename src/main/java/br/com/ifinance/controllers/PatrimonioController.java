@@ -1,15 +1,13 @@
 package br.com.ifinance.controllers;
 
 import br.com.ifinance.models.entities.Patrimony;
-import br.com.ifinance.models.entities.User;
 import br.com.ifinance.repositories.UserRepository;
 import br.com.ifinance.services.PatrimonyService;
 import br.com.ifinance.services.UserService;
 import br.com.ifinance.utils.Dates;
+import br.com.ifinance.utils.PatrimonyUtils;
 import br.com.ifinance.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -29,7 +27,7 @@ import java.util.Optional;
 public class PatrimonioController {
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Autowired
     UserService userService;
@@ -37,6 +35,7 @@ public class PatrimonioController {
     @Autowired
     PatrimonyService patrimonyService;
 
+    PatrimonyUtils patrimonyUtils = new PatrimonyUtils();
     Utils utils = new Utils();
     Dates dates = new Dates();
 
@@ -49,36 +48,13 @@ public class PatrimonioController {
                                                 ModelAndView modelAndView,
                                                 HttpServletRequest req){
 
+        String baseUrl = req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + req.getContextPath();
         Integer currentPage = page.orElse(1);
         String currentType = type.orElse("all");
+        modelMap.addAttribute("baseUrl", baseUrl);
 
-        /* CAPTURANDO O USUÁRIO ATUAL */
-        Object logged = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String username;
-        User user;
-        if (logged instanceof UserDetails) {
-            username = ((UserDetails)logged).getUsername();
-        }
-        else {
-            username = logged.toString();
-        }
-        if(username.equals("admin")){
-            user = new User();
-        }
-        else{
-            user = userRepository.findByUsername(username);
-        }
-
-        // TODOS OS PATRIMÔNIOS
-        if(user.getAssets().size() == 0){
-            System.err.println("VAZIO");
-            model.addAttribute("allAssets", "");
-        }
-        else {
-            System.err.println("CHEIO");
-            model.addAttribute("allAssets", user.getAssets());
-            System.err.println(user.getAssets());
-        }
+        modelMap.addAttribute("assets", patrimonyUtils.patrimonyTypeFilter(utils.loggedUser(userRepository), currentType));
+        modelMap.addAttribute("page" ,currentPage);
 
         modelAndView.setViewName("patrimonio");
         return modelAndView;
@@ -89,33 +65,16 @@ public class PatrimonioController {
                                                  RedirectAttributes redirAttrs,
                                                  ModelAndView modelAndView){
 
-        /* CAPTURANDO O USUÁRIO ATUAL */
-        Object logged = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String username;
-        User user;
-        if (logged instanceof UserDetails) {
-            username = ((UserDetails)logged).getUsername();
-        }
-        else {
-            username = logged.toString();
-        }
-        if(username.equals("admin")){
-            user = new User();
-        }
-        else{
-            user = userRepository.findByUsername(username);
-        }
-
-        patrimony.setUser(user);
+        patrimony.setUser(utils.loggedUser(userRepository));
         patrimony.setDate(dates.today());
-        List<Patrimony> userAssets = user.getAssets();
+        List<Patrimony> userAssets = utils.loggedUser(userRepository).getAssets();
         userAssets.add(patrimony);
-        user.setAssets(userAssets);
+        utils.loggedUser(userRepository).setAssets(userAssets);
 
-        userService.updateUser(user.getId(), user);
+        userService.updateUser(utils.loggedUser(userRepository).getId(), utils.loggedUser(userRepository));
 
         System.err.println(patrimony);
-        System.err.println(user.getAssets());
+        System.err.println(utils.loggedUser(userRepository).getAssets());
 
         modelAndView.setViewName("redirect:patrimonio");
         return modelAndView;

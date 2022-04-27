@@ -435,7 +435,7 @@
 														<div class="row block_row block_second_row">
 															
 															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
-																Alta liquidez
+																Baixa liquidez
 															</div>
 
 														</div>	
@@ -504,23 +504,6 @@
 
 									<hr class="hr"/>
 
-									<!-------------- BOTÃO NOVO ------------>
-
-									<!--<div class="row linha_botao_novo">
-
-										<div class="col-xl-11 col-lg-11 col-md-11 col-sm-11 col-11 coluna_botao_novo">
-
-											<button class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-md-1 botao_novo" onclick="novoPatrimonio()">
-												Novo
-											</button>	
-
-											<div class="col-xl-11 col-lg-11 col-md-11 col-sm-11 fill_column">
-
-										</div>	
-
-									</div>-->	
-
-
 									<!-------------- INFORMATIVOS - TABELA ------------>	
 									<div class="row row_tabela_all">
 									
@@ -550,7 +533,7 @@
 
 												<tbody class="tbody col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-													<tr th:if="${allAssets == ''}"class="tr col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+													<tr th:unless="${assets}"class="tr col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
 														<td class="td td_data col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>	
 														<td class="td td_descricao col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
@@ -565,7 +548,7 @@
 														</td>											
 													</tr>															
 
-													<tr th:unless="${allAssets == ''}" th:each="patrimony: ${allAssets}" class="tr col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+													<tr th:if="${assets}" th:each="patrimony: ${assets}" class="tr col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
 														<td th:text="${patrimony.date}" class="td td_data col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>	
 														<td th:text="${patrimony.description}" class="td td_descricao col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
