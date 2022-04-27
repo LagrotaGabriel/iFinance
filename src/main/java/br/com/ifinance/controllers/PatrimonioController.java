@@ -1,6 +1,7 @@
 package br.com.ifinance.controllers;
 
 import br.com.ifinance.models.entities.Patrimony;
+import br.com.ifinance.models.enums.PatrimonyType;
 import br.com.ifinance.repositories.UserRepository;
 import br.com.ifinance.services.PatrimonyService;
 import br.com.ifinance.services.UserService;
@@ -19,7 +20,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Controller

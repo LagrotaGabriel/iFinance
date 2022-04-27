@@ -260,7 +260,7 @@
 
 															<div class="row block_row block_first_row">
 
-																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																<div th:text="'R$ ' + ${assetsSum.get(1)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
 																	R$ 0.00
 																</div>
 
@@ -283,7 +283,7 @@
 
 															<div class="row block_row block_first_row">
 
-																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																<div th:text="'R$ ' + ${assetsSum.get(0)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
 																	R$ 0.00
 																</div>
 
@@ -306,7 +306,7 @@
 
 															<div class="row block_row block_first_row">
 
-																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																<div th:text="'R$ ' + ${assetsSum.get(2)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
 																	R$ 0.00
 																</div>
 
@@ -329,7 +329,7 @@
 
 															<div class="row block_row block_first_row">
 
-																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																<div th:text="'R$ ' + ${assetsSum.get(3)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
 																	R$ 0.00
 																</div>
 
@@ -352,7 +352,7 @@
 
 															<div class="row block_row block_first_row">
 
-																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																<div th:text="'R$ ' + ${assetsSum.get(4)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
 																	R$ 0.00
 																</div>
 
@@ -380,7 +380,7 @@
 
 														<div class="row block_row block_first_row">
 
-															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+															<div th:text="'R$ ' + ${assetsSum.get(5)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
 																R$ 0.00
 															</div>
 
@@ -403,7 +403,7 @@
 
 														<div class="row block_row block_first_row">
 
-															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+															<div th:text="'R$ ' + ${assetsSum.get(6)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
 																R$ 0.00
 															</div>
 
@@ -426,7 +426,7 @@
 
 														<div class="row block_row block_first_row">
 
-															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+															<div th:text="'R$ ' + ${assetsSum.get(7)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
 																R$ 0.00
 															</div>
 
@@ -449,7 +449,7 @@
 
 														<div class="row block_row block_first_row">
 
-															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+															<div th:text="'R$ ' + ${assetsSum.get(8)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
 																R$ 0.00
 															</div>
 
@@ -472,7 +472,7 @@
 
 														<div class="row block_row block_first_row">
 
-															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+															<div th:text="'R$ ' + ${assetsAllSum}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
 																R$ 0.00
 															</div>
 
@@ -533,7 +533,7 @@
 
 												<tbody class="tbody col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-													<tr th:unless="${assets}"class="tr col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+													<tr th:if="${#lists.isEmpty(assets)}"class="tr col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
 														<td class="td td_data col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>	
 														<td class="td td_descricao col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
@@ -548,7 +548,7 @@
 														</td>											
 													</tr>															
 
-													<tr th:if="${assets}" th:each="patrimony: ${assets}" class="tr col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+													<tr th:if="${not #lists.isEmpty(assets)}" th:each="patrimony: ${assets}" class="tr col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
 														<td th:text="${patrimony.date}" class="td td_data col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>	
 														<td th:text="${patrimony.description}" class="td td_descricao col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>

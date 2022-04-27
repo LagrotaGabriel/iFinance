@@ -98,58 +98,58 @@ public class PatrimonyUtils {
     /** Método utilitário que tem como objetivo somar o valor total de cada categoria de patrimônios do usuário
      * @param user User - Usuário logado na sessão atual
      * @return Map - Map contendo os valores totais de cada tipo de patrimônio do usuário */
-    public Map<PatrimonyType, Double> patrimonySum(User user){
+    public Map<Integer, Double> patrimonySum(User user){
 
-        Map<PatrimonyType, Double> sums = new HashMap<>();
+        Map<Integer, Double> sums = new HashMap<>();
 
-        sums.put(PatrimonyType.IMOVEL, 0.0);
-        sums.put(PatrimonyType.VEICULO, 0.0);
-        sums.put(PatrimonyType.CONTA, 0.0);
-        sums.put(PatrimonyType.INVESTIMENTO, 0.0);
-        sums.put(PatrimonyType.ELETRONICO, 0.0);
-        sums.put(PatrimonyType.INTANGIVEL, 0.0);
-        sums.put(PatrimonyType.JOIA, 0.0);
-        sums.put(PatrimonyType.LIQUIDEZ, 0.0);
-        sums.put(PatrimonyType.OUTRO, 0.0);
+        sums.put(PatrimonyType.IMOVEL.getCode(), 0.0);
+        sums.put(PatrimonyType.VEICULO.getCode(), 0.0);
+        sums.put(PatrimonyType.CONTA.getCode(), 0.0);
+        sums.put(PatrimonyType.INVESTIMENTO.getCode(), 0.0);
+        sums.put(PatrimonyType.ELETRONICO.getCode(), 0.0);
+        sums.put(PatrimonyType.INTANGIVEL.getCode(), 0.0);
+        sums.put(PatrimonyType.JOIA.getCode(), 0.0);
+        sums.put(PatrimonyType.LIQUIDEZ.getCode(), 0.0);
+        sums.put(PatrimonyType.OUTRO.getCode(), 0.0);
 
         for(int i = 0; i < user.getAssets().size(); i++){
 
             switch (user.getAssets().get(i).getPatrimonyType()) {
 
                 case IMOVEL:
-                    sums.put(PatrimonyType.IMOVEL, sums.get(PatrimonyType.IMOVEL)
+                    sums.put(PatrimonyType.IMOVEL.getCode(), sums.get(PatrimonyType.IMOVEL.getCode())
                             + user.getAssets().get(i).getValue());
                     break;
                 case VEICULO:
-                    sums.put(PatrimonyType.VEICULO, sums.get(PatrimonyType.VEICULO)
+                    sums.put(PatrimonyType.VEICULO.getCode(), sums.get(PatrimonyType.VEICULO.getCode())
                             + user.getAssets().get(i).getValue());
                     break;
                 case CONTA:
-                    sums.put(PatrimonyType.CONTA, sums.get(PatrimonyType.CONTA)
+                    sums.put(PatrimonyType.CONTA.getCode(), sums.get(PatrimonyType.CONTA.getCode())
                             + user.getAssets().get(i).getValue());
                     break;
                 case INVESTIMENTO:
-                    sums.put(PatrimonyType.INVESTIMENTO, sums.get(PatrimonyType.INVESTIMENTO)
+                    sums.put(PatrimonyType.INVESTIMENTO.getCode(), sums.get(PatrimonyType.INVESTIMENTO.getCode())
                             + user.getAssets().get(i).getValue());
                     break;
                 case ELETRONICO:
-                    sums.put(PatrimonyType.ELETRONICO, sums.get(PatrimonyType.ELETRONICO)
+                    sums.put(PatrimonyType.ELETRONICO.getCode(), sums.get(PatrimonyType.ELETRONICO.getCode())
                             + user.getAssets().get(i).getValue());
                     break;
                 case INTANGIVEL:
-                    sums.put(PatrimonyType.INTANGIVEL, sums.get(PatrimonyType.INTANGIVEL)
+                    sums.put(PatrimonyType.INTANGIVEL.getCode(), sums.get(PatrimonyType.INTANGIVEL.getCode())
                             + user.getAssets().get(i).getValue());
                     break;
                 case JOIA:
-                    sums.put(PatrimonyType.JOIA, sums.get(PatrimonyType.JOIA)
+                    sums.put(PatrimonyType.JOIA.getCode(), sums.get(PatrimonyType.JOIA.getCode())
                             + user.getAssets().get(i).getValue());
                     break;
                 case LIQUIDEZ:
-                    sums.put(PatrimonyType.LIQUIDEZ, sums.get(PatrimonyType.LIQUIDEZ)
+                    sums.put(PatrimonyType.LIQUIDEZ.getCode(), sums.get(PatrimonyType.LIQUIDEZ.getCode())
                             + user.getAssets().get(i).getValue());
                     break;
                 case OUTRO:
-                    sums.put(PatrimonyType.OUTRO, sums.get(PatrimonyType.OUTRO)
+                    sums.put(PatrimonyType.OUTRO.getCode(), sums.get(PatrimonyType.OUTRO.getCode())
                             + user.getAssets().get(i).getValue());
                     break;
 
@@ -160,10 +160,13 @@ public class PatrimonyUtils {
 
     }
 
+    /** Método utilitário que tem como objetivo somar o valor total de todas as categorias de patrimônios do usuário
+     * @param user User - Usuário logado na sessão atual
+     * @return Double - Somatória total dos valores de todos os tipos de patrimônio do usuário */
     public Double patrimonyAllSum(User user){
 
         Double total = 0.0;
-        for(Map.Entry<PatrimonyType, Double> totalMap : patrimonySum(user).entrySet()){
+        for(Map.Entry<Integer, Double> totalMap : patrimonySum(user).entrySet()){
             total += totalMap.getValue();
         }
         return total;
