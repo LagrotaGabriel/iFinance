@@ -54,6 +54,8 @@ public class PatrimonioController {
         modelMap.addAttribute("baseUrl", baseUrl);
 
         modelMap.addAttribute("assets", patrimonyUtils.patrimonyTypeFilter(utils.loggedUser(userRepository), currentType));
+        modelMap.addAttribute("assetsSum", patrimonyUtils.patrimonySum(utils.loggedUser(userRepository)));
+        modelMap.addAttribute("assetsAllSum", patrimonyUtils.patrimonyAllSum(utils.loggedUser(userRepository)));
         modelMap.addAttribute("page" ,currentPage);
 
         modelAndView.setViewName("patrimonio");

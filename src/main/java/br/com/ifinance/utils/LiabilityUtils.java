@@ -12,6 +12,11 @@ import java.util.stream.IntStream;
 
 public class LiabilityUtils {
 
+    /*** Tem como objetivo filtrar as despesas do usuário com base no mês e ano passados como parâmetros na url
+     * @param user User - Usuário logado na sessão
+     * @param currentMonth Integer - Mês que o usuário deseja realizar o filtro
+     * @param currentYear Year - Ano que o usuário deseja realizar o filtro
+     * @return List - Retorna uma lista com as despesas encontradas no mês e ano filtrados pelo usuário */
     public List<Liability> pageFilterinCurrentMonthAndYear(User user, Integer currentMonth, Integer currentYear){
         // FILTRO DOS LIABILITIES POR DATA
         List<Liability> liabilitiesOfSelectedDate = new ArrayList<>();
@@ -39,12 +44,21 @@ public class LiabilityUtils {
         return liabilitiesOfSelectedDate;
     }
 
+    /*** Tem como objetivo calcular o total de páginas que a tabela terá
+     * @param user User - Usuário logado na sessão
+     * @param currentMonth Integer - Mês que o usuário deseja realizar o filtro
+     * @param currentYear Year - Ano que o usuário deseja realizar o filtro
+     * @param itemsPerPage Integer - Quantidade de itens que deve ser exibida por página
+     * @return Integer - Retorna a quantidade total de páginas da tela */
     public Integer totalPages(User user, Integer currentMonth, Integer currentYear, Integer itemsPerPage){
         // CLASSIFICANDO O NÚMERO DE PÁGINAS QUE A TABELA TERÁ
         return (int) Math.ceil(Double.parseDouble(String.valueOf(
                         (pageFilterinCurrentMonthAndYear(user, currentMonth, currentYear).size())))/itemsPerPage);
     }
 
+    /*** Tem como objetivo transformar o total de páginas da tela em uma lista contendo os números do 1 até o número total
+     * @param totalPages Integer - Total de páginas da tela
+     * @return List - Retorna uma lista com os números de 1 até o número total de páginas da tela */
     public List<Integer> pageNumberList(Integer totalPages){
         // DEFININDO A LISTA DE PÁGINAS QUE A TABELA IRÁ POSSUIR
         List<Integer> pageNumbers = new ArrayList<>();
@@ -60,6 +74,12 @@ public class LiabilityUtils {
         return pageNumbers;
     }
 
+    /*** Tem como objetivo atribuir a quantidade correta de itens para cada página
+     * @param user User - Usuário logado na sessão
+     * @param currentMonth Integer - Mês que o usuário deseja realizar o filtro
+     * @param currentYear Year - Ano que o usuário deseja realizar o filtro
+     * @param itemsPerPage Integer - Quantidade de itens que deve ser exibida por página
+     * @return Map - Retorna um map contendo as páginas e os itens que cada página contém, respectivamente */
     public Map<Integer, List<Liability>> liabilityPagination(User user, Integer currentMonth, Integer currentYear, Integer itemsPerPage){
 
         // DEFININDO A QUANTIDADE DE ITENS POR PÁGINA DA TABELA
