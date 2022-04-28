@@ -1,5 +1,6 @@
 package br.com.ifinance.controllers;
 
+import br.com.ifinance.models.entities.Liability;
 import br.com.ifinance.models.entities.Patrimony;
 import br.com.ifinance.models.enums.PatrimonyType;
 import br.com.ifinance.repositories.UserRepository;
@@ -53,7 +54,24 @@ public class PatrimonioController {
         String currentType = type.orElse("all");
         modelMap.addAttribute("baseUrl", baseUrl);
 
-        modelMap.addAttribute("assets", patrimonyUtils.patrimonyTypeFilter(utils.loggedUser(userRepository), currentType));
+        Map<Integer, List<Patrimony>> mapPages = patrimonyUtils.patrimonyPagination
+                (utils.loggedUser(userRepository), currentType, 3);
+        Integer totalPages = patrimonyUtils.totalPages
+                (utils.loggedUser(userRepository), currentType, 3);
+        List<Integer> pageNumbers = patrimonyUtils.pageNumberList
+                (patrimonyUtils.totalPages(utils.loggedUser(userRepository), currentType, 3));
+
+        System.err.println(mapPages);
+        System.err.println(totalPages);
+        System.err.println(pageNumbers);
+
+        // DEFINE A QUANTIDADE DE ITENS A SER INSERIDO POR PÁGINA
+        if(!mapPages.get(currentPage).isEmpty()) {
+            model.addAttribute("assets", mapPages.get(currentPage));
+        }
+
+        model.addAttribute("type", currentType);
+        model.addAttribute("pageNumbers", pageNumbers);
         modelMap.addAttribute("assetsSum", patrimonyUtils.patrimonySum(utils.loggedUser(userRepository)));
         modelMap.addAttribute("assetsAllSum", patrimonyUtils.patrimonyAllSum(utils.loggedUser(userRepository)));
         modelMap.addAttribute("page" ,currentPage);

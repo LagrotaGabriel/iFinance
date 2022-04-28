@@ -328,6 +328,7 @@ function responsive(){
 		tamanhoContainerAlign.style.height = somaTamanho;
 	}	
 
+	pageResponsiva();
 	informativosResponsivity();
 }
 
@@ -845,4 +846,59 @@ function leaveInformativo(hover){
 		}
 	}
 
+}
+
+/* ================== REALIZA OS AJUSTES DE CORES NOS NÚMEROS DAS PÁGINAS ====================== */
+function pageResponsiva(){
+	var pages = document.getElementsByClassName('page_number');
+	var PaginaSelecionada = document.getElementById('pegando_page').innerText;
+	for(var i = 0; i < pages.length; i++){
+		pages[i].style.background="transparent";
+		pages[i].style.color="#FFFFFF";
+		if(pages[i].innerText == PaginaSelecionada){
+			pages[i].style.background="#00CCFF";
+			pages[i].style.color="#121212";
+		}
+	}
+	
+	if((pages.length) == PaginaSelecionada){
+		document.getElementById('proxima').style.pointerEvents="none";
+		document.getElementById('proxima').style.borderColor="grey";
+		document.getElementById('proxima').style.color="grey";
+	}
+	else{
+		document.getElementById('proxima').style.pointerEvents="auto";
+		document.getElementById('proxima').style.borderColor="#00CCFF";
+		document.getElementById('proxima').style.color="#FFFFFF";
+	}
+
+	if(PaginaSelecionada == 1){
+		document.getElementById('anterior').style.pointerEvents="none";
+		document.getElementById('anterior').style.borderColor="grey";
+		document.getElementById('anterior').style.color="grey";
+	}
+	else{
+		document.getElementById('anterior').style.pointerEvents="auto";
+		document.getElementById('anterior').style.borderColor="#00CCFF";
+		document.getElementById('anterior').style.color="FFFFFF";
+	}
+
+}
+
+function animateButton(id){
+
+	var item = document.getElementById(id);
+	item.style.background = "#00CCFF";
+	item.style.color = "#121212";
+	item.style.transition = "1s";
+
+}
+
+function animateButtonLeave(id){
+
+	var item = document.getElementById(id);
+	item.style.background = "transparent";
+	item.style.color = "#FFFFFF";
+	item.style.transition = "1s";
+	
 }

@@ -674,23 +674,21 @@
 
 											<ul class="ul col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-												<li class="li li_anterior">
-													<a href="#" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 li_a li_a_anterior">
-														Anterior
-													</a>
+												<div th:text="${page}" th:value="${page}" id="pegando_page" style="display:none"></div>
+
+												<li class="li li_anterior page">
+													<a th:href="@{__${baseUrl}__/patrimonio(type=${type}, page=${page-1})}" class="li_a li_a_anterior page_click" id="anterior" onmouseover="animateButton('anterior')" onmouseleave="animateButtonLeave('anterior')">Anterior</a>
 												</li>
 
-												<li class="li">
-													<a href="#" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 li_a">
-														1
-													</a>
+												<li th:each="pageNumber : ${pageNumbers}" class="page li page_li">
+
+													<a th:href="@{__${baseUrl}__/patrimonio(type=${type}, page=${pageNumber})}" class="page_number page_click" th:text="${pageNumber}"></a>
+
 												</li>
 
-												<li class="li li_proximo">
-													<a href="#" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 li_a li_a_proximo">
-														Próximo
-													</a>
-												</li>
+												<li class="li li_proximo page">
+													<a th:href="@{__${baseUrl}__/patrimonio(type=${type}, page=${page}+1)}" class="li_a li_a_proximo page_click" id="proxima" onmouseover="animateButton('proxima')" onmouseleave="animateButtonLeave('proxima')">Próximo</a>
+												</li>												
 
 											</ul>	
 

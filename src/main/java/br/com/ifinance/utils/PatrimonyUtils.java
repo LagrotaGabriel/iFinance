@@ -1,5 +1,6 @@
 package br.com.ifinance.utils;
 
+import br.com.ifinance.models.entities.Liability;
 import br.com.ifinance.models.entities.Patrimony;
 import br.com.ifinance.models.entities.User;
 import br.com.ifinance.models.enums.PatrimonyType;
@@ -10,6 +11,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class PatrimonyUtils {
 
@@ -173,6 +176,121 @@ public class PatrimonyUtils {
 
     }
 
+    public List<Patrimony> pageFilterInCurrentType(User user, String type){
+        List<Patrimony> itensInCurrentCategory = new ArrayList<>();
+        System.err.println("TIPO: " + type);
+        switch (type){
+            case("all"):
+                itensInCurrentCategory = user.getAssets();
+                break;
+            case("veiculos"):
+                for(int i = 0; i < user.getAssets().size(); i++){
+                    if(user.getAssets().get(i).getPatrimonyType() == PatrimonyType.VEICULO){
+                        itensInCurrentCategory.add(user.getAssets().get(i));
+                    }
+                }
+                break;
+            case("banco"):
+                for(int i = 0; i < user.getAssets().size(); i++){
+                    if(user.getAssets().get(i).getPatrimonyType() == PatrimonyType.CONTA){
+                        itensInCurrentCategory.add(user.getAssets().get(i));
+                    }
+                }
+                break;
+            case("investimentos"):
+                for(int i = 0; i < user.getAssets().size(); i++){
+                    if(user.getAssets().get(i).getPatrimonyType() == PatrimonyType.INVESTIMENTO){
+                        itensInCurrentCategory.add(user.getAssets().get(i));
+                    }
+                }
+                break;
+            case("eletronicos"):
+                for(int i = 0; i < user.getAssets().size(); i++){
+                    if(user.getAssets().get(i).getPatrimonyType() == PatrimonyType.ELETRONICO){
+                        itensInCurrentCategory.add(user.getAssets().get(i));
+                    }
+                }
+                break;
+            case("intangiveis"):
+                for(int i = 0; i < user.getAssets().size(); i++){
+                    if(user.getAssets().get(i).getPatrimonyType() == PatrimonyType.INTANGIVEL){
+                        itensInCurrentCategory.add(user.getAssets().get(i));
+                    }
+                }
+                break;
+            case("joias"):
+                for(int i = 0; i < user.getAssets().size(); i++){
+                    if(user.getAssets().get(i).getPatrimonyType() == PatrimonyType.JOIA){
+                        itensInCurrentCategory.add(user.getAssets().get(i));
+                    }
+                }
+                break;
+            case("liquidez"):
+                for(int i = 0; i < user.getAssets().size(); i++){
+                    if(user.getAssets().get(i).getPatrimonyType() == PatrimonyType.LIQUIDEZ){
+                        itensInCurrentCategory.add(user.getAssets().get(i));
+                    }
+                }
+                break;
+            case("imoveis"):
+                for(int i = 0; i < user.getAssets().size(); i++){
+                    if(user.getAssets().get(i).getPatrimonyType() == PatrimonyType.IMOVEL){
+                        itensInCurrentCategory.add(user.getAssets().get(i));
+                    }
+                }
+                break;
+            case("outros"):
+                for(int i = 0; i < user.getAssets().size(); i++){
+                    if(user.getAssets().get(i).getPatrimonyType() == PatrimonyType.OUTRO){
+                        itensInCurrentCategory.add(user.getAssets().get(i));
+                    }
+                }
+                break;
+        }
+        return itensInCurrentCategory;
+    }
 
+    public Integer totalPages(User user, String type, Integer itemsPerPage){
+        // CLASSIFICANDO O NÚMERO DE PÁGINAS QUE A TABELA TERÁ
+        return (int) Math.ceil(Double.parseDouble(String.valueOf(
+                (pageFilterInCurrentType(user, type).size())))/itemsPerPage);
+    }
+
+    public List<Integer> pageNumberList(Integer totalPages){
+        List<Integer> pageNumbers = new ArrayList<>();
+        if(totalPages > 0) {
+            pageNumbers = IntStream.rangeClosed(1, totalPages)
+                    .boxed()
+                    .collect(Collectors.toList());
+        }
+        else{
+            totalPages = 1;
+            pageNumbers.add(1);
+        }
+        return pageNumbers;
+    }
+
+    public Map<Integer, List<Patrimony>> patrimonyPagination(User user, String type, Integer itemsPerPage){
+
+        // DEFININDO A QUANTIDADE DE ITENS POR PÁGINA DA TABELA
+        Map<Integer, List<Patrimony>> mapPages = new HashMap();
+        List<Patrimony> paginationAssets = new ArrayList<>();
+
+        int contador = itemsPerPage;
+        for(int i = 0; i < pageNumberList(totalPages(user, type, itemsPerPage)).size(); i++){
+
+            for(int x=(contador-itemsPerPage); x < contador; x++){
+                if(pageFilterInCurrentType(user, type) != null) {
+                    if (x < pageFilterInCurrentType(user, type).size()) {
+                        paginationAssets.add(pageFilterInCurrentType(user, type).get(x));
+                    }
+                }
+            }
+            mapPages.put(i+1, paginationAssets);
+            paginationAssets = new ArrayList<>();
+            contador += itemsPerPage;
+        }
+        return mapPages;
+    }
 
 }

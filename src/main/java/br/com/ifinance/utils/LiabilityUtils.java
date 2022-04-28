@@ -86,10 +86,10 @@ public class LiabilityUtils {
         Map<Integer, List<Liability>> mapPages = new HashMap();
         List<Liability> paginationLiabilities = new ArrayList<>();
 
-        int contador = 5;
+        int contador = itemsPerPage;
         for(int i = 0; i < pageNumberList(totalPages(user, currentMonth, currentYear, itemsPerPage)).size(); i++){
 
-            for(int x=(contador-5); x < contador; x++){
+            for(int x=(contador-itemsPerPage); x < contador; x++){
                 if(pageFilterinCurrentMonthAndYear(user, currentMonth, currentYear) != null) {
                     if (x < pageFilterinCurrentMonthAndYear(user, currentMonth, currentYear).size()) {
                         paginationLiabilities.add(pageFilterinCurrentMonthAndYear(user, currentMonth, currentYear).get(x));
@@ -98,7 +98,7 @@ public class LiabilityUtils {
             }
             mapPages.put(i+1, paginationLiabilities);
             paginationLiabilities = new ArrayList<>();
-            contador += 5;
+            contador += itemsPerPage;
         }
         return mapPages;
     }
