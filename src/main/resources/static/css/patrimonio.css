@@ -9,6 +9,24 @@
     color: #121212;
 }
 
+.alert{
+    position: absolute;
+    position: fixed;
+    text-align: center;
+    font-size: 1rem;
+    width: 50%;
+    animation: pulse 2s infinite;
+    opacity: 0.98;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.alert:hover{
+    cursor: pointer;
+}
+
 /* ============================ FIM DO MENU LATERAL ============================ */
 
 /*================================================================================
@@ -42,7 +60,6 @@
     border: 1px solid #00CCFF;
     padding: 45px 0px;
     text-decoration: none;
-    color: #FFFF;
     width: 100%;   
 }
 

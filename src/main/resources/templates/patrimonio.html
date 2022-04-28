@@ -227,6 +227,10 @@
 							<!-------------- CONTEUDO_CONTAINER - TÍTULO ------------>
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo" id="conteudo_titulo">
 
+								<div th:if="${Sucesso}" class="alert alert-success" id="sucessoCadastro" onclick="hideMessage()">
+									<p th:text="${Sucesso}"></p>
+								</div>								
+
 								<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text" id="conteudo_titulo_text">
 									Seu patrimônio
 								</h1>
@@ -235,6 +239,8 @@
 
 							<!-------------- CONTEUDO_CONTAINER - INFORMATIVOS ------------>
 							<div class="informativos">
+
+									<h1 th:text="${param.type}" style="display:none" id="param_type"></h1>
 
 									<!-------------- INFORMATIVOS - INFORMATIVOS ------------>
 									<div class="row informativos_linha informativos_primeira_linha">
@@ -255,8 +261,227 @@
 												<div class="all_column col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
 													<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block first_block">
+														<a
+														th:href="@{__${baseUrl}__/patrimonio(type=all, page=1)}"
+														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno"
+														id="block_interno_all"
+														onmouseover="overInformativo('all')"
+														onmouseleave="leaveInformativo('all')">
 
-														<a th:href="@{__${baseUrl}__/patrimonio(type=imoveis, page=1)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
+															<div class="row block_row block_first_row">
+
+																<div th:text="'R$ ' + ${assetsAllSum}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																	R$ 0.00
+																</div>
+
+															</div>
+
+															<div class="row block_row block_second_row">
+																
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
+																	Todos
+																</div>
+
+															</div>	
+														</a>
+													</div>	
+
+													<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block second_block">
+														<a 
+														th:href="@{__${baseUrl}__/patrimonio(type=veiculos, page=1)}" 
+														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno" 
+														id="block_interno_veiculos"
+														onmouseover="overInformativo('veiculos')"
+														onmouseleave="leaveInformativo('veiculos')">
+
+															<div class="row block_row block_first_row">
+
+																<div th:text="'R$ ' + ${assetsSum.get(0)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																	R$ 0.00
+																</div>
+
+															</div>
+
+															<div class="row block_row block_second_row">
+																
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
+																	Veículos
+																</div>
+
+															</div>	
+														</a>
+													</div>	
+
+													<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block third_block">
+														<a
+														th:href="@{__${baseUrl}__/patrimonio(type=banco, page=1)}"
+														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno"
+														id="block_interno_banco"
+														onmouseover="overInformativo('banco')"
+														onmouseleave="leaveInformativo('banco')">
+
+															<div class="row block_row block_first_row">
+
+																<div th:text="'R$ ' + ${assetsSum.get(2)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																	R$ 0.00
+																</div>
+
+															</div>
+
+															<div class="row block_row block_second_row">
+																
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
+																	Banco
+																</div>
+
+															</div>	
+														</a>
+													</div>	
+
+													<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block fourth_block">
+														<a
+														th:href="@{__${baseUrl}__/patrimonio(type=investimentos, page=1)}"
+														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno"
+														id="block_interno_investimentos"
+														onmouseover="overInformativo('investimentos')"
+														onmouseleave="leaveInformativo('investimentos')">
+
+															<div class="row block_row block_first_row">
+
+																<div th:text="'R$ ' + ${assetsSum.get(3)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																	R$ 0.00
+																</div>
+
+															</div>
+
+															<div class="row block_row block_second_row">
+																
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
+																	Investimentos
+																</div>
+
+															</div>	
+														</a>
+													</div>
+
+													<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block fifth_block">
+														<a
+														th:href="@{__${baseUrl}__/patrimonio(type=eletronicos, page=1)}"
+														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno"
+														id="block_interno_eletronicos"
+														onmouseover="overInformativo('eletronicos')"
+														onmouseleave="leaveInformativo('eletronicos')">
+
+															<div class="row block_row block_first_row">
+
+																<div th:text="'R$ ' + ${assetsSum.get(4)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																	R$ 0.00
+																</div>
+
+															</div>
+
+															<div class="row block_row block_second_row">
+																
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
+																	Eletrônicos
+																</div>
+
+															</div>	
+														</a>
+													</div>
+												</div>
+											</div>
+
+
+											<div class="row show second_show" id="second_show">
+
+												<div class="all_column col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+													<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block first_block">
+														<a
+														th:href="@{__${baseUrl}__/patrimonio(type=intangiveis, page=1)}"
+														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno"
+														id="block_interno_intangiveis"
+														onmouseover="overInformativo('intangiveis')"
+														onmouseleave="leaveInformativo('intangiveis')">
+
+															<div class="row block_row block_first_row">
+
+																<div th:text="'R$ ' + ${assetsSum.get(5)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																	R$ 0.00
+																</div>
+
+															</div>
+
+															<div class="row block_row block_second_row">
+																
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
+																	Intangível
+																</div>
+
+															</div>	
+														</a>
+													</div>	
+
+													<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block second_block">
+														<a
+														th:href="@{__${baseUrl}__/patrimonio(type=joias, page=1)}"
+														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno"
+														id="block_interno_joias"
+														onmouseover="overInformativo('joias')"
+														onmouseleave="leaveInformativo('joias')">
+
+															<div class="row block_row block_first_row">
+
+																<div th:text="'R$ ' + ${assetsSum.get(6)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																	R$ 0.00
+																</div>
+
+															</div>
+
+															<div class="row block_row block_second_row">
+																
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
+																	Jóias
+																</div>
+
+															</div>	
+														</a>
+													</div>	
+
+													<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block third_block">
+														<a
+														th:href="@{__${baseUrl}__/patrimonio(type=liquidez, page=1)}"
+														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno"
+														id="block_interno_liquidez"
+														onmouseover="overInformativo('liquidez')"
+														onmouseleave="leaveInformativo('liquidez')">
+
+															<div class="row block_row block_first_row">
+
+																<div th:text="'R$ ' + ${assetsSum.get(7)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																	R$ 0.00
+																</div>
+
+															</div>
+
+															<div class="row block_row block_second_row">
+																
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
+																	Baixa liquidez
+																</div>
+
+															</div>	
+														</a>
+													</div>	
+
+													<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block fourth_block">
+														<a 
+														th:href="@{__${baseUrl}__/patrimonio(type=imoveis, page=1)}" 
+														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno" 
+														id="block_interno_imoveis"
+														onmouseover="overInformativo('imoveis')"
+														onmouseleave="leaveInformativo('imoveis')">
 
 															<div class="row block_row block_first_row">
 
@@ -274,85 +499,19 @@
 
 															</div>	
 														</a>
-
-													</div>	
-
-													<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block second_block">
-
-														<a th:href="@{__${baseUrl}__/patrimonio(type=veiculos, page=1)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
-
-															<div class="row block_row block_first_row">
-
-																<div th:text="'R$ ' + ${assetsSum.get(0)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
-																	R$ 0.00
-																</div>
-
-															</div>
-
-															<div class="row block_row block_second_row">
-																
-																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
-																	Veículos
-																</div>
-
-															</div>	
-
-														</a>
-													</div>	
-
-													<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block third_block">
-
-														<a th:href="@{__${baseUrl}__/patrimonio(type=banco, page=1)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
-
-															<div class="row block_row block_first_row">
-
-																<div th:text="'R$ ' + ${assetsSum.get(2)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
-																	R$ 0.00
-																</div>
-
-															</div>
-
-															<div class="row block_row block_second_row">
-																
-																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
-																	Banco
-																</div>
-
-															</div>	
-
-														</a>
-													</div>	
-
-													<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block fourth_block">
-
-														<a th:href="@{__${baseUrl}__/patrimonio(type=investimentos, page=1)}" class="ccol-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
-
-															<div class="row block_row block_first_row">
-
-																<div th:text="'R$ ' + ${assetsSum.get(3)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
-																	R$ 0.00
-																</div>
-
-															</div>
-
-															<div class="row block_row block_second_row">
-																
-																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
-																	Investimentos
-																</div>
-
-															</div>	
-
-														</a>
-													</div>
+													</div>													
 
 													<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block fifth_block">
-
-														<a th:href="@{__${baseUrl}__/patrimonio(type=eletronicos, page=1)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
+														<a
+														th:href="@{__${baseUrl}__/patrimonio(type=outros, page=1)}"
+														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno"
+														id="block_interno_outros"
+														onmouseover="overInformativo('outros')"
+														onmouseleave="leaveInformativo('outros')">
 
 															<div class="row block_row block_first_row">
 
-																<div th:text="'R$ ' + ${assetsSum.get(4)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																<div th:text="'R$ ' + ${assetsSum.get(8)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
 																	R$ 0.00
 																</div>
 
@@ -361,135 +520,17 @@
 															<div class="row block_row block_second_row">
 																
 																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
-																	Eletrônicos
+																	Outros
 																</div>
 
 															</div>	
-
 														</a>
 													</div>
+
 												</div>
-											</div>
 
-											<div class="row show second_show" id="second_show">
+											</div>	
 
-												<div class="all_column col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-												<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block first_block">
-
-													<a th:href="@{__${baseUrl}__/patrimonio(type=intangiveis, page=1)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
-
-														<div class="row block_row block_first_row">
-
-															<div th:text="'R$ ' + ${assetsSum.get(5)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
-																R$ 0.00
-															</div>
-
-														</div>
-
-														<div class="row block_row block_second_row">
-															
-															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
-																Intangível
-															</div>
-
-														</div>	
-
-													</a>
-												</div>	
-
-												<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block second_block">
-
-													<a th:href="@{__${baseUrl}__/patrimonio(type=joias, page=1)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
-
-														<div class="row block_row block_first_row">
-
-															<div th:text="'R$ ' + ${assetsSum.get(6)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
-																R$ 0.00
-															</div>
-
-														</div>
-
-														<div class="row block_row block_second_row">
-															
-															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
-																Jóias
-															</div>
-
-														</div>	
-
-													</a>
-												</div>	
-
-												<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block third_block">
-
-													<a th:href="@{__${baseUrl}__/patrimonio(type=liquidez, page=1)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
-
-														<div class="row block_row block_first_row">
-
-															<div th:text="'R$ ' + ${assetsSum.get(7)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
-																R$ 0.00
-															</div>
-
-														</div>
-
-														<div class="row block_row block_second_row">
-															
-															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
-																Baixa liquidez
-															</div>
-
-														</div>	
-
-													</a>
-												</div>	
-
-												<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block fourth_block">
-
-													<a th:href="@{__${baseUrl}__/patrimonio(type=outros, page=1)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
-
-														<div class="row block_row block_first_row">
-
-															<div th:text="'R$ ' + ${assetsSum.get(8)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
-																R$ 0.00
-															</div>
-
-														</div>
-
-														<div class="row block_row block_second_row">
-															
-															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
-																Outros
-															</div>
-
-														</div>	
-
-													</a>
-												</div>													
-
-												<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 block fifth_block">
-
-													<a th:href="@{__${baseUrl}__/patrimonio(type=all, page=1)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno">
-
-														<div class="row block_row block_first_row">
-
-															<div th:text="'R$ ' + ${assetsAllSum}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
-																R$ 0.00
-															</div>
-
-														</div>
-
-														<div class="row block_row block_second_row">
-															
-															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
-																Todos
-															</div>
-
-														</div>	
-
-													</a>
-												</div>
-												</div>
-											</div>												
 										</div>
 										<!----------- CATEGORIAS DOS INFORMATIVOS ------------>
 
@@ -724,12 +765,12 @@
 												class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" 
 												id="input_descricao" 
 												name="description" 
-												maxlength="40" />
+												maxlength="40"
+												required/>
 											</div>
 
 											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
 												<select class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="select_tipo" name="patrimonyType"/>
-													<option value="0"></option>
 													<option value="IMOVEL">Imóvel</option>
 													<option value="VEICULO">Veículo</option>
 													<option value="CONTA">Conta bancária</option>
@@ -738,7 +779,7 @@
 													<option value="INTANGIVEL">Intangível</option>
 													<option value="JOIA">Jóia</option>
 													<option value="LIQUIDEZ">Baixa liquidez</option>
-													<option value="OUTRO">Outro</option>
+													<option value="OUTRO" id="novo_opc_outro" selected>Outro</option>
 												</select>
 											</div>	
 
@@ -750,7 +791,8 @@
 												name="value" 
 												step="0.01" 
 												min="0"
-												max="10000000"/>
+												max="10000000"
+												required/>
 											</div>											
 
 										</div>	
@@ -850,13 +892,13 @@
 												class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" 
 												id="edit_input_descricao" 
 												name="description" 
-												maxlength="40"/>
+												maxlength="40"
+												required/>
 											</div>
 
 											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
 												<select 
 												class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_select_tipo" name="patrimonyType"/>
-													<option value="0"></option>
 													<option value="IMOVEL" id="edit_imovel">Imóvel</option>
 													<option value="VEICULO" id="edit_veiculo">Veículo</option>
 													<option value="CONTA" id="edit_conta">Conta bancária</option>
@@ -877,7 +919,8 @@
 												name="value" 
 												step="0.01" 
 												min="0" 
-												max="10000000"/>
+												max="10000000"
+												required/>
 											</div>											
 
 										</div>	

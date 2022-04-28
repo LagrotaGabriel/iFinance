@@ -327,6 +327,8 @@ function responsive(){
 		var somaTamanho = (tamanhoAside.clientHeight - tamanhoMenuSuperior.clientHeight) + 'px';
 		tamanhoContainerAlign.style.height = somaTamanho;
 	}	
+
+	informativosResponsivity();
 }
 
 function doALoadOfStuff() {
@@ -504,27 +506,21 @@ function fechaEditPatrimonio(){
 	var inputTipo = document.getElementById('select_tipo');
 	var inputValor = document.getElementById('input_valor');
 
-	if(inputDescricao.value == "" && inputTipo.value == "0" && inputValor.value == ""){
-		conteudoContainer.style.pointerEvents="auto";
-		conteudoContainer.style.opacity="0.95";
-		containerEdit.style.display="none";
-		conteudoContainer.style.transition="2s";
-		containerEdit.style.transition="2s";
-	}
-	else{	
-		if(confirm('Você tem certeza que deseja fechar o formulário? Os dados preenchidos serão perdidos')) {
-			conteudoContainer.style.pointerEvents="auto";
-			conteudoContainer.style.opacity="0.95";
-			containerEdit.style.display="none";
-			conteudoContainer.style.transition="2s";
-			containerEdit.style.transition="2s";
-		} 
-	}	
+	conteudoContainer.style.pointerEvents="auto";
+	conteudoContainer.style.opacity="0.95";
+	containerEdit.style.display="none";
+	conteudoContainer.style.transition="2s";
+	containerEdit.style.transition="2s";
+
 }
 
 /* =================== ABERTURA E FECHAMENTO DO NOVO PATRIMONIO =================== */
 
 function novoPatrimonio(){
+
+	document.getElementById('input_descricao').value="";
+	document.getElementById('novo_opc_outro').selected=true;
+	document.getElementById('input_valor').value="";
 
 	var conteudoContainer = document.getElementById('conteudo_container');
 	var containerNovo = document.getElementById('container_novo');
@@ -545,20 +541,308 @@ function fechaNovoPatrimonio(){
 	var inputTipo = document.getElementById('select_tipo');
 	var inputValor = document.getElementById('input_valor');
 
-	if(inputDescricao.value == "" && inputTipo.value == "0" && inputValor.value == ""){
-		conteudoContainer.style.pointerEvents="auto";
-		conteudoContainer.style.opacity="0.95";
-		containerNovo.style.display="none";
-		conteudoContainer.style.transition="2s";
-		containerNovo.style.transition="2s";
+	conteudoContainer.style.pointerEvents="auto";
+	conteudoContainer.style.opacity="0.95";
+	containerNovo.style.display="none";
+	conteudoContainer.style.transition="2s";
+	containerNovo.style.transition="2s";
+
+}
+
+/* =================== FECHAMENTO DOS ALERTAS =================== */
+function hideMessage(){
+	var alertas = document.getElementsByClassName('alert');
+	for(var i = 0; i < alertas.length; i++){
+		alertas[i].hidden=true;
 	}
-	else{	
-		if(confirm('Você tem certeza que deseja fechar o formulário? Os dados preenchidos serão perdidos')) {
-			conteudoContainer.style.pointerEvents="auto";
-			conteudoContainer.style.opacity="0.95";
-			containerNovo.style.display="none";
-			conteudoContainer.style.transition="2s";
-			containerNovo.style.transition="2s";
-		} 
-	}	
+}
+
+/* =============== RESPONSIVIDADE DE ESTILO DOS INFORMATIVOS =============== */
+function informativosResponsivity(){
+
+	var paramType = document.getElementById('param_type').innerText;
+	console.log(paramType);
+
+	var blockInternoImoveis = document.getElementById('block_interno_imoveis');
+	var blockInternoVeiculos = document.getElementById('block_interno_veiculos');
+	var blockInternoBanco = document.getElementById('block_interno_banco');
+	var blockInternoInvestimentos = document.getElementById('block_interno_investimentos');
+	var blockInternoEletronicos = document.getElementById('block_interno_eletronicos');
+	var blockInternoIntangiveis = document.getElementById('block_interno_intangiveis');
+	var blockInternoJoias = document.getElementById('block_interno_joias');
+	var blockInternoLiquidez = document.getElementById('block_interno_liquidez');
+	var blockInternoOutros = document.getElementById('block_interno_outros');
+	var blockInternoAll = document.getElementById('block_interno_all');
+
+	blockInternoImoveis.style.background="transparent";
+	blockInternoImoveis.style.color="#FFFFFF";
+
+	blockInternoVeiculos.style.background="transparent";
+	blockInternoVeiculos.style.color="#FFFFFF";
+
+	blockInternoBanco.style.background="transparent";
+	blockInternoBanco.style.color="#FFFFFF";
+
+	blockInternoInvestimentos.style.background="transparent";
+	blockInternoInvestimentos.style.color="#FFFFFF";
+
+	blockInternoEletronicos.style.background="transparent";
+	blockInternoEletronicos.style.color="#FFFFFF";
+
+	blockInternoIntangiveis.style.background="transparent";
+	blockInternoIntangiveis.style.color="#FFFFFF";
+
+	blockInternoJoias.style.background="transparent";
+	blockInternoJoias.style.color="#FFFFFF";
+
+	blockInternoLiquidez.style.background="transparent";
+	blockInternoLiquidez.style.color="#FFFFFF";
+
+	blockInternoOutros.style.background="transparent";
+	blockInternoOutros.style.color="#FFFFFF";
+
+	blockInternoAll.style.background="transparent";
+	blockInternoAll.style.color="#FFFFFF";									
+
+	if(paramType == "" || paramType == "all"){
+		blockInternoAll.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
+		blockInternoAll.style.color="#121212";
+		blockInternoAll.style.pointerEvents="none";	
+	}
+	else if(paramType == "imoveis"){
+		blockInternoImoveis.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
+		blockInternoImoveis.style.color="#121212";
+		blockInternoImoveis.style.pointerEvents="none";	
+	}
+	else if(paramType == "veiculos"){
+		blockInternoVeiculos.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
+		blockInternoVeiculos.style.color="#121212";
+		blockInternoVeiculos.style.pointerEvents="none";	
+	}
+	else if(paramType == "banco"){
+		blockInternoBanco.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
+		blockInternoBanco.style.color="#121212";
+		blockInternoBanco.style.pointerEvents="none";	
+	}
+	else if(paramType == "investimentos"){
+		blockInternoInvestimentos.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
+		blockInternoInvestimentos.style.color="#121212";
+		blockInternoInvestimentos.style.pointerEvents="none";	
+	}
+	else if(paramType == "eletronicos"){
+		blockInternoEletronicos.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
+		blockInternoEletronicos.style.color="#121212";
+		blockInternoEletronicos.style.pointerEvents="none";	
+	}
+	else if(paramType == "intangiveis"){
+		blockInternoIntangiveis.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
+		blockInternoIntangiveis.style.color="#121212";
+		blockInternoIntangiveis.style.pointerEvents="none";	
+	}
+	else if(paramType == "joias"){
+		blockInternoJoias.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
+		blockInternoJoias.style.color="#121212";
+		blockInternoJoias.style.pointerEvents="none";	
+	}
+	else if(paramType == "liquidez"){
+		blockInternoLiquidez.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
+		blockInternoLiquidez.style.color="#121212";
+		blockInternoLiquidez.style.pointerEvents="none";	
+	}
+	else if(paramType == "outros"){
+		blockInternoOutros.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
+		blockInternoOutros.style.color="#121212";
+		blockInternoOutros.style.pointerEvents="none";	
+	}
+}
+
+function overInformativo(hover){
+
+	var paramType = document.getElementById('param_type').innerText;
+	console.log(paramType);
+
+	var blockInternoImoveis = document.getElementById('block_interno_imoveis');
+	var blockInternoVeiculos = document.getElementById('block_interno_veiculos');
+	var blockInternoBanco = document.getElementById('block_interno_banco');
+	var blockInternoInvestimentos = document.getElementById('block_interno_investimentos');
+	var blockInternoEletronicos = document.getElementById('block_interno_eletronicos');
+	var blockInternoIntangiveis = document.getElementById('block_interno_intangiveis');
+	var blockInternoJoias = document.getElementById('block_interno_joias');
+	var blockInternoLiquidez = document.getElementById('block_interno_liquidez');
+	var blockInternoOutros = document.getElementById('block_interno_outros');
+	var blockInternoAll = document.getElementById('block_interno_all');
+	
+	if(hover != paramType){
+		if(hover == "imoveis"){
+			blockInternoImoveis.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
+			blockInternoImoveis.style.color="#121212";
+			blockInternoImoveis.style.pointerEvents="auto";	
+			blockInternoImoveis.style.cursor="pointer";
+			blockInternoImoveis.style.transition="1s";
+			blockInternoImoveis.style.animation="pulse 2s infinite"
+		}
+		else if(hover == "veiculos"){
+			blockInternoVeiculos.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
+			blockInternoVeiculos.style.color="#121212";
+			blockInternoVeiculos.style.pointerEvents="auto";	
+			blockInternoVeiculos.style.cursor="pointer";
+			blockInternoVeiculos.style.transition="1s";
+			blockInternoVeiculos.style.animation="pulse 2s infinite"		
+		}
+		else if(hover == "banco"){
+			blockInternoBanco.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
+			blockInternoBanco.style.color="#121212";
+			blockInternoBanco.style.pointerEvents="auto";	
+			blockInternoBanco.style.cursor="pointer";
+			blockInternoBanco.style.transition="1s";
+			blockInternoBanco.style.animation="pulse 2s infinite"
+		}
+		else if(hover == "investimentos"){
+			blockInternoInvestimentos.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
+			blockInternoInvestimentos.style.color="#121212";
+			blockInternoInvestimentos.style.pointerEvents="auto";	
+			blockInternoInvestimentos.style.cursor="pointer";
+			blockInternoInvestimentos.style.transition="1s";
+			blockInternoInvestimentos.style.animation="pulse 2s infinite"
+		}
+		else if(hover == "eletronicos"){
+			blockInternoEletronicos.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
+			blockInternoEletronicos.style.color="#121212";
+			blockInternoEletronicos.style.pointerEvents="auto";	
+			blockInternoEletronicos.style.cursor="pointer";
+			blockInternoEletronicos.style.transition="1s";
+			blockInternoEletronicos.style.animation="pulse 2s infinite"
+		}
+		else if(hover == "intangiveis"){
+			blockInternoIntangiveis.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
+			blockInternoIntangiveis.style.color="#121212";
+			blockInternoIntangiveis.style.pointerEvents="auto";	
+			blockInternoIntangiveis.style.cursor="pointer";
+			blockInternoIntangiveis.style.transition="1s";
+			blockInternoIntangiveis.style.animation="pulse 2s infinite"
+		}
+		else if(hover == "joias"){
+			blockInternoJoias.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
+			blockInternoJoias.style.color="#121212";
+			blockInternoJoias.style.pointerEvents="auto";	
+			blockInternoJoias.style.cursor="pointer";
+			blockInternoJoias.style.transition="1s";
+			blockInternoJoias.style.animation="pulse 2s infinite"
+		}
+		else if(hover == "liquidez"){
+			blockInternoLiquidez.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
+			blockInternoLiquidez.style.color="#121212";
+			blockInternoLiquidez.style.pointerEvents="auto";	
+			blockInternoLiquidez.style.cursor="pointer";
+			blockInternoLiquidez.style.transition="1s";
+			blockInternoLiquidez.style.animation="pulse 2s infinite"
+		}
+		else if(hover == "outros"){
+			blockInternoOutros.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
+			blockInternoOutros.style.color="#121212";
+			blockInternoOutros.style.pointerEvents="auto";	
+			blockInternoOutros.style.cursor="pointer";
+			blockInternoOutros.style.transition="1s";
+			blockInternoOutros.style.animation="pulse 2s infinite"
+		}
+		else if(hover == "all"){
+			blockInternoAll.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
+			blockInternoAll.style.color="#121212";
+			blockInternoAll.style.pointerEvents="auto";	
+			blockInternoAll.style.cursor="pointer";
+			blockInternoAll.style.transition="1s";
+			blockInternoAll.style.animation="pulse 2s infinite"
+		}
+	}
+}
+
+function leaveInformativo(hover){
+
+	var paramType = document.getElementById('param_type').innerText;
+	console.log(paramType);
+
+	var blockInternoImoveis = document.getElementById('block_interno_imoveis');
+	var blockInternoVeiculos = document.getElementById('block_interno_veiculos');
+	var blockInternoBanco = document.getElementById('block_interno_banco');
+	var blockInternoInvestimentos = document.getElementById('block_interno_investimentos');
+	var blockInternoEletronicos = document.getElementById('block_interno_eletronicos');
+	var blockInternoIntangiveis = document.getElementById('block_interno_intangiveis');
+	var blockInternoJoias = document.getElementById('block_interno_joias');
+	var blockInternoLiquidez = document.getElementById('block_interno_liquidez');
+	var blockInternoOutros = document.getElementById('block_interno_outros');
+	var blockInternoAll = document.getElementById('block_interno_all');
+	
+	if(hover != paramType){
+		if(hover == "imoveis"){
+			blockInternoImoveis.style.background="transparent";
+			blockInternoImoveis.style.color="#FFFFFF";
+			blockInternoImoveis.style.cursor="default";
+			blockInternoImoveis.style.transition="1s";
+			blockInternoImoveis.style.animation="none"
+		}
+		else if(hover == "veiculos"){
+			blockInternoVeiculos.style.background="transparent";
+			blockInternoVeiculos.style.color="#FFFFFF";	
+			blockInternoVeiculos.style.cursor="default";
+			blockInternoVeiculos.style.transition="1s";
+			blockInternoVeiculos.style.animation="none"		
+		}
+		else if(hover == "banco"){
+			blockInternoBanco.style.background="transparent";
+			blockInternoBanco.style.color="#FFFFFF";	
+			blockInternoBanco.style.cursor="default";
+			blockInternoBanco.style.transition="1s";
+			blockInternoBanco.style.animation="none"
+		}
+		else if(hover == "investimentos"){
+			blockInternoInvestimentos.style.background="transparent";
+			blockInternoInvestimentos.style.color="#FFFFFF";	
+			blockInternoInvestimentos.style.cursor="default";
+			blockInternoInvestimentos.style.transition="1s";
+			blockInternoInvestimentos.style.animation="none"
+		}
+		else if(hover == "eletronicos"){
+			blockInternoEletronicos.style.background="transparent";
+			blockInternoEletronicos.style.color="#FFFFFF";	
+			blockInternoEletronicos.style.cursor="default";
+			blockInternoEletronicos.style.transition="1s";
+			blockInternoEletronicos.style.animation="none"
+		}
+		else if(hover == "intangiveis"){
+			blockInternoIntangiveis.style.background="transparent";
+			blockInternoIntangiveis.style.color="#FFFFFF";
+			blockInternoIntangiveis.style.cursor="default";
+			blockInternoIntangiveis.style.transition="1s";
+			blockInternoIntangiveis.style.animation="none"
+		}
+		else if(hover == "joias"){
+			blockInternoJoias.style.background="transparent";
+			blockInternoJoias.style.color="#FFFFFF";	
+			blockInternoJoias.style.cursor="default";
+			blockInternoJoias.style.transition="1s";
+			blockInternoJoias.style.animation="none"
+		}
+		else if(hover == "liquidez"){
+			blockInternoLiquidez.style.background="transparent";
+			blockInternoLiquidez.style.color="#FFFFFF";
+			blockInternoLiquidez.style.cursor="default";
+			blockInternoLiquidez.style.transition="1s";
+			blockInternoLiquidez.style.animation="none"
+		}
+		else if(hover == "outros"){
+			blockInternoOutros.style.background="transparent";
+			blockInternoOutros.style.color="#FFFFFF";	
+			blockInternoOutros.style.cursor="default";
+			blockInternoOutros.style.transition="1s";
+			blockInternoOutros.style.animation="none"
+		}
+		else if(hover == "all"){
+			blockInternoAll.style.background="transparent";
+			blockInternoAll.style.color="#FFFFFF";
+			blockInternoAll.style.cursor="default";
+			blockInternoAll.style.transition="1s";
+			blockInternoAll.style.animation="none"
+		}
+	}
+
 }

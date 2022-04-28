@@ -78,6 +78,7 @@ public class PatrimonioController {
         System.err.println(patrimony);
         System.err.println(utils.loggedUser(userRepository).getAssets());
 
+        redirAttrs.addFlashAttribute("Sucesso", "Patrimônio salvo com sucesso!");
         modelAndView.setViewName("redirect:patrimonio");
         return modelAndView;
     }
@@ -92,6 +93,7 @@ public class PatrimonioController {
         userAssets.set(userAssets.indexOf(patrimonyService.findById(patrimony.getId()).get()), patrimony);
         utils.loggedUser(userRepository).setAssets(userAssets);
         userService.updateUser(utils.loggedUser(userRepository).getId(), utils.loggedUser(userRepository));
+        redirAttrs.addFlashAttribute("Sucesso", "Patrimônio editado com sucesso!");
         modelAndView.setViewName("redirect:../patrimonio");
         return modelAndView;
 
@@ -106,6 +108,7 @@ public class PatrimonioController {
         userAssets.remove(patrimonyService.findById(id).get());
         userService.updateUser(utils.loggedUser(userRepository).getId(), utils.loggedUser(userRepository));
         patrimonyService.deletePatrimony(id);
+        redirAttrs.addFlashAttribute("Sucesso", "Patrimônio excluído com sucesso!");
         modelAndView.setViewName("redirect:../patrimonio");
         return modelAndView;
     }
