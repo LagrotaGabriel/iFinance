@@ -444,10 +444,49 @@ function setaDireita(){
 
 /* =================== ABERTURA E FECHAMENTO DO EDIT PATRIMONIO =================== */
 
-function editPatrimonio(){
+function editPatrimonio(id, data, descricao, tipo, valor){
 
 	var conteudoContainer = document.getElementById('conteudo_container');
 	var containerEdit = document.getElementById('container_edit');
+
+	console.log(id)
+	console.log(data);
+	console.log(descricao);
+	console.log(tipo);
+	console.log(valor);
+
+	document.getElementById('col_edit_id').value=id;
+	document.getElementById('col_edit_date').value=data;
+	document.getElementById('edit_input_descricao').value=descricao;
+	document.getElementById('edit_input_valor').value=valor;
+
+	if(tipo == "Veículo"){
+		document.getElementById('edit_veiculo').selected=true;
+	}
+	else if(tipo == "Imóvel"){
+		document.getElementById('edit_imovel').selected=true;
+	}
+	else if(tipo == "Conta bancária"){
+		document.getElementById('edit_conta').selected=true;
+	}
+	else if(tipo == "Investimento"){
+		document.getElementById('edit_investimento').selected=true;
+	}
+	else if(tipo == "Eletrônico"){
+		document.getElementById('edit_eletronico').selected=true;
+	}
+	else if(tipo == "Intangível"){
+		document.getElementById('edit_intangivel').selected=true;
+	}
+	else if(tipo == "Jóia"){
+		document.getElementById('edit_joia').selected=true;
+	}
+	else if(tipo == "Baixa liquidez"){
+		document.getElementById('edit_liquidez').selected=true;
+	}
+	else if(tipo == "Outro"){
+		document.getElementById('edit_outro').selected=true;
+	}
 
 	conteudoContainer.style.pointerEvents="none";
 	conteudoContainer.style.opacity="0";

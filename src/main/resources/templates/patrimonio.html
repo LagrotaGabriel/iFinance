@@ -533,7 +533,9 @@
 
 												<tbody class="tbody col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-													<tr th:if="${#lists.isEmpty(assets)}"class="tr col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+													<tr 
+													th:if="${#lists.isEmpty(assets)}"
+													class="tr col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
 														<td class="td td_data col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>	
 														<td class="td td_descricao col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
@@ -548,14 +550,66 @@
 														</td>											
 													</tr>															
 
-													<tr th:if="${not #lists.isEmpty(assets)}" th:each="patrimony: ${assets}" class="tr col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+													<tr 
+													th:if="${not #lists.isEmpty(assets)}" 
+													th:each="patrimony: ${assets}" 
+													class="tr col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-														<td th:text="${patrimony.date}" class="td td_data col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>	
-														<td th:text="${patrimony.description}" class="td td_descricao col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
-														<td th:text="'R$ ' + ${patrimony.value}" class="td td_valor col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
-														<td th:text="${patrimony.patrimonyType.desc}" class="td td_categoria col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">...</td>
+														<td 
+														th:text="${patrimony.date}" 
+														class="td td_data col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2" th:data-id="${patrimony.id}" 
+														th:data-date="${patrimony.date}" 
+														th:data-description="${patrimony.description}" 
+														th:data-patrimonyType="${patrimony.patrimonyType.desc}" 
+														th:data-value="${patrimony.value}"  
+														onclick="editPatrimonio(this.getAttribute('data-id'), 
+																				this.getAttribute('data-date'), 
+																				this.getAttribute('data-description'), 
+																				this.getAttribute('data-patrimonyType'), 
+																				this.getAttribute('data-value'))"></td>	
+
+														<td 
+														th:text="${patrimony.description}" 
+														class="td td_descricao col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3" th:data-id="${patrimony.id}" 
+														th:data-date="${patrimony.date}" 
+														th:data-description="${patrimony.description}" 
+														th:data-patrimonyType="${patrimony.patrimonyType.desc}" 
+														th:data-value="${patrimony.value}"  
+														onclick="editPatrimonio(this.getAttribute('data-id'), 
+																				this.getAttribute('data-date'), 
+																				this.getAttribute('data-description'), 
+																				this.getAttribute('data-patrimonyType'), 
+																				this.getAttribute('data-value'))"></td>
+
+														<td 
+														th:text="'R$ ' + ${patrimony.value}" 
+														class="td td_valor col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3" 
+														th:data-id="${patrimony.id}" 
+														th:data-date="${patrimony.date}" 
+														th:data-description="${patrimony.description}" 
+														th:data-patrimonyType="${patrimony.patrimonyType.desc}" 
+														th:data-value="${patrimony.value}"  
+														onclick="editPatrimonio(this.getAttribute('data-id'), 
+																				this.getAttribute('data-date'), 
+																				this.getAttribute('data-description'), 
+																				this.getAttribute('data-patrimonyType'), 
+																				this.getAttribute('data-value'))"></td>
+
+														<td 
+														th:text="${patrimony.patrimonyType.desc}" 
+														class="td td_categoria col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3" th:data-id="${patrimony.id}" 
+														th:data-date="${patrimony.date}" 
+														th:data-description="${patrimony.description}" 
+														th:data-patrimonyType="${patrimony.patrimonyType.desc}" 
+														th:data-value="${patrimony.value}"  
+														onclick="editPatrimonio(this.getAttribute('data-id'), 
+																				this.getAttribute('data-date'), 
+																				this.getAttribute('data-description'), 
+																				this.getAttribute('data-patrimonyType'), 
+																				this.getAttribute('data-value'))"></td>
+
 														<td class="td td_excluir col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">					
-															<form>
+															<form method="POST" th:action="@{patrimonio/delete-{id}(id = ${patrimony.id})}">
 																<button type="submit" class="col-lg-12 btn_excluir">
 																	Excluir
 																</button>
@@ -665,7 +719,12 @@
 										<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col_novo_form">
 
 											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
-												<input type="text" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_descricao" name="description" maxlength="40" />
+												<input 
+												type="text" 
+												class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" 
+												id="input_descricao" 
+												name="description" 
+												maxlength="40" />
 											</div>
 
 											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
@@ -684,7 +743,14 @@
 											</div>	
 
 											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
-												<input type="number" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_valor" name="value" step="0.01" min="0" max="10000000"/>
+												<input 
+												type="number" 
+												class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" 
+												id="input_valor" 
+												name="value" 
+												step="0.01" 
+												min="0"
+												max="10000000"/>
 											</div>											
 
 										</div>	
@@ -742,7 +808,11 @@
 
 								</div>		
 
-								<form class="form">
+								<form class="form" method="POST" th:action="@{patrimonio/edit}" th:object="${patrimony}">
+
+									<input class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_id" id="col_edit_id" name="id" style="display: none">	
+
+									<input class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_date" id="col_edit_date" name="date" style="display: none">	
 
 									<div class="row container_edit_linha container_edit_terceira_linha">
 
@@ -775,26 +845,39 @@
 										<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col_edit_form">
 
 											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
-												<input type="text" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="input_descricao" name="description" maxlength="40"/>
+												<input 
+												type="text" 
+												class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" 
+												id="edit_input_descricao" 
+												name="description" 
+												maxlength="40"/>
 											</div>
 
 											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
-												<select class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="select_tipo" name="patrimonyType"/>
+												<select 
+												class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="edit_select_tipo" name="patrimonyType"/>
 													<option value="0"></option>
-													<option value="IMOVEL">Imóvel</option>
-													<option value="VEICULO">Veículo</option>
-													<option value="CONTA">Conta bancária</option>
-													<option value="INVESTIMENTO">Investimento</option>
-													<option value="ELETRONICO">Eletrônico</option>
-													<option value="INTANGIVEL">Intangível</option>
-													<option value="JOIA">Jóia</option>
-													<option value="LIQUIDEZ">Baixa liquidez</option>
-													<option value="OUTRO">Outro</option>
+													<option value="IMOVEL" id="edit_imovel">Imóvel</option>
+													<option value="VEICULO" id="edit_veiculo">Veículo</option>
+													<option value="CONTA" id="edit_conta">Conta bancária</option>
+													<option value="INVESTIMENTO" id="edit_investimento">Investimento</option>
+													<option value="ELETRONICO" id="edit_eletronico">Eletrônico</option>
+													<option value="INTANGIVEL" id="edit_intangivel">Intangível</option>
+													<option value="JOIA" id="edit_joia">Jóia</option>
+													<option value="LIQUIDEZ" id="edit_liquidez">Baixa liquidez</option>
+													<option value="OUTRO" id="edit_outro">Outro</option>
 												</select>
 											</div>	
 
 											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col_edit_input">
-												<input type="number" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" id="input_valor" name="value" step="0.01" min="0" max="10000000"/>
+												<input 
+												type="number" 
+												class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" 
+												id="edit_input_valor" 
+												name="value" 
+												step="0.01" 
+												min="0" 
+												max="10000000"/>
 											</div>											
 
 										</div>	
