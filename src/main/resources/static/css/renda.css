@@ -1,0 +1,91 @@
+/* ============================== MENU LATERAL ============================== */
+
+.aside-6{
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    opacity: 0.9;
+}
+
+#title_aside_rentabilidade{
+    color: #121212;
+}
+
+/* ============================ FIM DO MENU LATERAL ============================ */
+
+/*================================================================================
+==================================================================================
+==================================================================================
+================================================================================*/
+
+/* ============================== INFORMATIVOS ============================== */
+
+.informativos, .informativos_all, .informativos_linha, .show, .block, .block_interno, .block_row, .block_clicavel{
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+}
+
+.informativos_primeira_linha{
+    margin-bottom: 30px;
+}
+
+.block, .block_clicavel, .informativos_linha{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.block{
+    margin: 0 20px;
+}
+
+.block_interno{
+    border: 1px solid #00CCFF;
+    padding: 30px 0px;
+    text-decoration: none;
+    width: 100%;   
+    border-radius: 10px;
+    box-shadow: 0 0 15px #121212;
+}
+
+.block_interno:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    color: #121212;
+    transition: 1s;
+}
+
+.block_clicavel{
+    font-size: 1.15rem;
+    margin-bottom: 5px;
+}
+
+.first_block_clicavel{
+    font-size: 2rem;
+}
+
+
+.hr{
+    color: grey;
+}
+
+.show{
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+
+.all_column{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* ========================== FIM DOS INFORMATIVOS ========================== */
+
+/*================================================================================
+==================================================================================
+==================================================================================
+================================================================================*/

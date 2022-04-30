@@ -5,7 +5,7 @@ html {
 body{
     font-size: 1rem;
     background: #121212;
-    background: url('../img/bck3.jpg');
+    background: url('../img/bck4.jpeg');
     background-size: cover;
     min-height: 100%;
 }
@@ -36,6 +36,24 @@ body{
     to{
         transform: rotate(1turn);
     }
+}
+
+.alert{
+    position: absolute;
+    position: fixed;
+    text-align: center;
+    font-size: 1rem;
+    width: 50%;
+    animation: pulse 2s infinite;
+    opacity: 0.98;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.alert:hover{
+    cursor: pointer;
 }
 
 /* ESTRUTURA */
