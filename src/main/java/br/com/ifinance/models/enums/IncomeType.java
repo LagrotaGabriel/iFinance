@@ -1,14 +1,16 @@
 package br.com.ifinance.models.enums;
 
-public enum TransactionType {
+public enum IncomeType {
 
-    ENTRADA(0, "Entrada"),
-    SAIDA(1, "Saída");
+    SALARIO(0, "Salário"),
+    DIVIDENDO(1, "Dividendo"),
+    EXTRA(2, "Extra"),
+    OUTRO(3, "Outro");
 
     private Integer code;
     private String desc;
 
-    TransactionType(Integer code, String desc) {
+    IncomeType(Integer code, String desc) {
         this.code = code;
         this.desc = desc;
     }

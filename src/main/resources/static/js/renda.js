@@ -409,7 +409,6 @@ function informativosResponsivity(){
 
 	blockInternoSalario.style.background="transparent";
 	blockInternoSalario.style.color="#FFFFFF";									
-
 }
 
 function overInformativo(hover){
@@ -488,5 +487,4 @@ function leaveInformativo(hover){
 			blockInternoSalario.style.transition="1s";
 			blockInternoSalario.style.animation="none"
 		}
-
 }

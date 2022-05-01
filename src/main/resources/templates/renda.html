@@ -43,7 +43,7 @@
 			<div class="row main-row" id="main_row">
 
 				<!--------------- SIDE BAR PRINCIPAL DO SITE --------------->
-				<div class="container side_menu col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1" id="side_menu">	
+				<div class="container side_menu col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1" id="side_menu">
 
 					<div class="row side_menu_row" id="side_menu_row">
 
@@ -131,6 +131,7 @@
 
 						</div>
 					</div>
+
 				</div>
 				<!---------------  SIDE BAR PRINCIPAL DO SITE --------------->
 
@@ -194,6 +195,7 @@
 								</form>
 								
 							</div>
+
 					</header>
 					<!--------------- MENU SUPERIOR DO SITE --------------->
 
@@ -224,7 +226,6 @@
 							<button type="submit" class="sup_sup sup_sup_01">Logout</button>
 							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 						</form>	
-
 					</div>	
 					<!----------- MENU SUPERIOR RESPONSIVO DO SITE ------------>
 
@@ -256,7 +257,7 @@
 
 												<div class="all_column col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-													<div class="col-xl-6 col-lg-6 col-md-3 col-sm-3 col-3 block first_block">
+													<div class="col-xl-4 col-lg-6 col-md-3 col-sm-3 col-3 block first_block">
 														<a
 														th:href="@{__${baseUrl}__/patrimonio(type=all, page=1)}"
 														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno"
@@ -282,7 +283,7 @@
 														</a>
 													</div>	
 
-													<div class="col-xl-6 col-lg-6 col-md-3 col-sm-3 col-3 block second_block">
+													<div class="col-xl-4 col-lg-6 col-md-3 col-sm-3 col-3 block second_block">
 														<a 
 														th:href="@{__${baseUrl}__/patrimonio(type=veiculos, page=1)}" 
 														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno" 
@@ -315,7 +316,7 @@
 
 												<div class="all_column col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-													<div class="col-xl-6 col-lg-6 col-md-3 col-sm-3 col-3 block third_block">
+													<div class="col-xl-4 col-lg-6 col-md-3 col-sm-3 col-3 block third_block">
 														<a
 														th:href="@{__${baseUrl}__/patrimonio(type=banco, page=1)}"
 														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno"
@@ -339,7 +340,7 @@
 														</a>
 													</div>	
 
-													<div class="col-xl-6 col-lg-6 col-md-3 col-sm-3 col-3 block fourth_block">
+													<div class="col-xl-4 col-lg-6 col-md-3 col-sm-3 col-3 block fourth_block">
 														<a
 														th:href="@{__${baseUrl}__/patrimonio(type=investimentos, page=1)}"
 														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno"
@@ -387,7 +388,6 @@
 
 						</div>
 						<!<!----------- CONTEUDO_CONTAINER ------------>
-
 					</div><!-- CONTAINER_ALIGN -->
 
 				</main>	<!-- CONTEÚDO PRINCIPAL DO SITE ( AO LADO DA SIDEBAR )-->

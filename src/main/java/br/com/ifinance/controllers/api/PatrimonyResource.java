@@ -1,9 +1,7 @@
 package br.com.ifinance.controllers.api;
 
 import br.com.ifinance.models.entities.Patrimony;
-import br.com.ifinance.models.entities.Transaction;
 import br.com.ifinance.services.PatrimonyService;
-import br.com.ifinance.services.TransactionService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

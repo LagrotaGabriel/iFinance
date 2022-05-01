@@ -40,7 +40,7 @@
 
 .block_interno{
     border: 1px solid #00CCFF;
-    padding: 30px 0px;
+    padding: 60px 0px;
     text-decoration: none;
     width: 100%;   
     border-radius: 10px;
@@ -70,7 +70,7 @@
 
 .show{
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 35px;
 }
 
 
