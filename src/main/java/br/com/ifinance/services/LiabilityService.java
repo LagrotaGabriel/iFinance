@@ -55,7 +55,7 @@ public class LiabilityService {
             return true;
         }
         else{
-            return true;
+            return false;
         }
     }
 
