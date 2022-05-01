@@ -56,10 +56,6 @@ public class UserService {
             updated.get().setWage(user.getWage());
             updated.get().setExtraIncome(user.getExtraIncome());
 
-            if(user.getTransactions() != null) {
-                updated.get().setTransactions(user.getTransactions());
-            }
-
             if(user.getAssets() != null) {
                 updated.get().setAssets(user.getAssets());
             }

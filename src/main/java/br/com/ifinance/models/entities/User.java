@@ -42,8 +42,6 @@ public class User {
     private Double extraIncome;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Transaction> transactions;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Patrimony> assets;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Liability> liabilities;
