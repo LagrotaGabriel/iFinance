@@ -139,11 +139,7 @@ function responsive(){
 			editLabel[i].style.fontSize="1.15rem";
 			editInput[i].style.fontSize="1rem";
 		}	
-		for(var i = 0; i < novoBotao.length; i++){
-			editBotao[i].style.fontSize="1rem";
-			editBotao[i].style.fontSize="1rem";
-		}					
-				
+	
 	}
 	else if(bodyWidth <= 992 && bodyWidth > 768){
 		console.log('Médio');
@@ -185,11 +181,7 @@ function responsive(){
 			novoInput[i].style.fontSize="0.85rem";
 			editLabel[i].style.fontSize="1rem";
 			editInput[i].style.fontSize="0.85rem";
-		}
-		for(var i = 0; i < novoBotao.length; i++){
-			novoBotao[i].style.fontSize="0.95rem";
-			editBotao[i].style.fontSize="0.95rem";
-		}		
+		}	
 								
 	}
 	else if(bodyWidth <= 768 && bodyWidth > 540){
@@ -233,10 +225,6 @@ function responsive(){
 			novoInput[i].style.fontSize="0.75rem";
 			editLabel[i].style.fontSize="0.90rem";
 			editInput[i].style.fontSize="0.75rem";			
-		}	
-		for(var i = 0; i < novoBotao.length; i++){
-			novoBotao[i].style.fontSize="0.85rem";
-			editBotao[i].style.fontSize="0.85rem";
 		}					
 								
 	}
@@ -283,11 +271,7 @@ function responsive(){
 			editLabel[i].style.fontSize="0.70rem";
 			editInput[i].style.fontSize="0.65rem";
 		}
-		for(var i = 0; i < novoBotao.length; i++){
-			novoBotao[i].style.fontSize="0.75rem";
-			editBotao[i].style.fontSize="0.75rem";
-		}							
-			
+
 	}
 
 	if(tamanhoMenuSuperior.clientHeight == 0){
@@ -409,6 +393,7 @@ function informativosResponsivity(){
 
 	blockInternoSalario.style.background="transparent";
 	blockInternoSalario.style.color="#FFFFFF";									
+
 }
 
 function overInformativo(hover){
@@ -487,4 +472,124 @@ function leaveInformativo(hover){
 			blockInternoSalario.style.transition="1s";
 			blockInternoSalario.style.animation="none"
 		}
+}
+
+/* =============== INTERAÇÕES COM OS SALÁRIOS INFORMATIVOS =============== */
+
+function openSalario(){
+
+	var conteudoContainer = document.getElementById('conteudo_container');
+	var conteudoContainerSalario = document.getElementById('conteudo_container_salario');
+
+	conteudoContainer.style.display="none";
+	conteudoContainerSalario.style.display="block";
+}
+
+function editSalario(){
+
+	var conteudoContainerSalario = document.getElementById('conteudo_container_salario');
+	var conteudoContainerEditSalario = document.getElementById('conteudo_container_edit_salario');
+
+	conteudoContainerSalario.style.display="none";
+	conteudoContainerEditSalario.style.display="block";
+
+}
+
+function clickOnNewSalario(){
+
+	var conteudoContainerSalario = document.getElementById('conteudo_container_salario');
+	var conteudoContainerNovoSalario = document.getElementById('conteudo_container_novo_salario');
+
+	conteudoContainerSalario.style.display="none";
+	conteudoContainerNovoSalario.style.display="block";
+
+}
+
+function closeSalario(){
+
+	var conteudoContainer = document.getElementById('conteudo_container');
+	var conteudoContainerSalario = document.getElementById('conteudo_container_salario');
+
+	conteudoContainer.style.display="block";
+	conteudoContainerSalario.style.display="none";
+}
+
+function closeEditSalario(){
+
+	var conteudoContainerSalario = document.getElementById('conteudo_container_salario');
+	var conteudoContainerEditSalario = document.getElementById('conteudo_container_edit_salario');
+
+	conteudoContainerSalario.style.display="block";
+	conteudoContainerEditSalario.style.display="none";
+
+}
+
+function closeNewSalario(){
+
+	var conteudoContainerSalario = document.getElementById('conteudo_container_salario');
+	var conteudoContainerNovoSalario = document.getElementById('conteudo_container_novo_salario');
+
+	conteudoContainerSalario.style.display="block";
+	conteudoContainerNovoSalario.style.display="none";
+
+}
+
+/* =============== INTERAÇÕES COM OS DIVIDENDOS INFORMATIVOS =============== */
+
+function openDividendo(){
+
+	var conteudoContainer = document.getElementById('conteudo_container');
+	var conteudoContainerDividendo = document.getElementById('conteudo_container_dividendo');
+
+	conteudoContainer.style.display="none";
+	conteudoContainerDividendo.style.display="block";
+}
+
+function editDividendo(){
+
+	var conteudoContainerDividendo = document.getElementById('conteudo_container_dividendo');
+	var conteudoContainerEditDividendo = document.getElementById('conteudo_container_edit_dividendo');
+
+	conteudoContainerDividendo.style.display="none";
+	conteudoContainerEditDividendo.style.display="block";
+
+}
+
+function clickOnNewDividendo(){
+
+	var conteudoContainerDividendo = document.getElementById('conteudo_container_dividendo');
+	var conteudoContainerNovoDividendo = document.getElementById('conteudo_container_novo_dividendo');
+
+	conteudoContainerDividendo.style.display="none";
+	conteudoContainerNovoDividendo.style.display="block";
+
+}
+
+function closeDividendo(){
+
+	var conteudoContainer = document.getElementById('conteudo_container');
+	var conteudoContainerDividendo = document.getElementById('conteudo_container_dividendo');
+
+	conteudoContainer.style.display="block";
+	conteudoContainerDividendo.style.display="none";
+}
+
+function closeEditDividendo(){
+
+	var conteudoContainerDividendo = document.getElementById('conteudo_container_dividendo');
+	var conteudoContainerEditDividendo = document.getElementById('conteudo_container_edit_dividendo');
+
+	conteudoContainerDividendo.style.display="block";
+	conteudoContainerEditDividendo.style.display="none";
+	
+}
+
+function closeNewDividendo(){
+
+	var conteudoContainerDividendo = document.getElementById('conteudo_container_dividendo');
+	var conteudoContainerNovoDividendo = document.getElementById('conteudo_container_novo_dividendo');
+
+	conteudoContainerDividendo.style.display="block";
+	conteudoContainerNovoDividendo.style.display="none";
+
 }

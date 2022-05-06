@@ -195,7 +195,6 @@
 								</form>
 								
 							</div>
-
 					</header>
 					<!--------------- MENU SUPERIOR DO SITE --------------->
 
@@ -234,7 +233,6 @@
 
 						<!-------------- CONTEUDO_CONTAINER ------------>
 						<div class="container conteudo_container" id="conteudo_container">
-
 							<!-------------- CONTEUDO_CONTAINER - TÍTULO ------------>
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo" id="conteudo_titulo">
 
@@ -251,63 +249,65 @@
 							<!----------- CATEGORIAS DOS INFORMATIVOS ------------>
 							<div class="row informativos_linha informativos_primeira_linha">
 									
-									<div class="informativos_all col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+									<div class="informativos_all col-xl-10 col-lg-6 col-md-12 col-sm-12 col-12">
 
 										<div class="row show first_show " id="first_show">
 
 												<div class="all_column col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-													<div class="col-xl-4 col-lg-6 col-md-3 col-sm-3 col-3 block first_block">
-														<a
-														th:href="@{__${baseUrl}__/patrimonio(type=all, page=1)}"
-														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno"
-														id="block_interno_salario"
-														onmouseover="overInformativo('salario')"
-														onmouseleave="leaveInformativo('salario')">
+													<div class="row linha_blocos">
+														<div class="col-xl-4 col-lg-5 col-md-3 col-sm-10 col-10 block first_block" onclick="openSalario()">
+															<a
+															th:href="@{__${baseUrl}__/patrimonio(type=all, page=1)}"
+															class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno"
+															id="block_interno_salario"
+															onmouseover="overInformativo('salario')"
+															onmouseleave="leaveInformativo('salario')">
 
-															<div class="row block_row block_first_row">
+																<div class="row block_row block_first_row">
 
-																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
-																	R$ 0.00
+																	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																		R$ 0.00
+																	</div>
+
+																</div>	
+
+																<div class="row block_row block_first_row">
+
+																	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
+																		Salário
+																	</div>
+
+																</div>												
+															</a>
+														</div>	
+
+														<div class="col-xl-4 col-lg-5 col-md-3 col-sm-10 col-10 block second_block" onclick="openDividendo()">
+															<a 
+															th:href="@{__${baseUrl}__/patrimonio(type=veiculos, page=1)}" 
+															class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno" 
+															id="block_interno_dividendos"
+															onmouseover="overInformativo('dividendos')"
+															onmouseleave="leaveInformativo('dividendos')">
+
+																<div class="row block_row block_first_row">
+
+																	<div th:text="'R$ ' + ${assetsSum.get(0)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																		R$ 0.00
+																	</div>
+
 																</div>
 
-															</div>	
+																<div class="row block_row block_second_row">
+																	
+																	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
+																		Dividendos
+																	</div>
 
-															<div class="row block_row block_first_row">
-
-																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
-																	Salário
-																</div>
-
-															</div>												
-														</a>
-													</div>	
-
-													<div class="col-xl-4 col-lg-6 col-md-3 col-sm-3 col-3 block second_block">
-														<a 
-														th:href="@{__${baseUrl}__/patrimonio(type=veiculos, page=1)}" 
-														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno" 
-														id="block_interno_dividendos"
-														onmouseover="overInformativo('dividendos')"
-														onmouseleave="leaveInformativo('dividendos')">
-
-															<div class="row block_row block_first_row">
-
-																<div th:text="'R$ ' + ${assetsSum.get(0)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
-																	R$ 0.00
-																</div>
-
-															</div>
-
-															<div class="row block_row block_second_row">
-																
-																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
-																	Dividendos
-																</div>
-
-															</div>	
-														</a>
-													</div>	
+																</div>	
+															</a>
+														</div>	
+													</div>
 
 												</div>
 										</div>
@@ -316,78 +316,687 @@
 
 												<div class="all_column col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-													<div class="col-xl-4 col-lg-6 col-md-3 col-sm-3 col-3 block third_block">
-														<a
-														th:href="@{__${baseUrl}__/patrimonio(type=banco, page=1)}"
-														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno"
-														id="block_interno_extra"
-														onmouseover="overInformativo('extra')"
-														onmouseleave="leaveInformativo('extra')">
+													<div class="row linha_blocos">													
+														<div class="col-xl-4 col-lg-5 col-md-3 col-sm-10 col-10 block third_block">
+															<a
+															th:href="@{__${baseUrl}__/patrimonio(type=banco, page=1)}"
+															class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno"
+															id="block_interno_extra"
+															onmouseover="overInformativo('extra')"
+															onmouseleave="leaveInformativo('extra')">
 
-															<div class="row block_row block_first_row">
+																<div class="row block_row block_first_row">
 
-																<div th:text="'R$ ' + ${assetsSum.get(2)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
-																	R$ 0.00
+																	<div th:text="'R$ ' + ${assetsSum.get(2)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																		R$ 0.00
+																	</div>
+
 																</div>
 
-															</div>
+																<div class="row block_row block_second_row">
+																	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
+																		Renda extra
+																	</div>
+																</div>	
+															</a>
+														</div>	
 
-															<div class="row block_row block_second_row">
-																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
-																	Renda extra
-																</div>
-															</div>	
-														</a>
-													</div>	
+														<div class="col-xl-4 col-lg-5 col-md-3 col-sm-10 col-10 block fourth_block">
+															<a
+															th:href="@{__${baseUrl}__/patrimonio(type=investimentos, page=1)}"
+															class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno"
+															id="block_interno_outros"
+															onmouseover="overInformativo('outros')"
+															onmouseleave="leaveInformativo('outros')">
 
-													<div class="col-xl-4 col-lg-6 col-md-3 col-sm-3 col-3 block fourth_block">
-														<a
-														th:href="@{__${baseUrl}__/patrimonio(type=investimentos, page=1)}"
-														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno"
-														id="block_interno_outros"
-														onmouseover="overInformativo('outros')"
-														onmouseleave="leaveInformativo('outros')">
+																<div class="row block_row block_first_row">
 
-															<div class="row block_row block_first_row">
+																	<div th:text="'R$ ' + ${assetsSum.get(3)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
+																		R$ 0.00
+																	</div>
 
-																<div th:text="'R$ ' + ${assetsSum.get(3)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel">
-																	R$ 0.00
-																</div>
-
-															</div>
-
-															<div class="row block_row block_second_row">
-																
-																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
-																	Outros
 																</div>
 
-															</div>	
+																<div class="row block_row block_second_row">
+																	
+																	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel">
+																		Outros
+																	</div>
 
-														</a>
+																</div>	
+
+															</a>
+														</div>
 
 													</div>
 
 												</div>
-										</div>										
+										</div>		
+
 									</div>
-						
 							</div>	
 							<!----------- CATEGORIAS DOS INFORMATIVOS ------------>
-
-
-
-
-
-
-
-
-
-
-
-
 						</div>
 						<!<!----------- CONTEUDO_CONTAINER ------------>
+
+						<!--------------------------------------------------------------------->
+						<!------------------------ PARTE DOS SALÁRIOS ------------------------->
+						<!--------------------------------------------------------------------->
+
+						<!-------------- CONTEUDO_SALARIO ------------>
+						<div class="conteudo_container_salario col-xl-8 col-lg-9 col-md-10 col-sm-11 col-12" id="conteudo_container_salario" >
+
+							<a href="#" class="salario_voltar" onclick="closeSalario()">x</a>
+
+							<!-------------- CONTEUDO_SALARIO - TÍTULO ------------>
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo conteudo_titulo_salario" id="conteudo_titulo_salario">
+
+								<div th:if="${Sucesso}" class="alert alert-success" id="sucessoSalario" onclick="hideMessage()" hidden>
+									<p th:text="${Sucesso}"></p>
+								</div>								
+
+								<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text conteudo_titulo_text_salario" id="conteudo_titulo_text_salario">
+									Salários
+								</h1>
+							</div>
+							<!-------------- CONTEUDO_SALARIO - TÍTULO ------------>
+
+							<!----------- BLOCOS DOS SALÁRIOS ------------>
+							<div class="row informativos_linha informativo_linha_salario informativos_primeira_linha informativos_primeira_linha_salario">
+									
+									<!----------- INFORMATIVOS ALL - INICIO ------------>
+									<div class="informativos_all informativos_all_salario col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+
+										<!----------- SHOW - INICIO ------------>
+										<div class="row show show_salario first_show_salario " id="first_show_salario">
+
+											<!----------- ALL COLUMN - INICIO ------------>
+											<div class="all_column all_column_salario col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+												<!----------- BLOCK - INICIO ------------>
+												<div class="row linha_blocos">
+													<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 block block_salario last_block last_block_salario" onclick="editSalario()">
+
+														<!----------- BLOCK INTERNO - INICIO ------------>
+														<a
+														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno block_interno_salario"
+														id="block_interno_firstSalario"
+														onmouseover="overInformativo('salario')"
+														onmouseleave="leaveInformativo('salario')">
+
+															<!----------- SUB-BLOCO SUPERIOR - INICIO ------------>
+															<div class="row block_row block_row_salario block_first_row block_first_row_salario">
+																	<!----------- SUB-BLOCO SUPERIOR CLICAVEL - INICIO ------------>
+																	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel block_clicavel_salario first_block_clicavel_salario">
+																		Marceneiro
+																	</div>
+																	<!----------- SUB-BLOCO SUPERIOR CLICAVEL - FIM ------------>
+															</div>	
+															<!----------- SUB-BLOCO SUPERIOR - FIM ------------>
+
+															<!----------- SUB-BLOCO INFERIOR - INICIO ------------>
+															<div class="row block_row block_row_salario block_first_row block_first_row_salario">
+																<!----------- SUB-BLOCO INFERIOR CLICAVEL - INICIO ------------>
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel block_clicavel_salario second_block_clicavel_salario">
+																	R$ 2.200,00
+																</div>
+																<!----------- SUB-BLOCO INFERIOR CLICAVEL - FIM ------------>
+															</div>
+															<!----------- SUB-BLOCO INFERIOR - FIM ------------>
+
+														</a>
+														<!----------- BLOCK INTERNO - FIM ------------>
+													</div>	
+													<!----------- BLOCK - FIM ------------>		
+
+													<!----------- BLOCK MAIS - INICIO ------------>
+													<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 block block_salario last_block last_block_salario" onclick="clickOnNewSalario()">
+
+														<!----------- BLOCK INTERNO - INICIO ------------>
+														<a
+														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno block_interno_salario last_block_interno_salario"
+														id="block_interno_firstSalario"
+														onmouseover="overInformativo('salario')"
+														onmouseleave="leaveInformativo('salario')">
+
+															<!----------- SUB-BLOCO SUPERIOR - INICIO ------------>
+															<div class="row block_row block_row_salario block_first_row block_first_row_salario">
+																	<!----------- SUB-BLOCO SUPERIOR CLICAVEL - INICIO ------------>
+																	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel block_clicavel_salario first_block_clicavel_salario">
+																		+
+																	</div>
+																	<!----------- SUB-BLOCO SUPERIOR CLICAVEL - FIM ------------>
+															</div>	
+															<!----------- SUB-BLOCO SUPERIOR - FIM ------------>
+
+															<!----------- SUB-BLOCO INFERIOR - INICIO ------------>
+															<div class="row block_row block_row_salario block_first_row block_first_row_salario">
+																<!----------- SUB-BLOCO INFERIOR CLICAVEL - INICIO ------------>
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel block_clicavel_salario second_block_clicavel_salario">
+																	Adicionar
+																</div>
+																<!----------- SUB-BLOCO INFERIOR CLICAVEL - FIM ------------>
+															</div>
+															<!----------- SUB-BLOCO INFERIOR - FIM ------------>
+
+														</a>
+														<!----------- BLOCK INTERNO - FIM ------------>
+													</div>	
+												</div>
+												<!----------- BLOCK MAIS - FIM ------------>										
+											</div>
+											<!----------- ALL COLUMN - FIM ------------>
+
+										</div>
+										<!----------- SHOW - FIM ------------>
+								
+									</div>
+									<!----------- INFORMATIVOS ALL - FIM ------------>
+							</div>	
+							<!----------- BLOCOS DOS SALÁRIOS ------------>
+						</div>
+						<!-------------- CONTEUDO_SALARIO ------------>
+
+						<!-------------- NOVO_SALARIO ------------>
+						<div class="conteudo_container_novo_salario col-xl-8 col-lg-8 col-md-9 col-sm-10 col-10" id="conteudo_container_novo_salario" >
+
+							<!-------------- NOVO_SALARIO - TÍTULO ------------>
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo conteudo_titulo_novo_salario" id="conteudo_titulo_novo_salario">							
+
+								<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text conteudo_titulo_text_novo_salario" id="conteudo_titulo_text_novo_salario">
+									Cadastrar salário
+								</h1>
+
+							</div>
+							<!-------------- NOVO_SALARIO - TÍTULO ------------>
+
+							<form>
+								<!-------------- NOVO_SALARIO - CAMPOS DE ENTRADA ------------>
+								<div class="row novo_salario_linha">
+
+									<!-- DESCRIÇÃO -->
+									<div class="novo_salario novo_salario_descricao col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label type="text" class="novo_salario_label novo_salario_descricao_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Descrição
+
+										</label>	
+
+										<input class="novo_salario_input novo_salario_descricao_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+									</div>	
+
+									<!-- VALOR -->
+									<div class="novo_salario novo_salario_valor col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label class="novo_salario_label novo_salario_valor_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Valor
+
+										</label>	
+
+										<input type="number" class="novo_salario_input novo_salario_valor_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+									</div>				
+
+									<!-- PERIODICIDADE -->
+									<div class="novo_salario novo_salario_frequencia col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label class="novo_salario_label novo_salario_frequencia_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Periodicidade
+
+										</label>	
+
+										<select class="novo_salario_input novo_salario_frequencia_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+											<option>Semanal</option>
+											<option>Quinzenal</option>
+											<option>Mensal</option>
+											<option>Bimestral</option>
+											<option>Trimestral</option>
+											<option>Semestral</option>
+											<option>Anual</option>
+
+										</select>
+									</div>														
+
+								</div>	
+								<!-------------- NOVO_SALARIO - CAMPOS DE ENTRADA ------------>
+
+								<!-------------- NOVO_SALARIO - BOTÕES ------------>
+								<div class="row novo_salario_linha">
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_novo_botao">
+										<button type="button" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_botao" onclick="closeNewSalario()">
+											Voltar
+										</button>
+									</div>	
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_novo_botao">
+										<button type="submit" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_botao">
+											Salvar
+										</button>
+									</div>		
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_novo_botao">
+										<button type="reset" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_botao">
+											Limpar
+										</button>
+									</div>														
+								</div>								
+								<!-------------- NOVO_SALARIO - BOTÕES ------------>
+							</form>
+						</div>
+						<!-------------- NOVO_SALARIO ------------>		
+
+						<!-------------- EDIT_SALARIO ------------>
+						<div class="conteudo_container_edit_salario col-xl-8 col-lg-8 col-md-9 col-sm-10 col-10" id="conteudo_container_edit_salario" >
+
+							<!-------------- edit_SALARIO - TÍTULO ------------>
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo conteudo_titulo_edit_salario" id="conteudo_titulo_edit_salario">							
+
+								<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text conteudo_titulo_text_edit_salario" id="conteudo_titulo_text_edit_salario">
+									Editar salário
+								</h1>
+
+							</div>
+							<!-------------- edit_SALARIO - TÍTULO ------------>
+
+							<form>
+								<!-------------- edit_SALARIO - CAMPOS DE ENTRADA ------------>
+								<div class="row edit_salario_linha">
+
+									<!-- DESCRIÇÃO -->
+									<div class="edit_salario edit_salario_descricao col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label type="text" class="edit_salario_label edit_salario_descricao_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Descrição
+
+										</label>	
+
+										<input class="edit_salario_input edit_salario_descricao_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+									</div>	
+
+									<!-- VALOR -->
+									<div class="edit_salario edit_salario_valor col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label class="edit_salario_label edit_salario_valor_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Valor
+
+										</label>	
+
+										<input type="number" class="edit_salario_input edit_salario_valor_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+									</div>				
+
+									<!-- PERIODICIDADE -->
+									<div class="edit_salario edit_salario_frequencia col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label class="edit_salario_label edit_salario_frequencia_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Periodicidade
+
+										</label>	
+
+										<select class="edit_salario_input edit_salario_frequencia_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+											<option>Semanal</option>
+											<option>Quinzenal</option>
+											<option>Mensal</option>
+											<option>Bimestral</option>
+											<option>Trimestral</option>
+											<option>Semestral</option>
+											<option>Anual</option>
+
+										</select>
+									</div>														
+
+								</div>	
+								<!-------------- edit_SALARIO - CAMPOS DE ENTRADA ------------>
+
+								<!-------------- edit_SALARIO - BOTÕES ------------>
+								<div class="row edit_salario_linha">
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_edit_botao">
+										<button type="button" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_botao" onclick="closeEditSalario()">
+											Voltar
+										</button>
+									</div>	
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_edit_botao">
+										<button type="submit" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_botao">
+											Salvar
+										</button>
+									</div>		
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_edit_botao">
+										<button type="reset" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_botao">
+											Limpar
+										</button>
+									</div>														
+								</div>								
+								<!-------------- edit_SALARIO - BOTÕES ------------>
+							</form>
+						</div>
+						<!-------------- EDIT_SALARIO ------------>		
+
+						<!--------------------------------------------------------------------->
+						<!------------------------ PARTE DOS DIVIDENDOS ------------------------->
+						<!--------------------------------------------------------------------->
+
+						<!-------------- CONTEUDO_dividendo ------------>
+						<div class="conteudo_container_dividendo col-xl-8 col-lg-9 col-md-10 col-sm-11 col-12" id="conteudo_container_dividendo" >
+
+							<a href="#" class="dividendo_voltar" onclick="closeDividendo()">x</a>
+
+							<!-------------- CONTEUDO_dividendo - TÍTULO ------------>
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo conteudo_titulo_dividendo" id="conteudo_titulo_dividendo">
+
+								<div th:if="${Sucesso}" class="alert alert-success" id="sucessoDividendo" onclick="hideMessage()" hidden>
+									<p th:text="${Sucesso}"></p>
+								</div>								
+
+								<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text conteudo_titulo_text_dividendo" id="conteudo_titulo_text_dividendo">
+									Dividendos
+								</h1>
+							</div>
+							<!-------------- CONTEUDO_dividendo - TÍTULO ------------>
+
+							<!----------- BLOCOS DOS DIVIDENDOS ------------>
+							<div class="row informativos_linha informativo_linha_dividendo informativos_primeira_linha informativos_primeira_linha_dividendo">
+									
+									<!----------- INFORMATIVOS ALL - INICIO ------------>
+									<div class="informativos_all informativos_all_dividendo col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+
+										<!----------- SHOW - INICIO ------------>
+										<div class="row show show_dividendo first_show_dividendo " id="first_show_dividendo">
+
+											<!----------- ALL COLUMN - INICIO ------------>
+											<div class="all_column all_column_dividendo col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+												<!----------- BLOCK - INICIO ------------>
+												<div class="row linha_blocos">
+													<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 block block_dividendo last_block last_block_dividendo" onclick="editDividendo()">
+
+														<!----------- BLOCK INTERNO - INICIO ------------>
+														<a
+														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno block_interno_dividendo"
+														id="block_interno_firstdividendo"
+														onmouseover="overInformativo('dividendo')"
+														onmouseleave="leaveInformativo('dividendo')">
+
+															<!----------- SUB-BLOCO SUPERIOR - INICIO ------------>
+															<div class="row block_row block_row_dividendo block_first_row block_first_row_dividendo">
+																	<!----------- SUB-BLOCO SUPERIOR CLICAVEL - INICIO ------------>
+																	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel block_clicavel_dividendo first_block_clicavel_dividendo">
+																		URPR11
+																	</div>
+																	<!----------- SUB-BLOCO SUPERIOR CLICAVEL - FIM ------------>
+															</div>	
+															<!----------- SUB-BLOCO SUPERIOR - FIM ------------>
+
+															<!----------- SUB-BLOCO INFERIOR - INICIO ------------>
+															<div class="row block_row block_row_dividendo block_first_row block_first_row_dividendo">
+																<!----------- SUB-BLOCO INFERIOR CLICAVEL - INICIO ------------>
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel block_clicavel_dividendo second_block_clicavel_dividendo">
+																	R$ 135,00
+																</div>
+																<!----------- SUB-BLOCO INFERIOR CLICAVEL - FIM ------------>
+															</div>
+															<!----------- SUB-BLOCO INFERIOR - FIM ------------>
+
+														</a>
+														<!----------- BLOCK INTERNO - FIM ------------>
+													</div>	
+													<!----------- BLOCK - FIM ------------>		
+
+													<!----------- BLOCK MAIS - INICIO ------------>
+													<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 block block_dividendo last_block last_block_dividendo" onclick="clickOnNewDividendo()">
+
+														<!----------- BLOCK INTERNO - INICIO ------------>
+														<a
+														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno block_interno_dividendo last_block_interno_dividendo"
+														id="block_interno_firstDividendo"
+														onmouseover="overInformativo('dividendo')"
+														onmouseleave="leaveInformativo('dividendo')">
+
+															<!----------- SUB-BLOCO SUPERIOR - INICIO ------------>
+															<div class="row block_row block_row_dividendo block_first_row block_first_row_dividendo">
+																	<!----------- SUB-BLOCO SUPERIOR CLICAVEL - INICIO ------------>
+																	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel block_clicavel_dividendo first_block_clicavel_dividendo">
+																		+
+																	</div>
+																	<!----------- SUB-BLOCO SUPERIOR CLICAVEL - FIM ------------>
+															</div>	
+															<!----------- SUB-BLOCO SUPERIOR - FIM ------------>
+
+															<!----------- SUB-BLOCO INFERIOR - INICIO ------------>
+															<div class="row block_row block_row_dividendo block_first_row block_first_row_dividendo">
+																<!----------- SUB-BLOCO INFERIOR CLICAVEL - INICIO ------------>
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel block_clicavel_dividendo second_block_clicavel_dividendo">
+																	Adicionar
+																</div>
+																<!----------- SUB-BLOCO INFERIOR CLICAVEL - FIM ------------>
+															</div>
+															<!----------- SUB-BLOCO INFERIOR - FIM ------------>
+
+														</a>
+														<!----------- BLOCK INTERNO - FIM ------------>
+													</div>	
+												</div>
+												<!----------- BLOCK MAIS - FIM ------------>										
+											</div>
+											<!----------- ALL COLUMN - FIM ------------>
+
+										</div>
+										<!----------- SHOW - FIM ------------>
+								
+									</div>
+									<!----------- INFORMATIVOS ALL - FIM ------------>
+							</div>	
+							<!----------- BLOCOS DOS DIVIDENDOS ------------>
+						</div>
+						<!-------------- CONTEUDO_dividendo ------------>						
+
+						<!-------------- NOVO_dividendo ------------>
+						<div class="conteudo_container_novo_dividendo col-xl-8 col-lg-8 col-md-9 col-sm-10 col-10" id="conteudo_container_novo_dividendo" >
+
+							<!-------------- NOVO_dividendo - TÍTULO ------------>
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo conteudo_titulo_novo_dividendo" id="conteudo_titulo_novo_dividendo">							
+
+								<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text conteudo_titulo_text_novo_dividendo" id="conteudo_titulo_text_novo_dividendo">
+									Cadastrar dividendo
+								</h1>
+
+							</div>
+							<!-------------- NOVO_dividendo - TÍTULO ------------>
+
+							<form>
+								<!-------------- NOVO_dividendo - CAMPOS DE ENTRADA ------------>
+								<div class="row novo_dividendo_linha">
+
+									<!-- DESCRIÇÃO -->
+									<div class="novo_dividendo novo_dividendo_descricao col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label type="text" class="novo_dividendo_label novo_dividendo_descricao_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Descrição
+
+										</label>	
+
+										<input class="novo_dividendo_input novo_dividendo_descricao_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+									</div>	
+
+									<!-- VALOR -->
+									<div class="novo_dividendo novo_dividendo_valor col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label class="novo_dividendo_label novo_dividendo_valor_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Valor
+
+										</label>	
+
+										<input type="number" class="novo_dividendo_input novo_dividendo_valor_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+									</div>				
+
+									<!-- PERIODICIDADE -->
+									<div class="novo_dividendo novo_dividendo_frequencia col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label class="novo_dividendo_label novo_dividendo_frequencia_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Periodicidade
+
+										</label>	
+
+										<select class="novo_dividendo_input novo_dividendo_frequencia_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+											<option>Semanal</option>
+											<option>Quinzenal</option>
+											<option>Mensal</option>
+											<option>Bimestral</option>
+											<option>Trimestral</option>
+											<option>Semestral</option>
+											<option>Anual</option>
+
+										</select>
+									</div>														
+
+								</div>	
+								<!-------------- NOVO_dividendo - CAMPOS DE ENTRADA ------------>
+
+								<!-------------- NOVO_dividendo - BOTÕES ------------>
+								<div class="row novo_dividendo_linha">
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_novo_botao">
+										<button type="button" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_botao" onclick="closeNewDividendo()">
+											Voltar
+										</button>
+									</div>	
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_novo_botao">
+										<button type="submit" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_botao">
+											Salvar
+										</button>
+									</div>		
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_novo_botao">
+										<button type="reset" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_botao">
+											Limpar
+										</button>
+									</div>														
+								</div>								
+								<!-------------- NOVO_dividendo - BOTÕES ------------>
+							</form>
+						</div>
+						<!-------------- NOVO_dividendo ------------>	
+
+						<!-------------- EDIT_dividendo ------------>
+						<div class="conteudo_container_edit_dividendo col-xl-8 col-lg-8 col-md-9 col-sm-10 col-10 " id="conteudo_container_edit_dividendo" >
+
+							<!-------------- edit_dividendo - TÍTULO ------------>
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo conteudo_titulo_edit_dividendo" id="conteudo_titulo_edit_dividendo">							
+
+								<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text conteudo_titulo_text_edit_dividendo" id="conteudo_titulo_text_edit_dividendo">
+									Editar dividendo
+								</h1>
+
+							</div>
+							<!-------------- edit_dividendo - TÍTULO ------------>
+
+							<form>
+								<!-------------- edit_dividendo - CAMPOS DE ENTRADA ------------>
+								<div class="row edit_dividendo_linha">
+
+									<!-- DESCRIÇÃO -->
+									<div class="edit_dividendo edit_dividendo_descricao col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label type="text" class="edit_dividendo_label edit_dividendo_descricao_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Descrição
+
+										</label>	
+
+										<input class="edit_dividendo_input edit_dividendo_descricao_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+									</div>	
+
+									<!-- VALOR -->
+									<div class="edit_dividendo edit_dividendo_valor col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label class="edit_dividendo_label edit_dividendo_valor_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Valor
+
+										</label>	
+
+										<input type="number" class="edit_dividendo_input edit_dividendo_valor_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+									</div>				
+
+									<!-- PERIODICIDADE -->
+									<div class="edit_dividendo edit_dividendo_frequencia col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label class="edit_dividendo_label edit_dividendo_frequencia_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Periodicidade
+
+										</label>	
+
+										<select class="edit_dividendo_input edit_dividendo_frequencia_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+											<option>Semanal</option>
+											<option>Quinzenal</option>
+											<option>Mensal</option>
+											<option>Bimestral</option>
+											<option>Trimestral</option>
+											<option>Semestral</option>
+											<option>Anual</option>
+
+										</select>
+									</div>														
+
+								</div>	
+								<!-------------- edit_dividendo - CAMPOS DE ENTRADA ------------>
+
+								<!-------------- edit_dividendo - BOTÕES ------------>
+								<div class="row edit_dividendo_linha">
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_edit_botao">
+										<button type="button" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_botao" onclick="closeEditDividendo()">
+											Voltar
+										</button>
+									</div>	
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_edit_botao">
+										<button type="submit" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_botao">
+											Salvar
+										</button>
+									</div>		
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_edit_botao">
+										<button type="reset" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_botao">
+											Limpar
+										</button>
+									</div>														
+								</div>								
+								<!-------------- edit_dividendo - BOTÕES ------------>
+							</form>
+						</div>
+						<!-------------- EDIT_dividendo ------------>		
+
+
+
+
+
+
+
 					</div><!-- CONTAINER_ALIGN -->
 
 				</main>	<!-- CONTEÚDO PRINCIPAL DO SITE ( AO LADO DA SIDEBAR )-->
