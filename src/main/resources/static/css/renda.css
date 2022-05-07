@@ -95,9 +95,9 @@
 ==================================================================================
 ================================================================================*/
 
-/* ===================== CONTAINER DO SALÁRIO & DIVIDENDOS ===================== */
+/* ===================== CONTAINER DO SALÁRIO & DIVIDENDOS & EXTRA ===================== */
 
-.conteudo_container_salario, .conteudo_container_dividendo{
+.conteudo_container_salario, .conteudo_container_dividendo, .conteudo_container_extra, .conteudo_container_outro{
     display: none;
     opacity: 0.96;
     background: #121212;
@@ -108,11 +108,11 @@
     opacity: 0.95;
 }
 
-.block_interno_salario, .block_interno_dividendo{
+.block_interno_salario, .block_interno_dividendo, .block_interno_extra, .block_interno_outro{
     color: #FFFFFF;
 }
 
-.salario_voltar, .dividendo_voltar{
+.salario_voltar, .dividendo_voltar, .extra_voltar, .outro_voltar{
     color: #FFFFFF;
     float: right;
     text-align: right;
@@ -124,7 +124,7 @@
     margin-top: 5px;
 }
 
-.salario_voltar:hover, .dividendo_voltar:hover{
+.salario_voltar:hover, .dividendo_voltar:hover, .extra_voltar:hover, .outro_voltar:hover{
     color: grey;
     transition: 1s;
 }
@@ -139,7 +139,7 @@
 
 /* ================ CONTAINER DO NOVO & EDIT SALÁRIO & DIVIDENDO ================ */
 
-.conteudo_container_novo_salario, .conteudo_container_edit_salario, .conteudo_container_novo_dividendo, .conteudo_container_edit_dividendo{
+.conteudo_container_novo_salario, .conteudo_container_edit_salario, .conteudo_container_novo_dividendo, .conteudo_container_edit_dividendo, .conteudo_container_novo_extra, .conteudo_container_edit_extra, .conteudo_container_novo_outro, .conteudo_container_edit_outro{
     display: none;
     opacity: 0.96;
     background: #121212;
@@ -150,7 +150,7 @@
     opacity: 0.95;
 }
 
-.novo_salario_linha, .edit_salario_linha, .novo_dividendo_linha, .edit_dividendo_linha{
+.novo_salario_linha, .edit_salario_linha, .novo_dividendo_linha, .edit_dividendo_linha, .novo_extra_linha, .edit_extra_linha, .novo_outro_linha, .edit_outro_linha{
     width: 95%;
     margin: 0 auto;
     display: flex;
@@ -158,13 +158,13 @@
     margin-bottom: 30px;
 }
 
-.novo_salario_label, .edit_salario_label, .novo_dividendo_label, .edit_dividendo_label{
+.novo_salario_label, .edit_salario_label, .novo_dividendo_label, .edit_dividendo_label, .novo_extra_label, .edit_extra_label, .novo_outro_label, .edit_outro_label{
     color: #FFFFFF;
     font-size: 1.15rem;
     margin-bottom: 10px;    
 }
 
-.novo_salario_input, .edit_salario_input, .novo_dividendo_input, .edit_dividendo_input{
+.novo_salario_input, .edit_salario_input, .novo_dividendo_input, .edit_dividendo_input, .novo_extra_input, .edit_extra_input, .novo_outro_input, .edit_outro_input{
     border: 1px solid #00CCFF;
     background: transparent;
     padding: 8px 8px;
@@ -176,10 +176,10 @@ option{
     background: #212121;
 }
 
-.novo_salario, .edit_salario, .novo_dividendo, .edit_dividendo{
+.novo_salario, .edit_salario, .novo_dividendo, .edit_dividendo, .novo_extra, .edit_extra{
     margin-bottom: 15px;
 }
-.novo_salario_frequencia, .edit_salario_frequencia, .novo_dividendo_frequencia, .edit_dividendo_frequencia{
+.novo_salario_frequencia, .edit_salario_frequencia, .novo_dividendo_frequencia, .edit_dividendo_frequencia, .novo_extra_frequencia, .edit_extra_frequencia, .novo_outro_frequencia, .edit_outro_frequencia{
     margin-bottom: 0;
 }
 

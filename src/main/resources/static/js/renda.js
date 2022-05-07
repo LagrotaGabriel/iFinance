@@ -593,3 +593,123 @@ function closeNewDividendo(){
 	conteudoContainerNovoDividendo.style.display="none";
 
 }
+
+/* =============== INTERAÇÕES COM OS EXTRAS INFORMATIVOS =============== */
+
+function openExtra(){
+
+	var conteudoContainer = document.getElementById('conteudo_container');
+	var conteudoContainerExtra = document.getElementById('conteudo_container_extra');
+
+	conteudoContainer.style.display="none";
+	conteudoContainerExtra.style.display="block";
+}
+
+function editExtra(){
+
+	var conteudoContainerExtra = document.getElementById('conteudo_container_extra');
+	var conteudoContainerEditExtra = document.getElementById('conteudo_container_edit_extra');
+
+	conteudoContainerExtra.style.display="none";
+	conteudoContainerEditExtra.style.display="block";
+
+}
+
+function clickOnNewExtra(){
+
+	var conteudoContainerExtra = document.getElementById('conteudo_container_extra');
+	var conteudoContainerNovoExtra = document.getElementById('conteudo_container_novo_extra');
+
+	conteudoContainerExtra.style.display="none";
+	conteudoContainerNovoExtra.style.display="block";
+
+}
+
+function closeExtra(){
+
+	var conteudoContainer = document.getElementById('conteudo_container');
+	var conteudoContainerExtra = document.getElementById('conteudo_container_extra');
+
+	conteudoContainer.style.display="block";
+	conteudoContainerExtra.style.display="none";
+}
+
+function closeEditExtra(){
+
+	var conteudoContainerExtra = document.getElementById('conteudo_container_extra');
+	var conteudoContainerEditExtra = document.getElementById('conteudo_container_edit_extra');
+
+	conteudoContainerExtra.style.display="block";
+	conteudoContainerEditExtra.style.display="none";
+	
+}
+
+function closeNewExtra(){
+
+	var conteudoContainerExtra = document.getElementById('conteudo_container_extra');
+	var conteudoContainerNovoExtra = document.getElementById('conteudo_container_novo_extra');
+
+	conteudoContainerExtra.style.display="block";
+	conteudoContainerNovoExtra.style.display="none";
+
+}
+
+/* =============== INTERAÇÕES COM OS OUTROS INFORMATIVOS =============== */
+
+function openOutro(){
+
+	var conteudoContainer = document.getElementById('conteudo_container');
+	var conteudoContainerOutro = document.getElementById('conteudo_container_outro');
+
+	conteudoContainer.style.display="none";
+	conteudoContainerOutro.style.display="block";
+}
+
+function editOutro(){
+
+	var conteudoContainerOutro = document.getElementById('conteudo_container_outro');
+	var conteudoContainerEditOutro = document.getElementById('conteudo_container_edit_outro');
+
+	conteudoContainerOutro.style.display="none";
+	conteudoContainerEditOutro.style.display="block";
+
+}
+
+function clickOnNewOutro(){
+
+	var conteudoContainerOutro = document.getElementById('conteudo_container_outro');
+	var conteudoContainerNovoOutro = document.getElementById('conteudo_container_novo_outro');
+
+	conteudoContainerOutro.style.display="none";
+	conteudoContainerNovoOutro.style.display="block";
+
+}
+
+function closeOutro(){
+
+	var conteudoContainer = document.getElementById('conteudo_container');
+	var conteudoContainerOutro = document.getElementById('conteudo_container_outro');
+
+	conteudoContainer.style.display="block";
+	conteudoContainerOutro.style.display="none";
+}
+
+function closeEditOutro(){
+
+	var conteudoContainerOutro = document.getElementById('conteudo_container_outro');
+	var conteudoContainerEditOutro = document.getElementById('conteudo_container_edit_outro');
+
+	conteudoContainerOutro.style.display="block";
+	conteudoContainerEditOutro.style.display="none";
+	
+}
+
+function closeNewOutro(){
+
+	var conteudoContainerOutro = document.getElementById('conteudo_container_outro');
+	var conteudoContainerNovoOutro = document.getElementById('conteudo_container_novo_outro');
+
+	conteudoContainerOutro.style.display="block";
+	conteudoContainerNovoOutro.style.display="none";
+
+}

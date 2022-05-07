@@ -231,6 +231,10 @@
 					<!-- CONTAINER_ALIGN -->
 					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 container_align" id="container_align">
 
+						<!--------------------------------------------------------------------->
+						<!------------------- PARTE DO CONTAINER PRINCIPAL -------------------->
+						<!--------------------------------------------------------------------->
+						
 						<!-------------- CONTEUDO_CONTAINER ------------>
 						<div class="container conteudo_container" id="conteudo_container">
 							<!-------------- CONTEUDO_CONTAINER - TÍTULO ------------>
@@ -317,7 +321,7 @@
 												<div class="all_column col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
 													<div class="row linha_blocos">													
-														<div class="col-xl-4 col-lg-5 col-md-3 col-sm-10 col-10 block third_block">
+														<div class="col-xl-4 col-lg-5 col-md-3 col-sm-10 col-10 block third_block" onclick="openExtra()">
 															<a
 															th:href="@{__${baseUrl}__/patrimonio(type=banco, page=1)}"
 															class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno"
@@ -341,7 +345,7 @@
 															</a>
 														</div>	
 
-														<div class="col-xl-4 col-lg-5 col-md-3 col-sm-10 col-10 block fourth_block">
+														<div class="col-xl-4 col-lg-5 col-md-3 col-sm-10 col-10 block fourth_block" onclick="openOutro()">
 															<a
 															th:href="@{__${baseUrl}__/patrimonio(type=investimentos, page=1)}"
 															class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno"
@@ -377,7 +381,6 @@
 							</div>	
 							<!----------- CATEGORIAS DOS INFORMATIVOS ------------>
 						</div>
-						<!<!----------- CONTEUDO_CONTAINER ------------>
 
 						<!--------------------------------------------------------------------->
 						<!------------------------ PARTE DOS SALÁRIOS ------------------------->
@@ -495,7 +498,6 @@
 							</div>	
 							<!----------- BLOCOS DOS SALÁRIOS ------------>
 						</div>
-						<!-------------- CONTEUDO_SALARIO ------------>
 
 						<!-------------- NOVO_SALARIO ------------>
 						<div class="conteudo_container_novo_salario col-xl-8 col-lg-8 col-md-9 col-sm-10 col-10" id="conteudo_container_novo_salario" >
@@ -588,8 +590,7 @@
 								</div>								
 								<!-------------- NOVO_SALARIO - BOTÕES ------------>
 							</form>
-						</div>
-						<!-------------- NOVO_SALARIO ------------>		
+						</div>	
 
 						<!-------------- EDIT_SALARIO ------------>
 						<div class="conteudo_container_edit_salario col-xl-8 col-lg-8 col-md-9 col-sm-10 col-10" id="conteudo_container_edit_salario" >
@@ -683,7 +684,6 @@
 								<!-------------- edit_SALARIO - BOTÕES ------------>
 							</form>
 						</div>
-						<!-------------- EDIT_SALARIO ------------>		
 
 						<!--------------------------------------------------------------------->
 						<!------------------------ PARTE DOS DIVIDENDOS ------------------------->
@@ -800,8 +800,7 @@
 									<!----------- INFORMATIVOS ALL - FIM ------------>
 							</div>	
 							<!----------- BLOCOS DOS DIVIDENDOS ------------>
-						</div>
-						<!-------------- CONTEUDO_dividendo ------------>						
+						</div>						
 
 						<!-------------- NOVO_dividendo ------------>
 						<div class="conteudo_container_novo_dividendo col-xl-8 col-lg-8 col-md-9 col-sm-10 col-10" id="conteudo_container_novo_dividendo" >
@@ -895,7 +894,6 @@
 								<!-------------- NOVO_dividendo - BOTÕES ------------>
 							</form>
 						</div>
-						<!-------------- NOVO_dividendo ------------>	
 
 						<!-------------- EDIT_dividendo ------------>
 						<div class="conteudo_container_edit_dividendo col-xl-8 col-lg-8 col-md-9 col-sm-10 col-10 " id="conteudo_container_edit_dividendo" >
@@ -988,14 +986,612 @@
 								</div>								
 								<!-------------- edit_dividendo - BOTÕES ------------>
 							</form>
+						</div>	
+
+						<!--------------------------------------------------------------------->
+						<!----------------------- PARTE DA RENDA EXTRA ------------------------>
+						<!--------------------------------------------------------------------->	
+
+						<!-------------- CONTEUDO_extra ------------>
+						<div class="conteudo_container_extra col-xl-8 col-lg-9 col-md-10 col-sm-11 col-12" id="conteudo_container_extra" >
+
+							<a href="#" class="extra_voltar" onclick="closeExtra()">x</a>
+
+							<!-------------- CONTEUDO_extra - TÍTULO ------------>
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo conteudo_titulo_extra" id="conteudo_titulo_extra">
+
+								<div th:if="${Sucesso}" class="alert alert-success" id="sucessoExtra" onclick="hideMessage()" hidden>
+									<p th:text="${Sucesso}"></p>
+								</div>								
+
+								<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text conteudo_titulo_text_extra" id="conteudo_titulo_text_extra">
+									Renda extra
+								</h1>
+							</div>
+							<!-------------- CONTEUDO_extra - TÍTULO ------------>
+
+							<!----------- BLOCOS DOS extra ------------>
+							<div class="row informativos_linha informativo_linha_extra informativos_primeira_linha informativos_primeira_linha_extra">
+									
+									<!----------- INFORMATIVOS ALL - INICIO ------------>
+									<div class="informativos_all informativos_all_extra col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+
+										<!----------- SHOW - INICIO ------------>
+										<div class="row show show_extra first_show_dividendo " id="first_show_extra">
+
+											<!----------- ALL COLUMN - INICIO ------------>
+											<div class="all_column all_column_extra col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+												<!----------- BLOCK - INICIO ------------>
+												<div class="row linha_blocos">
+													<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 block block_extra last_block last_block_extra" onclick="editExtra()">
+
+														<!----------- BLOCK INTERNO - INICIO ------------>
+														<a
+														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno block_interno_extra"
+														id="block_interno_firstextra"
+														onmouseover="overInformativo('extra')"
+														onmouseleave="leaveInformativo('extra')">
+
+															<!----------- SUB-BLOCO SUPERIOR - INICIO ------------>
+															<div class="row block_row block_row_extra block_first_row block_first_row_extra">
+																	<!----------- SUB-BLOCO SUPERIOR CLICAVEL - INICIO ------------>
+																	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel block_clicavel_extra first_block_clicavel_extra">
+																		Formatação pc
+																	</div>
+																	<!----------- SUB-BLOCO SUPERIOR CLICAVEL - FIM ------------>
+															</div>	
+															<!----------- SUB-BLOCO SUPERIOR - FIM ------------>
+
+															<!----------- SUB-BLOCO INFERIOR - INICIO ------------>
+															<div class="row block_row block_row_extra block_first_row block_first_row_extra">
+																<!----------- SUB-BLOCO INFERIOR CLICAVEL - INICIO ------------>
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel block_clicavel_extra second_block_clicavel_extra">
+																	R$ 80,00
+																</div>
+																<!----------- SUB-BLOCO INFERIOR CLICAVEL - FIM ------------>
+															</div>
+															<!----------- SUB-BLOCO INFERIOR - FIM ------------>
+
+														</a>
+														<!----------- BLOCK INTERNO - FIM ------------>
+													</div>	
+													<!----------- BLOCK - FIM ------------>		
+
+													<!----------- BLOCK MAIS - INICIO ------------>
+													<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 block block_extra last_block last_block_extra" onclick="clickOnNewExtra()">
+
+														<!----------- BLOCK INTERNO - INICIO ------------>
+														<a
+														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno block_interno_extra last_block_interno_extra"
+														id="block_interno_firstExtra"
+														onmouseover="overInformativo('extra')"
+														onmouseleave="leaveInformativo('extra')">
+
+															<!----------- SUB-BLOCO SUPERIOR - INICIO ------------>
+															<div class="row block_row block_row_extra block_first_row block_first_row_extra">
+																	<!----------- SUB-BLOCO SUPERIOR CLICAVEL - INICIO ------------>
+																	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel block_clicavel_extra first_block_clicavel_extra">
+																		+
+																	</div>
+																	<!----------- SUB-BLOCO SUPERIOR CLICAVEL - FIM ------------>
+															</div>	
+															<!----------- SUB-BLOCO SUPERIOR - FIM ------------>
+
+															<!----------- SUB-BLOCO INFERIOR - INICIO ------------>
+															<div class="row block_row block_row_extra block_first_row block_first_row_extra">
+																<!----------- SUB-BLOCO INFERIOR CLICAVEL - INICIO ------------>
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel block_clicavel_extra second_block_clicavel_extra">
+																	Adicionar
+																</div>
+																<!----------- SUB-BLOCO INFERIOR CLICAVEL - FIM ------------>
+															</div>
+															<!----------- SUB-BLOCO INFERIOR - FIM ------------>
+
+														</a>
+														<!----------- BLOCK INTERNO - FIM ------------>
+													</div>	
+												</div>
+												<!----------- BLOCK MAIS - FIM ------------>										
+											</div>
+											<!----------- ALL COLUMN - FIM ------------>
+
+										</div>
+										<!----------- SHOW - FIM ------------>
+								
+									</div>
+									<!----------- INFORMATIVOS ALL - FIM ------------>
+							</div>	
+							<!----------- BLOCOS DOS DIVIDENDOS ------------>
 						</div>
-						<!-------------- EDIT_dividendo ------------>		
+										
+						<!-------------- NOVO_extra ------------>
+						<div class="conteudo_container_novo_extra col-xl-8 col-lg-8 col-md-9 col-sm-10 col-10" id="conteudo_container_novo_extra" >
 
+							<!-------------- NOVO_extra - TÍTULO ------------>
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo conteudo_titulo_novo_extra" id="conteudo_titulo_novo_extra">							
 
+								<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text conteudo_titulo_text_novo_extra" id="conteudo_titulo_text_novo_extra">
+									Cadastrar renda extra
+								</h1>
 
+							</div>
+							<!-------------- NOVO_extra - TÍTULO ------------>
 
+							<form>
+								<!-------------- NOVO_extra - CAMPOS DE ENTRADA ------------>
+								<div class="row novo_extra_linha">
 
+									<!-- DESCRIÇÃO -->
+									<div class="novo_extra novo_extra_descricao col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
 
+										<label type="text" class="novo_extra_label novo_extra_descricao_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Descrição
+
+										</label>	
+
+										<input class="novo_extra_input novo_extra_descricao_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+									</div>	
+
+									<!-- VALOR -->
+									<div class="novo_extra novo_extra_valor col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label class="novo_extra_label novo_extra_valor_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Valor
+
+										</label>	
+
+										<input type="number" class="novo_extra_input novo_extra_valor_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+									</div>				
+
+									<!-- PERIODICIDADE -->
+									<div class="novo_extra novo_extra_frequencia col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label class="novo_extra_label novo_extra_frequencia_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Periodicidade
+
+										</label>	
+
+										<select class="novo_extra_input novo_extra_frequencia_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+											<option>Semanal</option>
+											<option>Quinzenal</option>
+											<option>Mensal</option>
+											<option>Bimestral</option>
+											<option>Trimestral</option>
+											<option>Semestral</option>
+											<option>Anual</option>
+
+										</select>
+									</div>														
+
+								</div>	
+								<!-------------- NOVO_extra - CAMPOS DE ENTRADA ------------>
+
+								<!-------------- NOVO_extra - BOTÕES ------------>
+								<div class="row novo_extra_linha">
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_novo_botao">
+										<button type="button" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_botao" onclick="closeNewExtra()">
+											Voltar
+										</button>
+									</div>	
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_novo_botao">
+										<button type="submit" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_botao">
+											Salvar
+										</button>
+									</div>		
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_novo_botao">
+										<button type="reset" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_botao">
+											Limpar
+										</button>
+									</div>														
+								</div>								
+								<!-------------- NOVO_extra - BOTÕES ------------>
+							</form>
+						</div>
+
+						<!-------------- EDIT_extra ------------>
+						<div class="conteudo_container_edit_extra col-xl-8 col-lg-8 col-md-9 col-sm-10 col-10 " id="conteudo_container_edit_extra" >
+
+							<!-------------- edit_extra - TÍTULO ------------>
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo conteudo_titulo_edit_extra" id="conteudo_titulo_edit_extra">							
+
+								<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text conteudo_titulo_text_edit_extra" id="conteudo_titulo_text_edit_extra">
+									Editar renda extra
+								</h1>
+
+							</div>
+							<!-------------- edit_extra - TÍTULO ------------>
+
+							<form>
+								<!-------------- edit_extra - CAMPOS DE ENTRADA ------------>
+								<div class="row edit_extra_linha">
+
+									<!-- DESCRIÇÃO -->
+									<div class="edit_extra edit_extra_descricao col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label type="text" class="edit_extra_label edit_extra_descricao_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Descrição
+
+										</label>	
+
+										<input class="edit_extra_input edit_extra_descricao_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+									</div>	
+
+									<!-- VALOR -->
+									<div class="edit_extra edit_extra_valor col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label class="edit_extra_label edit_extra_valor_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Valor
+
+										</label>	
+
+										<input type="number" class="edit_extra_input edit_extra_valor_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+									</div>				
+
+									<!-- PERIODICIDADE -->
+									<div class="edit_extra edit_extra_frequencia col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label class="edit_extra_label edit_extra_frequencia_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Periodicidade
+
+										</label>	
+
+										<select class="edit_extra_input edit_extra_frequencia_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+											<option>Semanal</option>
+											<option>Quinzenal</option>
+											<option>Mensal</option>
+											<option>Bimestral</option>
+											<option>Trimestral</option>
+											<option>Semestral</option>
+											<option>Anual</option>
+
+										</select>
+									</div>														
+
+								</div>	
+								<!-------------- edit_extra - CAMPOS DE ENTRADA ------------>
+
+								<!-------------- edit_extra - BOTÕES ------------>
+								<div class="row edit_extra_linha">
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_edit_botao">
+										<button type="button" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_botao" onclick="closeEditExtra()">
+											Voltar
+										</button>
+									</div>	
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_edit_botao">
+										<button type="submit" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_botao">
+											Salvar
+										</button>
+									</div>		
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_edit_botao">
+										<button type="reset" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_botao">
+											Limpar
+										</button>
+									</div>														
+								</div>								
+								<!-------------- edit_extra - BOTÕES ------------>
+							</form>
+						</div>			
+
+						<!--------------------------------------------------------------------->
+						<!--------------------- PARTE DE OUTRAS RENDAS ------------------------>
+						<!--------------------------------------------------------------------->								
+						<!-------------- CONTEUDO_outro ------------>
+						<div class="conteudo_container_outro col-xl-8 col-lg-9 col-md-10 col-sm-11 col-12" id="conteudo_container_outro" >
+
+							<a href="#" class="outro_voltar" onclick="closeOutro()">x</a>
+
+							<!-------------- CONTEUDO_outro - TÍTULO ------------>
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo conteudo_titulo_outro" id="conteudo_titulo_outro">
+
+								<div th:if="${Sucesso}" class="alert alert-success" id="sucessoOutro" onclick="hideMessage()" hidden>
+									<p th:text="${Sucesso}"></p>
+								</div>								
+
+								<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text conteudo_titulo_text_outro" id="conteudo_titulo_text_outro">
+									Outras rendas
+								</h1>
+							</div>
+							<!-------------- CONTEUDO_outro - TÍTULO ------------>
+
+							<!----------- BLOCOS DOS outro ------------>
+							<div class="row informativos_linha informativo_linha_outro informativos_primeira_linha informativos_primeira_linha_outro">
+									
+									<!----------- INFORMATIVOS ALL - INICIO ------------>
+									<div class="informativos_all informativos_all_outro col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+
+										<!----------- SHOW - INICIO ------------>
+										<div class="row show show_outro first_show_dividendo " id="first_show_outro">
+
+											<!----------- ALL COLUMN - INICIO ------------>
+											<div class="all_column all_column_outro col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+												<!----------- BLOCK - INICIO ------------>
+												<div class="row linha_blocos">
+													<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 block block_outro last_block last_block_outro" onclick="editOutro()">
+
+														<!----------- BLOCK INTERNO - INICIO ------------>
+														<a
+														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno block_interno_outro"
+														id="block_interno_firstoutro"
+														onmouseover="overInformativo('outro')"
+														onmouseleave="leaveInformativo('outro')">
+
+															<!----------- SUB-BLOCO SUPERIOR - INICIO ------------>
+															<div class="row block_row block_row_outro block_first_row block_first_row_outro">
+																	<!----------- SUB-BLOCO SUPERIOR CLICAVEL - INICIO ------------>
+																	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel block_clicavel_outro first_block_clicavel_outro">
+																		Vendas OLX
+																	</div>
+																	<!----------- SUB-BLOCO SUPERIOR CLICAVEL - FIM ------------>
+															</div>	
+															<!----------- SUB-BLOCO SUPERIOR - FIM ------------>
+
+															<!----------- SUB-BLOCO INFERIOR - INICIO ------------>
+															<div class="row block_row block_row_outro block_first_row block_first_row_outro">
+																<!----------- SUB-BLOCO INFERIOR CLICAVEL - INICIO ------------>
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel block_clicavel_outro second_block_clicavel_outro">
+																	R$ 427,40
+																</div>
+																<!----------- SUB-BLOCO INFERIOR CLICAVEL - FIM ------------>
+															</div>
+															<!----------- SUB-BLOCO INFERIOR - FIM ------------>
+
+														</a>
+														<!----------- BLOCK INTERNO - FIM ------------>
+													</div>	
+													<!----------- BLOCK - FIM ------------>		
+
+													<!----------- BLOCK MAIS - INICIO ------------>
+													<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 block block_outro last_block last_block_outro" onclick="clickOnNewOutro()">
+
+														<!----------- BLOCK INTERNO - INICIO ------------>
+														<a
+														class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno block_interno_outro last_block_interno_outro"
+														id="block_interno_firstOutro"
+														onmouseover="overInformativo('outro')"
+														onmouseleave="leaveInformativo('outro')">
+
+															<!----------- SUB-BLOCO SUPERIOR - INICIO ------------>
+															<div class="row block_row block_row_outro block_first_row block_first_row_outro">
+																	<!----------- SUB-BLOCO SUPERIOR CLICAVEL - INICIO ------------>
+																	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel first_block_clicavel block_clicavel_outro first_block_clicavel_outro">
+																		+
+																	</div>
+																	<!----------- SUB-BLOCO SUPERIOR CLICAVEL - FIM ------------>
+															</div>	
+															<!----------- SUB-BLOCO SUPERIOR - FIM ------------>
+
+															<!----------- SUB-BLOCO INFERIOR - INICIO ------------>
+															<div class="row block_row block_row_outro block_first_row block_first_row_outro">
+																<!----------- SUB-BLOCO INFERIOR CLICAVEL - INICIO ------------>
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_clicavel second_block_clicavel block_clicavel_outro second_block_clicavel_outro">
+																	Adicionar
+																</div>
+																<!----------- SUB-BLOCO INFERIOR CLICAVEL - FIM ------------>
+															</div>
+															<!----------- SUB-BLOCO INFERIOR - FIM ------------>
+
+														</a>
+														<!----------- BLOCK INTERNO - FIM ------------>
+													</div>	
+												</div>
+												<!----------- BLOCK MAIS - FIM ------------>										
+											</div>
+											<!----------- ALL COLUMN - FIM ------------>
+
+										</div>
+										<!----------- SHOW - FIM ------------>
+								
+									</div>
+									<!----------- INFORMATIVOS ALL - FIM ------------>
+							</div>	
+							<!----------- BLOCOS DOS DIVIDENDOS ------------>
+						</div>
+
+						<!-------------- NOVO_outro ------------>
+						<div class="conteudo_container_novo_outro col-xl-8 col-lg-8 col-md-9 col-sm-10 col-10" id="conteudo_container_novo_outro" >
+
+							<!-------------- NOVO_outro - TÍTULO ------------>
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo conteudo_titulo_novo_outro" id="conteudo_titulo_novo_outro">							
+
+								<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text conteudo_titulo_text_novo_outro" id="conteudo_titulo_text_novo_outro">
+									Cadastrar outra renda
+								</h1>
+
+							</div>
+							<!-------------- NOVO_outro - TÍTULO ------------>
+
+							<form>
+								<!-------------- NOVO_outro - CAMPOS DE ENTRADA ------------>
+								<div class="row novo_outro_linha">
+
+									<!-- DESCRIÇÃO -->
+									<div class="novo_outro novo_outro_descricao col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label type="text" class="novo_outro_label novo_outro_descricao_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Descrição
+
+										</label>	
+
+										<input class="novo_outro_input novo_outro_descricao_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+									</div>	
+
+									<!-- VALOR -->
+									<div class="novo_outro novo_outro_valor col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label class="novo_outro_label novo_outro_valor_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Valor
+
+										</label>	
+
+										<input type="number" class="novo_outro_input novo_outro_valor_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+									</div>				
+
+									<!-- PERIODICIDADE -->
+									<div class="novo_outro novo_outro_frequencia col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label class="novo_outro_label novo_outro_frequencia_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Periodicidade
+
+										</label>	
+
+										<select class="novo_outro_input novo_outro_frequencia_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+											<option>Semanal</option>
+											<option>Quinzenal</option>
+											<option>Mensal</option>
+											<option>Bimestral</option>
+											<option>Trimestral</option>
+											<option>Semestral</option>
+											<option>Anual</option>
+
+										</select>
+									</div>														
+
+								</div>	
+								<!-------------- NOVO_outro - CAMPOS DE ENTRADA ------------>
+
+								<!-------------- NOVO_outro - BOTÕES ------------>
+								<div class="row novo_outro_linha">
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_novo_botao">
+										<button type="button" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_botao" onclick="closeNewOutro()">
+											Voltar
+										</button>
+									</div>	
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_novo_botao">
+										<button type="submit" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_botao">
+											Salvar
+										</button>
+									</div>		
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_novo_botao">
+										<button type="reset" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_botao">
+											Limpar
+										</button>
+									</div>														
+								</div>								
+								<!-------------- NOVO_outro - BOTÕES ------------>
+							</form>
+						</div>		
+
+						<!-------------- EDIT_outro ------------>
+						<div class="conteudo_container_edit_outro col-xl-8 col-lg-8 col-md-9 col-sm-10 col-10 " id="conteudo_container_edit_outro" >
+
+							<!-------------- edit_outro - TÍTULO ------------>
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo conteudo_titulo_edit_outro" id="conteudo_titulo_edit_outro">							
+
+								<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text conteudo_titulo_text_edit_outro" id="conteudo_titulo_text_edit_outro">
+									Editar outra renda
+								</h1>
+
+							</div>
+							<!-------------- edit_outro - TÍTULO ------------>
+
+							<form>
+								<!-------------- edit_outro - CAMPOS DE ENTRADA ------------>
+								<div class="row edit_outro_linha">
+
+									<!-- DESCRIÇÃO -->
+									<div class="edit_outro edit_outro_descricao col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label type="text" class="edit_outro_label edit_outro_descricao_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Descrição
+
+										</label>	
+
+										<input class="edit_outro_input edit_outro_descricao_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+									</div>	
+
+									<!-- VALOR -->
+									<div class="edit_outro edit_outro_valor col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label class="edit_outro_label edit_outro_valor_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Valor
+
+										</label>	
+
+										<input type="number" class="edit_outro_input edit_outro_valor_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+									</div>				
+
+									<!-- PERIODICIDADE -->
+									<div class="edit_outro edit_outro_frequencia col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+
+										<label class="edit_outro_label edit_outro_frequencia_label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+											Periodicidade
+
+										</label>	
+
+										<select class="edit_outro_input edit_outro_frequencia_input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>
+
+											<option>Semanal</option>
+											<option>Quinzenal</option>
+											<option>Mensal</option>
+											<option>Bimestral</option>
+											<option>Trimestral</option>
+											<option>Semestral</option>
+											<option>Anual</option>
+
+										</select>
+									</div>														
+
+								</div>	
+								<!-------------- edit_outro - CAMPOS DE ENTRADA ------------>
+
+								<!-------------- edit_outro - BOTÕES ------------>
+								<div class="row edit_outro_linha">
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_edit_botao">
+										<button type="button" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_botao" onclick="closeEditOutro()">
+											Voltar
+										</button>
+									</div>	
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_edit_botao">
+										<button type="submit" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_botao">
+											Salvar
+										</button>
+									</div>		
+
+									<div class="col-xl-3 col-lg-2 col-md-2 col-sm-12 col-12 col_edit_botao">
+										<button type="reset" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_botao">
+											Limpar
+										</button>
+									</div>														
+								</div>								
+								<!-------------- edit_outro - BOTÕES ------------>
+							</form>
+						</div>											
 
 					</div><!-- CONTAINER_ALIGN -->
 
