@@ -561,10 +561,24 @@ function openDividendo(){
 	conteudoContainerDividendo.style.display="block";
 }
 
-function editDividendo(){
+function editDividendo(id, desc, val, freq){
 
 	var conteudoContainerDividendo = document.getElementById('conteudo_container_dividendo');
 	var conteudoContainerEditDividendo = document.getElementById('conteudo_container_edit_dividendo');
+
+	var dividendoTitulo = document.getElementById('conteudo_titulo_text_edit_dividendo');
+	var dividendoId = document.getElementById('edit_dividendo_id');
+	var dividendoIdDelete = document.getElementById('dividendo_id_delete');
+	var dividendoDescricao = document.getElementById('edit_dividendo_descricao');
+	var dividendoValor = document.getElementById('edit_dividendo_valor');
+	var dividendoPeriodicidade = document.getElementById('edit_dividendo_frequencia');
+
+	dividendoTitulo.innerText=desc;
+	dividendoId.value=id;
+	dividendoIdDelete.value=id;
+	dividendoDescricao.value=desc;
+	dividendoValor.value=val;
+	dividendoPeriodicidade.value=freq;
 
 	conteudoContainerDividendo.style.display="none";
 	conteudoContainerEditDividendo.style.display="block";
@@ -621,10 +635,24 @@ function openExtra(){
 	conteudoContainerExtra.style.display="block";
 }
 
-function editExtra(){
+function editExtra(id, desc, val, freq){
 
 	var conteudoContainerExtra = document.getElementById('conteudo_container_extra');
 	var conteudoContainerEditExtra = document.getElementById('conteudo_container_edit_extra');
+
+	var extraTitulo = document.getElementById('conteudo_titulo_text_edit_extra');
+	var extraId = document.getElementById('edit_extra_id');
+	var extraIdDelete = document.getElementById('extra_id_delete');
+	var extraDescricao = document.getElementById('edit_extra_descricao');
+	var extraValor = document.getElementById('edit_extra_valor');
+	var extraPeriodicidade = document.getElementById('edit_extra_frequencia');
+
+	extraTitulo.innerText=desc;
+	extraId.value=id;
+	extraIdDelete.value=id;
+	extraDescricao.value=desc;
+	extraValor.value=val;
+	extraPeriodicidade.value=freq;	
 
 	conteudoContainerExtra.style.display="none";
 	conteudoContainerEditExtra.style.display="block";
@@ -681,10 +709,24 @@ function openOutro(){
 	conteudoContainerOutro.style.display="block";
 }
 
-function editOutro(){
+function editOutro(id, desc, val, freq){
 
 	var conteudoContainerOutro = document.getElementById('conteudo_container_outro');
 	var conteudoContainerEditOutro = document.getElementById('conteudo_container_edit_outro');
+
+	var outroTitulo = document.getElementById('conteudo_titulo_text_edit_outro');
+	var outroId = document.getElementById('edit_outro_id');
+	var outroIdDelete = document.getElementById('outro_id_delete');
+	var outroDescricao = document.getElementById('edit_outro_descricao');
+	var outroValor = document.getElementById('edit_outro_valor');
+	var outroPeriodicidade = document.getElementById('edit_outro_frequencia');
+
+	outroTitulo.innerText=desc;
+	outroId.value=id;
+	outroIdDelete.value=id;
+	outroDescricao.value=desc;
+	outroValor.value=val;
+	outroPeriodicidade.value=freq;
 
 	conteudoContainerOutro.style.display="none";
 	conteudoContainerEditOutro.style.display="block";

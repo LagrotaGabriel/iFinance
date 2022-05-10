@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -62,7 +61,7 @@ public class RendaController {
         return modelAndView;
     }
 
-    @PostMapping("/novo-salario")
+    @PostMapping("/novo")
     public ModelAndView salarioControllerPost(Income income,
                                               ModelAndView modelAndView,
                                               Model model,
@@ -70,7 +69,6 @@ public class RendaController {
 
         income.setUser(utils.loggedUser(userRepository));
         income.setDate(dates.today());
-        income.setIncomeType(IncomeType.SALARIO);
         List<Income> userIncomes = utils.loggedUser(userRepository).getIncomes();
         userIncomes.add(income);
         utils.loggedUser(userRepository).setIncomes(userIncomes);
@@ -79,20 +77,25 @@ public class RendaController {
         return modelAndView;
     }
 
-    @PostMapping("/salario-edit")
+    @PostMapping("/edit")
     public ModelAndView salarioControllerEdit(Income income,
                                               RedirectAttributes redirAttrs,
                                               ModelAndView modelAndView){
 
+        Income newIncome = incomeService.findById(income.getId()).get();
+
+        newIncome.setDescription(income.getDescription());
+        newIncome.setValue(income.getValue());
+        newIncome.setFrequency(income.getFrequency());
+
         utils.loggedUser(userRepository).getIncomes().set(utils.loggedUser(userRepository).getIncomes()
-                .indexOf(incomeService.findById(income.getId()).get()), income);
-        income.setUser(utils.loggedUser(userRepository));
+                .indexOf(incomeService.findById(income.getId()).get()), newIncome);
         userService.updateUser(utils.loggedUser(userRepository).getId(), utils.loggedUser(userRepository));
         modelAndView.setViewName("redirect:../renda");
         return modelAndView;
     }
 
-    @PostMapping("/salario-delete")
+    @PostMapping("/delete")
     public ModelAndView salarioControllerDelete(Income income,
                                                 RedirectAttributes redirAttrs,
                                                 ModelAndView modelAndView){

@@ -29,7 +29,9 @@ public class IncomeService {
         if(updated.isPresent()){
             updated.get().setDescription(income.getDescription());
             updated.get().setValue(income.getValue());
+            updated.get().setDate(income.getDate());
             updated.get().setFrequency(income.getFrequency());
+            updated.get().setIncomeType(income.getIncomeType());
             updated.get().setUser(income.getUser());
             return create(updated.get());
         }
