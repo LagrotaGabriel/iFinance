@@ -297,32 +297,32 @@ function doALoadOfStuff() {
 function animateMenu(item){
 
 	if(item == "balanco"){
-		document.getElementById("img_aside_balanco").src="../static/img/balance.png";
+		document.getElementById("img_aside_balanco").src="img/balance.png";
 		document.getElementById("img_aside_balanco").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_balanco").style.color="#121212";
 	}
 	else if(item == "estatisticas"){
-		document.getElementById("img_aside_estatisticas").src="../static/img/stats.png";
+		document.getElementById("img_aside_estatisticas").src="img/stats.png";
 		document.getElementById("img_aside_estatisticas").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_estatisticas").style.color="#121212";
 	}
 	else if(item == "principal"){
-		document.getElementById("img_aside_principal").src="../static/img/house.png";
+		document.getElementById("img_aside_principal").src="img/house.png";
 		document.getElementById("img_aside_principal").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_principal").style.color="#121212";
 	}
 	else if(item == "despesas"){
-		document.getElementById("img_aside_despesas").src="../static/img/despesa.png";
+		document.getElementById("img_aside_despesas").src="img/despesa.png";
 		document.getElementById("img_aside_despesas").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_despesas").style.color="#121212";
 	}
 	else if(item == "patrimonio"){
-		document.getElementById("img_aside_patrimonio").src="../static/img/shelter.png";
+		document.getElementById("img_aside_patrimonio").src="img/shelter.png";
 		document.getElementById("img_aside_patrimonio").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_patrimonio").style.color="#121212";
 	}
 	else if(item == "configuracoes"){
-		document.getElementById("img_aside_configuracoes").src="../static/img/settings.png";
+		document.getElementById("img_aside_configuracoes").src="img/settings.png";
 		document.getElementById("img_aside_configuracoes").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_configuracoes").style.color="#121212";
 	}
@@ -333,32 +333,32 @@ function returnMenuState(item){
 	var titulos = document.getElementsByClassName("aside_title");
 
 	if(item == "balanco"){
-		document.getElementById("img_aside_balanco").src="../static/img/balanceblue.png";
+		document.getElementById("img_aside_balanco").src="img/balanceblue.png";
 		document.getElementById("img_aside_balanco").style.animation="none";
 		titulos[1].style.color="#00ccff";
 	}
 	else if(item == "estatisticas"){
-		document.getElementById("img_aside_estatisticas").src="../static/img/statsblue.png";
+		document.getElementById("img_aside_estatisticas").src="img/statsblue.png";
 		document.getElementById("img_aside_estatisticas").style.animation="none";
 		titulos[2].style.color="#00ccff";
 	}
 	else if(item == "principal"){
-		document.getElementById("img_aside_principal").src="../static/img/houseblue.png";
+		document.getElementById("img_aside_principal").src="img/houseblue.png";
 		document.getElementById("img_aside_principal").style.animation="none";
 		titulos[0].style.color="#00ccff";
 	}
 	else if(item == "despesas"){
-		document.getElementById("img_aside_despesas").src="../static/img/despesablue.png";
+		document.getElementById("img_aside_despesas").src="img/despesablue.png";
 		document.getElementById("img_aside_despesas").style.animation="none";
 		titulos[3].style.color="#00ccff";
 	}
 	else if(item == "patrimonio"){
-		document.getElementById("img_aside_patrimonio").src="../static/img/shelterblue.png";
+		document.getElementById("img_aside_patrimonio").src="img/shelterblue.png";
 		document.getElementById("img_aside_patrimonio").style.animation="none";
 		titulos[4].style.color="#00ccff";
 	}
 	else if(item == "configuracoes"){
-		document.getElementById("img_aside_configuracoes").src="../static/img/settingsblue.png";
+		document.getElementById("img_aside_configuracoes").src="img/settingsblue.png";
 		document.getElementById("img_aside_configuracoes").style.animation="none";
 		titulos[6].style.color="#00ccff";
 	}
@@ -485,10 +485,26 @@ function openSalario(){
 	conteudoContainerSalario.style.display="block";
 }
 
-function editSalario(){
+function editSalario(id, desc, val, freq){
+
+	console.log("ID: " + id);
 
 	var conteudoContainerSalario = document.getElementById('conteudo_container_salario');
 	var conteudoContainerEditSalario = document.getElementById('conteudo_container_edit_salario');
+
+	var salarioTitulo = document.getElementById('conteudo_titulo_text_edit_salario');
+	var salarioId = document.getElementById('edit_salario_id');
+	var salarioIdDelete = document.getElementById('salario_id_delete');
+	var salarioDescricao = document.getElementById('edit_salario_descricao');
+	var salarioValor = document.getElementById('edit_salario_valor');
+	var salarioPeriodicidade = document.getElementById('edit_salario_frequencia');
+
+	salarioTitulo.innerText=desc;
+	salarioId.value=id;
+	salarioIdDelete.value=id;
+	salarioDescricao.value=desc;
+	salarioValor.value=val;
+	salarioPeriodicidade.value=freq;
 
 	conteudoContainerSalario.style.display="none";
 	conteudoContainerEditSalario.style.display="block";

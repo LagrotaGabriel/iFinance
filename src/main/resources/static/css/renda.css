@@ -129,6 +129,10 @@
     transition: 1s;
 }
 
+.third_block_clicavel_salario{
+    color: red;
+    border: 0;
+}
 
 /* =================FIM DO CONTAINER DO SALÁRIO & DIVIDENDOS ================== */
 
