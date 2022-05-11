@@ -320,32 +320,31 @@ function animateMenu(item){
 		document.getElementById("img_aside_balanco").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_balanco").style.color="#121212";
 	}
-	else if(item == "estatisticas"){
-		document.getElementById("img_aside_estatisticas").src="img/money.png";
-		document.getElementById("img_aside_estatisticas").style.animation="pulse 2s infinite";
-		document.getElementById("title_aside_estatisticas").style.color="#121212";
+	else if(item == "renda"){
+		document.getElementById("img_aside_rentabilidade").src="img/bull.png";
+		document.getElementById("img_aside_rentabilidade").style.animation="pulse 2s infinite";
+		document.getElementById("title_aside_rentabilidade").style.color="#121212";
 	}
 	else if(item == "principal"){
 		document.getElementById("img_aside_principal").src="img/house.png";
 		document.getElementById("img_aside_principal").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_principal").style.color="#121212";
 	}
+	else if(item == "despesas"){
+		document.getElementById("img_aside_despesas").src="img/despesa.png";
+		document.getElementById("img_aside_despesas").style.animation="pulse 2s infinite";
+		document.getElementById("title_aside_despesas").style.color="#121212";
+	}
 	else if(item == "patrimonio"){
 		document.getElementById("img_aside_patrimonio").src="img/shelter.png";
 		document.getElementById("img_aside_patrimonio").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_patrimonio").style.color="#121212";
-	}
-	else if(item == "rentabilidade"){
-		document.getElementById("img_aside_rentabilidade").src="img/bull.png";
-		document.getElementById("img_aside_rentabilidade").style.animation="pulse 2s infinite";
-		document.getElementById("title_aside_rentabilidade").style.color="#121212";
 	}
 	else if(item == "configuracoes"){
 		document.getElementById("img_aside_configuracoes").src="img/settings.png";
 		document.getElementById("img_aside_configuracoes").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_configuracoes").style.color="#121212";
 	}
-
 }
 
 function returnMenuState(item){
@@ -357,25 +356,25 @@ function returnMenuState(item){
 		document.getElementById("img_aside_balanco").style.animation="none";
 		titulos[1].style.color="#00ccff";
 	}
-	else if(item == "estatisticas"){
-		document.getElementById("img_aside_estatisticas").src="img/moneyblue.png";
-		document.getElementById("img_aside_estatisticas").style.animation="none";
-		titulos[2].style.color="#00ccff";
+	else if(item == "renda"){
+		document.getElementById("img_aside_rentabilidade").src="img/bullblue.png";
+		document.getElementById("img_aside_rentabilidade").style.animation="none";
+		titulos[5].style.color="#00ccff";
 	}
 	else if(item == "principal"){
 		document.getElementById("img_aside_principal").src="img/houseblue.png";
 		document.getElementById("img_aside_principal").style.animation="none";
 		titulos[0].style.color="#00ccff";
 	}
+	else if(item == "despesas"){
+		document.getElementById("img_aside_despesas").src="img/despesablue.png";
+		document.getElementById("img_aside_despesas").style.animation="none";
+		titulos[3].style.color="#00ccff";
+	}
 	else if(item == "patrimonio"){
 		document.getElementById("img_aside_patrimonio").src="img/shelterblue.png";
 		document.getElementById("img_aside_patrimonio").style.animation="none";
 		titulos[4].style.color="#00ccff";
-	}
-	else if(item == "rentabilidade"){
-		document.getElementById("img_aside_rentabilidade").src="img/bullblue.png";
-		document.getElementById("img_aside_rentabilidade").style.animation="none";
-		titulos[5].style.color="#00ccff";
 	}
 	else if(item == "configuracoes"){
 		document.getElementById("img_aside_configuracoes").src="img/settingsblue.png";
@@ -386,7 +385,7 @@ function returnMenuState(item){
 
 /* =================== ABERTURA E FECHAMENTO DO NOVA DESPESA =================== */
 
-function novaDespesa(){
+function novaEntrada(){
 
 	var conteudoContainer = document.getElementById('conteudo_container');
 	var containerNovo = document.getElementById('container_novo');
@@ -402,7 +401,7 @@ function novaDespesa(){
 
 }
 
-function fechaNovaDespesa(){
+function fechaNovaEntrada(){
 
 	var conteudoContainer = document.getElementById('conteudo_container');
 	var containerNovo = document.getElementById('container_novo');
@@ -420,7 +419,7 @@ function fechaNovaDespesa(){
 
 /* =================== ABERTURA E FECHAMENTO DO EDIT =================== */
 
-function editDespesa(id, descricao, status, valor, forma, data, agendamento){
+function editEntrada(id, descricao, status, valor, forma, data, agendamento){
 
 	console.log(id);
 	console.log(descricao);
@@ -461,9 +460,9 @@ function editDespesa(id, descricao, status, valor, forma, data, agendamento){
 		var novoAgendamento = agendamento.split('/').reverse().join('-');
 	}
 
-	if(status == "Pago"){
+	if(status == "Recebido"){
 
-		document.getElementById('Pago').selected=true;
+		document.getElementById('Recebido').selected=true;
 
 		labelAgendamento.style.color="grey";
 		inputAgendamento.value="";
@@ -515,9 +514,9 @@ function editDespesa(id, descricao, status, valor, forma, data, agendamento){
 		inputData.value=novaData;
 	}
 
-	else if(status == "A pagar"){
+	else if(status == "A receber"){
 
-		document.getElementById('Pagar').selected=true;
+		document.getElementById('Receber').selected=true;
 
 		labelAgendamento.style.color="#FFFFFF";
 		inputAgendamento.disabled=false;
@@ -550,7 +549,7 @@ function editDespesa(id, descricao, status, valor, forma, data, agendamento){
 
 }
 
-function fechaEditDespesa(){
+function fechaEditEntrada(){
 
 	var conteudoContainer = document.getElementById('conteudo_container');
 	var containerEdit = document.getElementById('container_edit');
@@ -566,7 +565,7 @@ function fechaEditDespesa(){
 
 }
 
-/* =================== INTERAÇÕES COM O NOVA DESPESA =================== */
+/* =================== INTERAÇÕES COM O NOVA ENTRADA =================== */
 
 function changeStatus(){
 
@@ -614,7 +613,7 @@ function changeStatus(){
 
 	}
 
-	else if(status == "PAGO"){
+	else if(status == "RECEBIDO"){
 
 		labelAgendamento.style.color="grey";
 		inputAgendamento.value="";
@@ -651,7 +650,7 @@ function changeStatus(){
 		inputData.value=data;
 	}
 
-	else if(status == "PAGAR"){
+	else if(status == "RECEBER"){
 
 		labelAgendamento.style.color="#FFFFFF";
 		inputAgendamento.disabled=false;
@@ -688,7 +687,7 @@ function changeStatus(){
 
 }
 
-/* =================== INTERAÇÕES COM O EDITAR DESPESA =================== */
+/* =================== INTERAÇÕES COM O EDITAR ENTRADA =================== */
 
 function editChangeStatus(){
 
@@ -736,7 +735,7 @@ function editChangeStatus(){
 
 	}
 
-	else if(status == "PAGO"){
+	else if(status == "RECEBIDO"){
 
 		labelAgendamento.style.color="grey";
 		inputAgendamento.value="";
@@ -771,7 +770,7 @@ function editChangeStatus(){
 		inputForma.style.color="#FFFFFF";		
 	}
 
-	else if(status == "PAGAR"){
+	else if(status == "RECEBER"){
 
 		labelAgendamento.style.color="#FFFFFF";
 		inputAgendamento.disabled=false;
@@ -807,7 +806,7 @@ function editChangeStatus(){
 	}
 }
 
-/* ================== FECHA MENSAGENS INFORMATIVAS ====================== */
+/* =================== FECHAMENTO DOS ALERTAS =================== */
 
 function hideMessage(){
 	var alertas = document.getElementsByClassName('alert');

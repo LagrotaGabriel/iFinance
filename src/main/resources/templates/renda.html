@@ -35,7 +35,7 @@
 
 
 
-		<title>Patrimonio | iFinance</title>
+		<title>Renda | iFinance</title>
 
 	</head>
 
@@ -65,7 +65,7 @@
 
 						<div class="aside aside-2 col-lg-12" id="div_aside_balanco" onmouseover="animateMenu('balanco')" onmouseleave="returnMenuState('balanco')">
 							
-							<a href="#" class="row aside_clicavel">
+							<a href="javascript:void(0)" class="row aside_clicavel">
 								<button type="button" class="img_button">
 									<img th:src="@{img/balanceblue.png}" class="sidebar_menu_img" id="img_aside_balanco"/>
 								</button>
@@ -79,11 +79,11 @@
 
 						<div class="aside aside-3 col-lg-12" id="div_aside_estatisticas" onmouseover="animateMenu('estatisticas')" onmouseleave="returnMenuState('estatisticas')">
 							
-							<a href="#" class="row aside_clicavel">
+							<a th:href="@{/entradas}" class="row aside_clicavel">
 								<button type="button" class="img_button">
-									<img th:src="@{img/statsblue.png}" class="sidebar_menu_img" id="img_aside_estatisticas"/>
+									<img th:src="@{img/moneyblue.png}" class="sidebar_menu_img" id="img_aside_estatisticas"/>
 								</button>
-								<h1 class="aside_title text-center" id="title_aside_estatisticas">Estatísticas</h1>
+								<h1 class="aside_title text-center" id="title_aside_estatisticas">Entradas</h1>
 							</a>
 							
 
@@ -124,7 +124,7 @@
 						</div>																
 						<div class="aside aside-7 col-lg-12" id="div_aside_configuracoes" onmouseover="animateMenu('configuracoes')" onmouseleave="returnMenuState('configuracoes')">
 
-							<a href="#" class="row aside_clicavel">
+							<a href="javascript:void(0)" class="row aside_clicavel">
 								<button type="button" class="img_button">
 									<img th:src="@{img/settingsblue.png}" class="sidebar_menu_img" id="img_aside_configuracoes"/>
 								</button>	
@@ -216,11 +216,11 @@
 						</div>	
 
 						<div class="sup sup_04 col-md-2 col-sm-2 col-2">
-							<a href="#" class="sup_sup sup_sup_01">Dinheiro</a>
+							<a href="javascript:void(0)" class="sup_sup sup_sup_01">Dinheiro</a>
 						</div>
 
 						<div class="sup sup_05 col-md-2 col-sm-2 col-2">
-							<a href="#" class="sup_sup sup_sup_01">Balanço</a>
+							<a href="javascript:void(0)" class="sup_sup sup_sup_01">Balanço</a>
 						</div>		
 
 						<form class="sup sup_06 col-md-2 col-sm-2 col-2" th:action="@{/logout}" method="POST">
@@ -242,7 +242,7 @@
 							<!-------------- CONTEUDO_CONTAINER - TÍTULO ------------>
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo" id="conteudo_titulo">
 
-								<div th:if="${Sucesso}" class="alert alert-success" id="sucessoCadastro" onclick="hideMessage()" hidden>
+								<div th:if="${Sucesso}" class="alert alert-success" id="sucessoCadastro" onclick="hideMessage()">
 									<p th:text="${Sucesso}"></p>
 								</div>								
 
@@ -264,7 +264,7 @@
 													<div class="row linha_blocos">
 														<div class="col-xl-4 col-lg-5 col-md-3 col-sm-10 col-10 block first_block" onclick="openSalario()">
 															<a
-															href="#"
+															href="javascript:void(0)"
 															class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno"
 															id="block_interno_salario"
 															onmouseover="overInformativo('salario')"
@@ -289,7 +289,7 @@
 
 														<div class="col-xl-4 col-lg-5 col-md-3 col-sm-10 col-10 block second_block" onclick="openDividendo()">
 															<a 
-															href="#"
+															href="javascript:void(0)"
 															class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno" 
 															id="block_interno_dividendos"
 															onmouseover="overInformativo('dividendos')"
@@ -323,7 +323,7 @@
 													<div class="row linha_blocos">													
 														<div class="col-xl-4 col-lg-5 col-md-3 col-sm-10 col-10 block third_block" onclick="openExtra()">
 															<a
-															href="#"
+															href="javascript:void(0)"
 															class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno"
 															id="block_interno_extra"
 															onmouseover="overInformativo('extra')"
@@ -346,7 +346,7 @@
 
 														<div class="col-xl-4 col-lg-5 col-md-3 col-sm-10 col-10 block fourth_block" onclick="openOutro()">
 															<a
-															href="#"
+															href="javascript:void(0)"
 															class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 block_interno"
 															id="block_interno_outros"
 															onmouseover="overInformativo('outros')"
@@ -387,14 +387,12 @@
 						<!-------------- CONTEUDO_SALARIO ------------>
 						<div class="conteudo_container_salario col-xl-10 col-lg-10 col-md-10 col-sm-11 col-12" id="conteudo_container_salario" >
 
-							<a href="#" class="salario_voltar" onclick="closeSalario()">x</a>
+							<a href="javascript:void(0)" class="salario_voltar" onclick="closeSalario()">
+								Voltar
+							</a>
 
 							<!-------------- CONTEUDO_SALARIO - TÍTULO ------------>
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo conteudo_titulo_salario" id="conteudo_titulo_salario">
-
-								<div th:if="${Sucesso}" class="alert alert-success" id="sucessoSalario" onclick="hideMessage()" hidden>
-									<p th:text="${Sucesso}"></p>
-								</div>								
 
 								<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text conteudo_titulo_text_salario" id="conteudo_titulo_text_salario">
 									Salários
@@ -712,14 +710,12 @@
 						<!-------------- CONTEUDO_dividendo ------------>
 						<div class="conteudo_container_dividendo col-xl-10 col-lg-10 col-md-10 col-sm-11 col-12" id="conteudo_container_dividendo" >
 
-							<a href="#" class="dividendo_voltar" onclick="closeDividendo()">x</a>
+							<a href="javascript:void(0)" class="dividendo_voltar" onclick="closeDividendo()">
+								Voltar
+							</a>
 
 							<!-------------- CONTEUDO_dividendo - TÍTULO ------------>
-							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo conteudo_titulo_dividendo" id="conteudo_titulo_dividendo">
-
-								<div th:if="${Sucesso}" class="alert alert-success" id="sucessoDividendo" onclick="hideMessage()" hidden>
-									<p th:text="${Sucesso}"></p>
-								</div>								
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo conteudo_titulo_dividendo" id="conteudo_titulo_dividendo">						
 
 								<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text conteudo_titulo_text_dividendo" id="conteudo_titulo_text_dividendo">
 									Dividendos
@@ -1055,14 +1051,12 @@
 						<!-------------- CONTEUDO_extra ------------>
 						<div class="conteudo_container_extra col-xl-8 col-lg-9 col-md-10 col-sm-11 col-12" id="conteudo_container_extra" >
 
-							<a href="#" class="extra_voltar" onclick="closeExtra()">x</a>
+							<a href="javascript:void(0)" class="extra_voltar" onclick="closeExtra()">
+								Voltar
+							</a>
 
 							<!-------------- CONTEUDO_extra - TÍTULO ------------>
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo conteudo_titulo_extra" id="conteudo_titulo_extra">
-
-								<div th:if="${Sucesso}" class="alert alert-success" id="sucessoExtra" onclick="hideMessage()" hidden>
-									<p th:text="${Sucesso}"></p>
-								</div>								
 
 								<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text conteudo_titulo_text_extra" id="conteudo_titulo_text_extra">
 									Renda extra
@@ -1393,14 +1387,10 @@
 						<!-------------- CONTEUDO_outro ------------>
 						<div class="conteudo_container_outro col-xl-8 col-lg-9 col-md-10 col-sm-11 col-12" id="conteudo_container_outro" >
 
-							<a href="#" class="outro_voltar" onclick="closeOutro()">x</a>
+							<a href="javascript:void(0)" class="outro_voltar" onclick="closeOutro()">Voltar</a>
 
 							<!-------------- CONTEUDO_outro - TÍTULO ------------>
-							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo conteudo_titulo_outro" id="conteudo_titulo_outro">
-
-								<div th:if="${Sucesso}" class="alert alert-success" id="sucessoOutro" onclick="hideMessage()" hidden>
-									<p th:text="${Sucesso}"></p>
-								</div>								
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo conteudo_titulo_outro" id="conteudo_titulo_outro">						
 
 								<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text conteudo_titulo_text_outro" id="conteudo_titulo_text_outro">
 									Outras rendas

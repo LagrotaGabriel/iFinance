@@ -302,7 +302,7 @@ function animateMenu(item){
 		document.getElementById("title_aside_balanco").style.color="#121212";
 	}
 	else if(item == "estatisticas"){
-		document.getElementById("img_aside_estatisticas").src="img/stats.png";
+		document.getElementById("img_aside_estatisticas").src="img/money.png";
 		document.getElementById("img_aside_estatisticas").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_estatisticas").style.color="#121212";
 	}
@@ -338,7 +338,7 @@ function returnMenuState(item){
 		titulos[1].style.color="#00ccff";
 	}
 	else if(item == "estatisticas"){
-		document.getElementById("img_aside_estatisticas").src="img/statsblue.png";
+		document.getElementById("img_aside_estatisticas").src="img/moneyblue.png";
 		document.getElementById("img_aside_estatisticas").style.animation="none";
 		titulos[2].style.color="#00ccff";
 	}
@@ -408,8 +408,7 @@ function overInformativo(hover){
 			blockInternoDividendos.style.color="#121212";
 			blockInternoDividendos.style.pointerEvents="auto";	
 			blockInternoDividendos.style.cursor="pointer";
-			blockInternoDividendos.style.transition="1s";
-			blockInternoDividendos.style.animation="pulse 2s infinite"		
+			blockInternoDividendos.style.transition="1s";	
 		}
 		else if(hover == "extra"){
 			blockInternoExtra.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
@@ -417,7 +416,6 @@ function overInformativo(hover){
 			blockInternoExtra.style.pointerEvents="auto";	
 			blockInternoExtra.style.cursor="pointer";
 			blockInternoExtra.style.transition="1s";
-			blockInternoExtra.style.animation="pulse 2s infinite"
 		}
 		else if(hover == "outros"){
 			blockInternoOutros.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
@@ -425,7 +423,6 @@ function overInformativo(hover){
 			blockInternoOutros.style.pointerEvents="auto";	
 			blockInternoOutros.style.cursor="pointer";
 			blockInternoOutros.style.transition="1s";
-			blockInternoOutros.style.animation="pulse 2s infinite"
 		}
 		else if(hover == "salario"){
 			blockInternoSalario.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
@@ -433,7 +430,6 @@ function overInformativo(hover){
 			blockInternoSalario.style.pointerEvents="auto";	
 			blockInternoSalario.style.cursor="pointer";
 			blockInternoSalario.style.transition="1s";
-			blockInternoSalario.style.animation="pulse 2s infinite"
 		}
 }
 
@@ -448,29 +444,25 @@ function leaveInformativo(hover){
 			blockInternoDividendos.style.background="transparent";
 			blockInternoDividendos.style.color="#FFFFFF";	
 			blockInternoDividendos.style.cursor="default";
-			blockInternoDividendos.style.transition="1s";
-			blockInternoDividendos.style.animation="none"		
+			blockInternoDividendos.style.transition="1s";	
 		}
 		else if(hover == "extra"){
 			blockInternoExtra.style.background="transparent";
 			blockInternoExtra.style.color="#FFFFFF";	
 			blockInternoExtra.style.cursor="default";
 			blockInternoExtra.style.transition="1s";
-			blockInternoExtra.style.animation="none"
 		}
 		else if(hover == "outros"){
 			blockInternoOutros.style.background="transparent";
 			blockInternoOutros.style.color="#FFFFFF";	
 			blockInternoOutros.style.cursor="default";
 			blockInternoOutros.style.transition="1s";
-			blockInternoOutros.style.animation="none"
 		}
 		else if(hover == "salario"){
 			blockInternoSalario.style.background="transparent";
 			blockInternoSalario.style.color="#FFFFFF";
 			blockInternoSalario.style.cursor="default";
 			blockInternoSalario.style.transition="1s";
-			blockInternoSalario.style.animation="none"
 		}
 }
 

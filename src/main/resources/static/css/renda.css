@@ -43,7 +43,6 @@
     padding: 60px 0px;
     text-decoration: none;
     width: 100%;   
-    border-radius: 10px;
     box-shadow: 0 0 15px #121212;
 }
 
@@ -113,25 +112,24 @@
 }
 
 .salario_voltar, .dividendo_voltar, .extra_voltar, .outro_voltar{
+    position: absolute;
     color: #FFFFFF;
-    float: right;
-    text-align: right;
-    font-size: 1.5rem;
+    float: left;
+    font-size: 1rem;
     margin: 0;
     padding: 0;
     text-decoration: none;
-    margin-right: 12px;
-    margin-top: 5px;
+    margin: 30px;
+    border: 1px solid #00CCFF;
+    border-radius: 5px;
+    padding: 7px 15px;
 }
 
 .salario_voltar:hover, .dividendo_voltar:hover, .extra_voltar:hover, .outro_voltar:hover{
-    color: grey;
+    cursor: pointer;
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    color: #121212;
     transition: 1s;
-}
-
-.third_block_clicavel_salario{
-    color: red;
-    border: 0;
 }
 
 /* =================FIM DO CONTAINER DO SALÁRIO & DIVIDENDOS ================== */

@@ -67,6 +67,7 @@ public class RendaController {
                                               Model model,
                                               RedirectAttributes redirAttrs){
 
+        redirAttrs.addFlashAttribute("Sucesso", income.getIncomeType().getDesc() + " salvo com sucesso");
         income.setUser(utils.loggedUser(userRepository));
         income.setDate(dates.today());
         List<Income> userIncomes = utils.loggedUser(userRepository).getIncomes();
@@ -83,7 +84,7 @@ public class RendaController {
                                               ModelAndView modelAndView){
 
         Income newIncome = incomeService.findById(income.getId()).get();
-
+        redirAttrs.addFlashAttribute("Sucesso", income.getIncomeType().getDesc() + " atualizado com sucesso");
         newIncome.setDescription(income.getDescription());
         newIncome.setValue(income.getValue());
         newIncome.setFrequency(income.getFrequency());
@@ -100,6 +101,8 @@ public class RendaController {
                                                 RedirectAttributes redirAttrs,
                                                 ModelAndView modelAndView){
 
+        redirAttrs.addFlashAttribute("Sucesso", incomeService.findById
+                (income.getId()).get().getIncomeType().getDesc() + " deletado com sucesso");
         utils.loggedUser(userRepository).getIncomes().remove(incomeService.findById(income.getId()).get());
         incomeService.delete(income.getId());
         modelAndView.setViewName("redirect:../renda");
