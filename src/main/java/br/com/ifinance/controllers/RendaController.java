@@ -93,6 +93,7 @@ public class RendaController {
                 .indexOf(incomeService.findById(income.getId()).get()), newIncome);
         userService.updateUser(utils.loggedUser(userRepository).getId(), utils.loggedUser(userRepository));
         modelAndView.setViewName("redirect:../renda");
+
         return modelAndView;
     }
 

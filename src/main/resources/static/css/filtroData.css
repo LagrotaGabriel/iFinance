@@ -1,0 +1,118 @@
+.linha_data
+{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+.meses{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.mes_opc{
+    margin: 0;
+    padding: 0;
+    border: 1px solid #00CCFF;
+    background: transparent;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    border-left: none;
+}
+
+.mes_opc_jan{
+    border-left: 1px solid #00CCFF;
+}
+
+.mes_opc:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    color: #121212;
+    transition: 1s;
+}
+
+/* ===== LINHA DOS BOTÕES ===== */
+
+.row_botoes{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.botoes{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.botoes_opcoes{
+    display: flex;
+    float: left;
+    height: 100%;
+    padding: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.selecao{
+    float: right;
+}
+
+.botoes_opc, .select_opc{
+    border: 1px solid #00CCFF;
+    border-radius: 5px;
+    background: transparent;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.select_opc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    text-decoration: none;
+    height: 100%;
+    padding: 10px 5px;
+    margin: 0;
+    padding: 0;
+    border-radius: 0px;
+    border-left: 0;
+}
+.ano_first{
+    border-left: 1px solid #00CCFF;
+}
+
+option{
+    color: #121212;
+}
+
+.botoes_opc{
+    padding: 10px 5px;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.botoes_opc:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    color: #121212;
+    transition: 1s;
+}
+
+.select_opc:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    color: #121212;
+    transition: 1s;
+}
