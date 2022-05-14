@@ -11,25 +11,17 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
 
-		<!--
+		
 		<link rel="icon" th:href="@{img/logo.png}" type="image/gif" sizes="32x32">
 		<link th:href="@{css/reset.css}" rel="stylesheet" />
 		<link th:href="@{css/layout.css}" rel="stylesheet"/>
-		<link th:href="@{css/despesas.css}" rel="stylesheet"/>
-		<link th:href="@{css/entradas.css}" rel="stylesheet" />
+		<link th:href="@{css/filtroData.css}" rel="stylesheet"/>
+		<link th:href="@{css/balanco.css}" rel="stylesheet" />
 		<script
 		  src="https://code.jquery.com/jquery-3.6.0.js"
 		  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 		  crossorigin="anonymous"></script>
 		<script type="text/javascript" th:src="@{js/entradas.js}" defer></script>
-		-->
-
-		
-		<link rel="icon" href="../static/img/logo.png" type="image/gif" sizes="32x32">
-		<link href="../static/css/reset.css" rel="stylesheet" />
-		<link href="../static/css/layout.css" rel="stylesheet"/>
-		<link href="../static/css/filtroData.css" rel="stylesheet"/>
-		<link href="../static/css/balanco.css" rel="stylesheet"/>
 
 		<script
 		  src="https://code.jquery.com/jquery-3.6.0.js"
@@ -37,18 +29,17 @@
 		  crossorigin="anonymous"></script>
 		<script type="text/javascript" src="../static/js/balanco.js" defer></script>
 		
-
-		<title>Entradas | iFinance</title>
+		<title>Balanço | iFinance</title>
 
 	</head>
 
 	<body id="body">
 
-			<!--------------- TUDO --------------->
-			<div class="row main-row" id="main_row">
+		<!--------------- TUDO --------------->
+		<div class="row main-row" id="main_row">
 
-				<!--------------- SIDE BAR PRINCIPAL DO SITE --------------->
-				<div class="container side_menu col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1" id="side_menu">
+			<!--------------- SIDE BAR PRINCIPAL DO SITE --------------->
+			<div class="container side_menu col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1" id="side_menu">
 
 					<div class="row side_menu_row" id="side_menu_row">
 
@@ -56,7 +47,7 @@
 
 							<a th:href="@{/}" class="row aside_clicavel">
 								<button type="button" class="img_button">
-									<img src="../static/img/houseblue.png" class="sidebar_menu_img" id="img_aside_principal"/>
+									<img th:src="@{img/houseblue.png}" class="sidebar_menu_img" id="img_aside_principal"/>
 								</button>	
 							
 								<h1 class="aside_title aside_title_principal text-center" id="title_aside_principal">
@@ -68,10 +59,10 @@
 
 						<div class="aside aside-2 col-lg-12" id="div_aside_balanco">
 							
-							<a href="javascript:void(0)" class="row aside_clicavel">
+							<a th:href="@{/balanco}" class="row aside_clicavel">
 
 								<button type="button" class="img_button">
-									<img src="../static/img/balance.png" class="sidebar_menu_img" id="img_aside_balanco"/>
+									<img th:src="@{img/balance.png}" class="sidebar_menu_img" id="img_aside_balanco"/>
 								</button>
 
 								<h1 class="aside_title text-center" id="title_aside_balanco">
@@ -87,7 +78,7 @@
 							
 							<a th:href="@{/entradas}" class="row aside_clicavel">
 								<button type="button" class="img_button">
-									<img src="../static/img/moneyblue.png" class="sidebar_menu_img" id="img_aside_estatisticas"/>
+									<img th:src="@{img/moneyblue.png}" class="sidebar_menu_img" id="img_aside_estatisticas"/>
 								</button>
 								<h1 class="aside_title text-center" id="title_aside_estatisticas">Entradas</h1>
 							</a>
@@ -99,7 +90,7 @@
 							
 							<a th:href="@{/despesas}" class="row aside_clicavel">
 								<button type="button" class="img_button">
-									<img src="../static/img/despesablue.png" class="sidebar_menu_img" id="img_aside_despesas"/>
+									<img th:src="@{img/despesablue.png}" class="sidebar_menu_img" id="img_aside_despesas"/>
 								</button>
 								<h1 class="aside_title text-center" id="title_aside_despesas">Despesas</h1>
 							</a>
@@ -111,7 +102,7 @@
 							
 							<a th:href="@{/patrimonio}" class="row aside_clicavel">
 								<button type="button" class="img_button">
-									<img src="../static/img/shelterblue.png" class="sidebar_menu_img" id="img_aside_patrimonio" />
+									<img th:src="@{img/shelterblue.png}" class="sidebar_menu_img" id="img_aside_patrimonio" />
 								</button>		
 								<h1 class="aside_title text-center" id="title_aside_patrimonio">Patrimônio</h1>						
 							</a>
@@ -122,7 +113,7 @@
 							
 							<a th:href="@{/renda}" class="row aside_clicavel">
 								<button type="button" class="img_button">
-									<img src="../static/img/bullblue.png" class="sidebar_menu_img" id="img_aside_rentabilidade"/>
+									<img th:src="@{img/bullblue.png}" class="sidebar_menu_img" id="img_aside_rentabilidade"/>
 								</button>			
 								<h1 class="aside_title text-center" id="title_aside_rentabilidade">Renda</h1>					
 							</a>
@@ -132,18 +123,17 @@
 
 							<a href="javascript:void(0)" class="row aside_clicavel">
 								<button type="button" class="img_button">
-									<img src="../static/img/settingsblue.png" class="sidebar_menu_img" id="img_aside_configuracoes"/>
+									<img th:src="@{img/settingsblue.png}" class="sidebar_menu_img" id="img_aside_configuracoes"/>
 								</button>	
 								<h1 class="aside_title text-center" id="title_aside_configuracoes">Configurações</h1>							
 							</a>							
 
 						</div>
 					</div>
+			</div>
 
-				</div>
-
-				<!-- Conteúdo principal do site, que fica ao lado do menu lateral -->
-				<main class="container main col-xl-11 col-lg-11 col-md-12 col-sm-12 col-12" id="main">
+			<!-- Conteúdo principal do site, que fica ao lado do menu lateral -->
+			<main class="container main col-xl-11 col-lg-11 col-md-12 col-sm-12 col-12" id="main">
 
 					<!--------------- MENU SUPERIOR DO SITE --------------->
 					<header class="row menu_superior col-lg-12" id="menu_superior">
@@ -259,16 +249,18 @@
 
 									<div class="botoes_opcoes col-xs-8 col-lg-8 col-md-7 col-sm-6 col-6">
 
-										<a href="javascript:void(0)" class="col-xs-1 col-lg-2 col-md-2 col-sm-3 col-3 botoes_opc botoes_opc_novo" onclick="novaEntrada()"  id="button_novo" onmouseover="animateButton('button_novo')" onmouseleave="animateButtonLeave('button_novo')">
-											Novo
-										</a>
+										<a href="javascript:void(0)" class="col-xs-1 col-lg-2 col-md-3 col-sm-4 col-5 botoes_opc botoes_opc_novo" onclick="novaEntrada()"  id="button_novo" onmouseover="animateButton('button_novo')" onmouseleave="animateButtonLeave('button_novo')">
+											Relatório
+										</a>	
+
+
 									</div>
 
 									<div class="selecao col-xs-4 col-lg-4 col-md-5 col-sm-6 col-6">
 
 										<div th:text="${year}" th:value="${year}" style="display:none" id="pegando_ano"></div>
 
-										<a th:href="@{__${baseUrl}__/entradas(year=2023, month=${month}, page=1)}" class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 select_opc"  id="ano_2023" onmouseover="animateButton('ano_2023')" onmouseleave="animateButtonLeave('ano_2023')">
+										<a th:href="@{__${baseUrl}__/entradas(year=2023, month=${month}, page=1)}" class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 select_opc"  id="mensal" onmouseover="animateButton('ano_2023')" onmouseleave="animateButtonLeave('ano_2023')">
 											2023
 										</a>										
 
@@ -344,17 +336,126 @@
 								</div>			
 							</div>
 
-																			
+							<div class="col-xl-11 col-lg-11 col-md-11 col-sm-11 col-11 informativos">
+
+								<div class="row informativos_linha">
+
+									<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 informativos_coluna informativos_coluna_esquerda">
+										
+										<div class="row informativos_coluna_linha informativos_coluna_esquerda_linha">
+
+											<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center informativos_coluna_titulo informativos_coluna_esquerda_titulo">
+												Entradas
+											</h1>
+
+											<hr class="esq_hr col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+										
+											<div class="coluna_subtitulo coluna_subtitulo_esquerda coluna_subtitulo_entradas coluna_subtitulo_maior_entrada col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 subtitulo subtitulo_maior_entrada">Maior entrada:</h2>
+											</div>	
+
+											<div class="coluna_value coluna_value_entradas coluna_value_maior_entrada col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_maior_entrada">-</h2>
+											</div>
+
+											<div class="coluna_subtitulo coluna_subtitulo_esquerda coluna_subtitulo_entradas coluna_subtitulo_menor_entrada col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 subtitulo subtitulo_menor_entrada">Menor entrada:</h2>
+											</div>	
+
+											<div class="coluna_value coluna_value_entradas coluna_value_menor_entrada col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_menor_entrada">-</h2>
+											</div>
+
+											<div class="coluna_subtitulo coluna_subtitulo_esquerda coluna_subtitulo_entradas coluna_subtitulo_forma_entrada col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 subtitulo subtitulo_forma">Meio mais usado:</h2>
+											</div>	
+
+											<div class="coluna_value coluna_value_entradas coluna_value_forma col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_forma">-</h2>
+											</div>	
+
+											<div class="coluna_subtitulo coluna_subtitulo_esquerda coluna_subtitulo_entradas coluna_subtitulo_total_entrada col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 subtitulo subtitulo_total">Valor total:</h2>
+											</div>	
+
+											<div class="coluna_value coluna_value_entradas coluna_value_total col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_total">-</h2>
+											</div>																																					
+										</div>
+
+									</div>	
+
+									<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 informativos_coluna informativos_coluna_direita">
+
+										<div class="row informativos_coluna_linha informativos_coluna_direita_linha">										
+											<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center informativos_coluna_titulo informativos_coluna_direita_titulo">
+												Saídas
+											</h1>
+
+											<hr class="dir_hr col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">										
+
+											<div class="coluna_subtitulo coluna_subtitulo_direita coluna_subtitulo_saidas coluna_subtitulo_maior_saida col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 subtitulo subtitulo_maior_saida">Maior saída:</h2>
+											</div>	
+
+											<div class="coluna_value coluna_value_saidas coluna_value_maior_saida col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_maior_saida">-</h2>
+											</div>	
+
+											<div class="coluna_subtitulo coluna_subtitulo_direita coluna_subtitulo_saidas coluna_subtitulo_menor_saida col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 subtitulo subtitulo_menor_saida">Menor saída:</h2>
+											</div>	
+
+											<div class="coluna_value coluna_value_saidas coluna_value_menor_saida col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_menor_saida">-</h2>
+											</div>	
+
+											<div class="coluna_subtitulo coluna_subtitulo_direita coluna_subtitulo_saidas coluna_subtitulo_forma_saidas col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 subtitulo subtitulo_forma">Meio mais usado:</h2>
+											</div>	
+
+											<div class="coluna_value coluna_value_saidas coluna_value_forma col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_forma">-</h2>
+											</div>																						
+											<div class="coluna_subtitulo coluna_subtitulo_direita coluna_subtitulo_saidas coluna_subtitulo_total_entrada col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 subtitulo subtitulo_total">Valor total:</h2>
+											</div>	
+
+											<div class="coluna_value coluna_value_saidas coluna_value_total col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_total">-</h2>
+											</div>																													
+										</div>
+
+									</div>	
+
+									<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-7 informativos_coluna informativos_coluna_total">
+
+										<div class="row informativos_coluna_linha informativos_coluna_total_linha">										
+											<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center informativos_coluna_titulo informativos_coluna_total_titulo">
+												Saldo
+											</h1>
+
+											<hr class="tot_hr col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">	
+
+											<div class="coluna_value coluna_value_saidas coluna_value_saldo col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_saldo text-center">-</h2>
+											</div>																			
+
+									</div>		
+
+								</div>
+
+							</div>	
 
 					</div>
 
-				</main>
+			</main>
 
-			</div> <!-- TUDO -->
+		</div>
 
-			<div class="main_loader" id="main_loader">
-				<div class="loader"></div>
-			</div>
+		<div class="main_loader" id="main_loader">
+			<div class="loader"></div>
+		</div>
 
 	</body>
 

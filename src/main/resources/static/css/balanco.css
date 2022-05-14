@@ -9,3 +9,96 @@
 }
 
 /* ============================ FIM DO MENU LATERAL ============================ */
+
+/* ============================== INFORMATIVOS ============================== */
+
+.informativos{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.informativos_linha, .informativos_coluna_linha{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.informativos_coluna{
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+.informativos_coluna_esquerda{
+    justify-content: left;
+    float: left;
+    border-left: 2px solid lightgreen;
+    border-radius: 15px 0 0 15px;
+}
+
+.informativos_coluna_direita{
+    justify-content: right;
+    float: right;
+    border-right: 2px solid indianred;
+    border-radius: 0 15px 15px 0;
+}
+
+.informativos_coluna_titulo{
+    font-size: 2rem;
+    color: #00CCFF;
+    margin-bottom: 10px;
+}
+
+hr{
+    background: #00CCFF;
+}
+
+.coluna_subtitulo, .coluna_value{
+    padding: 0;
+    margin: 0;
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.coluna_subtitulo{
+    color: #00CCFF;
+}
+
+.coluna_value_entradas, .coluna_value_saidas{
+    color: #FFFFFF;
+}
+
+.coluna_value_saldo{
+    color: #FFFFFF;
+}
+
+.informativos_coluna_total{
+    margin: 30px 0;
+    border-left: 2px solid lightgreen;
+    border-right: 2px solid lightgreen;
+    border-radius: 15px;
+}
+.informativos_coluna_total_titulo{
+    color: lightgreen;
+}
+.tot_hr{
+    background: lightgreen;
+}
+
+.informativos_coluna_esquerda_titulo, .coluna_subtitulo_esquerda{
+    color: lightgreen;
+}
+.informativos_coluna_direita_titulo, .coluna_subtitulo_direita{
+    color: indianred;
+}
+.esq_hr{
+    background: lightgreen;
+}
+.dir_hr{
+    background: indianred;
+}
