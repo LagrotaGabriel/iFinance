@@ -139,11 +139,7 @@ function responsive(){
 			editLabel[i].style.fontSize="1.15rem";
 			editInput[i].style.fontSize="1rem";
 		}	
-		for(var i = 0; i < novoBotao.length; i++){
-			editBotao[i].style.fontSize="1rem";
-			editBotao[i].style.fontSize="1rem";
-		}					
-				
+	
 	}
 	else if(bodyWidth <= 992 && bodyWidth > 768){
 		console.log('Médio');
@@ -185,11 +181,7 @@ function responsive(){
 			novoInput[i].style.fontSize="0.85rem";
 			editLabel[i].style.fontSize="1rem";
 			editInput[i].style.fontSize="0.85rem";
-		}
-		for(var i = 0; i < novoBotao.length; i++){
-			novoBotao[i].style.fontSize="0.95rem";
-			editBotao[i].style.fontSize="0.95rem";
-		}		
+		}	
 								
 	}
 	else if(bodyWidth <= 768 && bodyWidth > 540){
@@ -233,10 +225,6 @@ function responsive(){
 			novoInput[i].style.fontSize="0.75rem";
 			editLabel[i].style.fontSize="0.90rem";
 			editInput[i].style.fontSize="0.75rem";			
-		}	
-		for(var i = 0; i < novoBotao.length; i++){
-			novoBotao[i].style.fontSize="0.85rem";
-			editBotao[i].style.fontSize="0.85rem";
 		}					
 								
 	}
@@ -283,11 +271,7 @@ function responsive(){
 			editLabel[i].style.fontSize="0.70rem";
 			editInput[i].style.fontSize="0.65rem";
 		}
-		for(var i = 0; i < novoBotao.length; i++){
-			novoBotao[i].style.fontSize="0.75rem";
-			editBotao[i].style.fontSize="0.75rem";
-		}							
-			
+
 	}
 
 	if(tamanhoMenuSuperior.clientHeight == 0){
@@ -313,32 +297,32 @@ function doALoadOfStuff() {
 function animateMenu(item){
 
 	if(item == "balanco"){
-		document.getElementById("img_aside_balanco").src="../static/img/balance.png";
+		document.getElementById("img_aside_balanco").src="img/balance.png";
 		document.getElementById("img_aside_balanco").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_balanco").style.color="#121212";
 	}
 	else if(item == "estatisticas"){
-		document.getElementById("img_aside_estatisticas").src="../static/img/stats.png";
+		document.getElementById("img_aside_estatisticas").src="img/money.png";
 		document.getElementById("img_aside_estatisticas").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_estatisticas").style.color="#121212";
 	}
 	else if(item == "principal"){
-		document.getElementById("img_aside_principal").src="../static/img/house.png";
+		document.getElementById("img_aside_principal").src="img/house.png";
 		document.getElementById("img_aside_principal").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_principal").style.color="#121212";
 	}
 	else if(item == "despesas"){
-		document.getElementById("img_aside_despesas").src="../static/img/despesa.png";
+		document.getElementById("img_aside_despesas").src="img/despesa.png";
 		document.getElementById("img_aside_despesas").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_despesas").style.color="#121212";
 	}
 	else if(item == "patrimonio"){
-		document.getElementById("img_aside_patrimonio").src="../static/img/shelter.png";
+		document.getElementById("img_aside_patrimonio").src="img/shelter.png";
 		document.getElementById("img_aside_patrimonio").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_patrimonio").style.color="#121212";
 	}
 	else if(item == "configuracoes"){
-		document.getElementById("img_aside_configuracoes").src="../static/img/settings.png";
+		document.getElementById("img_aside_configuracoes").src="img/settings.png";
 		document.getElementById("img_aside_configuracoes").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_configuracoes").style.color="#121212";
 	}
@@ -349,32 +333,32 @@ function returnMenuState(item){
 	var titulos = document.getElementsByClassName("aside_title");
 
 	if(item == "balanco"){
-		document.getElementById("img_aside_balanco").src="../static/img/balanceblue.png";
+		document.getElementById("img_aside_balanco").src="img/balanceblue.png";
 		document.getElementById("img_aside_balanco").style.animation="none";
 		titulos[1].style.color="#00ccff";
 	}
 	else if(item == "estatisticas"){
-		document.getElementById("img_aside_estatisticas").src="../static/img/statsblue.png";
+		document.getElementById("img_aside_estatisticas").src="img/moneyblue.png";
 		document.getElementById("img_aside_estatisticas").style.animation="none";
 		titulos[2].style.color="#00ccff";
 	}
 	else if(item == "principal"){
-		document.getElementById("img_aside_principal").src="../static/img/houseblue.png";
+		document.getElementById("img_aside_principal").src="img/houseblue.png";
 		document.getElementById("img_aside_principal").style.animation="none";
 		titulos[0].style.color="#00ccff";
 	}
 	else if(item == "despesas"){
-		document.getElementById("img_aside_despesas").src="../static/img/despesablue.png";
+		document.getElementById("img_aside_despesas").src="img/despesablue.png";
 		document.getElementById("img_aside_despesas").style.animation="none";
 		titulos[3].style.color="#00ccff";
 	}
 	else if(item == "patrimonio"){
-		document.getElementById("img_aside_patrimonio").src="../static/img/shelterblue.png";
+		document.getElementById("img_aside_patrimonio").src="img/shelterblue.png";
 		document.getElementById("img_aside_patrimonio").style.animation="none";
 		titulos[4].style.color="#00ccff";
 	}
 	else if(item == "configuracoes"){
-		document.getElementById("img_aside_configuracoes").src="../static/img/settingsblue.png";
+		document.getElementById("img_aside_configuracoes").src="img/settingsblue.png";
 		document.getElementById("img_aside_configuracoes").style.animation="none";
 		titulos[6].style.color="#00ccff";
 	}
@@ -409,6 +393,7 @@ function informativosResponsivity(){
 
 	blockInternoSalario.style.background="transparent";
 	blockInternoSalario.style.color="#FFFFFF";									
+
 }
 
 function overInformativo(hover){
@@ -423,8 +408,7 @@ function overInformativo(hover){
 			blockInternoDividendos.style.color="#121212";
 			blockInternoDividendos.style.pointerEvents="auto";	
 			blockInternoDividendos.style.cursor="pointer";
-			blockInternoDividendos.style.transition="1s";
-			blockInternoDividendos.style.animation="pulse 2s infinite"		
+			blockInternoDividendos.style.transition="1s";	
 		}
 		else if(hover == "extra"){
 			blockInternoExtra.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
@@ -432,7 +416,6 @@ function overInformativo(hover){
 			blockInternoExtra.style.pointerEvents="auto";	
 			blockInternoExtra.style.cursor="pointer";
 			blockInternoExtra.style.transition="1s";
-			blockInternoExtra.style.animation="pulse 2s infinite"
 		}
 		else if(hover == "outros"){
 			blockInternoOutros.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
@@ -440,7 +423,6 @@ function overInformativo(hover){
 			blockInternoOutros.style.pointerEvents="auto";	
 			blockInternoOutros.style.cursor="pointer";
 			blockInternoOutros.style.transition="1s";
-			blockInternoOutros.style.animation="pulse 2s infinite"
 		}
 		else if(hover == "salario"){
 			blockInternoSalario.style.backgroundImage="linear-gradient(to right, #00ccff, #28cffa)";
@@ -448,7 +430,6 @@ function overInformativo(hover){
 			blockInternoSalario.style.pointerEvents="auto";	
 			blockInternoSalario.style.cursor="pointer";
 			blockInternoSalario.style.transition="1s";
-			blockInternoSalario.style.animation="pulse 2s infinite"
 		}
 }
 
@@ -463,28 +444,322 @@ function leaveInformativo(hover){
 			blockInternoDividendos.style.background="transparent";
 			blockInternoDividendos.style.color="#FFFFFF";	
 			blockInternoDividendos.style.cursor="default";
-			blockInternoDividendos.style.transition="1s";
-			blockInternoDividendos.style.animation="none"		
+			blockInternoDividendos.style.transition="1s";	
 		}
 		else if(hover == "extra"){
 			blockInternoExtra.style.background="transparent";
 			blockInternoExtra.style.color="#FFFFFF";	
 			blockInternoExtra.style.cursor="default";
 			blockInternoExtra.style.transition="1s";
-			blockInternoExtra.style.animation="none"
 		}
 		else if(hover == "outros"){
 			blockInternoOutros.style.background="transparent";
 			blockInternoOutros.style.color="#FFFFFF";	
 			blockInternoOutros.style.cursor="default";
 			blockInternoOutros.style.transition="1s";
-			blockInternoOutros.style.animation="none"
 		}
 		else if(hover == "salario"){
 			blockInternoSalario.style.background="transparent";
 			blockInternoSalario.style.color="#FFFFFF";
 			blockInternoSalario.style.cursor="default";
 			blockInternoSalario.style.transition="1s";
-			blockInternoSalario.style.animation="none"
 		}
+}
+
+/* =============== INTERAÇÕES COM OS SALÁRIOS INFORMATIVOS =============== */
+
+function openSalario(){
+
+	var conteudoContainer = document.getElementById('conteudo_container');
+	var conteudoContainerSalario = document.getElementById('conteudo_container_salario');
+
+	conteudoContainer.style.display="none";
+	conteudoContainerSalario.style.display="block";
+}
+
+function editSalario(id, desc, val, freq){
+
+	console.log("ID: " + id);
+
+	var conteudoContainerSalario = document.getElementById('conteudo_container_salario');
+	var conteudoContainerEditSalario = document.getElementById('conteudo_container_edit_salario');
+
+	var salarioTitulo = document.getElementById('conteudo_titulo_text_edit_salario');
+	var salarioId = document.getElementById('edit_salario_id');
+	var salarioIdDelete = document.getElementById('salario_id_delete');
+	var salarioDescricao = document.getElementById('edit_salario_descricao');
+	var salarioValor = document.getElementById('edit_salario_valor');
+	var salarioPeriodicidade = document.getElementById('edit_salario_frequencia');
+
+	salarioTitulo.innerText=desc;
+	salarioId.value=id;
+	salarioIdDelete.value=id;
+	salarioDescricao.value=desc;
+	salarioValor.value=val;
+	salarioPeriodicidade.value=freq;
+
+	conteudoContainerSalario.style.display="none";
+	conteudoContainerEditSalario.style.display="block";
+
+}
+
+function clickOnNewSalario(){
+
+	var conteudoContainerSalario = document.getElementById('conteudo_container_salario');
+	var conteudoContainerNovoSalario = document.getElementById('conteudo_container_novo_salario');
+
+	conteudoContainerSalario.style.display="none";
+	conteudoContainerNovoSalario.style.display="block";
+
+}
+
+function closeSalario(){
+
+	var conteudoContainer = document.getElementById('conteudo_container');
+	var conteudoContainerSalario = document.getElementById('conteudo_container_salario');
+
+	conteudoContainer.style.display="block";
+	conteudoContainerSalario.style.display="none";
+}
+
+function closeEditSalario(){
+
+	var conteudoContainerSalario = document.getElementById('conteudo_container_salario');
+	var conteudoContainerEditSalario = document.getElementById('conteudo_container_edit_salario');
+
+	conteudoContainerSalario.style.display="block";
+	conteudoContainerEditSalario.style.display="none";
+
+}
+
+function closeNewSalario(){
+
+	var conteudoContainerSalario = document.getElementById('conteudo_container_salario');
+	var conteudoContainerNovoSalario = document.getElementById('conteudo_container_novo_salario');
+
+	conteudoContainerSalario.style.display="block";
+	conteudoContainerNovoSalario.style.display="none";
+
+}
+
+/* =============== INTERAÇÕES COM OS DIVIDENDOS INFORMATIVOS =============== */
+
+function openDividendo(){
+
+	var conteudoContainer = document.getElementById('conteudo_container');
+	var conteudoContainerDividendo = document.getElementById('conteudo_container_dividendo');
+
+	conteudoContainer.style.display="none";
+	conteudoContainerDividendo.style.display="block";
+}
+
+function editDividendo(id, desc, val, freq){
+
+	var conteudoContainerDividendo = document.getElementById('conteudo_container_dividendo');
+	var conteudoContainerEditDividendo = document.getElementById('conteudo_container_edit_dividendo');
+
+	var dividendoTitulo = document.getElementById('conteudo_titulo_text_edit_dividendo');
+	var dividendoId = document.getElementById('edit_dividendo_id');
+	var dividendoIdDelete = document.getElementById('dividendo_id_delete');
+	var dividendoDescricao = document.getElementById('edit_dividendo_descricao');
+	var dividendoValor = document.getElementById('edit_dividendo_valor');
+	var dividendoPeriodicidade = document.getElementById('edit_dividendo_frequencia');
+
+	dividendoTitulo.innerText=desc;
+	dividendoId.value=id;
+	dividendoIdDelete.value=id;
+	dividendoDescricao.value=desc;
+	dividendoValor.value=val;
+	dividendoPeriodicidade.value=freq;
+
+	conteudoContainerDividendo.style.display="none";
+	conteudoContainerEditDividendo.style.display="block";
+
+}
+
+function clickOnNewDividendo(){
+
+	var conteudoContainerDividendo = document.getElementById('conteudo_container_dividendo');
+	var conteudoContainerNovoDividendo = document.getElementById('conteudo_container_novo_dividendo');
+
+	conteudoContainerDividendo.style.display="none";
+	conteudoContainerNovoDividendo.style.display="block";
+
+}
+
+function closeDividendo(){
+
+	var conteudoContainer = document.getElementById('conteudo_container');
+	var conteudoContainerDividendo = document.getElementById('conteudo_container_dividendo');
+
+	conteudoContainer.style.display="block";
+	conteudoContainerDividendo.style.display="none";
+}
+
+function closeEditDividendo(){
+
+	var conteudoContainerDividendo = document.getElementById('conteudo_container_dividendo');
+	var conteudoContainerEditDividendo = document.getElementById('conteudo_container_edit_dividendo');
+
+	conteudoContainerDividendo.style.display="block";
+	conteudoContainerEditDividendo.style.display="none";
+	
+}
+
+function closeNewDividendo(){
+
+	var conteudoContainerDividendo = document.getElementById('conteudo_container_dividendo');
+	var conteudoContainerNovoDividendo = document.getElementById('conteudo_container_novo_dividendo');
+
+	conteudoContainerDividendo.style.display="block";
+	conteudoContainerNovoDividendo.style.display="none";
+
+}
+
+/* =============== INTERAÇÕES COM OS EXTRAS INFORMATIVOS =============== */
+
+function openExtra(){
+
+	var conteudoContainer = document.getElementById('conteudo_container');
+	var conteudoContainerExtra = document.getElementById('conteudo_container_extra');
+
+	conteudoContainer.style.display="none";
+	conteudoContainerExtra.style.display="block";
+}
+
+function editExtra(id, desc, val, freq){
+
+	var conteudoContainerExtra = document.getElementById('conteudo_container_extra');
+	var conteudoContainerEditExtra = document.getElementById('conteudo_container_edit_extra');
+
+	var extraTitulo = document.getElementById('conteudo_titulo_text_edit_extra');
+	var extraId = document.getElementById('edit_extra_id');
+	var extraIdDelete = document.getElementById('extra_id_delete');
+	var extraDescricao = document.getElementById('edit_extra_descricao');
+	var extraValor = document.getElementById('edit_extra_valor');
+	var extraPeriodicidade = document.getElementById('edit_extra_frequencia');
+
+	extraTitulo.innerText=desc;
+	extraId.value=id;
+	extraIdDelete.value=id;
+	extraDescricao.value=desc;
+	extraValor.value=val;
+	extraPeriodicidade.value=freq;	
+
+	conteudoContainerExtra.style.display="none";
+	conteudoContainerEditExtra.style.display="block";
+
+}
+
+function clickOnNewExtra(){
+
+	var conteudoContainerExtra = document.getElementById('conteudo_container_extra');
+	var conteudoContainerNovoExtra = document.getElementById('conteudo_container_novo_extra');
+
+	conteudoContainerExtra.style.display="none";
+	conteudoContainerNovoExtra.style.display="block";
+
+}
+
+function closeExtra(){
+
+	var conteudoContainer = document.getElementById('conteudo_container');
+	var conteudoContainerExtra = document.getElementById('conteudo_container_extra');
+
+	conteudoContainer.style.display="block";
+	conteudoContainerExtra.style.display="none";
+}
+
+function closeEditExtra(){
+
+	var conteudoContainerExtra = document.getElementById('conteudo_container_extra');
+	var conteudoContainerEditExtra = document.getElementById('conteudo_container_edit_extra');
+
+	conteudoContainerExtra.style.display="block";
+	conteudoContainerEditExtra.style.display="none";
+	
+}
+
+function closeNewExtra(){
+
+	var conteudoContainerExtra = document.getElementById('conteudo_container_extra');
+	var conteudoContainerNovoExtra = document.getElementById('conteudo_container_novo_extra');
+
+	conteudoContainerExtra.style.display="block";
+	conteudoContainerNovoExtra.style.display="none";
+
+}
+
+/* =============== INTERAÇÕES COM OS OUTROS INFORMATIVOS =============== */
+
+function openOutro(){
+
+	var conteudoContainer = document.getElementById('conteudo_container');
+	var conteudoContainerOutro = document.getElementById('conteudo_container_outro');
+
+	conteudoContainer.style.display="none";
+	conteudoContainerOutro.style.display="block";
+}
+
+function editOutro(id, desc, val, freq){
+
+	var conteudoContainerOutro = document.getElementById('conteudo_container_outro');
+	var conteudoContainerEditOutro = document.getElementById('conteudo_container_edit_outro');
+
+	var outroTitulo = document.getElementById('conteudo_titulo_text_edit_outro');
+	var outroId = document.getElementById('edit_outro_id');
+	var outroIdDelete = document.getElementById('outro_id_delete');
+	var outroDescricao = document.getElementById('edit_outro_descricao');
+	var outroValor = document.getElementById('edit_outro_valor');
+	var outroPeriodicidade = document.getElementById('edit_outro_frequencia');
+
+	outroTitulo.innerText=desc;
+	outroId.value=id;
+	outroIdDelete.value=id;
+	outroDescricao.value=desc;
+	outroValor.value=val;
+	outroPeriodicidade.value=freq;
+
+	conteudoContainerOutro.style.display="none";
+	conteudoContainerEditOutro.style.display="block";
+
+}
+
+function clickOnNewOutro(){
+
+	var conteudoContainerOutro = document.getElementById('conteudo_container_outro');
+	var conteudoContainerNovoOutro = document.getElementById('conteudo_container_novo_outro');
+
+	conteudoContainerOutro.style.display="none";
+	conteudoContainerNovoOutro.style.display="block";
+
+}
+
+function closeOutro(){
+
+	var conteudoContainer = document.getElementById('conteudo_container');
+	var conteudoContainerOutro = document.getElementById('conteudo_container_outro');
+
+	conteudoContainer.style.display="block";
+	conteudoContainerOutro.style.display="none";
+}
+
+function closeEditOutro(){
+
+	var conteudoContainerOutro = document.getElementById('conteudo_container_outro');
+	var conteudoContainerEditOutro = document.getElementById('conteudo_container_edit_outro');
+
+	conteudoContainerOutro.style.display="block";
+	conteudoContainerEditOutro.style.display="none";
+	
+}
+
+function closeNewOutro(){
+
+	var conteudoContainerOutro = document.getElementById('conteudo_container_outro');
+	var conteudoContainerNovoOutro = document.getElementById('conteudo_container_novo_outro');
+
+	conteudoContainerOutro.style.display="block";
+	conteudoContainerNovoOutro.style.display="none";
+
 }

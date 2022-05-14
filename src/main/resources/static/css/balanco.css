@@ -1,11 +1,10 @@
 /* ============================== MENU LATERAL ============================== */
 
-.aside-4{
-    background-image: linear-gradient(to right, #00ccff, #28cffa);
-    opacity: 0.9;
+.aside-2{
+    background: #00CCFF;
 }
 
-#title_aside_despesas{
+#title_aside_balanco{
     color: #121212;
 }
 

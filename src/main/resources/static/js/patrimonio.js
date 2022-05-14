@@ -346,8 +346,9 @@ function animateMenu(item){
 		document.getElementById("img_aside_balanco").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_balanco").style.color="#121212";
 	}
+
 	else if(item == "estatisticas"){
-		document.getElementById("img_aside_estatisticas").src="img/stats.png";
+		document.getElementById("img_aside_estatisticas").src="img/money.png";
 		document.getElementById("img_aside_estatisticas").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_estatisticas").style.color="#121212";
 	}
@@ -383,7 +384,7 @@ function returnMenuState(item){
 		titulos[1].style.color="#00ccff";
 	}
 	else if(item == "estatisticas"){
-		document.getElementById("img_aside_estatisticas").src="img/statsblue.png";
+		document.getElementById("img_aside_estatisticas").src="img/moneyblue.png";
 		document.getElementById("img_aside_estatisticas").style.animation="none";
 		titulos[2].style.color="#00ccff";
 	}

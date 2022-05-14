@@ -65,7 +65,6 @@ public class UserService {
             }
 
             return create(updated.get());
-
         }
 
         else{

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" src="index.html">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="iFinance, o sistema web de finanças pessoais. No iFinance você realiza de forma segura uma gestão completamente profissional de suas finanças pessoais.">
+		<meta name="keywords" content="Finança, Finanças, Financa, Finanças, Valor, Valores, Dinheiro, Gestão, Gestão de finança, Gestão de finanças, Gestão de finanças pessoais, Gestão de finança pessoal, Dinheiro, dinheiro, Capital, Investimento, Investimentos, Gestor de investimento, Gestor de finança, Gestor de finanças, Gestor de finanças pessoais, Finança pessoal, Finanças pessoais, Despesa, Despesas, Ativo, Ativos, Passivo, Passivos, Patrimonio, Patimonios, Patrimônio, Patrimônios, Gestor de patrimônio, Gestor de patrimonio, Gestão de patrimônio, Gestão de patrimonio, Financeiro, Contabilidade, Contábil, Contabil, Gestor Contabil, Gestão Contabil, Gestão de contabilidade, Cnotabilidade pessoal, Gestão de contabilidade Pessoal">
+ 		<meta name="author" content="Gabriel Lagrota">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+
+		<!--
+		<link rel="icon" th:href="@{img/logo.png}" type="image/gif" sizes="32x32">
+		<link th:href="@{css/reset.css}" rel="stylesheet" />
+		<link th:href="@{css/layout.css}" rel="stylesheet"/>
+		<link th:href="@{css/despesas.css}" rel="stylesheet"/>
+		<link th:href="@{css/entradas.css}" rel="stylesheet" />
+		<script
+		  src="https://code.jquery.com/jquery-3.6.0.js"
+		  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+		  crossorigin="anonymous"></script>
+		<script type="text/javascript" th:src="@{js/entradas.js}" defer></script>
+		-->
+
+		
+		<link rel="icon" href="../static/img/logo.png" type="image/gif" sizes="32x32">
+		<link href="../static/css/reset.css" rel="stylesheet" />
+		<link href="../static/css/layout.css" rel="stylesheet"/>
+		<link href="../static/css/filtroData.css" rel="stylesheet"/>
+		<link href="../static/css/balanco.css" rel="stylesheet"/>
+
+		<script
+		  src="https://code.jquery.com/jquery-3.6.0.js"
+		  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+		  crossorigin="anonymous"></script>
+		<script type="text/javascript" src="../static/js/balanco.js" defer></script>
+		
+
+		<title>Entradas | iFinance</title>
+
+	</head>
+
+	<body id="body">
+
+			<!--------------- TUDO --------------->
+			<div class="row main-row" id="main_row">
+
+				<!--------------- SIDE BAR PRINCIPAL DO SITE --------------->
+				<div class="container side_menu col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1" id="side_menu">
+
+					<div class="row side_menu_row" id="side_menu_row">
+
+						<div class="aside aside-1 col-lg-12" id="div_aside_principal" onmouseover="animateMenu('principal')" onmouseleave="returnMenuState('principal')">
+
+							<a th:href="@{/}" class="row aside_clicavel">
+								<button type="button" class="img_button">
+									<img src="../static/img/houseblue.png" class="sidebar_menu_img" id="img_aside_principal"/>
+								</button>	
+							
+								<h1 class="aside_title aside_title_principal text-center" id="title_aside_principal">
+									Principal
+								</h1>
+							</a>
+
+						</div>
+
+						<div class="aside aside-2 col-lg-12" id="div_aside_balanco">
+							
+							<a href="javascript:void(0)" class="row aside_clicavel">
+
+								<button type="button" class="img_button">
+									<img src="../static/img/balance.png" class="sidebar_menu_img" id="img_aside_balanco"/>
+								</button>
+
+								<h1 class="aside_title text-center" id="title_aside_balanco">
+									Balanço
+								</h1>
+
+							</a>
+							
+
+						</div>
+
+						<div class="aside aside-3 col-lg-12" id="div_aside_estatisticas" onmouseover="animateMenu('entradas')" onmouseleave="returnMenuState('entradas')">
+							
+							<a th:href="@{/entradas}" class="row aside_clicavel">
+								<button type="button" class="img_button">
+									<img src="../static/img/moneyblue.png" class="sidebar_menu_img" id="img_aside_estatisticas"/>
+								</button>
+								<h1 class="aside_title text-center" id="title_aside_estatisticas">Entradas</h1>
+							</a>
+							
+
+						</div>
+
+						<div class="aside aside-4 col-lg-12" id="div_aside_despesas" onmouseover="animateMenu('despesas')" onmouseleave="returnMenuState('despesas')">
+							
+							<a th:href="@{/despesas}" class="row aside_clicavel">
+								<button type="button" class="img_button">
+									<img src="../static/img/despesablue.png" class="sidebar_menu_img" id="img_aside_despesas"/>
+								</button>
+								<h1 class="aside_title text-center" id="title_aside_despesas">Despesas</h1>
+							</a>
+							
+
+						</div>
+
+						<div class="aside aside-5 col-lg-12" id="div_aside_patrimonio"onmouseover="animateMenu('patrimonio')" onmouseleave="returnMenuState('patrimonio')">
+							
+							<a th:href="@{/patrimonio}" class="row aside_clicavel">
+								<button type="button" class="img_button">
+									<img src="../static/img/shelterblue.png" class="sidebar_menu_img" id="img_aside_patrimonio" />
+								</button>		
+								<h1 class="aside_title text-center" id="title_aside_patrimonio">Patrimônio</h1>						
+							</a>
+
+						</div>
+
+						<div class="aside aside-6 col-lg-12" id="div_aside_rentabilidade" onmouseover="animateMenu('renda')" onmouseleave="returnMenuState('renda')">
+							
+							<a th:href="@{/renda}" class="row aside_clicavel">
+								<button type="button" class="img_button">
+									<img src="../static/img/bullblue.png" class="sidebar_menu_img" id="img_aside_rentabilidade"/>
+								</button>			
+								<h1 class="aside_title text-center" id="title_aside_rentabilidade">Renda</h1>					
+							</a>
+
+						</div>																
+						<div class="aside aside-7 col-lg-12" id="div_aside_configuracoes" onmouseover="animateMenu('configuracoes')" onmouseleave="returnMenuState('configuracoes')">
+
+							<a href="javascript:void(0)" class="row aside_clicavel">
+								<button type="button" class="img_button">
+									<img src="../static/img/settingsblue.png" class="sidebar_menu_img" id="img_aside_configuracoes"/>
+								</button>	
+								<h1 class="aside_title text-center" id="title_aside_configuracoes">Configurações</h1>							
+							</a>							
+
+						</div>
+					</div>
+
+				</div>
+
+				<!-- Conteúdo principal do site, que fica ao lado do menu lateral -->
+				<main class="container main col-xl-11 col-lg-11 col-md-12 col-sm-12 col-12" id="main">
+
+					<!--------------- MENU SUPERIOR DO SITE --------------->
+					<header class="row menu_superior col-lg-12" id="menu_superior">
+					
+						<!-- Barra de pesquisas do header -->
+						<div class="col-lg-6 menu_superior_item searchbar">
+							
+							<form class="row menu_superior_form">
+
+								<input class="menu_superior_input col-lg-10" placeholder="Pesquise aqui por ativos, entrada de valores, despesas, balanços e outros...">
+
+								<button class="lupa_btn col-lg-1">
+
+									<img class="lupa_img" th:src="@{img/search.png}"/>
+
+								</button>
+
+							</form>	
+
+							</div>	
+
+							<!-- Botão de avisos -->
+							<div class="col-lg-2 menu_superior_item bt bt1">
+								
+								<button class="top_btn warn_btn col-lg-11">
+
+									Avisos (0)
+
+								</button>
+
+							</div>							
+
+							<!-- Botão para acessar perfil do usuário -->
+							<div class="col-lg-2 menu_superior_item bt bt2">
+								
+								<button class="top_btn perfil_btn col-lg-11">
+
+									Perfil
+
+								</button>
+
+							</div>
+
+							<!-- Botão para realizar logout -->
+							<div class="col-lg-2 menu_superior_item bt bt3">
+
+								<form class="col-lg-12 logout_form" th:action="@{/logout}" method="POST">
+
+									<button class="top_btn logout_btn col-lg-11" type="submit">
+
+										Logout
+
+									</button>	
+
+									<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+								</form>
+								
+							</div>
+					</header>
+
+					<!----------- MENU SUPERIOR RESPONSIVO DO SITE ------------>
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 menu_superior_responsivo row" id="menu_superior_responsivo">
+
+						<div class="sup sup_01 col-md-2 col-sm-2 col-2">
+							<a th:href="@{/}" class="sup_sup sup_sup_01">Home</a>
+						</div>	
+
+						<div class="sup sup_02 col-md-2 col-sm-2 col-2">
+							<a th:href="@{/despesas}" class="sup_sup sup_sup_01">Despesas</a>
+						</div>
+
+						<div class="sup sup_03 col-md-2 col-sm-2 col-2">
+							<a th:href="@{/patrimonio}" class="sup_sup sup_sup_01">Bens</a>
+						</div>	
+
+						<div class="sup sup_04 col-md-2 col-sm-2 col-2">
+							<a href="javascript:void(0)" class="sup_sup sup_sup_01">Dinheiro</a>
+						</div>
+
+						<div class="sup sup_05 col-md-2 col-sm-2 col-2">
+							<a href="javascript:void(0)" class="sup_sup sup_sup_01">Balanço</a>
+						</div>		
+
+						<form class="sup sup_06 col-md-2 col-sm-2 col-2" th:action="@{/logout}" method="POST">
+							<button type="submit" class="sup_sup sup_sup_01">Logout</button>
+							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+						</form>	
+					</div>	
+
+					<!----------- CONTAINER_ALIGN ------------>
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 container_align" id="container_align">
+
+						<!-------------- CONTEUDO_CONTAINER ------------>
+						<div class="container conteudo_container" id="conteudo_container">
+
+							<!-------------- CONTEUDO_CONTAINER - TÍTULO ------------>
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo" id="conteudo_titulo">
+
+								<div th:if="${Sucesso}" class="alert alert-success" id="sucessoCadastro" onclick="hideMessage()" hidden>
+									<p th:text="${Sucesso}"></p>
+								</div>								
+
+								<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text" id="conteudo_titulo_text">
+									Balanço
+								</h1>
+							</div>
+
+							<!-------------- BOTÕES DOS ANOS E BOTÃO NOVO ------------>
+							<div class="row row_botoes">
+
+								<div class="col-xs-11 col-lg-11 col-md-11 col-sm-11 col-11 botoes">
+
+									<div class="botoes_opcoes col-xs-8 col-lg-8 col-md-7 col-sm-6 col-6">
+
+										<a href="javascript:void(0)" class="col-xs-1 col-lg-2 col-md-2 col-sm-3 col-3 botoes_opc botoes_opc_novo" onclick="novaEntrada()"  id="button_novo" onmouseover="animateButton('button_novo')" onmouseleave="animateButtonLeave('button_novo')">
+											Novo
+										</a>
+									</div>
+
+									<div class="selecao col-xs-4 col-lg-4 col-md-5 col-sm-6 col-6">
+
+										<div th:text="${year}" th:value="${year}" style="display:none" id="pegando_ano"></div>
+
+										<a th:href="@{__${baseUrl}__/entradas(year=2023, month=${month}, page=1)}" class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 select_opc"  id="ano_2023" onmouseover="animateButton('ano_2023')" onmouseleave="animateButtonLeave('ano_2023')">
+											2023
+										</a>										
+
+										<a th:href="@{__${baseUrl}__/entradas(year=2022, month=${month}, page=1)}" class="col-xs-3 col-lg-3 col-md-3 col-sm-4 col-3 select_opc" id="ano_2022" onmouseover="animateButton('ano_2022')" onmouseleave="animateButtonLeave('ano_2022')">
+											2022
+										</a>
+
+										<a th:href="@{__${baseUrl}__/entradas(year=2021, month=${month}, page=1)}"  class="col-xs-3 col-lg-3 col-md-3 col-sm-4 col-3 select_opc ano_first"  id="ano_2021" onmouseover="animateButton('ano_2021')" onmouseleave="animateButtonLeave('ano_2021')">
+											2021
+										</a>										
+
+									</div>
+
+								</div>		
+
+							</div>	
+
+							<!-------------- BOTÕES DE SELEÇÃO DOS MESES ------------>
+							<div class="row linha_data">
+
+								<div th:value="${month}" th:text="${month}" style="display:none" id="pegando_mes"></div>
+
+								<div  class="col-xs-11 col-lg-11 col-md-11 col-sm-11 col-11 meses">
+
+									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=1, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jan" id="mes_opc_jan" onclick="changeMonth(0)" onmouseover="animateButton('mes_opc_jan')" onmouseleave="animateButtonLeave('mes_opc_jan')">
+										Jan
+									</a>
+
+									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=2, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_fev" id="mes_opc_fev" onclick="changeMonth(1)" onmouseover="animateButton('mes_opc_fev')" onmouseleave="animateButtonLeave('mes_opc_fev')">
+										Fev
+									</a>
+
+									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=3, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_mar" id="mes_opc_mar" onclick="changeMonth(2)" onmouseover="animateButton('mes_opc_mar')" onmouseleave="animateButtonLeave('mes_opc_mar')">
+										Mar
+									</a>
+
+									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=4, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_abr" id="mes_opc_abr" onclick="changeMonth(3)" onmouseover="animateButton('mes_opc_abr')" onmouseleave="animateButtonLeave('mes_opc_abr')">
+										Abr
+									</a>
+
+									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=5, page=1, )}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_mai" id="mes_opc_mai" onclick="changeMonth(4)" onmouseover="animateButton('mes_opc_mai')" onmouseleave="animateButtonLeave('mes_opc_mai')">
+										Mai
+									</a>
+
+									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=6, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jun" id="mes_opc_jun" onclick="changeMonth(5)" onmouseover="animateButton('mes_opc_jun')" onmouseleave="animateButtonLeave('mes_opc_jun')">
+										Jun
+									</a>
+
+									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=7, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jul" id="mes_opc_jul" onclick="changeMonth(6)" onmouseover="animateButton('mes_opc_jul')" onmouseleave="animateButtonLeave('mes_opc_jul')">
+										Jul
+									</a>
+
+									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=8, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_ago" id="mes_opc_ago" onclick="changeMonth(7)" onmouseover="animateButton('mes_opc_ago')" onmouseleave="animateButtonLeave('mes_opc_ago')">
+										Ago
+									</a>
+
+									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=9, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_set" id="mes_opc_set" onclick="changeMonth(8)" onmouseover="animateButton('mes_opc_set')" onmouseleave="animateButtonLeave('mes_opc_set')">
+										Set
+									</a>
+
+									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=10, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_out" id="mes_opc_out" onclick="changeMonth(9)" onmouseover="animateButton('mes_opc_out')" onmouseleave="animateButtonLeave('mes_opc_out')">
+										Out
+									</a>
+
+									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=11, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_nov" id="mes_opc_nov" onclick="changeMonth(10)" onmouseover="animateButton('mes_opc_nov')" onmouseleave="animateButtonLeave('mes_opc_nov')">
+										Nov
+									</a>
+
+									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=12, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_dez" id="mes_opc_dez" onclick="changeMonth(11)" onmouseover="animateButton('mes_opc_dez')" onmouseleave="animateButtonLeave('mes_opc_dez')">
+										Dez
+									</a>
+													
+								</div>			
+							</div>
+
+																			
+
+					</div>
+
+				</main>
+
+			</div> <!-- TUDO -->
+
+			<div class="main_loader" id="main_loader">
+				<div class="loader"></div>
+			</div>
+
+	</body>
+
+</html>
