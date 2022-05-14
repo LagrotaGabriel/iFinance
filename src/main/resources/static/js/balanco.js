@@ -301,8 +301,6 @@ function responsive(){
 
 	mesResponsivo();
 	anoResponsivo();
-	pageResponsiva();
-	ajustaTabela();
 
 }
 
@@ -316,32 +314,32 @@ function doALoadOfStuff() {
 function animateMenu(item){
 
 	if(item == "entradas"){
-		document.getElementById("img_aside_estatisticas").src="../static/img/money.png";
+		document.getElementById("img_aside_estatisticas").src="img/money.png";
 		document.getElementById("img_aside_estatisticas").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_estatisticas").style.color="#121212";
 	}
 	else if(item == "renda"){
-		document.getElementById("img_aside_rentabilidade").src="../static/img/bull.png";
+		document.getElementById("img_aside_rentabilidade").src="img/bull.png";
 		document.getElementById("img_aside_rentabilidade").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_rentabilidade").style.color="#121212";
 	}
 	else if(item == "principal"){
-		document.getElementById("img_aside_principal").src="../static/img/house.png";
+		document.getElementById("img_aside_principal").src="img/house.png";
 		document.getElementById("img_aside_principal").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_principal").style.color="#121212";
 	}
 	else if(item == "despesas"){
-		document.getElementById("img_aside_despesas").src="../static/img/despesa.png";
+		document.getElementById("img_aside_despesas").src="img/despesa.png";
 		document.getElementById("img_aside_despesas").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_despesas").style.color="#121212";
 	}
 	else if(item == "patrimonio"){
-		document.getElementById("img_aside_patrimonio").src="../static/img/shelter.png";
+		document.getElementById("img_aside_patrimonio").src="img/shelter.png";
 		document.getElementById("img_aside_patrimonio").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_patrimonio").style.color="#121212";
 	}
 	else if(item == "configuracoes"){
-		document.getElementById("img_aside_configuracoes").src="../static/img/settings.png";
+		document.getElementById("img_aside_configuracoes").src="img/settings.png";
 		document.getElementById("img_aside_configuracoes").style.animation="pulse 2s infinite";
 		document.getElementById("title_aside_configuracoes").style.color="#121212";
 	}
@@ -352,32 +350,32 @@ function returnMenuState(item){
 	var titulos = document.getElementsByClassName("aside_title");
 
 	if(item == "entradas"){
-		document.getElementById("img_aside_estatisticas").src="../static/img/moneyblue.png";
+		document.getElementById("img_aside_estatisticas").src="img/moneyblue.png";
 		document.getElementById("img_aside_estatisticas").style.animation="none";
 		titulos[2].style.color="#00ccff";
 	}
 	else if(item == "renda"){
-		document.getElementById("img_aside_rentabilidade").src="../static/img/bullblue.png";
+		document.getElementById("img_aside_rentabilidade").src="img/bullblue.png";
 		document.getElementById("img_aside_rentabilidade").style.animation="none";
 		titulos[5].style.color="#00ccff";
 	}
 	else if(item == "principal"){
-		document.getElementById("img_aside_principal").src="../static/img/houseblue.png";
+		document.getElementById("img_aside_principal").src="img/houseblue.png";
 		document.getElementById("img_aside_principal").style.animation="none";
 		titulos[0].style.color="#00ccff";
 	}
 	else if(item == "despesas"){
-		document.getElementById("img_aside_despesas").src="../static/img/despesablue.png";
+		document.getElementById("img_aside_despesas").src="img/despesablue.png";
 		document.getElementById("img_aside_despesas").style.animation="none";
 		titulos[3].style.color="#00ccff";
 	}
 	else if(item == "patrimonio"){
-		document.getElementById("img_aside_patrimonio").src="../static/img/shelterblue.png";
+		document.getElementById("img_aside_patrimonio").src="img/shelterblue.png";
 		document.getElementById("img_aside_patrimonio").style.animation="none";
 		titulos[4].style.color="#00ccff";
 	}
 	else if(item == "configuracoes"){
-		document.getElementById("img_aside_configuracoes").src="../static/img/settingsblue.png";
+		document.getElementById("img_aside_configuracoes").src="img/settingsblue.png";
 		document.getElementById("img_aside_configuracoes").style.animation="none";
 		titulos[6].style.color="#00ccff";
 	}

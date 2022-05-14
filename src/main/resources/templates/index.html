@@ -21,7 +21,7 @@
 		  crossorigin="anonymous"></script>		
 		<script type="text/javascript" th:src="@{js/script.js}" defer></script>
 
-		<title>iFinance | Home</title>
+		<title>Home | iFinance</title>
 
 	</head>
 
@@ -51,7 +51,7 @@
 
 						<div class="aside aside-2 col-lg-12" id="div_aside_balanco" onmouseover="animateMenu('balanco')" onmouseleave="returnMenuState('balanco')">
 							
-							<a href="#" class="row aside_clicavel">
+							<a th:href="{@/balanco}" class="row aside_clicavel">
 								<button type="button" class="img_button">
 									<img th:src="@{img/balanceblue.png}" class="sidebar_menu_img" id="img_aside_balanco"/>
 								</button>
