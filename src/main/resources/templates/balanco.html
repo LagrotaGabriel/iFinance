@@ -21,19 +21,15 @@
 		  src="https://code.jquery.com/jquery-3.6.0.js"
 		  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 		  crossorigin="anonymous"></script>
-		<script type="text/javascript" th:src="@{js/entradas.js}" defer></script>
-
-		<script
-		  src="https://code.jquery.com/jquery-3.6.0.js"
-		  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-		  crossorigin="anonymous"></script>
-		<script type="text/javascript" src="../static/js/balanco.js" defer></script>
-		
+		<script type="text/javascript" th:src="@{js/balanco.js}" defer></script>
 		<title>Balanço | iFinance</title>
 
 	</head>
 
 	<body id="body">
+
+		<div th:text="${month}" id="pegando_mes" style="display:none"></div>
+		<div th:text="${year}" id="pegando_ano" style="display:none"></div>
 
 		<!--------------- TUDO --------------->
 		<div class="row main-row" id="main_row">
@@ -80,7 +76,8 @@
 								<button type="button" class="img_button">
 									<img th:src="@{img/moneyblue.png}" class="sidebar_menu_img" id="img_aside_estatisticas"/>
 								</button>
-								<h1 class="aside_title text-center" id="title_aside_estatisticas">Entradas</h1>
+								<h1 class="aside_title text-center" id="title_aside_estatisticas">			Entradas
+								</h1>
 							</a>
 							
 
@@ -92,7 +89,9 @@
 								<button type="button" class="img_button">
 									<img th:src="@{img/despesablue.png}" class="sidebar_menu_img" id="img_aside_despesas"/>
 								</button>
-								<h1 class="aside_title text-center" id="title_aside_despesas">Despesas</h1>
+								<h1 class="aside_title text-center" id="title_aside_despesas">
+									Despesas
+								</h1>
 							</a>
 							
 
@@ -260,15 +259,15 @@
 
 										<div th:text="${year}" th:value="${year}" style="display:none" id="pegando_ano"></div>
 
-										<a th:href="@{__${baseUrl}__/entradas(year=2023, month=${month}, page=1)}" class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 select_opc"  id="mensal" onmouseover="animateButton('ano_2023')" onmouseleave="animateButtonLeave('ano_2023')">
+										<a th:href="@{__${baseUrl}__/balanco(year=2023, month=${month})}" class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 select_opc"  id="ano_2023" onmouseover="animateButton('ano_2023')" onmouseleave="animateButtonLeave('ano_2023')">
 											2023
 										</a>										
 
-										<a th:href="@{__${baseUrl}__/entradas(year=2022, month=${month}, page=1)}" class="col-xs-3 col-lg-3 col-md-3 col-sm-4 col-3 select_opc" id="ano_2022" onmouseover="animateButton('ano_2022')" onmouseleave="animateButtonLeave('ano_2022')">
+										<a th:href="@{__${baseUrl}__/balanco(year=2022, month=${month})}" class="col-xs-3 col-lg-3 col-md-3 col-sm-4 col-3 select_opc" id="ano_2022" onmouseover="animateButton('ano_2022')" onmouseleave="animateButtonLeave('ano_2022')">
 											2022
 										</a>
 
-										<a th:href="@{__${baseUrl}__/entradas(year=2021, month=${month}, page=1)}"  class="col-xs-3 col-lg-3 col-md-3 col-sm-4 col-3 select_opc ano_first"  id="ano_2021" onmouseover="animateButton('ano_2021')" onmouseleave="animateButtonLeave('ano_2021')">
+										<a th:href="@{__${baseUrl}__/balanco(year=2021, month=${month})}"  class="col-xs-3 col-lg-3 col-md-3 col-sm-4 col-3 select_opc ano_first"  id="ano_2021" onmouseover="animateButton('ano_2021')" onmouseleave="animateButtonLeave('ano_2021')">
 											2021
 										</a>										
 
@@ -285,51 +284,51 @@
 
 								<div  class="col-xs-11 col-lg-11 col-md-11 col-sm-11 col-11 meses">
 
-									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=1, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jan" id="mes_opc_jan" onclick="changeMonth(0)" onmouseover="animateButton('mes_opc_jan')" onmouseleave="animateButtonLeave('mes_opc_jan')">
+									<a th:href="@{__${baseUrl}__/balanco(year=${year}, month=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jan" id="mes_opc_jan" onclick="changeMonth(0)" onmouseover="animateButton('mes_opc_jan')" onmouseleave="animateButtonLeave('mes_opc_jan')">
 										Jan
 									</a>
 
-									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=2, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_fev" id="mes_opc_fev" onclick="changeMonth(1)" onmouseover="animateButton('mes_opc_fev')" onmouseleave="animateButtonLeave('mes_opc_fev')">
+									<a th:href="@{__${baseUrl}__/balanco(year=${year}, month=2)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_fev" id="mes_opc_fev" onclick="changeMonth(1)" onmouseover="animateButton('mes_opc_fev')" onmouseleave="animateButtonLeave('mes_opc_fev')">
 										Fev
 									</a>
 
-									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=3, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_mar" id="mes_opc_mar" onclick="changeMonth(2)" onmouseover="animateButton('mes_opc_mar')" onmouseleave="animateButtonLeave('mes_opc_mar')">
+									<a th:href="@{__${baseUrl}__/balanco(year=${year}, month=3)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_mar" id="mes_opc_mar" onclick="changeMonth(2)" onmouseover="animateButton('mes_opc_mar')" onmouseleave="animateButtonLeave('mes_opc_mar')">
 										Mar
 									</a>
 
-									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=4, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_abr" id="mes_opc_abr" onclick="changeMonth(3)" onmouseover="animateButton('mes_opc_abr')" onmouseleave="animateButtonLeave('mes_opc_abr')">
+									<a th:href="@{__${baseUrl}__/balanco(year=${year}, month=4)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_abr" id="mes_opc_abr" onclick="changeMonth(3)" onmouseover="animateButton('mes_opc_abr')" onmouseleave="animateButtonLeave('mes_opc_abr')">
 										Abr
 									</a>
 
-									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=5, page=1, )}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_mai" id="mes_opc_mai" onclick="changeMonth(4)" onmouseover="animateButton('mes_opc_mai')" onmouseleave="animateButtonLeave('mes_opc_mai')">
+									<a th:href="@{__${baseUrl}__/balanco(year=${year}, month=5, )}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_mai" id="mes_opc_mai" onclick="changeMonth(4)" onmouseover="animateButton('mes_opc_mai')" onmouseleave="animateButtonLeave('mes_opc_mai')">
 										Mai
 									</a>
 
-									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=6, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jun" id="mes_opc_jun" onclick="changeMonth(5)" onmouseover="animateButton('mes_opc_jun')" onmouseleave="animateButtonLeave('mes_opc_jun')">
+									<a th:href="@{__${baseUrl}__/balanco(year=${year}, month=6)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jun" id="mes_opc_jun" onclick="changeMonth(5)" onmouseover="animateButton('mes_opc_jun')" onmouseleave="animateButtonLeave('mes_opc_jun')">
 										Jun
 									</a>
 
-									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=7, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jul" id="mes_opc_jul" onclick="changeMonth(6)" onmouseover="animateButton('mes_opc_jul')" onmouseleave="animateButtonLeave('mes_opc_jul')">
+									<a th:href="@{__${baseUrl}__/balanco(year=${year}, month=7)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_jul" id="mes_opc_jul" onclick="changeMonth(6)" onmouseover="animateButton('mes_opc_jul')" onmouseleave="animateButtonLeave('mes_opc_jul')">
 										Jul
 									</a>
 
-									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=8, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_ago" id="mes_opc_ago" onclick="changeMonth(7)" onmouseover="animateButton('mes_opc_ago')" onmouseleave="animateButtonLeave('mes_opc_ago')">
+									<a th:href="@{__${baseUrl}__/balanco(year=${year}, month=8)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_ago" id="mes_opc_ago" onclick="changeMonth(7)" onmouseover="animateButton('mes_opc_ago')" onmouseleave="animateButtonLeave('mes_opc_ago')">
 										Ago
 									</a>
 
-									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=9, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_set" id="mes_opc_set" onclick="changeMonth(8)" onmouseover="animateButton('mes_opc_set')" onmouseleave="animateButtonLeave('mes_opc_set')">
+									<a th:href="@{__${baseUrl}__/balanco(year=${year}, month=9)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_set" id="mes_opc_set" onclick="changeMonth(8)" onmouseover="animateButton('mes_opc_set')" onmouseleave="animateButtonLeave('mes_opc_set')">
 										Set
 									</a>
 
-									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=10, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_out" id="mes_opc_out" onclick="changeMonth(9)" onmouseover="animateButton('mes_opc_out')" onmouseleave="animateButtonLeave('mes_opc_out')">
+									<a th:href="@{__${baseUrl}__/balanco(year=${year}, month=10)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_out" id="mes_opc_out" onclick="changeMonth(9)" onmouseover="animateButton('mes_opc_out')" onmouseleave="animateButtonLeave('mes_opc_out')">
 										Out
 									</a>
 
-									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=11, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_nov" id="mes_opc_nov" onclick="changeMonth(10)" onmouseover="animateButton('mes_opc_nov')" onmouseleave="animateButtonLeave('mes_opc_nov')">
+									<a th:href="@{__${baseUrl}__/balanco(year=${year}, month=11)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_nov" id="mes_opc_nov" onclick="changeMonth(10)" onmouseover="animateButton('mes_opc_nov')" onmouseleave="animateButtonLeave('mes_opc_nov')">
 										Nov
 									</a>
 
-									<a th:href="@{__${baseUrl}__/entradas(year=${year}, month=12, page=1)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_dez" id="mes_opc_dez" onclick="changeMonth(11)" onmouseover="animateButton('mes_opc_dez')" onmouseleave="animateButtonLeave('mes_opc_dez')">
+									<a th:href="@{__${baseUrl}__/balanco(year=${year}, month=12)}" class="col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1 mes_opc mes_opc_dez" id="mes_opc_dez" onclick="changeMonth(11)" onmouseover="animateButton('mes_opc_dez')" onmouseleave="animateButtonLeave('mes_opc_dez')">
 										Dez
 									</a>
 													
@@ -355,7 +354,7 @@
 											</div>	
 
 											<div class="coluna_value coluna_value_entradas coluna_value_maior_entrada col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_maior_entrada">-</h2>
+												<h2 th:text="'R$ ' + ${maiorEntrada}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_maior_entrada">-</h2>
 											</div>
 
 											<div class="coluna_subtitulo coluna_subtitulo_esquerda coluna_subtitulo_entradas coluna_subtitulo_menor_entrada col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -363,7 +362,7 @@
 											</div>	
 
 											<div class="coluna_value coluna_value_entradas coluna_value_menor_entrada col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_menor_entrada">-</h2>
+												<h2 th:text="'R$ ' + ${menorEntrada}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_menor_entrada">-</h2>
 											</div>
 
 											<div class="coluna_subtitulo coluna_subtitulo_esquerda coluna_subtitulo_entradas coluna_subtitulo_forma_entrada col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -371,7 +370,7 @@
 											</div>	
 
 											<div class="coluna_value coluna_value_entradas coluna_value_forma col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_forma">-</h2>
+												<h2 th:text="${meioEntradaMaisUsado}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_forma">-</h2>
 											</div>	
 
 											<div class="coluna_subtitulo coluna_subtitulo_esquerda coluna_subtitulo_entradas coluna_subtitulo_total_entrada col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -379,7 +378,7 @@
 											</div>	
 
 											<div class="coluna_value coluna_value_entradas coluna_value_total col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_total">-</h2>
+												<h2 th:text="'R$ ' + ${totalEntrada}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_total">-</h2>
 											</div>																																					
 										</div>
 
@@ -399,7 +398,7 @@
 											</div>	
 
 											<div class="coluna_value coluna_value_saidas coluna_value_maior_saida col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_maior_saida">-</h2>
+												<h2 th:text="'R$ ' + ${maiorSaida}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_maior_saida">-</h2>
 											</div>	
 
 											<div class="coluna_subtitulo coluna_subtitulo_direita coluna_subtitulo_saidas coluna_subtitulo_menor_saida col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -407,7 +406,7 @@
 											</div>	
 
 											<div class="coluna_value coluna_value_saidas coluna_value_menor_saida col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_menor_saida">-</h2>
+												<h2 th:text="'R$ ' + ${menorSaida}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_menor_saida">-</h2>
 											</div>	
 
 											<div class="coluna_subtitulo coluna_subtitulo_direita coluna_subtitulo_saidas coluna_subtitulo_forma_saidas col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -415,14 +414,14 @@
 											</div>	
 
 											<div class="coluna_value coluna_value_saidas coluna_value_forma col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_forma">-</h2>
+												<h2 th:text="${meioSaidaMaisUsado}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_forma">-</h2>
 											</div>																						
 											<div class="coluna_subtitulo coluna_subtitulo_direita coluna_subtitulo_saidas coluna_subtitulo_total_entrada col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 subtitulo subtitulo_total">Valor total:</h2>
 											</div>	
 
 											<div class="coluna_value coluna_value_saidas coluna_value_total col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_total">-</h2>
+												<h2 th:text="'R$ ' + ${totalSaida}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_total">-</h2>
 											</div>																													
 										</div>
 
@@ -438,7 +437,7 @@
 											<hr class="tot_hr col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">	
 
 											<div class="coluna_value coluna_value_saidas coluna_value_saldo col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-												<h2 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_saldo text-center">-</h2>
+												<h2 th:text="'R$ ' + ${saldo}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 value value_saldo text-center">-</h2>
 											</div>																			
 
 									</div>		

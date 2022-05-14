@@ -825,7 +825,7 @@ function ajustaTabela(){
 
 	for(var i = 0; i < line.length; i++){
 
-		if(columnScheduling[i].innerText == "NÃO" || columnScheduling[i].innerText == "Não possui"){
+		if(columnScheduling[i].innerText == null || columnScheduling[i].innerText == "NÃO" || columnScheduling[i].innerText == "Não possui"){
 			line[i].style.borderLeft="4px solid #5eff00";
 			columnScheduling[i].innerText="Não possui";
 			if(columnData[i].innerText == 'Em aberto'){
