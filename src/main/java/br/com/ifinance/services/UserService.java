@@ -50,18 +50,21 @@ public class UserService {
             updated.get().setUsername(user.getUsername());
             updated.get().setPassword(user.getPassword());
             updated.get().setName(user.getName());
-            updated.get().setFixedIncome(user.getFixedIncome());
-            updated.get().setVariableIncome(user.getVariableIncome());
+            updated.get().setEmail(user.getEmail());
+            updated.get().setBirthDate(user.getBirthDate());
             updated.get().setRoles(user.getRoles());
-            updated.get().setWage(user.getWage());
-            updated.get().setExtraIncome(user.getExtraIncome());
-
-            if(user.getAssets() != null) {
-                updated.get().setAssets(user.getAssets());
-            }
 
             if(user.getLiabilities() != null) {
                 updated.get().setLiabilities(user.getLiabilities());
+            }
+            if(user.getInflows() != null){
+                updated.get().setInflows(user.getInflows());
+            }
+            if(user.getIncomes() != null){
+                updated.get().setIncomes(user.getIncomes());
+            }
+            if(user.getAssets() != null){
+                updated.get().setAssets(user.getAssets());
             }
 
             return create(updated.get());

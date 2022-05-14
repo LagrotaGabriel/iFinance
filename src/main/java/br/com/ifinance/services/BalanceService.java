@@ -27,12 +27,16 @@ public class BalanceService {
     public Double biggerInflowOrLiability(User user, Integer year, Integer month, String type){
 
         Double biggerValue = 0.0;
+        String userMonth = "";
+        String userYear = "";
 
         if(type.equals("inflow")){
             if(!user.getInflows().isEmpty()) {
                 for (Inflow inflowUser: user.getInflows()) {
-                    String userMonth = inflowUser.getDate().split("-")[1];
-                    String userYear = inflowUser.getDate().split("-")[0];
+                    if(inflowUser.getStatusInflow() == StatusInflow.RECEBIDO) {
+                        userMonth = inflowUser.getDate().split("-")[1];
+                        userYear = inflowUser.getDate().split("-")[0];
+                    }
                     if(!userMonth.equals("10")){
                         userMonth = userMonth.replace("0", "");
                     }
@@ -49,8 +53,10 @@ public class BalanceService {
         else if(type.equals("liability")){
             if(!user.getLiabilities().isEmpty()) {
                 for (Liability liabilityUser: user.getLiabilities()) {
-                    String userMonth = liabilityUser.getDate().split("-")[1];
-                    String userYear = liabilityUser.getDate().split("-")[0];
+                    if(liabilityUser.getStatusLiability() == StatusLiability.PAGO) {
+                        userMonth = liabilityUser.getDate().split("-")[1];
+                        userYear = liabilityUser.getDate().split("-")[0];
+                    }
                     if(!userMonth.equals("10")){
                         userMonth = userMonth.replace("0", "");
                     }
@@ -73,12 +79,16 @@ public class BalanceService {
     public Double smallerInflowOrLiability(User user, Integer year, Integer month, String type){
 
         Double smallerValue = 10000000.0;
+        String userMonth = "";
+        String userYear = "";
 
         if(type.equals("inflow")){
             if(!user.getInflows().isEmpty()) {
                 for(Inflow inflowUser: user.getInflows()){
-                    String userMonth = inflowUser.getDate().split("-")[1];
-                    String userYear = inflowUser.getDate().split("-")[0];
+                    if(inflowUser.getStatusInflow() == StatusInflow.RECEBIDO) {
+                        userMonth = inflowUser.getDate().split("-")[1];
+                        userYear = inflowUser.getDate().split("-")[0];
+                    }
                     if(!userMonth.equals("10")){
                         userMonth = userMonth.replace("0", "");
                     }
@@ -97,8 +107,10 @@ public class BalanceService {
         else if(type.equals("liability")){
             if(!user.getLiabilities().isEmpty()) {
                 for(Liability liabilityUser: user.getLiabilities()){
-                    String userMonth = liabilityUser.getDate().split("-")[1];
-                    String userYear = liabilityUser.getDate().split("-")[0];
+                    if(liabilityUser.getStatusLiability() == StatusLiability.PAGO) {
+                        userMonth = liabilityUser.getDate().split("-")[1];
+                        userYear = liabilityUser.getDate().split("-")[0];
+                    }
                     if(!userMonth.equals("10")){
                         userMonth = userMonth.replace("0", "");
                     }
@@ -129,14 +141,18 @@ public class BalanceService {
         Map<Mean, Integer> mapContagem = new HashMap<>();
         Integer maior = 0;
         String maiorDesc = "-";
+        String userMonth = "";
+        String userYear = "";
 
         if(type.equals("inflow")){
 
             if(!user.getInflows().isEmpty()){
 
                 for(Inflow userInflow: user.getInflows()){
-                    String userMonth = userInflow.getDate().split("-")[1];
-                    String userYear = userInflow.getDate().split("-")[0];
+                    if(userInflow.getStatusInflow() == StatusInflow.RECEBIDO) {
+                        userMonth = userInflow.getDate().split("-")[1];
+                        userYear = userInflow.getDate().split("-")[0];
+                    }
                     if(!userMonth.equals("10")){
                         userMonth = userMonth.replace("0", "");
                     }
@@ -165,8 +181,10 @@ public class BalanceService {
             if(!user.getLiabilities().isEmpty()){
 
                 for(Liability userLiability: user.getLiabilities()){
-                    String userMonth = userLiability.getDate().split("-")[1];
-                    String userYear = userLiability.getDate().split("-")[0];
+                    if(userLiability.getStatusLiability() == StatusLiability.PAGO) {
+                        userMonth = userLiability.getDate().split("-")[1];
+                        userYear = userLiability.getDate().split("-")[0];
+                    }
                     if(!userMonth.equals("10")){
                         userMonth = userMonth.replace("0", "");
                     }
@@ -208,11 +226,16 @@ public class BalanceService {
     public Double totalOfInflowOfLiability(User user, Integer year, Integer month, String type){
 
         double total = 0.0;
+        String userMonth = "";
+        String userYear = "";
+
         if(type.equals("inflow")){
             if(!user.getInflows().isEmpty()){
                 for(Inflow userInflow: user.getInflows()){
-                    String userMonth = userInflow.getDate().split("-")[1];
-                    String userYear = userInflow.getDate().split("-")[0];
+                    if(userInflow.getStatusInflow() == StatusInflow.RECEBIDO) {
+                        userMonth = userInflow.getDate().split("-")[1];
+                        userYear = userInflow.getDate().split("-")[0];
+                    }
                     if(!userMonth.equals("10")){
                         userMonth = userMonth.replace("0", "");
                     }
@@ -227,8 +250,10 @@ public class BalanceService {
         else if(type.equals("liability")){
             if(!user.getLiabilities().isEmpty()){
                 for(Liability userLiability: user.getLiabilities()){
-                    String userMonth = userLiability.getDate().split("-")[1];
-                    String userYear = userLiability.getDate().split("-")[0];
+                    if(userLiability.getStatusLiability() == StatusLiability.PAGO) {
+                        userMonth = userLiability.getDate().split("-")[1];
+                        userYear = userLiability.getDate().split("-")[0];
+                    }
                     if(!userMonth.equals("10")){
                         userMonth = userMonth.replace("0", "");
                     }

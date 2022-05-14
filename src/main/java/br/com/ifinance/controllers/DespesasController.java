@@ -325,7 +325,6 @@ public class DespesasController {
     @PostMapping("/delete-{id}")
     public ModelAndView despesasControllerDelete(@PathVariable Long id, RedirectAttributes redirAttrs, ModelAndView modelAndView){
         utils.loggedUser(userRepository).getLiabilities().remove(utils.loggedUser(userRepository).getLiabilities().indexOf(liabilityService.findById(id).get()));
-        System.err.println(utils.loggedUser(userRepository).getLiabilities());
         userService.updateUser(id, utils.loggedUser(userRepository));
         liabilityService.deleteLiability(id);
         redirAttrs.addFlashAttribute("SucessoDelete", "Despesa deletada com sucesso");

@@ -30,16 +30,6 @@ public class User {
     private String email;
     @Column(name = "birthdate_user")
     private String birthDate;
-    @Column(name = "works_user")
-    private Boolean works;
-    @Column(name = "fixedIncome_user")
-    private Double fixedIncome;
-    @Column(name = "wage_user")
-    private Double wage;
-    @Column(name = "variableIncome_user")
-    private Double variableIncome;
-    @Column(name = "extraIncome_user")
-    private Double extraIncome;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Income> incomes;
