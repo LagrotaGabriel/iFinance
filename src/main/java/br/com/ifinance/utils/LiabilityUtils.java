@@ -2,6 +2,7 @@ package br.com.ifinance.utils;
 
 import br.com.ifinance.models.entities.Liability;
 import br.com.ifinance.models.entities.User;
+import br.com.ifinance.models.enums.StatusLiability;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,7 +28,15 @@ public class LiabilityUtils {
 
                 if(user.getLiabilities().get(i).getCreated() != null && !user.getLiabilities().get(i).getCreated().equals("")) {
 
-                    String atual = user.getLiabilities().get(i).getCreated();
+                    String atual = null;
+
+                    if(user.getLiabilities().get(i).getStatusLiability().equals(StatusLiability.PAGO)){
+                        atual = user.getLiabilities().get(i).getDate();
+                    }
+                    else if(user.getLiabilities().get(i).getStatusLiability().equals(StatusLiability.PAGAR)){
+                        atual = user.getLiabilities().get(i).getScheduling();
+                    }
+
                     String[] atualSplitado = atual.split("/");
 
                     if (Integer.parseInt(atualSplitado[2]) == (currentYear)) {
@@ -35,6 +44,7 @@ public class LiabilityUtils {
                         if(Integer.parseInt(atualSplitado[1]) == (currentMonth)) {
 
                             liabilitiesOfSelectedDate.add(user.getLiabilities().get(i));
+
                         }
                     }
                 }
@@ -42,6 +52,7 @@ public class LiabilityUtils {
         }
 
         return liabilitiesOfSelectedDate;
+
     }
 
     /*** Tem como objetivo calcular o total de páginas que a tabela terá

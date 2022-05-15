@@ -37,6 +37,7 @@ function responsive(){
 	var editLabel = document.getElementsByClassName('edit_label');
 	var editInput = document.getElementsByClassName('edit_input');
 	var editBotao = document.getElementsByClassName('edit_botao');
+	var btnExcluir = document.getElementsByClassName('btn_excluir');
 
 	var arrow = document.getElementsByClassName('arrow');
 
@@ -56,8 +57,9 @@ function responsive(){
 
 	if(bodyWidth > 1200){
 		console.log('Muito grande')
-		tamanhoContainerAlign.style.alignItems="center";
-		tamanhoContainerAlign.style.marginTop="0px";
+		tamanhoContainerAlign.style.alignItems="flex-start";
+		tamanhoContainerAlign.style.marginTop="30px";
+		tamanhoContainerAlign.style.marginBottom="30px";
 		document.getElementById('side_menu').style.display="flex"
 		document.getElementById('menu_superior').style.display="flex";
 		document.getElementById('menu_superior_responsivo').style.display="none";
@@ -93,6 +95,10 @@ function responsive(){
 			novoLabel[i].style.fontSize="1.15rem";
 			novoInput[i].style.fontSize="1rem";
 		}		
+		for(var i = 0; i < btnExcluir.length; i++){
+			btnExcluir[i].style.padding="8px 15px";
+			btnExcluir[i].innerText="Excluir";
+		}		
 		for(var i = 0; i < novoBotao.length; i++){
 			novoBotao[i].style.fontSize="1rem";
 		}
@@ -105,9 +111,10 @@ function responsive(){
 	}
 	else if(bodyWidth <= 1200 && bodyWidth > 992){
 		console.log('Grande');
-		tamanhoContainerAlign.style.alignItems="center";
-		tamanhoContainerAlign.style.marginTop="0px";
-		document.getElementById('side_menu').style.display="flex";
+		tamanhoContainerAlign.style.alignItems="flex-start";
+		tamanhoContainerAlign.style.marginTop="30px";
+		tamanhoContainerAlign.style.marginBottom="30px";
+		document.getElementById('side_menu').style.display="flex"
 		document.getElementById('menu_superior').style.display="flex";
 		document.getElementById('menu_superior_responsivo').style.display="none";
 		document.getElementById('conteudo_titulo_text').style.fontSize="2rem";
@@ -135,6 +142,10 @@ function responsive(){
 		for(var i = 0; i < th.length; i++){
 			th[i].style.fontSize="1.35rem";
 		}	
+		for(var i = 0; i < btnExcluir.length; i++){
+			btnExcluir[i].style.padding="5px 10px";
+			btnExcluir[i].innerText="Excluir";
+		}		
 		for(var i = 0; i< td.length; i++){
 			td[i].style.fontSize="1rem";				
 		}		
@@ -158,8 +169,9 @@ function responsive(){
 	}
 	else if(bodyWidth <= 992 && bodyWidth > 768){
 		console.log('Médio');
-		tamanhoContainerAlign.style.alignItems="center";
-		tamanhoContainerAlign.style.marginTop="0px";
+		tamanhoContainerAlign.style.alignItems="flex-start";
+		tamanhoContainerAlign.style.marginTop="30px";
+		tamanhoContainerAlign.style.marginBottom="30px";
 		document.getElementById('side_menu').style.display="none";
 		document.getElementById('menu_superior').style.display="none";
 		document.getElementById('menu_superior_responsivo').style.display="flex";
@@ -185,6 +197,10 @@ function responsive(){
 		for(var i = 0; i < liA.length; i++){
 			liA[i].style.fontSize="0.80rem";
 		}	
+		for(var i = 0; i < btnExcluir.length; i++){
+			btnExcluir[i].style.padding="5px 13px";
+			btnExcluir[i].innerText="Excluir";
+		}		
 		for(var i = 0; i < th.length; i++){
 			th[i].style.fontSize="1rem";
 		}
@@ -213,6 +229,7 @@ function responsive(){
 		console.log('Pequeno');
 		tamanhoContainerAlign.style.alignItems="flex-start";
 		tamanhoContainerAlign.style.marginTop="30px";
+		tamanhoContainerAlign.style.marginBottom="30px";
 		document.getElementById('side_menu').style.display="none";
 		document.getElementById('menu_superior').style.display="none";
 		document.getElementById('menu_superior_responsivo').style.display="flex";
@@ -245,6 +262,10 @@ function responsive(){
 		for(var i = 0; i< td.length; i++){
 			td[i].style.fontSize="0.75rem";				
 		}
+		for(var i = 0; i < btnExcluir.length; i++){
+			btnExcluir[i].style.padding="5px 10px";
+			btnExcluir[i].innerText="X";
+		}		
 		for(var i = 0; i < novoLabel.length; i++){
 			novoLabel[i].style.fontSize="0.90rem";
 			novoInput[i].style.fontSize="0.75rem";
@@ -267,6 +288,7 @@ function responsive(){
 		console.log('Muito pequeno');
 		tamanhoContainerAlign.style.alignItems="flex-start";
 		tamanhoContainerAlign.style.marginTop="30px";
+		tamanhoContainerAlign.style.marginBottom="30px";
 		document.getElementById('side_menu').style.display="none";
 		document.getElementById('menu_superior').style.display="none";
 		document.getElementById('menu_superior_responsivo').style.display="flex";
@@ -293,6 +315,10 @@ function responsive(){
 			liA[i].style.fontSize="0.65rem";
 			li[i].style.margin="0 5px";
 		}
+		for(var i = 0; i < btnExcluir.length; i++){
+			btnExcluir[i].style.padding="5px 10px";
+			btnExcluir[i].innerText="X";
+		}		
 		for(var i = 0; i < th.length; i++){
 			th[i].style.fontSize="0.85rem";
 			
@@ -318,15 +344,6 @@ function responsive(){
 		firstShow.style.marginBottom="20px";
 		secondShow.style.display="flex";				
 	}
-
-	if(tamanhoMenuSuperior.clientHeight == 0){
-		var somaTamanho = (tamanhoMain.clientHeight - tamanhoMenuResponsivo.clientHeight) + 'px';
-		tamanhoContainerAlign.style.height = somaTamanho;
-	}
-	else{
-		var somaTamanho = (tamanhoAside.clientHeight - tamanhoMenuSuperior.clientHeight) + 'px';
-		tamanhoContainerAlign.style.height = somaTamanho;
-	}	
 
 	pageResponsiva();
 	informativosResponsivity();
@@ -453,12 +470,6 @@ function editPatrimonio(id, data, descricao, tipo, valor){
 	var conteudoContainer = document.getElementById('conteudo_container');
 	var containerEdit = document.getElementById('container_edit');
 
-	console.log(id)
-	console.log(data);
-	console.log(descricao);
-	console.log(tipo);
-	console.log(valor);
-
 	document.getElementById('col_edit_id').value=id;
 	document.getElementById('col_edit_date').value=data;
 	document.getElementById('edit_input_descricao').value=descricao;
@@ -563,7 +574,6 @@ function hideMessage(){
 function informativosResponsivity(){
 
 	var paramType = document.getElementById('param_type').innerText;
-	console.log(paramType);
 
 	var blockInternoImoveis = document.getElementById('block_interno_imoveis');
 	var blockInternoVeiculos = document.getElementById('block_interno_veiculos');
@@ -661,7 +671,6 @@ function informativosResponsivity(){
 function overInformativo(hover){
 
 	var paramType = document.getElementById('param_type').innerText;
-	console.log(paramType);
 
 	var blockInternoImoveis = document.getElementById('block_interno_imoveis');
 	var blockInternoVeiculos = document.getElementById('block_interno_veiculos');
@@ -761,7 +770,6 @@ function overInformativo(hover){
 function leaveInformativo(hover){
 
 	var paramType = document.getElementById('param_type').innerText;
-	console.log(paramType);
 
 	var blockInternoImoveis = document.getElementById('block_interno_imoveis');
 	var blockInternoVeiculos = document.getElementById('block_interno_veiculos');

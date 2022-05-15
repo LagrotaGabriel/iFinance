@@ -2,6 +2,8 @@ package br.com.ifinance.utils;
 
 import br.com.ifinance.models.entities.Inflow;
 import br.com.ifinance.models.entities.User;
+import br.com.ifinance.models.enums.StatusInflow;
+import br.com.ifinance.models.enums.StatusLiability;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,7 +29,15 @@ public class InflowUtils {
 
                 if(user.getInflows().get(i).getCreated() != null && !user.getInflows().get(i).getCreated().equals("")) {
 
-                    String atual = user.getInflows().get(i).getCreated();
+                    String atual = null;
+
+                    if(user.getInflows().get(i).getStatusInflow().equals(StatusInflow.RECEBIDO)){
+                        atual = user.getInflows().get(i).getDate();
+                    }
+                    else if(user.getInflows().get(i).getStatusInflow().equals(StatusInflow.RECEBER)){
+                        atual = user.getInflows().get(i).getScheduling();
+                    }
+
                     String[] atualSplitado = atual.split("/");
 
                     if (Integer.parseInt(atualSplitado[2]) == (currentYear)) {

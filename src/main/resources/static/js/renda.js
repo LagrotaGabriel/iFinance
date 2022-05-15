@@ -56,8 +56,9 @@ function responsive(){
 
 	if(bodyWidth > 1200){
 		console.log('Muito grande')
-		tamanhoContainerAlign.style.alignItems="center";
-		tamanhoContainerAlign.style.marginTop="0px";
+		tamanhoContainerAlign.style.alignItems="flex-start";
+		tamanhoContainerAlign.style.marginTop="30px";
+		tamanhoContainerAlign.style.marginBottom="30px";
 		document.getElementById('side_menu').style.display="flex"
 		document.getElementById('menu_superior').style.display="flex";
 		document.getElementById('menu_superior_responsivo').style.display="none";
@@ -68,15 +69,6 @@ function responsive(){
 		for(var i = 0; i < arrow.length; i++){
 			arrow[i].style.display="flex";
 		}
-		/*for(var i = 0; i < blockInterno.length; i++){
-			blockInterno[i].style.padding="45px 0";
-		}
-		for(var i = 0; i < firstBlockClicavel.length; i++){
-			firstBlockClicavel[i].style.fontSize="1.5rem";
-		}
-		for(var i = 0; i < secondBlockClicavel.length; i++){
-			secondBlockClicavel[i].style.fontSize="1rem";
-		}*/		
 		for(var i = 0; i < block.length; i++){
 			block[i].style.margin="0 20px";
 		}
@@ -100,9 +92,10 @@ function responsive(){
 	}
 	else if(bodyWidth <= 1200 && bodyWidth > 992){
 		console.log('Grande');
-		tamanhoContainerAlign.style.alignItems="center";
-		tamanhoContainerAlign.style.marginTop="0px";
-		document.getElementById('side_menu').style.display="flex";
+		tamanhoContainerAlign.style.alignItems="flex-start";
+		tamanhoContainerAlign.style.marginTop="30px";
+		tamanhoContainerAlign.style.marginBottom="30px";
+		document.getElementById('side_menu').style.display="flex"
 		document.getElementById('menu_superior').style.display="flex";
 		document.getElementById('menu_superior_responsivo').style.display="none";
 		document.getElementById('conteudo_titulo_text').style.fontSize="2rem";
@@ -143,8 +136,9 @@ function responsive(){
 	}
 	else if(bodyWidth <= 992 && bodyWidth > 768){
 		console.log('Médio');
-		tamanhoContainerAlign.style.alignItems="center";
-		tamanhoContainerAlign.style.marginTop="0px";
+		tamanhoContainerAlign.style.alignItems="flex-start";
+		tamanhoContainerAlign.style.marginTop="30px";
+		tamanhoContainerAlign.style.marginBottom="30px";
 		document.getElementById('side_menu').style.display="none";
 		document.getElementById('menu_superior').style.display="none";
 		document.getElementById('menu_superior_responsivo').style.display="flex";
@@ -188,6 +182,7 @@ function responsive(){
 		console.log('Pequeno');
 		tamanhoContainerAlign.style.alignItems="flex-start";
 		tamanhoContainerAlign.style.marginTop="30px";
+		tamanhoContainerAlign.style.marginBottom="30px";
 		document.getElementById('side_menu').style.display="none";
 		document.getElementById('menu_superior').style.display="none";
 		document.getElementById('menu_superior_responsivo').style.display="flex";
@@ -232,6 +227,7 @@ function responsive(){
 		console.log('Muito pequeno');
 		tamanhoContainerAlign.style.alignItems="flex-start";
 		tamanhoContainerAlign.style.marginTop="30px";
+		tamanhoContainerAlign.style.marginBottom="30px";
 		document.getElementById('side_menu').style.display="none";
 		document.getElementById('menu_superior').style.display="none";
 		document.getElementById('menu_superior_responsivo').style.display="flex";
@@ -273,15 +269,6 @@ function responsive(){
 		}
 
 	}
-
-	if(tamanhoMenuSuperior.clientHeight == 0){
-		var somaTamanho = (tamanhoMain.clientHeight - tamanhoMenuResponsivo.clientHeight) + 'px';
-		tamanhoContainerAlign.style.height = somaTamanho;
-	}
-	else{
-		var somaTamanho = (tamanhoAside.clientHeight - tamanhoMenuSuperior.clientHeight) + 'px';
-		tamanhoContainerAlign.style.height = somaTamanho;
-	}	
 
 	informativosResponsivity();
 

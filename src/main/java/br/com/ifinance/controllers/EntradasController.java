@@ -130,9 +130,15 @@ public class EntradasController {
                     if(Integer.parseInt(agendamento[0]) >= Integer.parseInt(dates.splitedToday()[0])){
                         // SE O MÊS DO AGENDAMENTO FOR MAIOR OU IGUAL DO QUE O MÊS ATUAL (CORRETO)
                         if(Integer.parseInt(agendamento[1]) >= Integer.parseInt(dates.splitedToday()[1])){
-                            // SE O DIA DO AGENDAMENTO FOR MAIOR OU IGUAL DO QUE O DIA ATUAL (CORRETO)
-                            if(Integer.parseInt(agendamento[2]) >= Integer.parseInt(dates.splitedToday()[2])){
-                                // SALVANDO A DESPESA NO BANCO DE DADOS
+
+                            // SE O MÊS SALVO FOR IGUAL AO MÊS ATUAL E O DIA DE AGENDAMENTO FOR MENOR DO QUE O DIA ATUAL
+                            if(Integer.parseInt(agendamento[1]) == Integer.parseInt(dates.splitedToday()[1])
+                                    && Integer.parseInt(agendamento[2]) < Integer.parseInt(dates.splitedToday()[2])){
+                                redirAttrs.addFlashAttribute("ErroCadastro",
+                                        "A data do agendamento não pode ser menor do que a data atual");
+                            }
+                            else {
+                                // SALVANDO A ENTRADA NO BANCO DE DADOS
                                 inflow.setUser(utils.loggedUser(userRepository));
                                 inflow.setCreated(dates.todayBr());
                                 List<Inflow> novaLista = utils.loggedUser(userRepository).getInflows();
@@ -141,11 +147,6 @@ public class EntradasController {
                                 userService.updateUser(utils.loggedUser(userRepository).getId(), utils.loggedUser(userRepository));
                                 redirAttrs.addFlashAttribute("SucessoCadastro",
                                         "Cadastro da entrada salvo com sucesso");
-                            }
-                            // SE O DIA DO AGENDAMENTO FOR MENOR DO QUE O DIA ATUAL (ERRADO)
-                            else{
-                                redirAttrs.addFlashAttribute("ErroCadastro",
-                                        "A data do agendamento não pode ser menor do que a data atual");
                             }
                         }
                         // SE O MÊS DO AGENDAMENTO FOR MENOR DO QUE O MÊS ATUAL (ERRADO)
@@ -171,14 +172,16 @@ public class EntradasController {
 
                 // SE O ANO DA ENTRADA FOR MENOR OU IGUAL DO QUE O ANO ATUAL (CORRETO)
                 if(Integer.parseInt(dataEntrada[0]) <= Integer.parseInt(dates.splitedToday()[0])){
-                    System.err.println("IF 1");
                     // SE O MÊS DA ENTRADA FOR MENOR OU IGUAL DO QUE O MÊS ATUAL (CORRETO)
                     if(Integer.parseInt(dataEntrada[1]) <= Integer.parseInt(dates.splitedToday()[1])){
-                        System.err.println("IF 2");
-                        // SE O DIA DA ENTRADA FOR MENOR OU IGUAL DO QUE O DIA ATUAL (CORRETO)
-                        if(Integer.parseInt(dataEntrada[2]) <= Integer.parseInt(dates.splitedToday()[2])){
-                            System.err.println("IF 3");
-                            // SALVANDO A ENTRADA NO BANCO DE DADOS
+
+                        // SE O MÊS SALVO FOR IGUAL AO MÊS ATUAL E O DIA DA ENTRADA FOR MAIOR DO QUE O DIA ATUAL
+                        if(Integer.parseInt(dataEntrada[1]) == Integer.parseInt(dates.splitedToday()[1])
+                                && Integer.parseInt(dataEntrada[2]) > Integer.parseInt(dates.splitedToday()[2])) {
+                            redirAttrs.addFlashAttribute("ErroCadastro",
+                                    "A data da entrada não pode ser maior do que a data atual");
+                        }
+                        else{
                             inflow.setUser(utils.loggedUser(userRepository));
                             inflow.setCreated(dates.todayBr());
                             List<Inflow> novaLista = utils.loggedUser(userRepository).getInflows();
@@ -187,11 +190,7 @@ public class EntradasController {
                             userService.updateUser(utils.loggedUser(userRepository).getId(), utils.loggedUser(userRepository));
                             redirAttrs.addFlashAttribute("SucessoCadastro", "Cadastro da entrada salvo com sucesso");
                         }
-                        // SE O DIA DA ENTRADA FOR MENOR DO QUE O DIA ATUAL (ERRADO)
-                        else{
-                            redirAttrs.addFlashAttribute("ErroCadastro",
-                                    "A data do pagamento não pode ser maior do que a data atual");
-                        }
+
                     }
                     // SE O MÊS DA ENTRADA FOR MENOR DO QUE O MÊS ATUAL (ERRADO)
                     else{
@@ -218,7 +217,7 @@ public class EntradasController {
     }
 
     @PostMapping("/edit")
-    public ModelAndView despesasControllerEdit(Inflow inflow,
+    public ModelAndView entradasControllerEdit(Inflow inflow,
                                                RedirectAttributes redirAttrs,
                                                ModelAndView modelAndView){
 
@@ -247,18 +246,19 @@ public class EntradasController {
                     if(Integer.parseInt(agendamento[0]) >= Integer.parseInt(dates.splitedToday()[0])){
                         // SE O MÊS DO AGENDAMENTO FOR MAIOR OU IGUAL DO QUE O MÊS ATUAL (CORRETO)
                         if(Integer.parseInt(agendamento[1]) >= Integer.parseInt(dates.splitedToday()[1])){
-                            // SE O DIA DO AGENDAMENTO FOR MAIOR OU IGUAL DO QUE O DIA ATUAL (CORRETO)
-                            if(Integer.parseInt(agendamento[2]) >= Integer.parseInt(dates.splitedToday()[2])){
+                            // SE O MÊS SALVO FOR IGUAL AO MÊS ATUAL E O DIA DE AGENDAMENTO FOR MENOR DO QUE O DIA ATUAL
+                            if(Integer.parseInt(agendamento[1]) == Integer.parseInt(dates.splitedToday()[1])
+                                    && Integer.parseInt(agendamento[2]) < Integer.parseInt(dates.splitedToday()[2])){
+                                redirAttrs.addFlashAttribute("ErroCadastro",
+                                        "A data do agendamento não pode ser menor do que a data atual");
+                            }
+                            else {
                                 // SALVANDO A ENTRADA NO BANCO DE DADOS
                                 inflow.setCreated(dates.todayBr());
                                 utils.loggedUser(userRepository).getInflows().set(utils.loggedUser(userRepository).getInflows()
                                         .indexOf(inflowService.findById(inflow.getId()).get()), inflow);
                                 userService.updateUser(utils.loggedUser(userRepository).getId(), utils.loggedUser(userRepository));
                                 redirAttrs.addFlashAttribute("SucessoCadastro", "Atualização salva com sucesso");
-                            }
-                            // SE O DIA DO AGENDAMENTO FOR MENOR DO QUE O DIA ATUAL (ERRADO)
-                            else{
-                                redirAttrs.addFlashAttribute("ErroCadastro", "A data do agendamento não pode ser menor do que a data atual");
                             }
                         }
                         // SE O MÊS DO AGENDAMENTO FOR MENOR DO QUE O MÊS ATUAL (ERRADO)
@@ -277,18 +277,19 @@ public class EntradasController {
             // SE O STATUS ESTIVER COMO PAGO
             else{
 
-                String[] dataDespesa = inflow.getDate().split("-");
+                String[] dataEntrada = inflow.getDate().split("-");
 
                 // SE O ANO DA ENTRADA FOR MENOR OU IGUAL DO QUE O ANO ATUAL (CORRETO)
-                if(Integer.parseInt(dataDespesa[0]) <= Integer.parseInt(dates.splitedToday()[0])){
-                    System.err.println("IF 1");
+                if(Integer.parseInt(dataEntrada[0]) <= Integer.parseInt(dates.splitedToday()[0])){
                     // SE O MÊS DA ENTRADA FOR MENOR OU IGUAL DO QUE O MÊS ATUAL (CORRETO)
-                    if(Integer.parseInt(dataDespesa[1]) <= Integer.parseInt(dates.splitedToday()[1])){
-                        System.err.println("IF 2");
-                        // SE O DIA DA ENTRADA FOR MENOR OU IGUAL DO QUE O DIA ATUAL (CORRETO)
-                        if(Integer.parseInt(dataDespesa[2]) <= Integer.parseInt(dates.splitedToday()[2])){
-                            System.err.println("IF 3");
-                            // SALVANDO A ENTRADA NO BANCO DE DADOS
+                    if(Integer.parseInt(dataEntrada[1]) <= Integer.parseInt(dates.splitedToday()[1])){
+                        // SE O MÊS SALVO FOR IGUAL AO MÊS ATUAL E O DIA DA ENTRADA FOR MAIOR DO QUE O DIA ATUAL
+                        if(Integer.parseInt(dataEntrada[1]) == Integer.parseInt(dates.splitedToday()[1])
+                                && Integer.parseInt(dataEntrada[2]) > Integer.parseInt(dates.splitedToday()[2])) {
+                            redirAttrs.addFlashAttribute("ErroCadastro",
+                                    "A data da entrada não pode ser maior do que a data atual");
+                        }
+                        else{
                             inflow.setCreated(dates.todayBr());
                             utils.loggedUser(userRepository).getInflows().set(utils.loggedUser(userRepository).getInflows()
                                     .indexOf(inflowService.findById(inflow.getId()).get()), inflow);
@@ -296,22 +297,17 @@ public class EntradasController {
                             redirAttrs.addFlashAttribute("SucessoCadastro",
                                     "Atualização salva com sucesso");
                         }
-                        // SE O DIA DA ENTRADA FOR MENOR DO QUE O DIA ATUAL (ERRADO)
-                        else{
-                            redirAttrs.addFlashAttribute("ErroCadastro",
-                                    "A data do pagamento não pode ser maior do que a data atual");
-                        }
                     }
                     // SE O MÊS DA ENTRADA FOR MENOR DO QUE O MÊS ATUAL (ERRADO)
                     else{
                         redirAttrs.addFlashAttribute("ErroCadastro",
-                                "A data da despesa não pode ser maior do que a data atual");
+                                "A data da entrada não pode ser maior do que a data atual");
                     }
                 }
                 // SE O ANO DA ENTRADA FOR MENOR DO QUE O ANO ATUAL (ERRADO)
                 else{
                     redirAttrs.addFlashAttribute("ErroCadastro",
-                            "O ano da despesa não pode ser maior do que o ano atual");
+                            "O ano da entrada não pode ser maior do que o ano atual");
                 }
 
             }
@@ -328,7 +324,7 @@ public class EntradasController {
     }
 
     @PostMapping("/delete-{id}")
-    public ModelAndView despesasControllerDelete(@PathVariable Long id, RedirectAttributes redirAttrs, ModelAndView modelAndView){
+    public ModelAndView entradasControllerDelete(@PathVariable Long id, RedirectAttributes redirAttrs, ModelAndView modelAndView){
         utils.loggedUser(userRepository).getInflows().remove(utils.loggedUser(userRepository).getInflows().indexOf(inflowService.findById(id).get()));
         userService.updateUser(id, utils.loggedUser(userRepository));
         inflowService.delete(id);

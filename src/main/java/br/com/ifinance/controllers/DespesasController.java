@@ -73,13 +73,20 @@ public class DespesasController {
         for(int i = 0; i < utils.loggedUser(userRepository).getLiabilities().size(); i++){
 
             if(utils.loggedUser(userRepository).getLiabilities().get(i).getDate() != null) {
+
                 utils.loggedUser(userRepository).getLiabilities().get(i)
                         .setDate(dates.usToBr(utils.loggedUser(userRepository).getLiabilities().get(i).getDate()));
+
             }
-            if(utils.loggedUser(userRepository).getLiabilities().get(i).getScheduling() != null && !utils.loggedUser(userRepository).getLiabilities().get(i).getScheduling().equals("")) {
+
+            if(utils.loggedUser(userRepository).getLiabilities().get(i).getScheduling() != null
+                    && !utils.loggedUser(userRepository).getLiabilities().get(i).getScheduling().equals("")) {
+
                 utils.loggedUser(userRepository).getLiabilities().get(i)
                         .setScheduling(dates.usToBr(utils.loggedUser(userRepository).getLiabilities().get(i).getScheduling()));
+
             }
+
         }
 
         Map<Integer, List<Liability>> mapPages = liabilityUtils.liabilityPagination
@@ -133,8 +140,14 @@ public class DespesasController {
                     if(Integer.parseInt(agendamento[0]) >= Integer.parseInt(dates.splitedToday()[0])){
                         // SE O MÊS DO AGENDAMENTO FOR MAIOR OU IGUAL DO QUE O MÊS ATUAL (CORRETO)
                         if(Integer.parseInt(agendamento[1]) >= Integer.parseInt(dates.splitedToday()[1])){
-                            // SE O DIA DO AGENDAMENTO FOR MAIOR OU IGUAL DO QUE O DIA ATUAL (CORRETO)
-                            if(Integer.parseInt(agendamento[2]) >= Integer.parseInt(dates.splitedToday()[2])){
+
+                            // SE O MÊS SALVO FOR IGUAL AO MÊS ATUAL E O DIA DE AGENDAMENTO FOR MENOR DO QUE O DIA ATUAL
+                            if(Integer.parseInt(agendamento[1]) == Integer.parseInt(dates.splitedToday()[1])
+                                    && Integer.parseInt(agendamento[2]) < Integer.parseInt(dates.splitedToday()[2])){
+                                redirAttrs.addFlashAttribute("ErroCadastro",
+                                        "A data do agendamento não pode ser menor do que a data atual");
+                            }
+                            else {
                                 // SALVANDO A DESPESA NO BANCO DE DADOS
                                 liability.setUser(utils.loggedUser(userRepository));
                                 liability.setCreated(dates.todayBr());
@@ -142,21 +155,20 @@ public class DespesasController {
                                 novaLista.add(liability);
                                 utils.loggedUser(userRepository).setLiabilities(novaLista);
                                 userService.updateUser(utils.loggedUser(userRepository).getId(), utils.loggedUser(userRepository));
-                                redirAttrs.addFlashAttribute("SucessoCadastro", "Cadastro da despesa salvo com sucesso");
-                            }
-                            // SE O DIA DO AGENDAMENTO FOR MENOR DO QUE O DIA ATUAL (ERRADO)
-                            else{
-                                redirAttrs.addFlashAttribute("ErroCadastro", "A data do agendamento não pode ser menor do que a data atual");
+                                redirAttrs.addFlashAttribute("SucessoCadastro",
+                                        "Cadastro da despesa salvo com sucesso");
                             }
                         }
                         // SE O MÊS DO AGENDAMENTO FOR MENOR DO QUE O MÊS ATUAL (ERRADO)
                         else{
-                            redirAttrs.addFlashAttribute("ErroCadastro", "A data do agendamento não pode ser menor do que a data atual");
+                            redirAttrs.addFlashAttribute("ErroCadastro",
+                                    "A data do agendamento não pode ser menor do que a data atual");
                         }
                     }
                     // SE O ANO DO AGENDAMENTO FOR MENOR DO QUE O ANO ATUAL (ERRADO)
                     else{
-                        redirAttrs.addFlashAttribute("ErroCadastro", "O ano do agendamento não pode ser menor do que o ano atual");
+                        redirAttrs.addFlashAttribute("ErroCadastro",
+                                "O ano do agendamento não pode ser menor do que o ano atual");
                     }
 
                 }
@@ -170,13 +182,17 @@ public class DespesasController {
 
                 // SE O ANO DA DESPESA FOR MENOR OU IGUAL DO QUE O ANO ATUAL (CORRETO)
                 if(Integer.parseInt(dataDespesa[0]) <= Integer.parseInt(dates.splitedToday()[0])){
-                    System.err.println("IF 1");
+
                     // SE O MÊS DA DESPESA FOR MENOR OU IGUAL DO QUE O MÊS ATUAL (CORRETO)
                     if(Integer.parseInt(dataDespesa[1]) <= Integer.parseInt(dates.splitedToday()[1])){
-                        System.err.println("IF 2");
-                        // SE O DIA DA DESPESA FOR MENOR OU IGUAL DO QUE O DIA ATUAL (CORRETO)
-                        if(Integer.parseInt(dataDespesa[2]) <= Integer.parseInt(dates.splitedToday()[2])){
-                            System.err.println("IF 3");
+
+                        // SE O MÊS SALVO FOR IGUAL AO MÊS ATUAL E O DIA DA DESPESA FOR MAIOR DO QUE O DIA ATUAL
+                        if(Integer.parseInt(dataDespesa[1]) == Integer.parseInt(dates.splitedToday()[1])
+                                && Integer.parseInt(dataDespesa[2]) > Integer.parseInt(dates.splitedToday()[2])) {
+                            redirAttrs.addFlashAttribute("ErroCadastro",
+                                    "A data do pagamento não pode ser maior do que a data atual");
+                        }
+                        else{
                             // SALVANDO A DESPESA NO BANCO DE DADOS
                             liability.setUser(utils.loggedUser(userRepository));
                             liability.setCreated(dates.todayBr());
@@ -184,24 +200,23 @@ public class DespesasController {
                             novaLista.add(liability);
                             utils.loggedUser(userRepository).setLiabilities(novaLista);
                             userService.updateUser(utils.loggedUser(userRepository).getId(), utils.loggedUser(userRepository));
-                            redirAttrs.addFlashAttribute("SucessoCadastro", "Cadastro da despesa salvo com sucesso");
-                        }
-                        // SE O DIA DA DESPESA FOR MENOR DO QUE O DIA ATUAL (ERRADO)
-                        else{
-                            System.err.println("ELSE 1");
-                            redirAttrs.addFlashAttribute("ErroCadastro", "A data do pagamento não pode ser maior do que a data atual");
+                            redirAttrs.addFlashAttribute("SucessoCadastro",
+                                    "Cadastro da despesa salvo com sucesso");
+
                         }
                     }
                     // SE O MÊS DA DESPESA FOR MENOR DO QUE O MÊS ATUAL (ERRADO)
                     else{
                         System.err.println("ELSE 2");
-                        redirAttrs.addFlashAttribute("ErroCadastro", "A data da despesa não pode ser maior do que a data atual");
+                        redirAttrs.addFlashAttribute("ErroCadastro",
+                                "A data da despesa não pode ser maior do que a data atual");
                     }
                 }
                 // SE O ANO DA DESPESA FOR MENOR DO QUE O ANO ATUAL (ERRADO)
                 else{
                     System.err.println("ELSE 3");
-                    redirAttrs.addFlashAttribute("ErroCadastro", "O ano da despesa não pode ser maior do que o ano atual");
+                    redirAttrs.addFlashAttribute("ErroCadastro",
+                            "O ano da despesa não pode ser maior do que o ano atual");
                 }
 
             }
@@ -244,18 +259,19 @@ public class DespesasController {
                     if(Integer.parseInt(agendamento[0]) >= Integer.parseInt(dates.splitedToday()[0])){
                         // SE O MÊS DO AGENDAMENTO FOR MAIOR OU IGUAL DO QUE O MÊS ATUAL (CORRETO)
                         if(Integer.parseInt(agendamento[1]) >= Integer.parseInt(dates.splitedToday()[1])){
-                            // SE O DIA DO AGENDAMENTO FOR MAIOR OU IGUAL DO QUE O DIA ATUAL (CORRETO)
-                            if(Integer.parseInt(agendamento[2]) >= Integer.parseInt(dates.splitedToday()[2])){
+                            // SE O MÊS SALVO FOR IGUAL AO MÊS ATUAL E O DIA DE AGENDAMENTO FOR MENOR DO QUE O DIA ATUAL
+                            if(Integer.parseInt(agendamento[1]) == Integer.parseInt(dates.splitedToday()[1])
+                                    && Integer.parseInt(agendamento[2]) < Integer.parseInt(dates.splitedToday()[2])){
+                                redirAttrs.addFlashAttribute("ErroCadastro",
+                                        "A data do agendamento não pode ser menor do que a data atual");
+                            }
+                            else {
                                 // SALVANDO A DESPESA NO BANCO DE DADOS
                                 liability.setCreated(dates.todayBr());
                                 utils.loggedUser(userRepository).getLiabilities().set(utils.loggedUser(userRepository).getLiabilities()
                                         .indexOf(liabilityService.findById(liability.getId()).get()), liability);
                                 userService.updateUser(utils.loggedUser(userRepository).getId(), utils.loggedUser(userRepository));
                                 redirAttrs.addFlashAttribute("SucessoCadastro", "Atualização salva com sucesso");
-                            }
-                            // SE O DIA DO AGENDAMENTO FOR MENOR DO QUE O DIA ATUAL (ERRADO)
-                            else{
-                                redirAttrs.addFlashAttribute("ErroCadastro", "A data do agendamento não pode ser menor do que a data atual");
                             }
                         }
                         // SE O MÊS DO AGENDAMENTO FOR MENOR DO QUE O MÊS ATUAL (ERRADO)
@@ -281,32 +297,28 @@ public class DespesasController {
                     System.err.println("IF 1");
                     // SE O MÊS DA DESPESA FOR MENOR OU IGUAL DO QUE O MÊS ATUAL (CORRETO)
                     if(Integer.parseInt(dataDespesa[1]) <= Integer.parseInt(dates.splitedToday()[1])){
-                        System.err.println("IF 2");
-                        // SE O DIA DA DESPESA FOR MENOR OU IGUAL DO QUE O DIA ATUAL (CORRETO)
-                        if(Integer.parseInt(dataDespesa[2]) <= Integer.parseInt(dates.splitedToday()[2])){
-                            System.err.println("IF 3");
-                            // SALVANDO A DESPESA NO BANCO DE DADOS
+
+                        // SE O MÊS SALVO FOR IGUAL AO MÊS ATUAL E O DIA DA DESPESA FOR MAIOR DO QUE O DIA ATUAL
+                        if(Integer.parseInt(dataDespesa[1]) == Integer.parseInt(dates.splitedToday()[1])
+                                && Integer.parseInt(dataDespesa[2]) > Integer.parseInt(dates.splitedToday()[2])) {
+                            redirAttrs.addFlashAttribute("ErroCadastro",
+                                    "A data do pagamento não pode ser maior do que a data atual");
+                        }
+                        else{
                             liability.setCreated(dates.todayBr());
                             utils.loggedUser(userRepository).getLiabilities().set(utils.loggedUser(userRepository).getLiabilities()
                                     .indexOf(liabilityService.findById(liability.getId()).get()), liability);
                             userService.updateUser(utils.loggedUser(userRepository).getId(), utils.loggedUser(userRepository));
                             redirAttrs.addFlashAttribute("SucessoCadastro", "Atualização salva com sucesso");
                         }
-                        // SE O DIA DA DESPESA FOR MENOR DO QUE O DIA ATUAL (ERRADO)
-                        else{
-                            System.err.println("ELSE 1");
-                            redirAttrs.addFlashAttribute("ErroCadastro", "A data do pagamento não pode ser maior do que a data atual");
-                        }
                     }
                     // SE O MÊS DA DESPESA FOR MENOR DO QUE O MÊS ATUAL (ERRADO)
                     else{
-                        System.err.println("ELSE 2");
                         redirAttrs.addFlashAttribute("ErroCadastro", "A data da despesa não pode ser maior do que a data atual");
                     }
                 }
                 // SE O ANO DA DESPESA FOR MENOR DO QUE O ANO ATUAL (ERRADO)
                 else{
-                    System.err.println("ELSE 3");
                     redirAttrs.addFlashAttribute("ErroCadastro", "O ano da despesa não pode ser maior do que o ano atual");
                 }
 

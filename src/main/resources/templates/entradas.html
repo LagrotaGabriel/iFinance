@@ -230,8 +230,16 @@
 							<!-------------- CONTEUDO_CONTAINER - TÍTULO ------------>
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 conteudo_titulo" id="conteudo_titulo">
 
-								<div th:if="${Sucesso}" class="alert alert-success" id="sucessoCadastro" onclick="hideMessage()">
-									<p th:text="${Sucesso}"></p>
+								<div th:if="${SucessoCadastro}" class="alert alert-success" id="sucessoCadastro" onclick="hideMessage()">
+									<p th:text="${SucessoCadastro}"></p>
+								</div>
+
+								<div th:if="${ErroCadastro}" class="alert alert-danger" id="erroCadastro" onclick="hideMessage()">
+									<p th:text="${ErroCadastro}"></p>
+								</div>								
+
+								<div th:if="${SucessoDelete}" class="alert alert-success" id="sucessoDelete" onclick="hideMessage()">
+									<p th:text="${SucessoDelete}"></p>
 								</div>								
 
 								<h1 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center conteudo_titulo_text" id="conteudo_titulo_text">
