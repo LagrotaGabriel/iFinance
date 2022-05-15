@@ -230,12 +230,12 @@
 									<div class="col-lg-3 col-md-3 col-sm-7 col-6 conteudo_item_total conteudo_item_total_rendamensal" id="conteudo_item_total_rendamensal" onmouseover="animateContent(1)" onmouseleave="returnContentState(1)">
 										<a href="#" class="clicavel rendamensal_clicavel" id="rendamensal_clicavel">
 
-											<div class="row conteudo_item conteudo_item_rendamensal" id="conteudo_item_rendamensal">
-												R$ 0.00
+											<div th:text="${pagarHoje}" class="row conteudo_item conteudo_item_rendamensal" id="conteudo_item_rendamensal">
+												0
 											</div>
 
 											<div class="row subconteudo_item subconteudo_item_rendamensal" id="subconteudo_item_rendamensal">
-												Renda mensal
+												Pagar hoje
 											</div>	
 
 											<div class="row maisinfo_item maisinfo_item_rendamensal" id="maisinfo_item_rendamensal">
@@ -250,12 +250,12 @@
 
 									<div class="col-lg-3 col-md-3 col-sm-7 col-6 conteudo_item_total conteudo_item_total_despesas" id="conteudo_item_total_despesas" onmouseover="animateContent(2)" onmouseleave="returnContentState(2)">
 										<a href="#" class="clicavel despesas_clicavel" id="despesas_clicavel">
-											<div class="row conteudo_item conteudo_item_despesas" id="conteudo_item_despesas">
-												R$ 0.00
+											<div th:text="${atrasados}" class="row conteudo_item conteudo_item_despesas" id="conteudo_item_despesas">
+												0
 											</div>
 
 											<div class="row subconteudo_item subconteudo_item_despesas" id="subconteudo_item_despesas">
-												Despesas
+												Em atraso
 											</div>	
 
 											<div class="row maisinfo_item maisinfo_item_despesas" id="maisinfo_item_despesas">
@@ -270,12 +270,12 @@
 
 									<div class="col-lg-3 col-md-3 col-sm-7 col-6 conteudo_item_total conteudo_item_total_contasapagar" id="conteudo_item_total_contasapagar" onmouseover="animateContent(3)" onmouseleave="returnContentState(3)">
 										<a href="#" class="clicavel contasapagar_clicavel" id="contasapagar_clicavel">
-											<div class="row conteudo_item conteudo_item_contasapagar" id="conteudo_item_contasapagar">
-												R$ 0.00
+											<div th:text="'R$ ' + ${totalDespesas}" class="row conteudo_item conteudo_item_contasapagar" id="conteudo_item_contasapagar">
+												R$ 0.0
 											</div>
 
 											<div class="row subconteudo_item subconteudo_item_contasapagar" id="subconteudo_item_contasapagar">
-												Contas a pagar
+												Gastos
 											</div>	
 
 											<div class="row maisinfo_item maisinfo_item_contasapagar" id="maisinfo_item_contasapagar">
@@ -290,28 +290,10 @@
 
 								<div class="row conteudo_linha conteudo_segunda_linha">
 
-									<div class="col-lg-3 col-md-3 col-sm-7 col-6 conteudo_item_total conteudo_item_total_recebido" id="conteudo_item_total_recebido" onmouseover="animateContent(4)" onmouseleave="returnContentState(4)">
-										<a href="#" class="clicavel recebido_clicavel" id="recebido_clicavel">
-											<div class="row conteudo_item conteudo_item_recebido" id="conteudo_item_recebido">
-												R$ 0.00
-											</div>
-
-											<div class="row subconteudo_item subconteudo_item_recebido" id="subconteudo_item_recebido">
-												Recebido
-											</div>	
-
-											<div class="row maisinfo_item maisinfo_item_recebido" id="maisinfo_item_recebido">
-												<a href="#" class="maisinfo_item_clicavel maisinfo_item_recebido_clicavel" id="maisinfo_item_recebido_clicavel">
-													Mais informações
-												</a>
-											</div>	
-										</a>
-									</div>	
-
 									<div class="col-lg-3 col-md-3 col-sm-7 col-6 conteudo_item_total conteudo_item_total_receber" id="conteudo_item_total_receber" onmouseover="animateContent(5)" onmouseleave="returnContentState(5)">
 										<a href="#" class="clicavel receber_clicavel" id="receber_clicavel">
-											<div class="row conteudo_item conteudo_item_receber" id="conteudo_item_receber">
-												R$ 0.00
+											<div th:text="'R$ ' + ${receber}" class="row conteudo_item conteudo_item_receber" id="conteudo_item_receber">
+												R$ 0.0
 											</div>
 
 											<div class="row subconteudo_item subconteudo_item_receber" id="subconteudo_item_receber">
@@ -326,14 +308,32 @@
 										</a>
 									</div>	
 
+									<div class="col-lg-3 col-md-3 col-sm-7 col-6 conteudo_item_total conteudo_item_total_recebido" id="conteudo_item_total_recebido" onmouseover="animateContent(4)" onmouseleave="returnContentState(4)">
+										<a href="#" class="clicavel recebido_clicavel" id="recebido_clicavel">
+											<div th:text="'R$ ' + ${recebido}"class="row conteudo_item conteudo_item_recebido" id="conteudo_item_recebido">
+												R$ 0.0
+											</div>
+
+											<div class="row subconteudo_item subconteudo_item_recebido" id="subconteudo_item_recebido">
+												Recebido
+											</div>	
+
+											<div class="row maisinfo_item maisinfo_item_recebido" id="maisinfo_item_recebido">
+												<a href="#" class="maisinfo_item_clicavel maisinfo_item_recebido_clicavel" id="maisinfo_item_recebido_clicavel">
+													Mais informações
+												</a>
+											</div>	
+										</a>
+									</div>	
+
 									<div class="col-lg-3 col-md-3 col-sm-7 col-6 conteudo_item_total conteudo_item_total_contasatrasadas" id="conteudo_item_total_contasatrasadas" onmouseover="animateContent(6)" onmouseleave="returnContentState(6)">
 										<a href="#" class="clicavel contasatrasadas_clicavel" id="contasatrasadas_clicavel">
-											<div class="row conteudo_item conteudo_item_contasatrasadas" id="conteudo_item_contasatrasadas">
-												0
+											<div th:text="'R$ ' + ${saldo}" class="row conteudo_item conteudo_item_contasatrasadas" id="conteudo_item_contasatrasadas">
+												R$ 0.0
 											</div>
 
 											<div class="row subconteudo_item subconteudo_item_contasatrasadas" id="subconteudo_item_contasatrasadas">
-												Contas atrasadas
+												Saldo atual
 											</div>	
 
 											<div class="row maisinfo_item maisinfo_item_contasatrasadas" id="maisinfo_item_contasatrasadas">
