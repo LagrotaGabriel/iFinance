@@ -173,15 +173,15 @@
 							</div>							
 
 							<!-- Botão para acessar perfil do usuário -->
-							<div class="col-lg-2 menu_superior_item bt bt2">
+							<a th:href="@{'/' + ${username}}" class="col-lg-2 menu_superior_item bt bt2">
 								
-								<button th:text="${username}" class="top_btn perfil_btn col-lg-11">
+								<button th:text="${username}" class="top_btn perfil_btn col-xl-11 col-lg-11 col-md-11">
 
 									Perfil
 
 								</button>
 
-							</div>
+							</a>
 
 						</header>
 					

@@ -1,0 +1,79 @@
+/* ============================== MENU LATERAL ============================== */
+
+.perfil_btn{
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    color: #121212;
+}
+
+/* ============================ FIM DO MENU LATERAL ============================ */
+
+.informativos, .informativos_row, .img_user_container, .img_user, .informativos_col, .form_row{
+    margin: 0;
+    padding: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.informativos{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.username_user{
+    color: #FFFFFF;
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+.hr{
+    background: #00CCFF;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    opacity: 1;
+}
+
+.dados_container{
+    margin: 0 15px;
+}
+
+.label{
+    color: #FFFFFF;
+    margin-bottom: 6px;
+}
+.input{
+    background: transparent;
+    border: 1px solid #00CCFF;
+    padding: 7px 15px;
+    font-size: 1rem;
+    color: #FFFFFF;
+}
+
+.input_date{
+    padding: 5px 15px;
+}
+
+.informativos_data_segunda_col{
+    margin-top: 15px;
+}
+
+.botoes{
+    margin: 25px 10px;
+    margin-top: 5px;
+}
+.btn{
+    background: transparent;
+    border: 1px solid #00CCFF;
+    padding: 5px 15px;
+    color: #FFFFFF;
+}
+
+.btn:hover{
+    color: #121212;
+    background: #00CCFF;
+    transition: 1s;
+}
+
+option{
+    background: #121212;
+}
