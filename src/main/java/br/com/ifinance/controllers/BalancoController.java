@@ -42,6 +42,8 @@ public class BalancoController{
         int currentYear = year.orElse(cal.get(Calendar.YEAR));
         int currentMonth = month.orElse(cal.get(Calendar.MONTH) + 1);
 
+        modelMap.addAttribute("username", utils.loggedUser(userRepository).getUsername());
+
         modelMap.addAttribute("maiorEntrada", balanceService.biggerInflowOrLiability
                 (utils.loggedUser(userRepository), currentYear, currentMonth, "inflow"));
         modelMap.addAttribute("maiorSaida", balanceService.biggerInflowOrLiability

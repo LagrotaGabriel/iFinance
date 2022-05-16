@@ -153,26 +153,6 @@
 							</div>	
 
 							<!-- Botão de avisos -->
-							<div class="col-lg-2 menu_superior_item bt bt1">
-								
-								<button class="top_btn warn_btn col-lg-11">
-
-									Avisos (0)
-
-								</button>
-
-							</div>							
-
-							<!-- Botão para acessar perfil do usuário -->
-							<div class="col-lg-2 menu_superior_item bt bt2">
-								
-								<button class="top_btn perfil_btn col-lg-11">
-
-									Perfil
-
-								</button>
-
-							</div>
 
 							<!-- Botão para realizar logout -->
 							<div class="col-lg-2 menu_superior_item bt bt3">
@@ -189,6 +169,27 @@
 
 								</form>
 								
+							</div>
+							
+							<div class="col-lg-2 menu_superior_item bt bt1">
+								
+								<button class="top_btn warn_btn col-lg-11">
+
+									Avisos (0)
+
+								</button>
+
+							</div>							
+
+							<!-- Botão para acessar perfil do usuário -->
+							<div class="col-lg-2 menu_superior_item bt bt2">
+								
+								<button th:text="${username}" class="top_btn perfil_btn col-lg-11">
+
+									Perfil
+
+								</button>
+
 							</div>
 
 					</header>
@@ -365,13 +366,13 @@
 
 											<tr th:if="${liabilities == ''}" class="tr col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-												<td class="td col-xs-1 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-												<td class="td col-xs-4 col-lg-3 col-md-3 col-sm-4 col-4">...</td>
-												<td class="td col-xs-1 col-lg-1 col-md-1 col-sm-2 col-2">...</td>
-												<td class="td td_tipo col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-												<td class="td col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
-												<td class="td col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
-												<td class="td col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
+												<td class="td td_data col-xs-1 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td td_description td_col-xs-4 col-lg-3 col-md-3 col-sm-4 col-4">...</td>
+												<td class="td td_value col-xs-1 col-lg-1 col-md-1 col-sm-2 col-2">...</td>
+												<td class="td td_mean td_tipo col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td td_status col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
+												<td class="td td_scheduling col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2">...</td>
+												<td class="td td_checkbox col-xs-1 col-lg-1 col-md-1 col-sm-1 col-1">...</td>
 
 											</tr>
 
@@ -416,20 +417,20 @@
 
 									<ul class="ul col-xs-12 col-lg-12 col-md-12">
 
-										<li class="page">
-											<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=${month}, page=${page-1})}" class="page_click" id="anterior" onmouseover="animateButton('anterior')" onmouseleave="animateButtonLeave('anterior')">Anterior</a>
+										<li class="li page">
+											<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=${month}, page=${page-1})}" class="li_a page_click" id="anterior" onmouseover="animateButton('anterior')" onmouseleave="animateButtonLeave('anterior')">Anterior</a>
 										</li>
 
 										<div th:text="${page}" th:value="${page}" id="pegando_page" style="display:none"></div>
 
-										<li th:each="pageNumber : ${pageNumbers}" class="page page_li">
+										<li th:each="pageNumber : ${pageNumbers}" class="li page page_li">
 
-											<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=${month}, page=${pageNumber})}" class="page_number page_click" th:text="${pageNumber}"></a>
+											<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=${month}, page=${pageNumber})}" class="li_a page_number page_click" th:text="${pageNumber}"></a>
 
 										</li>
 
-										<li class="page">
-											<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=${month}, page=${page}+1)}" class="page_click" id="proxima" onmouseover="animateButton('proxima')" onmouseleave="animateButtonLeave('proxima')">Próximo</a>
+										<li class="li page">
+											<a th:href="@{__${baseUrl}__/despesas(year=${year}, month=${month}, page=${page}+1)}" class="li_a page_click" id="proxima" onmouseover="animateButton('proxima')" onmouseleave="animateButtonLeave('proxima')">Próximo</a>
 										</li>
 
 									</ul>

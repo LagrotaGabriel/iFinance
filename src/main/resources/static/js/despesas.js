@@ -33,6 +33,8 @@ function responsive(){
 	var btnExcluir = document.getElementsByClassName('btn_excluir');
 	var thTipo = document.getElementById('th_forma');
 	var tdTipo = document.getElementsByClassName('td_mean');
+	var li = document.getElementsByClassName('li');
+	var liA = document.getElementsByClassName('li_a');
 	var botoesOpc = document.getElementsByClassName('botoes_opc');
 	var selectOpc = document.getElementsByClassName('select_opc');
 	var novoLabel = document.getElementsByClassName('novo_label');
@@ -75,8 +77,9 @@ function responsive(){
 			novoLabel[i].style.fontSize="1.15rem";
 			novoInput[i].style.fontSize="1rem";
 		}
-
-
+		for(var i = 0; i < liA.length; i++){
+			liA[i].style.fontSize="1rem";
+		}	
 		for(var i = 0; i < td.length; i++){
 			td[i].style.fontSize="0.90rem";
 		}
@@ -130,8 +133,9 @@ function responsive(){
 			novoLabel[i].style.fontSize="1.15rem";
 			novoInput[i].style.fontSize="1rem";
 		}
-
-
+		for(var i = 0; i < liA.length; i++){
+			liA[i].style.fontSize="1rem";
+		}
 		for(var i = 0; i < td.length; i++){
 			td[i].style.fontSize="0.80rem";
 		}		
@@ -180,7 +184,9 @@ function responsive(){
 			novoLabel[i].style.fontSize="1rem";
 			novoInput[i].style.fontSize="0.85rem";
 		}		
-
+		for(var i = 0; i < liA.length; i++){
+			liA[i].style.fontSize="0.80rem";
+		}	
 		for(var i = 0; i < td.length; i++){
 			td[i].style.fontSize="0.70rem";
 		}		
@@ -229,7 +235,10 @@ function responsive(){
 			novoLabel[i].style.fontSize="0.90rem";
 			novoInput[i].style.fontSize="0.75rem";
 		}		
-
+		for(var i = 0; i < liA.length; i++){
+			liA[i].style.fontSize="0.70rem";
+			li[i].style.margin="0 5px";			
+		}	
 		for(var i = 0; i < td.length; i++){
 			td[i].style.fontSize="0.70rem";
 		}		
@@ -237,12 +246,9 @@ function responsive(){
 			btnExcluir[i].style.padding="5px 10px";
 			btnExcluir[i].innerText="X";
 		}
-
 		for(var i = 0; i < pageClick.length; i++){
 			pageClick[i].style.fontSize = "0.80rem";
 		}		
-
-
 		if(thTipo != null){
 			thTipo.hidden=true;
 		}	
@@ -279,9 +285,10 @@ function responsive(){
 			novoLabel[i].style.fontSize="0.70rem";
 			novoInput[i].style.fontSize="0.65rem";
 		}		
-
-
-
+		for(var i = 0; i < liA.length; i++){
+			liA[i].style.fontSize="0.65rem";
+			li[i].style.margin="0 5px";
+		}
 		for(var i = 0; i < td.length; i++){
 			td[i].style.fontSize="0.60rem";
 		}		
@@ -846,25 +853,27 @@ function ajustaTabela(){
 
 			var hoje = (dia + '/' + mes + '/' + ano); 
 
-			if(columnScheduling[i].innerText == hoje || columnScheduling[i].innerText == "Hoje"){
-				line[i].style.borderLeft="4px solid #ff5900";
-				columnData[i].style.color="#ff5900";
-				columnData[i].innerText="Vence hoje";
-				columnScheduling[i].style.color="#ff5900"
-				columnScheduling[i].innerText="Hoje"
-			}
-			else if(columnScheduling[i].innerText.split("/")[2] <= ano && 
-				columnScheduling[i].innerText.split("/")[1] <= mes && 
-				columnScheduling[i].innerText.split("/")[0] <= dia || 
-				columnScheduling[i].innerText == "Atrasado"){
-				line[i].style.borderLeft="4px solid #f20a0a";
-				columnData[i].style.color="#f20a0a";
-				columnScheduling[i].style.color="#F20a0a"
-				columnData[i].innerText="Atrasado";
-			}
-			else{
-				line[i].style.borderLeft="4px solid #ffdd00";
-				columnData[i].innerText="Agendado";
+			if(columnScheduling[i].innerText != "..."){
+				if(columnScheduling[i].innerText == hoje || columnScheduling[i].innerText == "Hoje"){
+					line[i].style.borderLeft="4px solid #ff5900";
+					columnData[i].style.color="#ff5900";
+					columnData[i].innerText="Vence hoje";
+					columnScheduling[i].style.color="#ff5900"
+					columnScheduling[i].innerText="Hoje"
+				}
+				else if(columnScheduling[i].innerText.split("/")[2] <= ano && 
+					columnScheduling[i].innerText.split("/")[1] <= mes && 
+					columnScheduling[i].innerText.split("/")[0] <= dia || 
+					columnScheduling[i].innerText == "Atrasado"){
+					line[i].style.borderLeft="4px solid #f20a0a";
+					columnData[i].style.color="#f20a0a";
+					columnScheduling[i].style.color="#F20a0a"
+					columnData[i].innerText="Atrasado";
+				}
+				else{
+					line[i].style.borderLeft="4px solid #ffdd00";
+					columnData[i].innerText="Agendado";
+				}
 			}
 
 		}

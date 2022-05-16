@@ -49,8 +49,8 @@ public class SignUpController {
     @PostMapping
     public ModelAndView signUpPost(User user, RedirectAttributes redirAttrs, Model model, ModelAndView modelAndView){
         if(userValidation.userValidation(user)){
-            //if(userService.findByEmail(user.getEmail()).isEmpty()) {
-                //if(userService.findByUsernm(user.getUsername()).isEmpty()){
+            if(!userService.findByEmail(user.getEmail()).isPresent()) {
+                if(!userService.findByUsernm(user.getUsername()).isPresent()){
                     if(user.getUsername().equals("admin")){
                         redirAttrs.addFlashAttribute("ErroCadastro",
                                 "Não é possível se cadastrar utilizando o nome de usuário admin");
@@ -79,18 +79,18 @@ public class SignUpController {
                             modelAndView.setViewName("redirect:/login");
                         }
                     }
-               // }
-                //else{
-                   // redirAttrs.addFlashAttribute("ErroCadastro",
-                               // "O usuário inserido já existe em nossa base de dados");
-                   // modelAndView.setViewName("redirect:/signup");
-                //}
-           // }
-            //else{
-                //redirAttrs.addFlashAttribute("ErroCadastro",
-                       // "O e-mail inserido já existe em nossa base de dados");
-               // modelAndView.setViewName("redirect:/signup");
-            //}
+                }
+                else{
+                    redirAttrs.addFlashAttribute("ErroCadastro",
+                                "O usuário inserido já existe em nossa base de dados");
+                    modelAndView.setViewName("redirect:/signup");
+                }
+            }
+            else{
+                redirAttrs.addFlashAttribute("ErroCadastro",
+                        "O e-mail inserido já existe em nossa base de dados");
+                modelAndView.setViewName("redirect:/signup");
+            }
         }
         else{
             if(!userValidation.birthDateValidation(user)){

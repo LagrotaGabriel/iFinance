@@ -148,26 +148,6 @@
 							</div>	
 
 							<!-- Botão de avisos -->
-							<div class="col-lg-2 menu_superior_item bt bt1">
-								
-								<button class="top_btn warn_btn col-lg-11">
-
-									Avisos (0)
-
-								</button>
-
-							</div>							
-
-							<!-- Botão para acessar perfil do usuário -->
-							<div class="col-lg-2 menu_superior_item bt bt2">
-								
-								<button class="top_btn perfil_btn col-lg-11">
-
-									Perfil
-
-								</button>
-
-							</div>
 
 							<!-- Botão para realizar logout -->
 							<div class="col-lg-2 menu_superior_item bt bt3">
@@ -184,6 +164,27 @@
 
 								</form>
 								
+							</div>
+							
+							<div class="col-lg-2 menu_superior_item bt bt1">
+								
+								<button class="top_btn warn_btn col-lg-11">
+
+									Avisos (0)
+
+								</button>
+
+							</div>							
+
+							<!-- Botão para acessar perfil do usuário -->
+							<div class="col-lg-2 menu_superior_item bt bt2">
+								
+								<button th:text="${username}" class="top_btn perfil_btn col-lg-11">
+
+									Perfil
+
+								</button>
+
 							</div>
 					</header>
 					<!--------------- MENU SUPERIOR DO SITE --------------->
@@ -683,7 +684,7 @@
 
 												<li th:each="pageNumber : ${pageNumbers}" class="page li page_li">
 
-													<a th:href="@{__${baseUrl}__/patrimonio(type=${type}, page=${pageNumber})}" class="page_number page_click" th:text="${pageNumber}"></a>
+													<a th:href="@{__${baseUrl}__/patrimonio(type=${type}, page=${pageNumber})}" class="li_a page_number page_click" th:text="${pageNumber}"></a>
 
 												</li>
 

@@ -53,6 +53,7 @@ public class PatrimonioController {
         Integer currentPage = page.orElse(1);
         String currentType = type.orElse("all");
         modelMap.addAttribute("baseUrl", baseUrl);
+        modelMap.addAttribute("username", utils.loggedUser(userRepository).getUsername());
 
         Map<Integer, List<Patrimony>> mapPages = patrimonyUtils.patrimonyPagination
                 (utils.loggedUser(userRepository), currentType, 3);

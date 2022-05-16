@@ -264,7 +264,7 @@
     margin-right: 0;
 }
 
-li a{
+.li_a{
     text-decoration: none;
     color: #FFFFFF;
     border: 1px solid #00CCFF;
@@ -274,7 +274,7 @@ li a{
     justify-content: center;
 }
 
-li a:hover{
+.li_a:hover{
     cursor: pointer;
     background-image: linear-gradient(to right, #00ccff, #28cffa);
     color: #121212;

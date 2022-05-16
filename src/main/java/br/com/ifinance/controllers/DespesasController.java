@@ -64,6 +64,7 @@ public class DespesasController {
         int currentMonth = month.orElse(cal.get(Calendar.MONTH)+1);
         int currentPage = page.orElse(1);
 
+        modelMap.addAttribute("username", utils.loggedUser(userRepository).getUsername());
         modelMap.addAttribute("baseUrl", baseUrl);
         modelMap.addAttribute("year", currentYear);
         modelMap.addAttribute("month", currentMonth);

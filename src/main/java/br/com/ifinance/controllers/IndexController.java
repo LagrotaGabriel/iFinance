@@ -42,6 +42,8 @@ public class IndexController {
     public ModelAndView indexControllerGet(ModelAndView modelAndView,
                                            ModelMap modelMap){
 
+        modelMap.addAttribute("username", utils.loggedUser(userRepository).getUsername());
+
         modelMap.addAttribute("pagarHoje", indexService.pagarHoje(utils.loggedUser(userRepository)));
 
         modelMap.addAttribute("atrasados", indexService.emAtraso(utils.loggedUser(userRepository)));

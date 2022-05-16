@@ -12,6 +12,7 @@ import br.com.ifinance.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,9 +45,10 @@ public class RendaController {
 
     @GetMapping
     public ModelAndView rendaControllerGet(ModelAndView modelAndView,
-                                           Model model,
+                                           Model model, ModelMap modelMap,
                                            RedirectAttributes redirAttrs){
 
+        modelMap.addAttribute("username", utils.loggedUser(userRepository).getUsername());
         model.addAttribute("Salarios", incomeUtils.Rendas(utils.loggedUser(userRepository), IncomeType.SALARIO));
         model.addAttribute("Dividendos", incomeUtils.Rendas(utils.loggedUser(userRepository), IncomeType.DIVIDENDO));
         model.addAttribute("Extras", incomeUtils.Rendas(utils.loggedUser(userRepository), IncomeType.EXTRA));
