@@ -2,6 +2,7 @@ package br.com.ifinance.controllers;
 
 import br.com.ifinance.models.entities.Role;
 import br.com.ifinance.models.entities.User;
+import br.com.ifinance.models.enums.Gender;
 import br.com.ifinance.repositories.RoleRepository;
 import br.com.ifinance.repositories.UserRepository;
 import br.com.ifinance.services.UserService;
@@ -69,6 +70,7 @@ public class SignUpController {
                         } else {
                             roleRepository.save(new Role("USER"));
                             Role userRole = roleRepository.findByRole("USER");
+                            user.setGender(Gender.M);
                             user.setPassword(passwordEncoder.encode(user.getPassword()));
                             user.setRoles((Collection<Role>) userRole);
                             userRepository.save(user);

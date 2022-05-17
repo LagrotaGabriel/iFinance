@@ -2,6 +2,7 @@ package br.com.ifinance.controllers;
 
 import br.com.ifinance.models.entities.User;
 import br.com.ifinance.repositories.UserRepository;
+import br.com.ifinance.services.UserService;
 import br.com.ifinance.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,9 @@ public class PerfilController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    UserService userService;
+
     @GetMapping("/{username}")
     public ModelAndView perfilControllerGet(@PathVariable String username, User user,
                                             ModelAndView modelAndView, ModelMap modelMap){
@@ -33,6 +37,12 @@ public class PerfilController {
     @PostMapping("/{username}")
     public ModelAndView perfilControllerPost(@PathVariable String username, User user, ModelAndView modelAndView){
 
+        User usuario = utils.loggedUser(userRepository);
+        usuario.setName(user.getName());
+        usuario.setEmail(user.getEmail());
+        usuario.setBirthDate(user.getBirthDate());
+        usuario.setGender(user.getGender());
+        userService.updateUser(usuario.getId(), usuario);
         modelAndView.setViewName("redirect:perfil");
         return modelAndView;
     }

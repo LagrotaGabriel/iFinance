@@ -339,11 +339,10 @@
 													Sexo:
 												</label>
 
-												<select id="select_sexo" onchange="selectSexo()" class="input col-xl-12 col-lg-12"/>	
-
-													<option value="M">Masculino</option>
-													<option value="F">Feminino</option>
-
+												<h1 style="display:none" th:text="${usuario.gender}" id="sexo"></h1>
+												<select id="select_sexo" name="gender" onchange="selectSexo()" class="input col-xl-12 col-lg-12"/>	
+													<option value="M" id="m">Masculino</option>
+													<option value="F" id="f">Feminino</option>
 												</select>
 
 											</div>																						

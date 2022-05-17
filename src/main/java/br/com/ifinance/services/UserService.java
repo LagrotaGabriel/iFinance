@@ -53,6 +53,7 @@ public class UserService {
             updated.get().setEmail(user.getEmail());
             updated.get().setBirthDate(user.getBirthDate());
             updated.get().setRoles(user.getRoles());
+            updated.get().setGender(user.getGender());
 
             if(user.getLiabilities() != null) {
                 updated.get().setLiabilities(user.getLiabilities());

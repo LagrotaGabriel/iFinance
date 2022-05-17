@@ -308,7 +308,11 @@ function responsive(){
 		if(thTipo != null){
 			thTipo.hidden=true;
 		}	
+
+		
 	}
+
+	sexoAtual();
 
 }
 
@@ -479,9 +483,24 @@ function animateButtonLeave(id){
 function selectSexo(){
 	var sexo = document.getElementById('select_sexo').value;
 	if(sexo == 'M'){
-		document.getElementById("img_user").src="img/man.png";	
+		document.getElementById("img_user").src="img/man.png";
+		document.getElementById('m').style.selected=true;	
 	}
 	else if(sexo == 'F'){
 		document.getElementById("img_user").src="img/woman.png";
+		document.getElementById('f').style.selected=true;
 	}
+}
+
+function sexoAtual(){
+
+	if(document.getElementById('sexo').innerText == 'M'){
+		document.getElementById("img_user").src="img/man.png";
+		document.getElementById('m').selected=true;
+	}
+
+	else if(document.getElementById('sexo').innerText == 'F'){
+		document.getElementById("img_user").src="img/woman.png";
+		document.getElementById('f').selected=true;
+	}	
 }

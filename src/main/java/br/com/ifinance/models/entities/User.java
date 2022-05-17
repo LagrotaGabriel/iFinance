@@ -1,16 +1,19 @@
 package br.com.ifinance.models.entities;
 
+import br.com.ifinance.models.enums.Gender;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
 
+@Builder
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 @Table(name = "TB_USER")
 @SequenceGenerator(allocationSize = 1, sequenceName = "sq_user", name = "user")
 public class User {
@@ -30,6 +33,10 @@ public class User {
     private String email;
     @Column(name = "birthdate_user")
     private String birthDate;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "gender")
+    private Gender gender;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Income> incomes;
