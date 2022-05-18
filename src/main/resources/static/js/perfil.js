@@ -39,6 +39,9 @@ function responsive(){
 	var novoInput = document.getElementsByClassName('novo_input');
 	var pageClick = document.getElementsByClassName('page_click');
 
+	var dadosContainer = document.getElementsByClassName('dados_container');
+	var informativosDataSegundaCol = document.getElementById('informativos_data_segunda_col');
+
 	var li = document.getElementsByClassName('li');
 	var liA = document.getElementsByClassName('li_a');
 
@@ -92,6 +95,11 @@ function responsive(){
 		for(var i = 0; i < pageClick.length; i++){
 			pageClick[i].style.fontSize = "1rem";
 		}
+
+		for(var i = 0;i < dadosContainer.length; i++){
+			dadosContainer[i].style.marginBottom = "0px";
+		}
+		informativosDataSegundaCol.marginTop="15px";
 
 
 
@@ -147,7 +155,11 @@ function responsive(){
 
 		for(var i = 0; i < pageClick.length; i++){
 			pageClick[i].style.fontSize = "0.90rem";
-		}		
+		}
+		for(var i = 0;i < dadosContainer.length; i++){
+			dadosContainer[i].style.marginBottom = "0px";
+		}
+		informativosDataSegundaCol.marginTop="15px";				
 
 		if(thTipo != null){
 			thTipo.hidden=false;
@@ -198,7 +210,11 @@ function responsive(){
 
 		for(var i = 0; i < pageClick.length; i++){
 			pageClick[i].style.fontSize = "0.85rem";
-		}		
+		}	
+		for(var i = 0;i < dadosContainer.length; i++){
+			dadosContainer[i].style.marginBottom = "0px";
+		}
+		informativosDataSegundaCol.marginTop="15px";			
 
 		if(thTipo != null){
 			thTipo.hidden=false;
@@ -250,7 +266,12 @@ function responsive(){
 
 		for(var i = 0; i < pageClick.length; i++){
 			pageClick[i].style.fontSize = "0.80rem";
-		}		
+		}	
+		for(var i = 0;i < dadosContainer.length; i++){
+			dadosContainer[i].style.marginBottom = "15px";
+		}
+		dadosContainer[2].style.marginBottom = "0";
+		informativosDataSegundaCol.marginTop="0";		
 
 
 		if(thTipo != null){
@@ -303,7 +324,12 @@ function responsive(){
 
 		for(var i = 0; i < pageClick.length; i++){
 			pageClick[i].style.fontSize = "0.75rem";
-		}		
+		}	
+		for(var i = 0;i < dadosContainer.length; i++){
+			dadosContainer[i].style.marginBottom = "15px";
+		}
+		dadosContainer[2].style.marginBottom = "0";
+		informativosDataSegundaCol.marginTop="0";					
 
 		if(thTipo != null){
 			thTipo.hidden=true;

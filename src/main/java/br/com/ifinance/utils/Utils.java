@@ -29,27 +29,9 @@ public class Utils {
         else {
             username = logged.toString();
         }
-        if(username.equals("admin")){
-            roleRepository.save(new Role("USER"));
-            Role adminRole = roleRepository.findByRole("USER");
-            user = User.builder()
-                    .id(0L)
-                    .assets(null)
-                    .birthDate("11/11/2011")
-                    .email("abc@abc.com.br")
-                    .gender(Gender.M)
-                    .incomes(null)
-                    .inflows(null)
-                    .liabilities(null)
-                    .name("Administrador")
-                    .password("762")
-                    .roles((Collection<Role>) adminRole)
-                    .username("admin")
-                    .build();
-        }
-        else{
-            user = userRepository.findByUsername(username);
-        }
+
+        user = userRepository.findByUsername(username);
+
         return user;
     }
 

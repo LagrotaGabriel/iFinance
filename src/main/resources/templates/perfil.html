@@ -247,29 +247,29 @@
 							</div>
 
 							<!-------------- INFORMATIVOS ------------>
-							<div class="informativos col-xl-11 col-lg-11 col-md-12 col-sm-12 col-12">
+							<div class="informativos col-xl-9 col-lg-11 col-md-11 col-sm-11 col-11">
 								
 								<div class="informativos_row row">
 
-									<div class="informativos_col col-xl-12 col-lg-12">
+									<div class="informativos_col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-										<div class="img_user_container col-xl-2 col-lg-2">
-											<img id="img_user" class="img_user col-xl-12 col-lg-12" th:src="@{img/man.png}"/>
+										<div class="img_user_container col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4">
+											<img id="img_user" class="img_user col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" th:src="@{img/man.png}"/>
 										</div>
 
 									</div>
 
-									<div class="informativos_col col-xl-12 col-lg-12">
+									<div class="informativos_col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-										<div th:text="${usuario.username}" class="username_user col-xl-2 col-lg-2 text-center">
+										<div th:text="${usuario.username}" class="username_user col-xl-2 col-lg-2 col-md-6 col-sm-6 col-6 text-center">
 											FulanoSilva123
 										</div>
 
 									</div>		
 
-									<div class="informativos_col col-xl-12 col-lg-12">
+									<div class="informativos_col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-										<div class="hr_container col-xl-4 col-lg-4 text-center">
+										<div class="hr_container col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 text-center">
 											<hr class="hr"/>
 										</div>
 
@@ -277,79 +277,74 @@
 
 									<form th:action="@{${usuario.username}}" method="POST" th:object="${user}" class="row form_row">
 										<!-- DADOS PESSOAIS - PRIMEIRA LINHA -->
-										<div class="informativos_col informativos_data_col informativos_data_primeira_col col-xl-7 col-lg-7">
+										<div class="informativos_col informativos_data_col informativos_data_primeira_col row">
 
-											<div class="dados_container col-xl-4 col-lg-4">
+											<div class="dados_container col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
 
-												<label class="label col-xl-12 col-lg-12">
+												<label class="label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 													Nome:
 												</label>
 
-												<input th:value="${usuario.name}" name="name" type="text" class="input col-xl-12 col-lg-12"/>	
-
+												<input th:value="${usuario.name}" maxlength="60" required name="name" type="text" class="input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>	
 											</div>
 
-											<div class="dados_container col-xl-4 col-lg-4">
+											<div class="dados_container col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
 
-												<label class="label col-xl-12 col-lg-12">
+												<label class="label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 													E-mail:
 												</label>
 
-												<input th:value="${usuario.email}" name="email" type="text" class="input col-xl-12 col-lg-12"/>	
-
+												<input th:value="${usuario.email}" name="email" type="email" maxlength="45" required class="input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>	
 											</div>	
 
-											<div class="dados_container col-xl-4 col-lg-4">
+											<div class="dados_container col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
 
-												<label class="label col-xl-12 col-lg-12">
+												<label class="label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 													Usuário:
 												</label>
 
-												<input th:value="${usuario.username}" name="username" type="text" style="border-color:grey; color:grey" disabled class="input col-xl-12 col-lg-12"/>	
+												<input th:value="${usuario.username}" name="username" type="text" style="border-color:grey; color:grey" disabled class="input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>	
 											</div>	
 
 										</div>		
 
 										<!-- DADOS PESSOAIS - SEGUNDA LINHA -->
-										<div class="informativos_col informativos_data_col informativos_data_segunda_col col-xl-7 col-lg-7">
+										<div class="informativos_col informativos_data_col informativos_data_segunda_col row" id="informativos_data_segunda_col">
 
-											<div class="dados_container col-xl-4 col-lg-4">
+											<div class="dados_container col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
 
-												<label class="label col-xl-12 col-lg-12">
+												<label class="label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 													Senha:
 												</label>
 
-												<input th:value="${usuario.password}" style="border-color:grey; color:grey" disabled type="password" name="password" class="input col-xl-12 col-lg-12"/>	
-
+												<input th:value="${usuario.password}" style="border-color:grey; color:grey" disabled type="password" name="password"  maxlength="20" required class="input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>	
 											</div>
 
-											<div class="dados_container col-xl-4 col-lg-4">
+											<div class="dados_container col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
 
-												<label class="label col-xl-12 col-lg-12">
+												<label class="label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 													Nascimento:
 												</label>
 
-												<input th:value="${usuario.birthDate}" type="date" name="birthDate" class="input input_date col-xl-12 col-lg-12"/>	
-
+												<input th:value="${usuario.birthDate}" type="date" name="birthDate" required class="input input_date col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>	
 											</div>	
 
-											<div class="dados_container col-xl-4 col-lg-4">
+											<div class="dados_container col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
 
-												<label class="label col-xl-12 col-lg-12">
+												<label class="label col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 													Sexo:
 												</label>
 
 												<h1 style="display:none" th:text="${usuario.gender}" id="sexo"></h1>
-												<select id="select_sexo" name="gender" onchange="selectSexo()" class="input col-xl-12 col-lg-12"/>	
+												<select id="select_sexo" name="gender" onchange="selectSexo()" class="input col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"/>	
 													<option value="M" id="m">Masculino</option>
 													<option value="F" id="f">Feminino</option>
 												</select>
-
 											</div>																						
 										</div>	
 
 										<!-- BOTOES -->
-										<div class="informativos_col informativos_data_col informativos_data_segunda_col col-xl-7 col-lg-7">
+										<div class="informativos_col informativos_data_col informativos_data_segunda_col row">
 
 											<div class="botoes col-xl-3 col-lg-3">
 

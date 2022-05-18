@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping
+@RequestMapping("/")
 public class PerfilController {
 
     Utils utils = new Utils();
@@ -25,12 +25,16 @@ public class PerfilController {
     @Autowired
     UserService userService;
 
-    @GetMapping("/{username}")
+    @GetMapping("{username}")
     public ModelAndView perfilControllerGet(@PathVariable String username, User user,
                                             ModelAndView modelAndView, ModelMap modelMap){
 
-        modelMap.addAttribute("usuario", utils.loggedUser(userRepository));
-        modelAndView.setViewName("perfil");
+        if(userRepository.findByUsername(username) != null) {
+            modelMap.addAttribute("usuario", utils.loggedUser(userRepository));
+            modelAndView.setViewName("perfil");
+            return modelAndView;
+        }
+        modelAndView.setViewName("redirect:/");
         return modelAndView;
     }
 
@@ -43,7 +47,7 @@ public class PerfilController {
         usuario.setBirthDate(user.getBirthDate());
         usuario.setGender(user.getGender());
         userService.updateUser(usuario.getId(), usuario);
-        modelAndView.setViewName("redirect:perfil");
+        modelAndView.setViewName("redirect:"+username);
         return modelAndView;
     }
 }

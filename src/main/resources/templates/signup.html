@@ -43,14 +43,14 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 						<div class="formulario_coluna formulario_coluna_nome col-xl-7 col-lg-7 col-md-7 col-sm-7 col-12">
 
 							<label class="label label_nome" onclick="showMessage('Neste campo é necessário preencher o seu nome. Este campo é de preenchimento obrigatório.')" for="name">Nome completo:</label>
-							<input type="text" class="input input_nome" name="name" id="name" maxlength="60" th:value="${user.name}">
+							<input type="text" class="input input_nome" name="name" id="name" maxlength="60" required th:value="${user.name}">
 
 						</div>
 
 						<div class="formulario_coluna formulario_coluna_email col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12">
 
 							<label class="label label_emailnome" onclick="showMessage('Neste campo é necessário preencher o seu E-mail. Este campo é de preenchimento obrigatório.')" for="email">E-mail:</label>
-							<input type="email" class="input input_email" name="email" id="email" maxlength="45" th:value="${user.email}">
+							<input type="email" class="input input_email" name="email" id="email" maxlength="45" required th:value="${user.email}">
 
 						</div>
 
@@ -62,7 +62,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 						<div class="formulario_coluna formulario_coluna_nascimento col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 
 							<label class="label label_nascimento" onclick="showMessage('Neste campo é necessário preencher a sua data de nascimento. Este campo é de preenchimento obrigatório.')" for="birthDate">Nascimento:</label>
-							<input type="date" class="input input_nascimento" name="birthDate" id="birthDate" maxlength="10" th:value="${user.birthDate}">
+							<input type="date" required class="input input_nascimento" name="birthDate" id="birthDate" maxlength="10" th:value="${user.birthDate}">
 
 						</div>
 
@@ -76,7 +76,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 						<div class="formulario_coluna formulario_coluna_senha col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 
 							<label class="label label_senha" onclick="showMessage('Neste campo é necessário preencher a senha que você irá utilizar para acessar o iFinance. Este campo é de preenchimento obrigatório.')" for="password">Senha:</label>
-							<input type="password" class="input input_senha" name="password" id="password" maxlength="20" oninput="confirm()">
+							<input type="password" class="input input_senha" name="password" id="password" maxlength="20" required oninput="confirm()">
 
 						</div>
 

@@ -1,6 +1,7 @@
 package br.com.ifinance.models.entities;
 
 import br.com.ifinance.models.enums.Gender;
+import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
@@ -23,17 +24,27 @@ public class User {
     @Column(name = "id_user")
     private Long id;
 
+    @NotNull
     @Column(name = "usrnm_user")
     private String username;
+
+    @NotNull
     @Column(name = "pwd_user")
     private String password;
+
+    @NotNull
     @Column(name = "nm_user", columnDefinition="VARCHAR(60)")
     private String name;
+
+    @NotNull
     @Column(name = "email")
     private String email;
+
+    @NotNull
     @Column(name = "birthdate_user")
     private String birthDate;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "gender")
     private Gender gender;
