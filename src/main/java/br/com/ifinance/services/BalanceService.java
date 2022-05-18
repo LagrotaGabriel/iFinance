@@ -70,7 +70,7 @@ public class BalanceService {
             }
         }
         else{
-            throw new RuntimeException("Necessário passar os seguintes valores como parâmetro:\ninflow ou liability");
+            return 0.0;
         }
 
         return biggerValue;
@@ -127,7 +127,7 @@ public class BalanceService {
             }
         }
         else{
-            throw new RuntimeException("Necessário passar os seguintes valores como parâmetro:\ninflow ou liability");
+            return 0.0;
         }
 
         if(smallerValue == 10000000.0){
@@ -162,19 +162,13 @@ public class BalanceService {
 
                         if(mapContagem.containsKey(userInflow.getMean())){
                             mapContagem.put(userInflow.getMean(), mapContagem.get(userInflow.getMean()) + 1);
-                            System.err.println("IF: " + mapContagem);
                         }
                         else{
                             mapContagem.put(userInflow.getMean(), 1);
-                            System.err.println("ELSE: " + mapContagem);
                         }
-
                     }
-
                 }
-
             }
-
         }
         else if(type.equals("liability")){
 
@@ -198,17 +192,13 @@ public class BalanceService {
                         else{
                             mapContagem.put(userLiability.getMean(), 1);
                         }
-
                     }
-
                 }
-
             }
-
         }
 
         else{
-            throw new RuntimeException("Necessário passar os seguintes valores como parâmetro:\ninflow ou liability");
+            return "-";
         }
 
         for(Map.Entry<Mean, Integer> mapAtual: mapContagem.entrySet()){
@@ -266,7 +256,7 @@ public class BalanceService {
             }
         }
         else{
-            throw new RuntimeException("Necessário passar os seguintes valores como parâmetro:\ninflow ou liability");
+            return 0.0;
         }
 
         return total;

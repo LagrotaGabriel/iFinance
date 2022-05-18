@@ -20,7 +20,7 @@ public class IncomeMock {
         Double value = 4500.0;
         income.getValue();
 
-        String date = "11/11/2021";
+        String date = "2011-11-11";
         income.getDate();
 
         Frequency frequency = Frequency.MENSAL;

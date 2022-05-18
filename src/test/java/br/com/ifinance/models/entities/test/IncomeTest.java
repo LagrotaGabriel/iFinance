@@ -13,7 +13,7 @@ public class IncomeTest {
     public void shouldValidateGettersAndSettersMethods(){
 
         Income income = IncomeMock.mockRequest();
-        Assert.assertEquals("Income(id=1, description=Pagamento, value=4500.0, date=11/11/2021, " +
+        Assert.assertEquals("Income(id=1, description=Pagamento, value=4500.0, date=2011-11-11, " +
                 "frequency=MENSAL, incomeType=SALARIO, user=null)", income.toString());
 
     }

@@ -27,7 +27,7 @@ public class Dates {
     public String[] splittedTodayBr(){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         LocalDateTime now = LocalDateTime.now();
-        String[] dataSplited = dtf.format(now).split("-");
+        String[] dataSplited = dtf.format(now).split("/");
         String brDate = dataSplited[2] + '/' + dataSplited[1] + '/' + dataSplited[0];
         return brDate.split("/");
     }

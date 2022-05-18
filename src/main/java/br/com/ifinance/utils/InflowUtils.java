@@ -32,7 +32,7 @@ public class InflowUtils {
                     String atual = null;
 
                     if(user.getInflows().get(i).getStatusInflow().equals(StatusInflow.RECEBIDO)){
-                        atual = user.getInflows().get(i).getDate();
+                        atual = user.getInflows().get(i).getDate().replace("-", "/");
                     }
                     else if(user.getInflows().get(i).getStatusInflow().equals(StatusInflow.RECEBER)){
                         atual = user.getInflows().get(i).getScheduling();

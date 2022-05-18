@@ -6,6 +6,7 @@ import lombok.*;
 
 import javax.persistence.*;
 
+@Builder
 @Entity
 @SequenceGenerator(allocationSize = 1, sequenceName = "sq_liability", name = "liability")
 @Table(name = "TB_LIABILITY")
@@ -13,6 +14,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 public class Liability {
 
     @Id

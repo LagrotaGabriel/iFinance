@@ -16,7 +16,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 public class IfinanceApplication {
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(IfinanceApplication.class, args);
 	}
 

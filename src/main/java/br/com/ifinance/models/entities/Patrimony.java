@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 
+@Builder
 @Entity
 @SequenceGenerator(allocationSize = 1, sequenceName = "sq_patrimony", name = "patrimony")
 @Table(name = "TB_PATRIMONY")
