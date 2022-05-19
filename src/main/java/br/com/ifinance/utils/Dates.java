@@ -43,4 +43,51 @@ public class Dates {
         String[] brSplit = date.split("/");
         return brSplit[2] + "-" + brSplit[1] + "-" + brSplit[0];
     }
+
+    public String monthNumberToMonthString(Integer monthNumber){
+
+        String monthStr;
+        switch (monthNumber){
+            case 1:
+                monthStr = "Janeiro";
+                break;
+            case 2:
+                monthStr = "Fevereiro";
+                break;
+            case 3:
+                monthStr = "Março";
+                break;
+            case 4:
+                monthStr = "Abril";
+                break;
+            case 5:
+                monthStr = "Maio";
+                break;
+            case 6:
+                monthStr = "Junho";
+                break;
+            case 7:
+                monthStr = "Julho";
+                break;
+            case 8:
+                monthStr = "Agosto";
+                break;
+            case 9:
+                monthStr = "Setembro";
+                break;
+            case 10:
+                monthStr = "Outubro";
+                break;
+            case 11:
+                monthStr = "Novembro";
+                break;
+            case 12:
+                monthStr = "Dezembro";
+                break;
+            default:
+                monthStr = null;
+                break;
+        }
+        return monthStr;
+    }
 }

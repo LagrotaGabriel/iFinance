@@ -7,9 +7,13 @@ import br.com.ifinance.models.enums.Mean;
 import br.com.ifinance.models.enums.StatusInflow;
 import br.com.ifinance.models.enums.StatusLiability;
 import br.com.ifinance.utils.Dates;
+import com.lowagie.text.*;
+import com.lowagie.text.pdf.PdfWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 

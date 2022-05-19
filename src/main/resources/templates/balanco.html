@@ -250,7 +250,7 @@
 
 									<div class="botoes_opcoes col-xs-8 col-lg-8 col-md-7 col-sm-6 col-6">
 
-										<a href="javascript:void(0)" class="col-xs-1 col-lg-2 col-md-3 col-sm-4 col-5 botoes_opc botoes_opc_novo" onclick="novaEntrada()"  id="button_novo" onmouseover="animateButton('button_novo')" onmouseleave="animateButtonLeave('button_novo')">
+										<a th:href="@{balanco/relatorio(year=${year}, month=${month})}" class="col-xs-1 col-lg-2 col-md-3 col-sm-4 col-5 botoes_opc botoes_opc_novo" onclick="novaEntrada()"  id="button_novo" onmouseover="animateButton('button_novo')" onmouseleave="animateButtonLeave('button_novo')">
 											Relatório
 										</a>	
 
