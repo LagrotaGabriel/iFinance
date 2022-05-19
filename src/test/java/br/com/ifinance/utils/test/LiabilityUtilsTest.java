@@ -5,7 +5,9 @@ import br.com.ifinance.utils.LiabilityUtils;
 import br.com.ifinance.utils.mock.MockedUser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
+@SpringBootTest
 public class LiabilityUtilsTest {
 
     LiabilityUtils liabilityUtils = new LiabilityUtils();

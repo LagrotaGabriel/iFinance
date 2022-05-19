@@ -3,11 +3,13 @@ package br.com.ifinance.utils.test;
 import br.com.ifinance.utils.Dates;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
+@SpringBootTest
 public class DatesTest {
 
     Dates dates = new Dates();

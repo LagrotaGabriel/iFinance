@@ -11,6 +11,7 @@ import java.util.Collection;
 public class CargaDb {
 
     public static Boolean cargaAdmin(RoleRepository roleRepository, UserService userService){
+
         try {
             roleRepository.save(new Role("ADMIN"));
             Role adminRole = roleRepository.findByRole("ADMIN");
@@ -28,7 +29,11 @@ public class CargaDb {
                     .roles((Collection<Role>) adminRole)
                     .username("admin")
                     .build();
-            userService.create(user);
+            try {
+                userService.create(user);
+            }catch (Exception e){
+                System.err.println("Erro");
+            }
             return true;
         }
         catch (Exception e){

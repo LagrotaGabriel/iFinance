@@ -25,7 +25,7 @@ public class User {
     private Long id;
 
     @NotNull
-    @Column(name = "usrnm_user")
+    @Column(name = "usrnm_user", unique = true)
     private String username;
 
     @NotNull
@@ -37,7 +37,7 @@ public class User {
     private String name;
 
     @NotNull
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
     @NotNull

@@ -4,9 +4,11 @@ import br.com.ifinance.models.entities.Inflow;
 import br.com.ifinance.models.entities.mock.InflowMock;
 import br.com.ifinance.models.enums.Mean;
 import br.com.ifinance.models.enums.StatusInflow;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
+@SpringBootTest
 public class InflowTest {
 
     @Test
@@ -14,7 +16,7 @@ public class InflowTest {
 
         Inflow inflow = InflowMock.mockRequest();
 
-        Assert.assertEquals("Inflow(id=1, description=Venda e-commerce, value=60.0, date=2011-11-11, " +
+        Assertions.assertEquals("Inflow(id=1, description=Venda e-commerce, value=60.0, date=2011-11-11, " +
                 "scheduling=2011-11-11, created=2011-11-11, statusInflow=RECEBIDO, mean=PIX, user=null)", inflow.toString());
 
     }
@@ -25,7 +27,7 @@ public class InflowTest {
         Inflow inflow = new Inflow(1L, "Venda e-commerce", 60.0, "2011-11-11",
                 "2011-11-11", "2011-11-11", StatusInflow.RECEBIDO, Mean.PIX, null);
 
-        Assert.assertEquals("Inflow(id=1, description=Venda e-commerce, value=60.0, date=2011-11-11, " +
+        Assertions.assertEquals("Inflow(id=1, description=Venda e-commerce, value=60.0, date=2011-11-11, " +
                 "scheduling=2011-11-11, created=2011-11-11, statusInflow=RECEBIDO, mean=PIX, user=null)", inflow.toString());
     }
 
@@ -44,9 +46,8 @@ public class InflowTest {
                 .user(null)
                 .build();
 
-        Assert.assertEquals("Inflow(id=1, description=Venda e-commerce, value=60.0, date=2011-11-11, " +
-                "scheduling=2011-11-11, created=2011-11-11, statusInflow=RECEBIDO, mean=PIX, user=null)",
-                inflow.toString());
+        Assertions.assertEquals("Inflow(id=1, description=Venda e-commerce, value=60.0, date=2011-11-11, " +
+                "scheduling=2011-11-11, created=2011-11-11, statusInflow=RECEBIDO, mean=PIX, user=null)", inflow.toString());
 
     }
 

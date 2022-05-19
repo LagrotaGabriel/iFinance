@@ -6,9 +6,11 @@ import br.com.ifinance.utils.InflowUtils;
 import br.com.ifinance.utils.mock.MockedUser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
+@SpringBootTest
 public class InflowUtilsTest {
 
     User user = MockedUser.userMockRequest();

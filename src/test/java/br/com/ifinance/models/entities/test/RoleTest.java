@@ -4,7 +4,9 @@ import br.com.ifinance.models.entities.Role;
 import br.com.ifinance.models.entities.mock.RoleMock;
 import org.junit.Assert;
 import org.junit.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
+@SpringBootTest
 public class RoleTest {
 
     @Test

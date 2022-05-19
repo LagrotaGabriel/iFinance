@@ -4,16 +4,18 @@ import br.com.ifinance.models.entities.Income;
 import br.com.ifinance.models.entities.mock.IncomeMock;
 import br.com.ifinance.models.enums.Frequency;
 import br.com.ifinance.models.enums.IncomeType;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
+@SpringBootTest
 public class IncomeTest {
 
     @Test
     public void shouldValidateGettersAndSettersMethods(){
 
         Income income = IncomeMock.mockRequest();
-        Assert.assertEquals("Income(id=1, description=Pagamento, value=4500.0, date=2011-11-11, " +
+        Assertions.assertEquals("Income(id=1, description=Pagamento, value=4500.0, date=2011-11-11, " +
                 "frequency=MENSAL, incomeType=SALARIO, user=null)", income.toString());
 
     }
@@ -22,7 +24,7 @@ public class IncomeTest {
     public void shouldValidateAllArgsConstructor(){
         Income income = new Income(1L, "Pagamento", 4500.0, "11/11/2021",
                 Frequency.MENSAL, IncomeType.SALARIO, null);
-        Assert.assertEquals("Income(id=1, description=Pagamento, value=4500.0, date=11/11/2021, " +
+        Assertions.assertEquals("Income(id=1, description=Pagamento, value=4500.0, date=11/11/2021, " +
                 "frequency=MENSAL, incomeType=SALARIO, user=null)", income.toString());
 
     }
@@ -40,7 +42,7 @@ public class IncomeTest {
                 .user(null)
                 .build();
 
-        Assert.assertEquals("Income(id=1, description=Pagamento, value=4500.0, date=11/11/2021, " +
+        Assertions.assertEquals("Income(id=1, description=Pagamento, value=4500.0, date=11/11/2021, " +
                 "frequency=MENSAL, incomeType=SALARIO, user=null)", income.toString());
     }
 }
