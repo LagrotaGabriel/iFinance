@@ -10,23 +10,29 @@ import java.util.Collection;
 
 public class CargaDb {
 
-    public static void cargaAdmin(RoleRepository roleRepository, UserService userService){
-        roleRepository.save(new Role("ADMIN"));
-        Role adminRole = roleRepository.findByRole("ADMIN");
-        User user = User.builder()
-                .id(0L)
-                .assets(null)
-                .birthDate("2011-11-11")
-                .email("abc@abc.com.br")
-                .gender(Gender.M)
-                .incomes(null)
-                .inflows(null)
-                .liabilities(null)
-                .name("Administrador")
-                .password("762")
-                .roles((Collection<Role>) adminRole)
-                .username("admin")
-                .build();
-        userService.create(user);
+    public static Boolean cargaAdmin(RoleRepository roleRepository, UserService userService){
+        try {
+            roleRepository.save(new Role("ADMIN"));
+            Role adminRole = roleRepository.findByRole("ADMIN");
+            User user = User.builder()
+                    .id(0L)
+                    .assets(null)
+                    .birthDate("2011-11-11")
+                    .email("abc@abc.com.br")
+                    .gender(Gender.M)
+                    .incomes(null)
+                    .inflows(null)
+                    .liabilities(null)
+                    .name("Administrador")
+                    .password("762")
+                    .roles((Collection<Role>) adminRole)
+                    .username("admin")
+                    .build();
+            userService.create(user);
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
     }
 }

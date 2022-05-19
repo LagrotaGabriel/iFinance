@@ -178,7 +178,6 @@ public class PatrimonyUtils {
 
     public List<Patrimony> pageFilterInCurrentType(User user, String type){
         List<Patrimony> itensInCurrentCategory = new ArrayList<>();
-        System.err.println("TIPO: " + type);
         switch (type){
             case("all"):
                 itensInCurrentCategory = user.getAssets();

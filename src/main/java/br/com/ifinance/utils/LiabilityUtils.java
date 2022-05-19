@@ -28,10 +28,10 @@ public class LiabilityUtils {
                     String atual = null;
 
                     if(user.getLiabilities().get(i).getStatusLiability().equals(StatusLiability.PAGO)){
-                        atual = user.getLiabilities().get(i).getDate();
+                        atual = user.getLiabilities().get(i).getDate().replace("-", "/");
                     }
                     else if(user.getLiabilities().get(i).getStatusLiability().equals(StatusLiability.PAGAR)){
-                        atual = user.getLiabilities().get(i).getScheduling();
+                        atual = user.getLiabilities().get(i).getScheduling().replace("-", "/");
                     }
 
                     String[] atualSplitado = atual.split("/");
