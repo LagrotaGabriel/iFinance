@@ -5,6 +5,7 @@ import br.com.ifinance.models.entities.mock.InflowMock;
 import br.com.ifinance.models.enums.Mean;
 import br.com.ifinance.models.enums.StatusInflow;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -12,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class InflowTest {
 
     @Test
+    @DisplayName("Testa os métodos getters e setters da classe")
     public void shouldValidateGettersAndSetters(){
 
         Inflow inflow = InflowMock.mockRequest();
@@ -22,6 +24,7 @@ public class InflowTest {
     }
 
     @Test
+    @DisplayName("Teste o método construtor com todos os argumentos da classe")
     public void shouldValidateAllArgsConstructor(){
 
         Inflow inflow = new Inflow(1L, "Venda e-commerce", 60.0, "2011-11-11",
@@ -32,6 +35,7 @@ public class InflowTest {
     }
 
     @Test
+    @DisplayName("Testa o builder da classe")
     public void ShouldValidateBuilders(){
 
         Inflow inflow = Inflow.builder()

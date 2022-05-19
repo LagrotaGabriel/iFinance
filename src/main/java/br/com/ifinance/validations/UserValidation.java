@@ -29,7 +29,6 @@ public class UserValidation {
         else{
             return false;
         }
-
     }
 
     public Boolean emailValidation(User user){
@@ -41,13 +40,6 @@ public class UserValidation {
     }
 
     public Boolean userValidation(User user){
-
-        System.err.println("VALIDAÇÕES DE CADASTRO\n================================================================");
-        System.err.println("Username validation: " + usernameValidation(user));
-        System.err.println("Password validation: " + passwordValidation(user));
-        System.err.println("Name validation: " + nameValidation(user));
-        System.err.println("Email validation: " + emailValidation(user));
-        System.err.println("Birth Date validation: " + birthDateValidation(user));
 
         return
                 usernameValidation(user) &&

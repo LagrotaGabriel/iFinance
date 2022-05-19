@@ -4,6 +4,7 @@ import br.com.ifinance.models.entities.*;
 import br.com.ifinance.models.entities.mock.UserMock;
 import br.com.ifinance.models.enums.Gender;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -11,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class UserTest {
 
     @Test
+    @DisplayName("Testa os métodos getters e setters da classe")
     public void shouldMakeValidationOfGettersAndSetters(){
 
         User user = UserMock.mockRequest();
@@ -20,6 +22,7 @@ public class UserTest {
     }
 
     @Test
+    @DisplayName("Teste o método construtor com todos os argumentos da classe")
     public void shouldMakeValidationOfAllArgsConstructor(){
         User user = new User(1L, "Fulano123", "abc123",
                 "Fulano da Silva", "fulano@email.com.br", "2011-11-11",
@@ -30,6 +33,7 @@ public class UserTest {
     }
 
     @Test
+    @DisplayName("Testa o builder da classe")
     public void shouldMakeValidationOfClassBuilder(){
 
         User user = User.builder()

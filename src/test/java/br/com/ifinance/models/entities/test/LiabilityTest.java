@@ -5,6 +5,7 @@ import br.com.ifinance.models.entities.mock.LiabilityMock;
 import br.com.ifinance.models.enums.Mean;
 import br.com.ifinance.models.enums.StatusLiability;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -12,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class LiabilityTest {
 
     @Test
+    @DisplayName("Testa os métodos getters e setters da classe")
     public void shouldValidateGettersAndSettersMethods(){
 
         Liability liability = LiabilityMock.mockRequest();
@@ -22,6 +24,7 @@ public class LiabilityTest {
     }
 
     @Test
+    @DisplayName("Teste o método construtor com todos os argumentos da classe")
     public void shouldValiteAllArgsConstructor(){
 
         Liability liability = new Liability(1L, "Gasolina", 20.0, "2011-11-11",
@@ -33,6 +36,7 @@ public class LiabilityTest {
     }
 
     @Test
+    @DisplayName("Testa o builder da classe")
     public void shouldValidateBuilderMethod(){
 
         Liability liability = Liability.builder()

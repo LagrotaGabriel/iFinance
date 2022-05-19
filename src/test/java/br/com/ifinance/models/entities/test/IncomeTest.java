@@ -5,6 +5,7 @@ import br.com.ifinance.models.entities.mock.IncomeMock;
 import br.com.ifinance.models.enums.Frequency;
 import br.com.ifinance.models.enums.IncomeType;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -12,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class IncomeTest {
 
     @Test
+    @DisplayName("Testa os métodos getters e setters da classe")
     public void shouldValidateGettersAndSettersMethods(){
 
         Income income = IncomeMock.mockRequest();
@@ -21,6 +23,7 @@ public class IncomeTest {
     }
 
     @Test
+    @DisplayName("Teste o método construtor com todos os argumentos da classe")
     public void shouldValidateAllArgsConstructor(){
         Income income = new Income(1L, "Pagamento", 4500.0, "11/11/2021",
                 Frequency.MENSAL, IncomeType.SALARIO, null);
@@ -30,6 +33,7 @@ public class IncomeTest {
     }
 
     @Test
+    @DisplayName("Testa o builder da classe")
     public void shouldValidateBuilder(){
 
         Income income = Income.builder()
