@@ -22,8 +22,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 @Controller
 @RequestMapping("/despesas")
@@ -91,11 +89,13 @@ public class DespesasController {
         }
 
         Map<Integer, List<Liability>> mapPages = liabilityUtils.liabilityPagination
-                (utils.loggedUser(userRepository), currentMonth, currentYear, 5);
+                (utils.loggedUser(userRepository), currentMonth, currentYear, 4);
+
         Integer totalPages = liabilityUtils.totalPages
-                (utils.loggedUser(userRepository), currentMonth, currentYear, 5);
+                (utils.loggedUser(userRepository), currentMonth, currentYear, 4);
+
         List<Integer> pageNumbers = liabilityUtils.pageNumberList
-                (liabilityUtils.totalPages(utils.loggedUser(userRepository), currentMonth, currentYear, 5));
+                (liabilityUtils.totalPages(utils.loggedUser(userRepository), currentMonth, currentYear, 4));
 
         // DEFINE A QUANTIDADE DE ITENS A SER INSERIDO POR PÁGINA
         if(!mapPages.get(currentPage).isEmpty()) {
@@ -109,6 +109,7 @@ public class DespesasController {
         model.addAttribute("user", utils.loggedUser(userRepository));
         modelAndView.setViewName("despesas");
         return modelAndView;
+
     }
 
     @PostMapping

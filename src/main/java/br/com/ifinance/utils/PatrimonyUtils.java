@@ -95,6 +95,7 @@ public class PatrimonyUtils {
                 assets.addAll(user.getAssets());
                 break;
         }
+
         return assets;
     }
 

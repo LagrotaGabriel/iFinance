@@ -76,11 +76,11 @@ public class EntradasController {
         }
 
         Map<Integer, List<Inflow>> mapPages = inflowUtils.inflowPagination
-                (utils.loggedUser(userRepository), currentMonth, currentYear, 5);
+                (utils.loggedUser(userRepository), currentMonth, currentYear, 4);
         Integer totalPages = inflowUtils.totalPages
-                (utils.loggedUser(userRepository), currentMonth, currentYear, 5);
+                (utils.loggedUser(userRepository), currentMonth, currentYear, 4);
         List<Integer> pageNumbers = inflowUtils.pageNumberList
-                (inflowUtils.totalPages(utils.loggedUser(userRepository), currentMonth, currentYear, 5));
+                (inflowUtils.totalPages(utils.loggedUser(userRepository), currentMonth, currentYear, 4));
 
         // DEFINE A QUANTIDADE DE ITENS A SER INSERIDO POR PÁGINA
         if(!mapPages.get(currentPage).isEmpty()) {

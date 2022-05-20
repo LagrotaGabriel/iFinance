@@ -62,10 +62,6 @@ public class PatrimonioController {
         List<Integer> pageNumbers = patrimonyUtils.pageNumberList
                 (patrimonyUtils.totalPages(utils.loggedUser(userRepository), currentType, 3));
 
-        System.err.println(mapPages);
-        System.err.println(totalPages);
-        System.err.println(pageNumbers);
-
         // DEFINE A QUANTIDADE DE ITENS A SER INSERIDO POR PÁGINA
         if(!mapPages.get(currentPage).isEmpty()) {
             model.addAttribute("assets", mapPages.get(currentPage));
@@ -93,9 +89,6 @@ public class PatrimonioController {
         utils.loggedUser(userRepository).setAssets(userAssets);
 
         userService.updateUser(utils.loggedUser(userRepository).getId(), utils.loggedUser(userRepository));
-
-        System.err.println(patrimony);
-        System.err.println(utils.loggedUser(userRepository).getAssets());
 
         redirAttrs.addFlashAttribute("Sucesso", "Patrimônio salvo com sucesso!");
         modelAndView.setViewName("redirect:patrimonio");

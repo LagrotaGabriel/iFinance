@@ -3,6 +3,8 @@ package br.com.ifinance.utils;
 import br.com.ifinance.models.entities.Liability;
 import br.com.ifinance.models.entities.User;
 import br.com.ifinance.models.enums.StatusLiability;
+import br.com.ifinance.utils.comparators.Liability.LiabilityDateComparator;
+import br.com.ifinance.utils.comparators.Liability.LiabilitySchedulingComparator;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -47,6 +49,9 @@ public class LiabilityUtils {
                 }
             }
         }
+
+        Collections.sort(liabilitiesOfSelectedDate, new LiabilityDateComparator());
+        Collections.sort(liabilitiesOfSelectedDate, new LiabilitySchedulingComparator());
 
         return liabilitiesOfSelectedDate;
 

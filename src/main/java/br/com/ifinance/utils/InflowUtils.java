@@ -4,11 +4,12 @@ import br.com.ifinance.models.entities.Inflow;
 import br.com.ifinance.models.entities.User;
 import br.com.ifinance.models.enums.StatusInflow;
 import br.com.ifinance.models.enums.StatusLiability;
+import br.com.ifinance.utils.comparators.Inflow.InflowDateComparator;
+import br.com.ifinance.utils.comparators.Inflow.InflowSchedulingComparator;
+import br.com.ifinance.utils.comparators.Liability.LiabilityDateComparator;
+import br.com.ifinance.utils.comparators.Liability.LiabilitySchedulingComparator;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -50,6 +51,9 @@ public class InflowUtils {
                 }
             }
         }
+
+        Collections.sort(inflowsOfSelectedDate, new InflowDateComparator());
+        Collections.sort(inflowsOfSelectedDate, new InflowSchedulingComparator());
 
         return inflowsOfSelectedDate;
     }
