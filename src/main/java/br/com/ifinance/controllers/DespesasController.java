@@ -108,6 +108,7 @@ public class DespesasController {
         model.addAttribute("pageNumbers", pageNumbers);
         model.addAttribute("user", utils.loggedUser(userRepository));
         modelAndView.setViewName("despesas");
+
         return modelAndView;
 
     }
@@ -209,14 +210,12 @@ public class DespesasController {
                     }
                     // SE O MÊS DA DESPESA FOR MENOR DO QUE O MÊS ATUAL (ERRADO)
                     else{
-                        System.err.println("ELSE 2");
                         redirAttrs.addFlashAttribute("ErroCadastro",
                                 "A data da despesa não pode ser maior do que a data atual");
                     }
                 }
                 // SE O ANO DA DESPESA FOR MENOR DO QUE O ANO ATUAL (ERRADO)
                 else{
-                    System.err.println("ELSE 3");
                     redirAttrs.addFlashAttribute("ErroCadastro",
                             "O ano da despesa não pode ser maior do que o ano atual");
                 }
@@ -296,7 +295,7 @@ public class DespesasController {
 
                 // SE O ANO DA DESPESA FOR MENOR OU IGUAL DO QUE O ANO ATUAL (CORRETO)
                 if(Integer.parseInt(dataDespesa[0]) <= Integer.parseInt(dates.splitedToday()[0])){
-                    System.err.println("IF 1");
+
                     // SE O MÊS DA DESPESA FOR MENOR OU IGUAL DO QUE O MÊS ATUAL (CORRETO)
                     if(Integer.parseInt(dataDespesa[1]) <= Integer.parseInt(dates.splitedToday()[1])){
 

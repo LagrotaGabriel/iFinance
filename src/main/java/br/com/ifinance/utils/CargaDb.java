@@ -6,15 +6,17 @@ import br.com.ifinance.models.enums.Gender;
 import br.com.ifinance.repositories.RoleRepository;
 import br.com.ifinance.services.UserService;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class CargaDb {
 
     public static Boolean cargaAdmin(RoleRepository roleRepository, UserService userService){
 
-        try {
-            roleRepository.save(new Role("ADMIN"));
             Role adminRole = roleRepository.findByRole("ADMIN");
+            Collection<Role> roles = new ArrayList<>();
+            roles.add(adminRole);
+
             User user = User.builder()
                     .id(0L)
                     .assets(null)
@@ -26,18 +28,10 @@ public class CargaDb {
                     .liabilities(null)
                     .name("Administrador")
                     .password("762")
-                    .roles((Collection<Role>) adminRole)
+                    .roles(roles)
                     .username("admin")
                     .build();
-            try {
-                userService.create(user);
-            }catch (Exception e){
-                System.err.println("Erro");
-            }
+            userService.create(user);
             return true;
-        }
-        catch (Exception e){
-            return false;
-        }
     }
 }

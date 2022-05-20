@@ -4,6 +4,8 @@ import br.com.ifinance.repositories.RoleRepository;
 import br.com.ifinance.repositories.UserRepository;
 import br.com.ifinance.services.UserService;
 import br.com.ifinance.utils.CargaDb;
+import br.com.ifinance.utils.CargaRoles;
+import br.com.ifinance.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,11 +26,18 @@ public class LoginController {
     @Autowired
     UserRepository userRepository;
 
+    Utils utils = new Utils();
+
     @GetMapping("login")
     public ModelAndView loginControllerGet(ModelAndView modelAndView){
+
+        if(roleRepository.findByRole("ADMIN") == null){
+            CargaRoles.cargaRequest(roleRepository);
+        }
         if(userRepository.findByUsername("admin") == null){
             CargaDb.cargaAdmin(roleRepository, userService);
         }
+
         modelAndView.setViewName("login");
         return modelAndView;
     }

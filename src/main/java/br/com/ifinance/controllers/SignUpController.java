@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -68,11 +69,14 @@ public class SignUpController {
                                     "Ops! O ano de nascimento não pode ser maior ou igual do que 2022");
                             modelAndView.setViewName("redirect:/signup");
                         } else {
-                            roleRepository.save(new Role("USER"));
-                            Role userRole = roleRepository.findByRole("USER");
+
+                            Role adminRole = roleRepository.findByRole("USER");
+                            Collection<Role> roles = new ArrayList<>();
+                            roles.add(adminRole);
+
                             user.setGender(Gender.M);
                             user.setPassword(passwordEncoder.encode(user.getPassword()));
-                            user.setRoles((Collection<Role>) userRole);
+                            user.setRoles(roles);
                             userRepository.save(user);
 
                             redirAttrs.addFlashAttribute("SucessoCadastro",
@@ -107,7 +111,6 @@ public class SignUpController {
                 modelAndView.setViewName("redirect:/signup");
             }
         }
-        System.err.println(user.toString());
         globalUser = user;
         return modelAndView;
     }
