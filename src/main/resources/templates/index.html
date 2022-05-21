@@ -131,9 +131,9 @@
 							
 							<form class="row menu_superior_form">
 
-								<input class="menu_superior_input col-lg-10" placeholder="Pesquise aqui por ativos, entrada de valores, despesas, balanços e outros...">
+								<input class="menu_superior_input col-lg-10" placeholder="Pesquise aqui por ativos, entrada de valores, despesas, balanços e outros..." style="display:none">
 
-								<button class="lupa_btn col-lg-1">
+								<button class="lupa_btn col-lg-1" style="display:none">
 
 									<img class="lupa_img" th:src="@{img/search.png}"/>
 
@@ -141,12 +141,12 @@
 
 							</form>	
 
-							</div>	
+						</div>	
 
 							<!-- Botão de avisos -->
 
 							<!-- Botão para realizar logout -->
-							<div class="col-lg-2 menu_superior_item bt bt3">
+						<div class="col-lg-2 menu_superior_item bt bt3">
 
 								<form class="col-lg-12 logout_form" th:action="@{/logout}" method="POST">
 
@@ -160,9 +160,9 @@
 
 								</form>
 								
-							</div>
+						</div>
 							
-							<div class="col-lg-2 menu_superior_item bt bt1">
+						<div class="col-lg-2 menu_superior_item bt bt1">
 								
 								<button class="top_btn warn_btn col-lg-11">
 
@@ -170,10 +170,10 @@
 
 								</button>
 
-							</div>							
+						</div>							
 
-							<!-- Botão para acessar perfil do usuário -->
-							<a th:href="@{'/' + ${username}}" class="col-lg-2 menu_superior_item bt bt2">
+						<!-- Botão para acessar perfil do usuário -->
+						<a th:href="@{'/' + ${username}}" class="col-lg-2 menu_superior_item bt bt2">
 								
 								<button th:text="${username}" class="top_btn perfil_btn col-xl-11 col-lg-11 col-md-11">
 
@@ -181,9 +181,9 @@
 
 								</button>
 
-							</a>
+						</a>
 
-						</header>
+					</header>
 					
 					<div class="menu_superior_responsivo row" id="menu_superior_responsivo">
 
@@ -229,7 +229,7 @@
 								<div class="row conteudo_linha conteudo_primeira_linha">
 
 									<div class="col-lg-3 col-md-7 col-sm-7 col-6 conteudo_item_total conteudo_item_total_rendamensal" id="conteudo_item_total_rendamensal" onmouseover="animateContent(1)" onmouseleave="returnContentState(1)">
-										<a href="javascript:void(0)" class="clicavel rendamensal_clicavel" id="rendamensal_clicavel">
+										<a th:href="@{/despesas}" class="clicavel rendamensal_clicavel" id="rendamensal_clicavel">
 
 											<div th:text="${pagarHoje}" class="row conteudo_item conteudo_item_rendamensal" id="conteudo_item_rendamensal">
 												0
@@ -250,7 +250,7 @@
 									</div>	
 
 									<div class="col-lg-3 col-md-7 col-sm-7 col-6 conteudo_item_total conteudo_item_total_despesas" id="conteudo_item_total_despesas" onmouseover="animateContent(2)" onmouseleave="returnContentState(2)">
-										<a href="javascript:void(0)" class="clicavel despesas_clicavel" id="despesas_clicavel">
+										<a th:href="@{/despesas}" class="clicavel despesas_clicavel" id="despesas_clicavel">
 											<div th:text="${atrasados}" class="row conteudo_item conteudo_item_despesas" id="conteudo_item_despesas">
 												0
 											</div>
@@ -270,7 +270,7 @@
 									</div>	
 
 									<div class="col-lg-3 col-md-7 col-sm-7 col-6 conteudo_item_total conteudo_item_total_contasapagar" id="conteudo_item_total_contasapagar" onmouseover="animateContent(3)" onmouseleave="returnContentState(3)">
-										<a href="javascript:void(0)" class="clicavel contasapagar_clicavel" id="contasapagar_clicavel">
+										<a th:href="@{/despesas}" class="clicavel contasapagar_clicavel" id="contasapagar_clicavel">
 											<div th:text="'R$ ' + ${totalDespesas}" class="row conteudo_item conteudo_item_contasapagar" id="conteudo_item_contasapagar">
 												R$ 0.0
 											</div>
@@ -292,7 +292,7 @@
 								<div class="row conteudo_linha conteudo_segunda_linha">
 
 									<div class="col-lg-3 col-md-7 col-sm-7 col-6 conteudo_item_total conteudo_item_total_receber" id="conteudo_item_total_receber" onmouseover="animateContent(5)" onmouseleave="returnContentState(5)">
-										<a href="javascript:void(0)" class="clicavel receber_clicavel" id="receber_clicavel">
+										<a th:href="@{/entradas}" class="clicavel receber_clicavel" id="receber_clicavel">
 											<div th:text="'R$ ' + ${receber}" class="row conteudo_item conteudo_item_receber" id="conteudo_item_receber">
 												R$ 0.0
 											</div>
@@ -310,7 +310,7 @@
 									</div>	
 
 									<div class="col-lg-3 col-md-7 col-sm-7 col-6 conteudo_item_total conteudo_item_total_recebido" id="conteudo_item_total_recebido" onmouseover="animateContent(4)" onmouseleave="returnContentState(4)">
-										<a href="javascript:void(0)" class="clicavel recebido_clicavel" id="recebido_clicavel">
+										<a th:href="@{/entradas}" class="clicavel recebido_clicavel" id="recebido_clicavel">
 											<div th:text="'R$ ' + ${recebido}"class="row conteudo_item conteudo_item_recebido" id="conteudo_item_recebido">
 												R$ 0.0
 											</div>
@@ -328,7 +328,7 @@
 									</div>	
 
 									<div class="col-lg-3 col-md-7 col-sm-7 col-6 conteudo_item_total conteudo_item_total_contasatrasadas" id="conteudo_item_total_contasatrasadas" onmouseover="animateContent(6)" onmouseleave="returnContentState(6)">
-										<a href="javascript:void(0)" class="clicavel contasatrasadas_clicavel" id="contasatrasadas_clicavel">
+										<a th:href="@{/balanco}" class="clicavel contasatrasadas_clicavel" id="contasatrasadas_clicavel">
 											<div th:text="'R$ ' + ${saldo}" class="row conteudo_item conteudo_item_contasatrasadas" id="conteudo_item_contasatrasadas">
 												R$ 0.0
 											</div>
