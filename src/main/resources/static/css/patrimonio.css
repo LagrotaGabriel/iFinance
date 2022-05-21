@@ -5,6 +5,12 @@
     opacity: 0.9;
 }
 
+.sup_bens{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    color: #121212;
+}
+
 #title_aside_patrimonio{
     color: #121212;
 }

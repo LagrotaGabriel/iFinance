@@ -4,6 +4,12 @@
     background: #00CCFF;
 }
 
+.sup_balanco{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    color: #121212;
+}
+
 #title_aside_balanco{
     color: #121212;
 }

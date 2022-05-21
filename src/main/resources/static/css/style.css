@@ -3,6 +3,12 @@
     opacity: 0.9;
 }
 
+.sup_inicio{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #00ccff, #28cffa);
+    color: #121212;
+}
+
 #title_aside_principal{
     color: #121212;
 }

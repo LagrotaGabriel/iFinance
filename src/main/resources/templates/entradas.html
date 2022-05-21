@@ -117,7 +117,7 @@
 						</div>																
 						<div class="aside aside-7 col-lg-12" id="div_aside_configuracoes" onmouseover="animateMenu('configuracoes')" onmouseleave="returnMenuState('configuracoes')">
 
-							<a href="javascript:void(0)" class="row aside_clicavel">
+							<a th:href="@{'/' + ${username}}" class="row aside_clicavel">
 								<button type="button" class="img_button">
 									<img th:src="@{img/settingsblue.png}" class="sidebar_menu_img" id="img_aside_configuracoes"/>
 								</button>	
@@ -197,24 +197,24 @@
 					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 menu_superior_responsivo row" id="menu_superior_responsivo">
 
 						<div class="sup sup_01 col-md-2 col-sm-2 col-2">
-							<a th:href="@{/}" class="sup_sup sup_sup_01">Home</a>
-						</div>	
-
-						<div class="sup sup_02 col-md-2 col-sm-2 col-2">
-							<a th:href="@{/despesas}" class="sup_sup sup_sup_01">Despesas</a>
-						</div>
-
-						<div class="sup sup_03 col-md-2 col-sm-2 col-2">
-							<a th:href="@{/patrimonio}" class="sup_sup sup_sup_01">Bens</a>
+							<a th:href="@{/}" class="sup_sup sup_sup_01 sup_inicio">Início</a>
 						</div>	
 
 						<div class="sup sup_04 col-md-2 col-sm-2 col-2">
-							<a href="javascript:void(0)" class="sup_sup sup_sup_01">Dinheiro</a>
+							<a th:href="@{/entradas}" class="sup_sup sup_sup_01 sup_entradas">Entradas</a>
 						</div>
 
+						<div class="sup sup_02 col-md-2 col-sm-2 col-2">
+							<a th:href="@{/despesas}" class="sup_sup sup_sup_01 sup_saidas">Saídas</a>
+						</div>
+
+						<div class="sup sup_03 col-md-2 col-sm-2 col-2">
+							<a th:href="@{/patrimonio}" class="sup_sup sup_sup_01 sup_bens">Bens</a>
+						</div>	
+
 						<div class="sup sup_05 col-md-2 col-sm-2 col-2">
-							<a href="javascript:void(0)" class="sup_sup sup_sup_01">Balanço</a>
-						</div>		
+							<a th:href="@{/balanco}" class="sup_sup sup_sup_01 sup_balanco">Balanço</a>
+						</div>	
 
 						<form class="sup sup_06 col-md-2 col-sm-2 col-2" th:action="@{/logout}" method="POST">
 							<button type="submit" class="sup_sup sup_sup_01">Logout</button>
