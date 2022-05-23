@@ -48,10 +48,12 @@ public class IndexService {
     public Double aReceber(User user){
         Double cont = 0.0;
         for(Inflow inflow: user.getInflows()){
-            if(inflow.getStatusInflow().equals(StatusInflow.RECEBER)
-                    && inflow.getScheduling().split("-")[0].equals(dates.splitedToday()[0])
-                    && inflow.getScheduling().split("-")[1].equals(dates.splitedToday()[1])){
-                cont += inflow.getValue();
+            if(inflow.getScheduling() != null) {
+                if (inflow.getStatusInflow().equals(StatusInflow.RECEBER)
+                        && inflow.getScheduling().split("-")[0].equals(dates.splitedToday()[0])
+                        && inflow.getScheduling().split("-")[1].equals(dates.splitedToday()[1])) {
+                    cont += inflow.getValue();
+                }
             }
         }
         return cont;

@@ -654,8 +654,7 @@
 												id="select_status" 
 												name="statusInflow" 
 												onchange="changeStatus()"/>
-													<option value="0"></option>
-													<option value="RECEBIDO">Recebido</option>
+													<option value="RECEBIDO" selected>Recebido</option>
 													<option value="RECEBER">A receber</option>
 												</select>
 
@@ -711,9 +710,10 @@
 
 											<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3 col-3 col_novo_input">
 
-												<select class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_forma" name="mean" disabled/>
+												<select class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" id="input_forma" name="mean"/>
+
 													<option value="ABERTO" id="novo_aberto">Em aberto</option>
-													<option value="ESPECIE" id="novo_dinheiro">Dinheiro</option>
+													<option value="ESPECIE" id="novo_dinheiro" selected>Dinheiro</option>
 													<option value="DEBITO" id="novo_debito">Cartão de débito</option>
 													<option value="CREDITO" id="novo_credito">Cartão de crédito</option>
 													<option value="PIX" id="novo_pix">PIX</option>
@@ -722,6 +722,7 @@
 													<option value="BOLETO" id="novo_boleto">Boleto</option>									
 													<option value="CHEQUE" id="novo_cheque">Cheque</option>
 													<option value="OUTRO" id="novo_outro">Outro</option>
+
 												</select>			
 
 											</div>
@@ -733,7 +734,7 @@
 												class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" 
 												id="input_data" 
 												name="date" 
-												disabled/>
+												required/>
 
 											</div>
 
@@ -744,7 +745,8 @@
 												class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_input" 
 												id="input_agendamento" 
 												name="scheduling" 
-												disabled/>
+												disabled
+												required/>
 
 											</div>																	
 										</div>	
@@ -766,12 +768,7 @@
 													Salvar
 												</button>
 											</div>		
-
-											<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 col_novo_botao">
-												<button type="reset" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 novo_botao">
-													Limpar
-												</button>
-											</div>														
+													
 										</div>
 
 									</div>		
@@ -856,7 +853,6 @@
 												name="statusInflow" 
 												onchange="editChangeStatus()"/>
 
-													<option value="0"></option>
 													<option value="RECEBIDO" id="Recebido">Recebido</option>
 													<option value="RECEBER" id="Receber">A receber</option>
 
@@ -936,6 +932,7 @@
 												class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" 
 												id="edit_input_data" 
 												name="date" 
+												required
 												disabled/>
 
 											</div>
@@ -947,6 +944,7 @@
 												class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_input" 
 												id="edit_input_agendamento" 
 												name="scheduling" 
+												required
 												disabled/>
 
 											</div>		
@@ -970,12 +968,7 @@
 													Salvar
 												</button>
 											</div>		
-
-											<div class="col-xs-2 col-lg-2 col-md-2 col-sm-2 col-2 col_edit_botao">
-												<button type="reset" class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-12 edit_botao">
-													Limpar
-												</button>
-											</div>														
+													
 										</div>
 
 									</div>		

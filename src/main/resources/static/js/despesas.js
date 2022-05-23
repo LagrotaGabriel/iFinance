@@ -306,6 +306,7 @@ function responsive(){
 		}	
 	}
 
+	changeStatus();
 	mesResponsivo();
 	anoResponsivo();
 	pageResponsiva();
@@ -599,29 +600,7 @@ function changeStatus(){
 
 	var data = (ano + '-' + mes + '-' + dia);
 
-	if(status == 0){
-
-		labelAgendamento.style.color="grey";
-		inputAgendamento.value="";
-		inputAgendamento.disabled=true;
-		inputAgendamento.style.border="1px solid grey";
-		inputAgendamento.style.color="grey";
-
-		labelData.style.color="grey";
-		inputData.value="";
-		inputData.disabled=true;
-		inputData.style.border="1px solid grey";
-		inputData.style.color="grey";
-
-		labelForma.style.color="grey";
-		document.getElementById('novo_aberto').selected=true;
-		inputForma.disabled=true;
-		inputForma.style.border="1px solid grey";
-		inputForma.style.color="grey";				
-
-	}
-
-	else if(status == "PAGO"){
+	if(status == "PAGO"){
 
 		labelAgendamento.style.color="grey";
 		inputAgendamento.value="";
@@ -721,29 +700,7 @@ function editChangeStatus(){
 
 	var data = (ano + '-' + mes + '-' + dia);
 
-	if(status == 0){
-
-		labelAgendamento.style.color="grey";
-		inputAgendamento.value="";
-		inputAgendamento.disabled=true;
-		inputAgendamento.style.border="1px solid grey";
-		inputAgendamento.style.color="grey";
-
-		labelData.style.color="grey";
-		inputData.value="";
-		inputData.disabled=true;
-		inputData.style.border="1px solid grey";
-		inputData.style.color="grey";
-
-		labelForma.style.color="grey";
-		inputForma.value="";
-		inputForma.disabled=true;
-		inputForma.style.border="1px solid grey";
-		inputForma.style.color="grey";				
-
-	}
-
-	else if(status == "PAGO"){
+	if(status == "PAGO"){
 
 		labelAgendamento.style.color="grey";
 		inputAgendamento.value="";

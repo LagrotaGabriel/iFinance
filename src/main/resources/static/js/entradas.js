@@ -310,6 +310,7 @@ function responsive(){
 		}	
 	}
 
+	changeStatus();
 	mesResponsivo();
 	anoResponsivo();
 	pageResponsiva();
@@ -440,6 +441,10 @@ function editEntrada(id, descricao, status, valor, forma, data, agendamento){
 	console.log(data);
 	console.log(agendamento);
 
+	console.log("ID: " + id)
+	document.getElementById('col_edit_id').value=id;
+	console.log(document.getElementById('col_edit_id').value);
+
 	var conteudoContainer = document.getElementById('conteudo_container');
 	var containerEdit = document.getElementById('container_edit');
 	var botoesOpc = document.getElementsByClassName('botoes_opc');
@@ -556,7 +561,7 @@ function editEntrada(id, descricao, status, valor, forma, data, agendamento){
 	var inputValor = document.getElementById('edit_input_valor');
 	inputValor.value=valor;
 
-	document.getElementById('col_edit_id').value=id;
+	
 
 }
 
@@ -602,29 +607,7 @@ function changeStatus(){
 
 	var data = (ano + '-' + mes + '-' + dia);
 
-	if(status == 0){
-
-		labelAgendamento.style.color="grey";
-		inputAgendamento.value="";
-		inputAgendamento.disabled=true;
-		inputAgendamento.style.border="1px solid grey";
-		inputAgendamento.style.color="grey";
-
-		labelData.style.color="grey";
-		inputData.value="";
-		inputData.disabled=true;
-		inputData.style.border="1px solid grey";
-		inputData.style.color="grey";
-
-		labelForma.style.color="grey";
-		document.getElementById('novo_aberto').selected=true;
-		inputForma.disabled=true;
-		inputForma.style.border="1px solid grey";
-		inputForma.style.color="grey";				
-
-	}
-
-	else if(status == "RECEBIDO"){
+	if(status == "RECEBIDO"){
 
 		labelAgendamento.style.color="grey";
 		inputAgendamento.value="";
@@ -724,29 +707,7 @@ function editChangeStatus(){
 
 	var data = (ano + '-' + mes + '-' + dia);
 
-	if(status == 0){
-
-		labelAgendamento.style.color="grey";
-		inputAgendamento.value="";
-		inputAgendamento.disabled=true;
-		inputAgendamento.style.border="1px solid grey";
-		inputAgendamento.style.color="grey";
-
-		labelData.style.color="grey";
-		inputData.value="";
-		inputData.disabled=true;
-		inputData.style.border="1px solid grey";
-		inputData.style.color="grey";
-
-		labelForma.style.color="grey";
-		inputForma.value="";
-		inputForma.disabled=true;
-		inputForma.style.border="1px solid grey";
-		inputForma.style.color="grey";				
-
-	}
-
-	else if(status == "RECEBIDO"){
+	if(status == "RECEBIDO"){
 
 		labelAgendamento.style.color="grey";
 		inputAgendamento.value="";

@@ -39,15 +39,20 @@ public class InflowUtils {
                         atual = user.getInflows().get(i).getScheduling();
                     }
 
-                    String[] atualSplitado = atual.split("/");
+                    if(atual != null) {
 
-                    if (Integer.parseInt(atualSplitado[2]) == (currentYear)) {
+                        String[] atualSplitado = atual.split("/");
 
-                        if(Integer.parseInt(atualSplitado[1]) == (currentMonth)) {
+                        if (Integer.parseInt(atualSplitado[2]) == (currentYear)) {
 
-                            inflowsOfSelectedDate.add(user.getInflows().get(i));
+                            if (Integer.parseInt(atualSplitado[1]) == (currentMonth)) {
+
+                                inflowsOfSelectedDate.add(user.getInflows().get(i));
+                            }
                         }
+
                     }
+                    
                 }
             }
         }

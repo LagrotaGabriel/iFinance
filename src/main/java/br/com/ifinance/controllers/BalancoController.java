@@ -60,14 +60,14 @@ public class BalancoController{
         modelMap.addAttribute("menorSaida", balanceService.smallerInflowOrLiability
                 (utils.loggedUser(userRepository), currentYear, currentMonth, "liability"));
 
-        modelMap.addAttribute("totalEntrada", balanceService.totalOfInflowOfLiability
-                (utils.loggedUser(userRepository), currentYear, currentMonth, "inflow"));
+        modelMap.addAttribute("totalEntrada", Math.ceil(balanceService.totalOfInflowOfLiability
+                (utils.loggedUser(userRepository), currentYear, currentMonth, "inflow")));
 
-        modelMap.addAttribute("totalSaida", balanceService.totalOfInflowOfLiability
-                (utils.loggedUser(userRepository), currentYear, currentMonth, "liability"));
+        modelMap.addAttribute("totalSaida", Math.ceil(balanceService.totalOfInflowOfLiability
+                (utils.loggedUser(userRepository), currentYear, currentMonth, "liability")));
 
-        modelMap.addAttribute("saldo", balanceService.totalBalance
-                (utils.loggedUser(userRepository), currentYear, currentMonth));
+        modelMap.addAttribute("saldo", Math.ceil(balanceService.totalBalance
+                (utils.loggedUser(userRepository), currentYear, currentMonth)));
 
         modelMap.addAttribute("meioEntradaMaisUsado", balanceService.mostUsedMean
                 (utils.loggedUser(userRepository), currentYear, currentMonth, "inflow"));

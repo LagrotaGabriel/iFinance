@@ -49,16 +49,16 @@ public class IndexController {
         modelMap.addAttribute("atrasados", indexService.emAtraso(utils.loggedUser(userRepository)));
 
         modelMap.addAttribute("totalDespesas",
-                balanceService.totalOfInflowOfLiability(utils.loggedUser(userRepository),
-                Integer.parseInt(dates.splitedToday()[0]), Integer.parseInt(dates.splitedToday()[1]), "liability"));
+                Math.ceil(balanceService.totalOfInflowOfLiability(utils.loggedUser(userRepository),
+                        Integer.parseInt(dates.splitedToday()[0]), Integer.parseInt(dates.splitedToday()[1]), "liability")));
 
         modelMap.addAttribute("receber", indexService.aReceber(utils.loggedUser(userRepository)));
 
-        modelMap.addAttribute("recebido", balanceService.totalOfInflowOfLiability(utils.loggedUser(userRepository),
-                Integer.parseInt(dates.splitedToday()[0]), Integer.parseInt(dates.splitedToday()[1]), "inflow"));
+        modelMap.addAttribute("recebido", Math.ceil(balanceService.totalOfInflowOfLiability(utils.loggedUser(userRepository),
+                Integer.parseInt(dates.splitedToday()[0]), Integer.parseInt(dates.splitedToday()[1]), "inflow")));
 
-        modelMap.addAttribute("saldo", balanceService.totalBalance(utils.loggedUser(userRepository),
-                Integer.parseInt(dates.splitedToday()[0]), Integer.parseInt(dates.splitedToday()[1])));
+        modelMap.addAttribute("saldo", Math.ceil(balanceService.totalBalance(utils.loggedUser(userRepository),
+                Integer.parseInt(dates.splitedToday()[0]), Integer.parseInt(dates.splitedToday()[1]))));
 
         modelAndView.setViewName("index");
         return modelAndView;
